@@ -1,0 +1,1322 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Executing script file `/dev/stdin' --
+
+1. Executing Verilog-2005 frontend: rtl/core/alu.sv
+Parsing SystemVerilog input from `rtl/core/alu.sv' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/core/regfile.sv
+Parsing SystemVerilog input from `rtl/core/regfile.sv' to AST representation.
+Generating RTLIL representation for module `\regfile'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/core/imm_gen.sv
+Parsing SystemVerilog input from `rtl/core/imm_gen.sv' to AST representation.
+Generating RTLIL representation for module `\imm_gen'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/core/decoder.sv
+Parsing SystemVerilog input from `rtl/core/decoder.sv' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/mem/imem.sv
+Parsing SystemVerilog input from `rtl/mem/imem.sv' to AST representation.
+Generating RTLIL representation for module `\imem'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/mem/dmem.sv
+Parsing SystemVerilog input from `rtl/mem/dmem.sv' to AST representation.
+Generating RTLIL representation for module `\dmem'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/periph/uart_tx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_tx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_tx'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/periph/uart_rx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_rx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_rx'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: rtl/periph/uart.sv
+Parsing SystemVerilog input from `rtl/periph/uart.sv' to AST representation.
+Generating RTLIL representation for module `\uart'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: rtl/periph/timer.sv
+Parsing SystemVerilog input from `rtl/periph/timer.sv' to AST representation.
+Generating RTLIL representation for module `\timer'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: rtl/custom/dotp.sv
+Parsing SystemVerilog input from `rtl/custom/dotp.sv' to AST representation.
+Generating RTLIL representation for module `\dotp'.
+Warning: Replacing memory \b with list of registers. See rtl/custom/dotp.sv:63
+Warning: Replacing memory \a with list of registers. See rtl/custom/dotp.sv:62
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: rtl/core/core_multi.sv
+Parsing SystemVerilog input from `rtl/core/core_multi.sv' to AST representation.
+Generating RTLIL representation for module `\core_multi'.
+Successfully finished Verilog frontend.
+
+13. Executing HIERARCHY pass (managing design hierarchy).
+
+13.1. Analyzing design hierarchy..
+Top module:  \core_multi
+Used module:     \alu
+Used module:     \imm_gen
+Used module:     \regfile
+Used module:     \decoder
+Parameter \BYPASS = 1'0
+
+13.2. Executing AST frontend in derive mode using pre-parsed AST for module `\regfile'.
+Parameter \BYPASS = 1'0
+Generating RTLIL representation for module `$paramod\regfile\BYPASS=1'0'.
+
+13.3. Analyzing design hierarchy..
+Top module:  \core_multi
+Used module:     \alu
+Used module:     \imm_gen
+Used module:     $paramod\regfile\BYPASS=1'0
+Used module:     \decoder
+
+13.4. Analyzing design hierarchy..
+Top module:  \core_multi
+Used module:     \alu
+Used module:     \imm_gen
+Used module:     $paramod\regfile\BYPASS=1'0
+Used module:     \decoder
+Removing unused module `\dotp'.
+Removing unused module `\timer'.
+Removing unused module `\uart'.
+Removing unused module `\uart_rx'.
+Removing unused module `\uart_tx'.
+Removing unused module `\dmem'.
+Removing unused module `\imem'.
+Removing unused module `\regfile'.
+Removed 8 unused modules.
+
+14. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\regfile\BYPASS=1'0.
+Deleting now unused module decoder.
+Deleting now unused module imm_gen.
+Deleting now unused module alu.
+<suppressed ~4 debug messages>
+
+15. Executing SYNTH pass.
+
+15.1. Executing HIERARCHY pass (managing design hierarchy).
+
+15.1.1. Analyzing design hierarchy..
+Top module:  \core_multi
+
+15.1.2. Analyzing design hierarchy..
+Top module:  \core_multi
+Removed 0 unused modules.
+
+15.2. Executing PROC pass (convert processes to netlists).
+
+15.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $flatten\u_alu.$proc$rtl/core/alu.sv:0$4 in module core_multi.
+Marked 1 switch rules as full_case in process $flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39 in module core_multi.
+Marked 1 switch rules as full_case in process $flatten\u_rf.$proc$rtl/core/regfile.sv:32$210 in module core_multi.
+Marked 4 switch rules as full_case in process $flatten\u_rf.$proc$rtl/core/regfile.sv:0$229 in module core_multi.
+Removed 2 dead cases from process $flatten\u_dec.$proc$rtl/core/decoder.sv:0$40 in module core_multi.
+Marked 24 switch rules as full_case in process $flatten\u_dec.$proc$rtl/core/decoder.sv:0$40 in module core_multi.
+Marked 2 switch rules as full_case in process $proc$rtl/core/core_multi.sv:194$199 in module core_multi.
+Marked 1 switch rules as full_case in process $proc$rtl/core/core_multi.sv:0$186 in module core_multi.
+Marked 1 switch rules as full_case in process $proc$rtl/core/core_multi.sv:0$168 in module core_multi.
+Marked 1 switch rules as full_case in process $proc$rtl/core/core_multi.sv:0$166 in module core_multi.
+Removed a total of 2 dead cases.
+
+15.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 22 assignments to connections.
+
+15.2.4. Executing PROC_INIT pass (extract init attributes).
+
+15.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+
+15.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~40 debug messages>
+
+15.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\core_multi.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+     1/1: $flatten\u_alu.$1\y[31:0]
+Creating decoders for process `\core_multi.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+     1/1: $flatten\u_imm.$1\imm[31:0]
+Creating decoders for process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$210'.
+     1/3: $flatten\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$218
+     2/3: $flatten\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$209_DATA[31:0]$217
+     3/3: $flatten\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$209_ADDR[4:0]$216
+Creating decoders for process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$229'.
+     1/4: $flatten\u_rf.$2\rdata2[31:0]
+     2/4: $flatten\u_rf.$1\rdata2[31:0]
+     3/4: $flatten\u_rf.$2\rdata1[31:0]
+     4/4: $flatten\u_rf.$1\rdata1[31:0]
+Creating decoders for process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+     1/67: $flatten\u_dec.$3\is_cus[0:0]
+     2/67: $flatten\u_dec.$3\is_mret[0:0]
+     3/67: $flatten\u_dec.$4\br_type[2:0]
+     4/67: $flatten\u_dec.$3\mem_we[0:0]
+     5/67: $flatten\u_dec.$5\reg_we[0:0]
+     6/67: $flatten\u_dec.$2\is_cus[0:0]
+     7/67: $flatten\u_dec.$4\wb_sel[1:0]
+     8/67: $flatten\u_dec.$4\reg_we[0:0]
+     9/67: $flatten\u_dec.$23\illegal[0:0]
+    10/67: $flatten\u_dec.$2\is_mret[0:0]
+    11/67: $flatten\u_dec.$22\illegal[0:0]
+    12/67: $flatten\u_dec.$21\illegal[0:0]
+    13/67: $flatten\u_dec.$20\illegal[0:0]
+    14/67: $flatten\u_dec.$12\alu_op[3:0]
+    15/67: $flatten\u_dec.$19\illegal[0:0]
+    16/67: $flatten\u_dec.$11\alu_op[3:0]
+    17/67: $flatten\u_dec.$18\illegal[0:0]
+    18/67: $flatten\u_dec.$17\illegal[0:0]
+    19/67: $flatten\u_dec.$16\illegal[0:0]
+    20/67: $flatten\u_dec.$15\illegal[0:0]
+    21/67: $flatten\u_dec.$14\illegal[0:0]
+    22/67: $flatten\u_dec.$10\alu_op[3:0]
+    23/67: $flatten\u_dec.$13\illegal[0:0]
+    24/67: $flatten\u_dec.$9\alu_op[3:0]
+    25/67: $flatten\u_dec.$12\illegal[0:0]
+    26/67: $flatten\u_dec.$8\alu_op[3:0]
+    27/67: $flatten\u_dec.$11\illegal[0:0]
+    28/67: $flatten\u_dec.$10\illegal[0:0]
+    29/67: $flatten\u_dec.$7\alu_op[3:0]
+    30/67: $flatten\u_dec.$6\alu_op[3:0]
+    31/67: $flatten\u_dec.$9\illegal[0:0]
+    32/67: $flatten\u_dec.$5\alu_op[3:0]
+    33/67: $flatten\u_dec.$8\illegal[0:0]
+    34/67: $flatten\u_dec.$7\illegal[0:0]
+    35/67: $flatten\u_dec.$4\alu_op[3:0]
+    36/67: $flatten\u_dec.$6\illegal[0:0]
+    37/67: $flatten\u_dec.$4\imm_type[2:0]
+    38/67: $flatten\u_dec.$3\alu_op[3:0]
+    39/67: $flatten\u_dec.$3\alu_b_imm[0:0]
+    40/67: $flatten\u_dec.$2\mem_we[0:0]
+    41/67: $flatten\u_dec.$5\illegal[0:0]
+    42/67: $flatten\u_dec.$3\imm_type[2:0]
+    43/67: $flatten\u_dec.$2\alu_op[3:0]
+    44/67: $flatten\u_dec.$2\alu_b_imm[0:0]
+    45/67: $flatten\u_dec.$3\wb_sel[1:0]
+    46/67: $flatten\u_dec.$3\reg_we[0:0]
+    47/67: $flatten\u_dec.$4\illegal[0:0]
+    48/67: $flatten\u_dec.$3\br_type[2:0]
+    49/67: $flatten\u_dec.$3\illegal[0:0]
+    50/67: $flatten\u_dec.$2\imm_type[2:0]
+    51/67: $flatten\u_dec.$2\jalr[0:0]
+    52/67: $flatten\u_dec.$2\br_type[2:0]
+    53/67: $flatten\u_dec.$2\wb_sel[1:0]
+    54/67: $flatten\u_dec.$2\reg_we[0:0]
+    55/67: $flatten\u_dec.$2\illegal[0:0]
+    56/67: $flatten\u_dec.$1\imm_type[2:0]
+    57/67: $flatten\u_dec.$1\alu_op[3:0]
+    58/67: $flatten\u_dec.$1\alu_b_imm[0:0]
+    59/67: $flatten\u_dec.$1\alu_a_sel[1:0]
+    60/67: $flatten\u_dec.$1\reg_we[0:0]
+    61/67: $flatten\u_dec.$1\illegal[0:0]
+    62/67: $flatten\u_dec.$1\is_cus[0:0]
+    63/67: $flatten\u_dec.$1\is_mret[0:0]
+    64/67: $flatten\u_dec.$1\jalr[0:0]
+    65/67: $flatten\u_dec.$1\br_type[2:0]
+    66/67: $flatten\u_dec.$1\mem_we[0:0]
+    67/67: $flatten\u_dec.$1\wb_sel[1:0]
+Creating decoders for process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+     1/10: $0\load_data[31:0]
+     2/10: $0\ex_result[31:0]
+     3/10: $0\rs2_val[31:0]
+     4/10: $0\rs1_val[31:0]
+     5/10: $0\in_handler[0:0]
+     6/10: $0\epc[31:0]
+     7/10: $0\nextpc_q[31:0]
+     8/10: $0\pc[31:0]
+     9/10: $0\state[2:0]
+    10/10: $0\instr[31:0]
+Creating decoders for process `\core_multi.$proc$rtl/core/core_multi.sv:0$186'.
+     1/1: $1\state_next[2:0]
+Creating decoders for process `\core_multi.$proc$rtl/core/core_multi.sv:0$168'.
+     1/1: $1\br_cond[0:0]
+Creating decoders for process `\core_multi.$proc$rtl/core/core_multi.sv:0$166'.
+     1/1: $1\alu_a[31:0]
+
+15.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\core_multi.\u_alu.y' from process `\core_multi.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+No latch inferred for signal `\core_multi.\u_imm.imm' from process `\core_multi.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+No latch inferred for signal `\core_multi.\u_rf.rdata1' from process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$229'.
+No latch inferred for signal `\core_multi.\u_rf.rdata2' from process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$229'.
+No latch inferred for signal `\core_multi.\u_dec.imm_type' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.reg_we' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.wb_sel' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.mem_we' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.alu_a_sel' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.alu_b_imm' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.alu_op' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.br_type' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.jalr' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.is_mret' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.is_cus' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\u_dec.illegal' from process `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_multi.\state_next' from process `\core_multi.$proc$rtl/core/core_multi.sv:0$186'.
+No latch inferred for signal `\core_multi.\br_cond' from process `\core_multi.$proc$rtl/core/core_multi.sv:0$168'.
+No latch inferred for signal `\core_multi.\alu_a' from process `\core_multi.$proc$rtl/core/core_multi.sv:0$166'.
+
+15.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\core_multi.$flatten\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$209_ADDR' using process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$210'.
+  created $dff cell `$procdff$1139' with positive edge clock.
+Creating register for signal `\core_multi.$flatten\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$209_DATA' using process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$210'.
+  created $dff cell `$procdff$1140' with positive edge clock.
+Creating register for signal `\core_multi.$flatten\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$209_EN' using process `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$210'.
+  created $dff cell `$procdff$1141' with positive edge clock.
+Creating register for signal `\core_multi.\instr' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1146' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\state' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1151' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\pc' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1156' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\nextpc_q' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1161' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\epc' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1166' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\in_handler' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1171' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\rs1_val' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1176' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\rs2_val' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1181' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\ex_result' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1186' with positive edge clock and positive level reset.
+Creating register for signal `\core_multi.\load_data' using process `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+  created $adff cell `$procdff$1191' with positive edge clock and positive level reset.
+
+15.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\core_multi.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Removing empty process `core_multi.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Found and cleaned up 1 empty switch in `\core_multi.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Removing empty process `core_multi.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Found and cleaned up 1 empty switch in `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$210'.
+Removing empty process `core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$210'.
+Found and cleaned up 4 empty switches in `\core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$229'.
+Removing empty process `core_multi.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$229'.
+Found and cleaned up 24 empty switches in `\core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Removing empty process `core_multi.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Found and cleaned up 6 empty switches in `\core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+Removing empty process `core_multi.$proc$rtl/core/core_multi.sv:194$199'.
+Found and cleaned up 1 empty switch in `\core_multi.$proc$rtl/core/core_multi.sv:0$186'.
+Removing empty process `core_multi.$proc$rtl/core/core_multi.sv:0$186'.
+Found and cleaned up 1 empty switch in `\core_multi.$proc$rtl/core/core_multi.sv:0$168'.
+Removing empty process `core_multi.$proc$rtl/core/core_multi.sv:0$168'.
+Found and cleaned up 1 empty switch in `\core_multi.$proc$rtl/core/core_multi.sv:0$166'.
+Removing empty process `core_multi.$proc$rtl/core/core_multi.sv:0$166'.
+Cleaned up 40 empty switches.
+
+15.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~71 debug messages>
+
+15.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 18 unused cells and 253 unused wires.
+<suppressed ~19 debug messages>
+
+15.5. Executing CHECK pass (checking for obvious problems).
+Checking module core_multi...
+Found and reported 0 problems.
+
+15.6. Executing OPT pass (performing simple optimizations).
+
+15.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~552 debug messages>
+Removed a total of 184 cells.
+
+15.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$315.
+    dead port 2/2 on $mux $procmux$321.
+    dead port 2/2 on $mux $procmux$328.
+    dead port 2/2 on $mux $procmux$335.
+    dead port 2/2 on $mux $procmux$343.
+    dead port 2/2 on $mux $procmux$345.
+    dead port 2/2 on $mux $procmux$354.
+    dead port 2/2 on $mux $procmux$356.
+    dead port 1/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$369.
+    dead port 2/2 on $mux $procmux$371.
+    dead port 1/2 on $mux $procmux$382.
+    dead port 2/2 on $mux $procmux$384.
+    dead port 2/2 on $mux $procmux$386.
+    dead port 2/2 on $mux $procmux$396.
+    dead port 2/2 on $mux $procmux$398.
+    dead port 2/2 on $mux $procmux$408.
+    dead port 2/2 on $mux $procmux$410.
+    dead port 2/2 on $mux $procmux$421.
+    dead port 2/2 on $mux $procmux$423.
+    dead port 2/2 on $mux $procmux$435.
+    dead port 2/2 on $mux $procmux$437.
+    dead port 2/2 on $mux $procmux$450.
+    dead port 2/2 on $mux $procmux$452.
+    dead port 2/2 on $mux $procmux$466.
+    dead port 2/2 on $mux $procmux$468.
+    dead port 1/2 on $mux $procmux$484.
+    dead port 1/2 on $mux $procmux$487.
+    dead port 2/2 on $mux $procmux$489.
+    dead port 2/2 on $mux $procmux$491.
+    dead port 1/2 on $mux $procmux$507.
+    dead port 1/2 on $mux $procmux$510.
+    dead port 2/2 on $mux $procmux$512.
+    dead port 2/2 on $mux $procmux$514.
+    dead port 1/2 on $mux $procmux$530.
+    dead port 2/2 on $mux $procmux$532.
+    dead port 2/2 on $mux $procmux$534.
+    dead port 1/2 on $mux $procmux$550.
+    dead port 2/2 on $mux $procmux$552.
+    dead port 2/2 on $mux $procmux$554.
+    dead port 2/2 on $mux $procmux$569.
+    dead port 2/2 on $mux $procmux$571.
+    dead port 2/2 on $mux $procmux$586.
+    dead port 2/2 on $mux $procmux$588.
+    dead port 2/2 on $mux $procmux$602.
+    dead port 2/2 on $mux $procmux$616.
+    dead port 1/2 on $mux $procmux$626.
+    dead port 2/2 on $mux $procmux$628.
+    dead port 2/2 on $mux $procmux$630.
+    dead port 1/2 on $mux $procmux$640.
+    dead port 2/2 on $mux $procmux$642.
+    dead port 2/2 on $mux $procmux$644.
+    dead port 2/2 on $mux $procmux$653.
+    dead port 2/2 on $mux $procmux$655.
+    dead port 2/2 on $mux $procmux$664.
+    dead port 2/2 on $mux $procmux$666.
+    dead port 2/2 on $mux $procmux$676.
+    dead port 2/2 on $mux $procmux$678.
+    dead port 2/2 on $mux $procmux$693.
+    dead port 2/2 on $mux $procmux$708.
+    dead port 2/2 on $mux $procmux$718.
+    dead port 2/2 on $mux $procmux$727.
+    dead port 2/2 on $mux $procmux$737.
+    dead port 2/2 on $mux $procmux$747.
+    dead port 2/2 on $mux $procmux$757.
+    dead port 2/2 on $mux $procmux$767.
+    dead port 2/2 on $mux $procmux$777.
+    dead port 2/2 on $mux $procmux$788.
+    dead port 2/2 on $mux $procmux$799.
+    dead port 2/2 on $mux $procmux$810.
+    dead port 2/2 on $mux $procmux$821.
+    dead port 2/2 on $mux $procmux$838.
+    dead port 2/2 on $mux $procmux$855.
+    dead port 2/2 on $mux $procmux$867.
+    dead port 2/2 on $mux $procmux$880.
+    dead port 2/2 on $mux $procmux$893.
+    dead port 2/2 on $mux $procmux$906.
+    dead port 2/2 on $mux $procmux$919.
+    dead port 2/2 on $mux $procmux$932.
+    dead port 1/2 on $mux $procmux$271.
+    dead port 1/2 on $mux $procmux$280.
+    dead port 2/2 on $mux $procmux$304.
+    dead port 2/2 on $mux $procmux$309.
+Removed 83 multiplexer ports.
+<suppressed ~32 debug messages>
+
+15.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+    New ctrl vector for $pmux cell $procmux$1037: { $procmux$1028_CMP $procmux$1017_CMP $procmux$1039_CMP }
+    New ctrl vector for $pmux cell $procmux$699: { $auto$opt_reduce.cc:137:opt_pmux$1194 $procmux$467_CMP $procmux$370_CMP }
+    New ctrl vector for $pmux cell $procmux$1101: { $eq$rtl/core/core_multi.sv:192$195_Y $procmux$1055_CMP $auto$opt_reduce.cc:137:opt_pmux$1196 $eq$rtl/core/core_multi.sv:110$162_Y }
+    New ctrl vector for $pmux cell $procmux$848: $auto$opt_reduce.cc:137:opt_pmux$1198
+    New ctrl vector for $pmux cell $procmux$939: { $auto$opt_reduce.cc:137:opt_pmux$1200 $procmux$1028_CMP $procmux$1026_CMP $procmux$1035_CMP }
+    New ctrl vector for $pmux cell $procmux$950: { $procmux$631_CMP $procmux$346_CMP }
+    New ctrl vector for $pmux cell $procmux$959: { $procmux$1039_CMP $procmux$1035_CMP $auto$opt_reduce.cc:137:opt_pmux$1202 }
+    New ctrl vector for $pmux cell $procmux$979: { $procmux$1017_CMP $procmux$1039_CMP $auto$opt_reduce.cc:137:opt_pmux$1204 $procmux$1003_CMP }
+    Consolidated identical input bits for $mux cell $procmux$259:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213
+      New ports: A=1'0, B=1'1, Y=$flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0]
+      New connections: $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [31:1] = { $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$209_EN[31:0]$213 [0] }
+    New ctrl vector for $pmux cell $procmux$989: { $auto$opt_reduce.cc:137:opt_pmux$1206 $procmux$1017_CMP $procmux$1026_CMP $procmux$1039_CMP $procmux$1035_CMP $procmux$631_CMP $procmux$346_CMP $procmux$1007_CMP $procmux$1003_CMP }
+  Optimizing cells in module \core_multi.
+Performed a total of 10 changes.
+
+15.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~57 debug messages>
+Removed a total of 19 cells.
+
+15.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 0 unused cells and 286 unused wires.
+<suppressed ~1 debug messages>
+
+15.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~38 debug messages>
+
+15.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+    New ctrl vector for $pmux cell $procmux$593: { $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $procmux$370_CMP $auto$opt_reduce.cc:137:opt_pmux$1208 }
+    New ctrl vector for $pmux cell $procmux$959: { $auto$opt_reduce.cc:137:opt_pmux$1210 $auto$opt_reduce.cc:137:opt_pmux$1202 }
+    New ctrl vector for $pmux cell $procmux$979: { $procmux$1039_CMP $auto$opt_reduce.cc:137:opt_pmux$1204 $auto$opt_reduce.cc:137:opt_pmux$1212 }
+    New ctrl vector for $pmux cell $procmux$989: { $auto$opt_reduce.cc:137:opt_pmux$1206 $procmux$1026_CMP $auto$opt_reduce.cc:137:opt_pmux$1216 $procmux$631_CMP $procmux$346_CMP $procmux$1007_CMP $auto$opt_reduce.cc:137:opt_pmux$1214 }
+  Optimizing cells in module \core_multi.
+Performed a total of 4 changes.
+
+15.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+15.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+15.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~38 debug messages>
+
+15.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.6.23. Finished OPT passes. (There is nothing left to do.)
+
+15.7. Executing FSM pass (extract and optimize FSM).
+
+15.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking core_multi.state as FSM state register:
+    Users of register don't seem to benefit from recoding.
+
+15.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+15.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+15.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+15.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+15.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+15.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+15.8. Executing OPT pass (performing simple optimizations).
+
+15.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~38 debug messages>
+
+15.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1191 ($adff) from module core_multi (D = \dmem_rdata, Q = \load_data).
+Adding EN signal on $procdff$1186 ($adff) from module core_multi (D = $ternary$rtl/core/core_multi.sv:231$204_Y, Q = \ex_result).
+Adding EN signal on $procdff$1181 ($adff) from module core_multi (D = \u_rf.rdata2, Q = \rs2_val).
+Adding EN signal on $procdff$1176 ($adff) from module core_multi (D = \u_rf.rdata1, Q = \rs1_val).
+Adding EN signal on $procdff$1171 ($adff) from module core_multi (D = $0\in_handler[0:0], Q = \in_handler).
+Adding EN signal on $procdff$1166 ($adff) from module core_multi (D = \pc, Q = \epc).
+Adding EN signal on $procdff$1161 ($adff) from module core_multi (D = $0\nextpc_q[31:0], Q = \nextpc_q).
+Adding EN signal on $procdff$1151 ($adff) from module core_multi (D = $0\state[2:0], Q = \state).
+Adding EN signal on $procdff$1146 ($adff) from module core_multi (D = \imem_rdata, Q = \instr).
+
+15.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 9 unused cells and 9 unused wires.
+<suppressed ~10 debug messages>
+
+15.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~3 debug messages>
+
+15.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+15.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+15.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+15.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+15.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.8.23. Finished OPT passes. (There is nothing left to do.)
+
+15.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 4) from port B of cell core_multi.$procmux$247_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell core_multi.$procmux$246_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_multi.$procmux$254_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell core_multi.$procmux$245_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell core_multi.$procmux$244_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_multi.$procmux$255_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell core_multi.$procmux$243_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell core_multi.$procmux$249_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell core_multi.$procmux$248_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell core_multi.$procmux$256_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_multi.$procmux$346_CMP0 ($eq).
+Removed top 2 bits (of 32) from port B of cell core_multi.$flatten\u_dec.$eq$rtl/core/decoder.sv:161$58 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_multi.$flatten\u_dec.$eq$rtl/core/decoder.sv:105$43 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_multi.$flatten\u_dec.$eq$rtl/core/decoder.sv:131$46 ($eq).
+Removed top 6 bits (of 7) from port B of cell core_multi.$flatten\u_dec.$eq$rtl/core/decoder.sv:143$49 ($eq).
+Removed top 2 bits (of 3) from port B of cell core_multi.$procmux$467_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell core_multi.$eq$rtl/core/core_multi.sv:112$164 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_multi.$eq$rtl/core/core_multi.sv:156$176 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_multi.$eq$rtl/core/core_multi.sv:164$178 ($eq).
+Removed top 29 bits (of 32) from port B of cell core_multi.$add$rtl/core/core_multi.sv:171$183 ($add).
+Removed top 1 bits (of 3) from port B of cell core_multi.$procmux$436_CMP0 ($eq).
+Removed top 1 bits (of 4) from mux cell core_multi.$procmux$623 ($mux).
+Removed top 2 bits (of 7) from port B of cell core_multi.$procmux$631_CMP0 ($eq).
+Removed top 1 bits (of 4) from mux cell core_multi.$procmux$651 ($mux).
+Removed top 2 bits (of 3) from mux cell core_multi.$procmux$716 ($mux).
+Removed top 1 bits (of 2) from mux cell core_multi.$procmux$797 ($mux).
+Removed top 2 bits (of 7) from port B of cell core_multi.$procmux$945_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_multi.$procmux$1000_CMP0 ($eq).
+Removed top 3 bits (of 7) from port B of cell core_multi.$procmux$1003_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_multi.$procmux$1035_CMP0 ($eq).
+Removed top 5 bits (of 7) from port B of cell core_multi.$procmux$1039_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell core_multi.$procmux$1055_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell core_multi.$procmux$1107 ($mux).
+Removed top 1 bits (of 3) from port B of cell core_multi.$procmux$1132_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_multi.$procmux$1133_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell core_multi.$procmux$1134_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell core_multi.$procmux$1138_CMP0 ($eq).
+Removed top 1 bits (of 4) from wire core_multi.$flatten\u_dec.$11\alu_op[3:0].
+Removed top 1 bits (of 4) from wire core_multi.$flatten\u_dec.$12\alu_op[3:0].
+Removed top 1 bits (of 2) from wire core_multi.$flatten\u_dec.$3\wb_sel[1:0].
+Removed top 2 bits (of 3) from wire core_multi.$flatten\u_dec.$4\imm_type[2:0].
+Removed top 2 bits (of 3) from wire core_multi.$procmux$1107_Y.
+
+15.10. Executing PEEPOPT pass (run peephole optimizers).
+
+15.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+15.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module core_multi:
+  creating $macc model for $add$rtl/core/core_multi.sv:153$172 ($add).
+  creating $macc model for $add$rtl/core/core_multi.sv:153$174 ($add).
+  creating $macc model for $add$rtl/core/core_multi.sv:171$183 ($add).
+  creating $macc model for $flatten\u_alu.$add$rtl/core/alu.sv:22$5 ($add).
+  creating $macc model for $flatten\u_alu.$mul$rtl/core/alu.sv:32$13 ($mul).
+  creating $macc model for $flatten\u_alu.$sub$rtl/core/alu.sv:23$6 ($sub).
+  creating $alu model for $macc $flatten\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $macc $flatten\u_alu.$add$rtl/core/alu.sv:22$5.
+  creating $alu model for $macc $add$rtl/core/core_multi.sv:171$183.
+  creating $alu model for $macc $add$rtl/core/core_multi.sv:153$174.
+  creating $alu model for $macc $add$rtl/core/core_multi.sv:153$172.
+  creating $macc cell for $flatten\u_alu.$mul$rtl/core/alu.sv:32$13: $auto$alumacc.cc:365:replace_macc$1255
+  creating $alu model for $flatten\u_alu.$lt$rtl/core/alu.sv:17$2 ($lt): new $alu
+  creating $alu model for $flatten\u_alu.$lt$rtl/core/alu.sv:18$3 ($lt): merged with $flatten\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $flatten\u_alu.$eq$rtl/core/alu.sv:16$1 ($eq): merged with $flatten\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu cell for $add$rtl/core/core_multi.sv:153$172: $auto$alumacc.cc:495:replace_alu$1257
+  creating $alu cell for $add$rtl/core/core_multi.sv:153$174: $auto$alumacc.cc:495:replace_alu$1260
+  creating $alu cell for $add$rtl/core/core_multi.sv:171$183: $auto$alumacc.cc:495:replace_alu$1263
+  creating $alu cell for $flatten\u_alu.$lt$rtl/core/alu.sv:17$2: $auto$alumacc.cc:495:replace_alu$1266
+  creating $alu cell for $flatten\u_alu.$add$rtl/core/alu.sv:22$5: $auto$alumacc.cc:495:replace_alu$1273
+  creating $alu cell for $flatten\u_alu.$sub$rtl/core/alu.sv:23$6, $flatten\u_alu.$lt$rtl/core/alu.sv:18$3, $flatten\u_alu.$eq$rtl/core/alu.sv:16$1: $auto$alumacc.cc:495:replace_alu$1276
+  created 6 $alu and 1 $macc cells.
+
+15.13. Executing SHARE pass (SAT-based resource sharing).
+Found 5 cells in module core_multi that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$233 ($memrd):
+    Found 1 activation_patterns using ctrl signal $flatten\u_rf.$eq$rtl/core/regfile.sv:49$232_Y.
+    Found 1 candidates: $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$231
+    Analyzing resource sharing with $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$231 ($memrd):
+      Found 1 activation_patterns using ctrl signal $flatten\u_rf.$eq$rtl/core/regfile.sv:42$230_Y.
+      Activation pattern for cell $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$233: $flatten\u_rf.$eq$rtl/core/regfile.sv:49$232_Y = 1'0
+      Activation pattern for cell $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$231: $flatten\u_rf.$eq$rtl/core/regfile.sv:42$230_Y = 1'0
+      Size of SAT problem: 2 cells, 27 variables, 51 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $flatten\u_rf.$eq$rtl/core/regfile.sv:49$232_Y $flatten\u_rf.$eq$rtl/core/regfile.sv:42$230_Y } = 2'00
+  Analyzing resource sharing options for $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$231 ($memrd):
+    Found 1 activation_patterns using ctrl signal $flatten\u_rf.$eq$rtl/core/regfile.sv:42$230_Y.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_alu.$sshr$rtl/core/alu.sv:29$10 ($sshr):
+    Found 1 activation_patterns using ctrl signal { $eq$rtl/core/core_multi.sv:231$201_Y \is_cus $procmux$243_CMP }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_alu.$shr$rtl/core/alu.sv:28$9 ($shr):
+    Found 1 activation_patterns using ctrl signal { $eq$rtl/core/core_multi.sv:231$201_Y \is_cus $procmux$244_CMP }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_alu.$shl$rtl/core/alu.sv:24$7 ($shl):
+    Found 1 activation_patterns using ctrl signal { $eq$rtl/core/core_multi.sv:231$201_Y \is_cus $procmux$248_CMP }.
+    No candidates found.
+
+15.14. Executing OPT pass (performing simple optimizations).
+
+15.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~1 debug messages>
+
+15.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+15.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+15.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+15.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~35 debug messages>
+
+15.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.14.16. Finished OPT passes. (There is nothing left to do.)
+
+15.15. Executing MEMORY pass.
+
+15.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+15.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+15.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing core_multi.u_rf.regs write port 0.
+
+15.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+15.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\u_rf.regs'[0] in module `\core_multi': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port `\u_rf.regs'[1] in module `\core_multi': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port address `\u_rf.regs'[0] in module `\core_multi': address FF has async set and/or reset, not supported.
+Checking read port address `\u_rf.regs'[1] in module `\core_multi': address FF has async set and/or reset, not supported.
+
+15.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory core_multi.u_rf.regs by address:
+
+15.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+15.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+15.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.17. Executing OPT pass (performing simple optimizations).
+
+15.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~29 debug messages>
+
+15.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+15.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 1 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+15.17.5. Finished fast OPT passes.
+
+15.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \u_rf.regs in module \core_multi:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+15.19. Executing OPT pass (performing simple optimizations).
+
+15.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~11 debug messages>
+
+15.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~60 debug messages>
+
+15.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+    Consolidated identical input bits for $mux cell $procmux$481:
+      Old ports: A=4'0000, B=4'1010, Y=$flatten\u_dec.$10\alu_op[3:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_dec.$10\alu_op[3:0] [1]
+      New connections: { $flatten\u_dec.$10\alu_op[3:0] [3:2] $flatten\u_dec.$10\alu_op[3:0] [0] } = { $flatten\u_dec.$10\alu_op[3:0] [1] 2'00 }
+    Consolidated identical input bits for $mux cell $procmux$623:
+      Old ports: A=3'000, B=3'111, Y=$auto$wreduce.cc:514:run$1251 [2:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:514:run$1251 [0]
+      New connections: $auto$wreduce.cc:514:run$1251 [2:1] = { $auto$wreduce.cc:514:run$1251 [0] $auto$wreduce.cc:514:run$1251 [0] }
+    Consolidated identical input bits for $mux cell $procmux$891:
+      Old ports: A=3'000, B=3'111, Y=$flatten\u_dec.$2\br_type[2:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_dec.$2\br_type[2:0] [0]
+      New connections: $flatten\u_dec.$2\br_type[2:0] [2:1] = { $flatten\u_dec.$2\br_type[2:0] [0] $flatten\u_dec.$2\br_type[2:0] [0] }
+    Consolidated identical input bits for $mux cell $procmux$904:
+      Old ports: A=2'00, B=2'10, Y=$flatten\u_dec.$2\wb_sel[1:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_dec.$2\wb_sel[1:0] [1]
+      New connections: $flatten\u_dec.$2\wb_sel[1:0] [0] = 1'0
+    Consolidated identical input bits for $mux cell $ternary$rtl/core/core_multi.sv:180$189:
+      Old ports: A=3'000, B=3'100, Y=$ternary$rtl/core/core_multi.sv:180$189_Y
+      New ports: A=1'0, B=1'1, Y=$ternary$rtl/core/core_multi.sv:180$189_Y [2]
+      New connections: $ternary$rtl/core/core_multi.sv:180$189_Y [1:0] = 2'00
+  Optimizing cells in module \core_multi.
+    Consolidated identical input bits for $mux cell $procmux$527:
+      Old ports: A=$flatten\u_dec.$10\alu_op[3:0], B=4'0001, Y=$flatten\u_dec.$9\alu_op[3:0]
+      New ports: A={ $flatten\u_dec.$10\alu_op[3:0] [1] 1'0 }, B=2'01, Y=$flatten\u_dec.$9\alu_op[3:0] [1:0]
+      New connections: $flatten\u_dec.$9\alu_op[3:0] [3:2] = { $flatten\u_dec.$9\alu_op[3:0] [1] 1'0 }
+    Consolidated identical input bits for $mux cell $procmux$651:
+      Old ports: A=$auto$wreduce.cc:514:run$1251 [2:0], B=3'110, Y=$auto$wreduce.cc:514:run$1250 [2:0]
+      New ports: A={ $auto$wreduce.cc:514:run$1251 [0] $auto$wreduce.cc:514:run$1251 [0] }, B=2'10, Y=$auto$wreduce.cc:514:run$1250 [1:0]
+      New connections: $auto$wreduce.cc:514:run$1250 [2] = $auto$wreduce.cc:514:run$1250 [1]
+    Consolidated identical input bits for $mux cell $ternary$rtl/core/core_multi.sv:179$190:
+      Old ports: A=$ternary$rtl/core/core_multi.sv:180$189_Y, B=3'011, Y=$ternary$rtl/core/core_multi.sv:179$190_Y
+      New ports: A={ $ternary$rtl/core/core_multi.sv:180$189_Y [2] 1'0 }, B=2'01, Y={ $ternary$rtl/core/core_multi.sv:179$190_Y [2] $ternary$rtl/core/core_multi.sv:179$190_Y [0] }
+      New connections: $ternary$rtl/core/core_multi.sv:179$190_Y [1] = $ternary$rtl/core/core_multi.sv:179$190_Y [0]
+  Optimizing cells in module \core_multi.
+    Consolidated identical input bits for $mux cell $procmux$567:
+      Old ports: A=$flatten\u_dec.$9\alu_op[3:0], B=4'0000, Y=$flatten\u_dec.$8\alu_op[3:0]
+      New ports: A=$flatten\u_dec.$9\alu_op[3:0] [1:0], B=2'00, Y=$flatten\u_dec.$8\alu_op[3:0] [1:0]
+      New connections: $flatten\u_dec.$8\alu_op[3:0] [3:2] = { $flatten\u_dec.$8\alu_op[3:0] [1] 1'0 }
+  Optimizing cells in module \core_multi.
+Performed a total of 9 changes.
+
+15.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+15.19.6. Executing OPT_SHARE pass.
+
+15.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 0 unused cells and 102 unused wires.
+<suppressed ~1 debug messages>
+
+15.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~4 debug messages>
+
+15.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~59 debug messages>
+
+15.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.19.14. Executing OPT_SHARE pass.
+
+15.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\u_rf.regs[9]$1305 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[9]).
+Adding EN signal on $memory\u_rf.regs[8]$1303 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[8]).
+Adding EN signal on $memory\u_rf.regs[7]$1301 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[7]).
+Adding EN signal on $memory\u_rf.regs[6]$1299 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[6]).
+Adding EN signal on $memory\u_rf.regs[5]$1297 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[5]).
+Adding EN signal on $memory\u_rf.regs[4]$1295 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[4]).
+Adding EN signal on $memory\u_rf.regs[3]$1293 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[3]).
+Adding EN signal on $memory\u_rf.regs[31]$1349 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[31]).
+Adding EN signal on $memory\u_rf.regs[30]$1347 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[30]).
+Adding EN signal on $memory\u_rf.regs[2]$1291 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[2]).
+Adding EN signal on $memory\u_rf.regs[29]$1345 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[29]).
+Adding EN signal on $memory\u_rf.regs[28]$1343 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[28]).
+Adding EN signal on $memory\u_rf.regs[27]$1341 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[27]).
+Adding EN signal on $memory\u_rf.regs[26]$1339 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[26]).
+Adding EN signal on $memory\u_rf.regs[25]$1337 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[25]).
+Adding EN signal on $memory\u_rf.regs[24]$1335 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[24]).
+Adding EN signal on $memory\u_rf.regs[23]$1333 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[23]).
+Adding EN signal on $memory\u_rf.regs[22]$1331 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[22]).
+Adding EN signal on $memory\u_rf.regs[21]$1329 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[21]).
+Adding EN signal on $memory\u_rf.regs[20]$1327 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[20]).
+Adding EN signal on $memory\u_rf.regs[1]$1289 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[1]).
+Adding EN signal on $memory\u_rf.regs[19]$1325 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[19]).
+Adding EN signal on $memory\u_rf.regs[18]$1323 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[18]).
+Adding EN signal on $memory\u_rf.regs[17]$1321 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[17]).
+Adding EN signal on $memory\u_rf.regs[16]$1319 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[16]).
+Adding EN signal on $memory\u_rf.regs[15]$1317 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[15]).
+Adding EN signal on $memory\u_rf.regs[14]$1315 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[14]).
+Adding EN signal on $memory\u_rf.regs[13]$1313 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[13]).
+Adding EN signal on $memory\u_rf.regs[12]$1311 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[12]).
+Adding EN signal on $memory\u_rf.regs[11]$1309 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[11]).
+Adding EN signal on $memory\u_rf.regs[10]$1307 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[10]).
+Adding EN signal on $memory\u_rf.regs[0]$1287 ($dff) from module core_multi (D = \u_rf.wdata, Q = \u_rf.regs[0]).
+
+15.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 32 unused cells and 36 unused wires.
+<suppressed ~33 debug messages>
+
+15.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+15.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_multi.
+Performed a total of 0 changes.
+
+15.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.19.22. Executing OPT_SHARE pass.
+
+15.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+
+15.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+
+15.19.26. Finished OPT passes. (There is nothing left to do.)
+
+15.20. Executing TECHMAP pass (map to technology primitives).
+
+15.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+15.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$59b03ae2620a41577de8da5f5c97b2919e82362b\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$8fabc56b80a569262acfc42757a02ca0b8e91278\_90_pmux for cells of type $pmux.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$335cfd09f1afa8139c4aafcbbe5f361887b79c5e\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$feecc7a0dbd012970970f2858f15e786e251f677\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$e765c459d3029c22a22a27989e94858fd9ebfa9c\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshr.
+Using template $paramod$a5f0941832cc861549e29ccafffe20bfdf2e5528\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$44a13d10af618e7fbe7b9aad2f6151ffcee1e2fa\_90_alu for cells of type $alu.
+Using template $paramod$2653f68ddb8eab7b1907b4a20767b72a824a7a36\_90_alu for cells of type $alu.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$33afdd83bf3811dac2de7a968d39eea5718691bc\_90_pmux for cells of type $pmux.
+Using template $paramod$57f63e8a3282e053be0430389b09fa050ac7dca0\_90_pmux for cells of type $pmux.
+Using template $paramod$d31bf4d7d72e59528d18fbd4f322e9d608532043\_90_pmux for cells of type $pmux.
+Using template $paramod$bf2533632d512eac76dd186c0da49367e29b8e98\_90_pmux for cells of type $pmux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod$bf541dd3c0ba8228982b61e7bfbc350a2c253f4c\_90_pmux for cells of type $pmux.
+Using template $paramod$85df5dc01c7df96a7d8e5f1fdf76ce9ac452af63\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \u_alu.a * \u_alu.b (32x32 bits, unsigned)
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011110 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000100000 for cells of type $fa.
+No more expansions possible.
+<suppressed ~3655 debug messages>
+
+15.21. Executing OPT pass (performing simple optimizations).
+
+15.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~4276 debug messages>
+
+15.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+<suppressed ~2385 debug messages>
+Removed a total of 795 cells.
+
+15.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 279 unused cells and 1720 unused wires.
+<suppressed ~280 debug messages>
+
+15.21.5. Finished fast OPT passes.
+
+15.22. Executing ABC pass (technology mapping using ABC).
+
+15.22.1. Extracting gate netlist of module `\core_multi' to `<abc-temp-dir>/input.blif'..
+Extracted 8231 gates and 9550 wires to a netlist network with 1317 inputs and 238 outputs.
+
+15.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+15.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      116
+ABC RESULTS:            ANDNOT cells:     2061
+ABC RESULTS:               MUX cells:     2653
+ABC RESULTS:              NAND cells:      174
+ABC RESULTS:               NOR cells:      633
+ABC RESULTS:               NOT cells:      332
+ABC RESULTS:                OR cells:      974
+ABC RESULTS:             ORNOT cells:      203
+ABC RESULTS:              XNOR cells:      267
+ABC RESULTS:               XOR cells:     1009
+ABC RESULTS:        internal signals:     7995
+ABC RESULTS:           input signals:     1317
+ABC RESULTS:          output signals:      238
+Removing temp directory.
+
+15.23. Executing OPT pass (performing simple optimizations).
+
+15.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_multi.
+<suppressed ~1057 debug messages>
+
+15.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_multi'.
+Removed a total of 0 cells.
+
+15.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_multi..
+Removed 4 unused cells and 2812 unused wires.
+<suppressed ~51 debug messages>
+
+15.23.5. Finished fast OPT passes.
+
+15.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `core_multi'. Setting top module to core_multi.
+
+15.24.1. Analyzing design hierarchy..
+Top module:  \core_multi
+
+15.24.2. Analyzing design hierarchy..
+Top module:  \core_multi
+Removed 0 unused modules.
+
+15.25. Printing statistics.
+
+=== core_multi ===
+
+   Number of wires:               8333
+   Number of wire bits:          10175
+   Number of public wires:          79
+   Number of public wire bits:    1857
+   Number of ports:                 17
+   Number of port bits:            298
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               9706
+     $_ANDNOT_                    2061
+     $_AND_                        116
+     $_DFFE_PN0N_                   64
+     $_DFFE_PN0P_                  161
+     $_DFFE_PN1P_                    3
+     $_DFFE_PP_                   1024
+     $_DFF_PN0_                     32
+     $_MUX_                       2653
+     $_NAND_                       174
+     $_NOR_                        633
+     $_NOT_                        328
+     $_ORNOT_                      203
+     $_OR_                         974
+     $_XNOR_                       267
+     $_XOR_                       1009
+     $scopeinfo                      4
+
+15.26. Executing CHECK pass (checking for obvious problems).
+Checking module core_multi...
+Found and reported 0 problems.
+
+16. Executing LTP pass (find longest path).
+
+Longest topological path in core_multi (length=59):
+    0: \instr [5]
+    1: $abc$19019$new_n1620 (via $abc$19019$auto$blifparse.cc:396:parse_blif$19084)
+    2: $abc$19019$new_n1621 (via $abc$19019$auto$blifparse.cc:396:parse_blif$19085)
+    3: $abc$19019$new_n1634 (via $abc$19019$auto$blifparse.cc:396:parse_blif$19098)
+    4: $abc$19019$new_n1636 (via $abc$19019$auto$blifparse.cc:396:parse_blif$19100)
+    5: $abc$19019$new_n1637 (via $abc$19019$auto$blifparse.cc:396:parse_blif$19101)
+    6: $abc$19019$new_n3859 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21323)
+    7: $abc$19019$new_n3862 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21326)
+    8: $abc$19019$new_n3875 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21339)
+    9: $abc$19019$new_n3876 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21340)
+   10: $abc$19019$new_n3953 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21417)
+   11: $abc$19019$new_n3955 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21419)
+   12: $abc$19019$new_n3956 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21420)
+   13: $abc$19019$new_n3958 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21422)
+   14: $abc$19019$new_n3959 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21423)
+   15: $abc$19019$new_n3960 (via $abc$19019$auto$blifparse.cc:396:parse_blif$21424)
+   16: $abc$19019$new_n6078 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23542)
+   17: $abc$19019$new_n6079 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23543)
+   18: $abc$19019$new_n6232 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23696)
+   19: $abc$19019$new_n6233 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23697)
+   20: $abc$19019$new_n6234 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23698)
+   21: $abc$19019$new_n6389 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23853)
+   22: $abc$19019$new_n6390 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23854)
+   23: $abc$19019$new_n6391 (via $abc$19019$auto$blifparse.cc:396:parse_blif$23855)
+   24: $abc$19019$new_n6567 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24031)
+   25: $abc$19019$new_n6568 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24032)
+   26: $abc$19019$new_n6569 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24033)
+   27: $abc$19019$new_n6750 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24214)
+   28: $abc$19019$new_n6751 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24215)
+   29: $abc$19019$new_n6752 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24216)
+   30: $abc$19019$new_n6965 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24429)
+   31: $abc$19019$new_n6966 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24430)
+   32: $abc$19019$new_n6967 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24431)
+   33: $abc$19019$new_n7144 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24608)
+   34: $abc$19019$new_n7145 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24609)
+   35: $abc$19019$new_n7146 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24610)
+   36: $abc$19019$new_n7334 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24798)
+   37: $abc$19019$new_n7335 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24799)
+   38: $abc$19019$new_n7336 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24800)
+   39: $abc$19019$new_n7338 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24802)
+   40: $abc$19019$new_n7524 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24988)
+   41: $abc$19019$new_n7527 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24991)
+   42: $abc$19019$new_n7530 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24994)
+   43: $abc$19019$new_n7531 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24995)
+   44: $abc$19019$new_n7532 (via $abc$19019$auto$blifparse.cc:396:parse_blif$24996)
+   45: $abc$19019$new_n8348 (via $abc$19019$auto$blifparse.cc:396:parse_blif$25812)
+   46: $abc$19019$new_n8349 (via $abc$19019$auto$blifparse.cc:396:parse_blif$25813)
+   47: $abc$19019$new_n8783 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26247)
+   48: $abc$19019$new_n8784 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26248)
+   49: $abc$19019$new_n9005 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26469)
+   50: $abc$19019$new_n9006 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26470)
+   51: $abc$19019$new_n9007 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26471)
+   52: $abc$19019$new_n9008 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26472)
+   53: $abc$19019$new_n9010 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26474)
+   54: $abc$19019$new_n9014 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26478)
+   55: $abc$19019$new_n9020 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26484)
+   56: $abc$19019$new_n9035 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26499)
+   57: $abc$19019$new_n9036 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26500)
+   58: $abc$19019$new_n9037 (via $abc$19019$auto$blifparse.cc:396:parse_blif$26501)
+   59: $abc$19019$ternary$rtl/core/core_multi.sv:231$204_Y[31] (via $abc$19019$auto$blifparse.cc:396:parse_blif$26502)
+   ff: \ex_result [31] (via $auto$ff.cc:266:slice$8601)
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 3e724676c3, CPU: user 1.40s system 0.02s, MEM: 52.99 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 24% 1x abc (0 sec), 18% 30x opt_expr (0 sec), ...

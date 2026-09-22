@@ -1,0 +1,158 @@
+{
+  "single": {
+    "bench_dot": {
+      "sw_rolled": 2375,
+      "sw_unrolled": 1287,
+      "hw_stream": 1419,
+      "hw_cached": 259,
+      "total_cycles": 15179,
+      "total_instrs": 15178,
+      "selfcheck_passed": true
+    },
+    "bench_mix": {
+      "mac512": 4325,
+      "sum512": 2565,
+      "copy256": 1542,
+      "sort32": 4040,
+      "total_cycles": 23671,
+      "total_instrs": 23670,
+      "selfcheck_passed": true
+    },
+    "tests": {
+      "test_basic": {
+        "cycles": 169,
+        "instrs": 168,
+        "passed": true
+      },
+      "test_mem": {
+        "cycles": 254,
+        "instrs": 253,
+        "passed": true
+      },
+      "test_hello": {
+        "cycles": 1718,
+        "instrs": 1717,
+        "passed": true
+      },
+      "test_timer": {
+        "cycles": 874,
+        "instrs": 869,
+        "passed": true
+      },
+      "test_dot": {
+        "cycles": 116,
+        "instrs": 115,
+        "passed": true
+      },
+      "test_hazard": {
+        "cycles": 146,
+        "instrs": 145,
+        "passed": true
+      }
+    }
+  },
+  "multi": {
+    "bench_dot": {
+      "sw_rolled": 9693,
+      "sw_unrolled": 5597,
+      "hw_stream": 6125,
+      "hw_cached": 973,
+      "total_cycles": 48657,
+      "total_instrs": 12074,
+      "selfcheck_passed": true
+    },
+    "bench_mix": {
+      "mac512": 17781,
+      "sum512": 10261,
+      "copy256": 6169,
+      "sort32": 16130,
+      "total_cycles": 83547,
+      "total_instrs": 20934,
+      "selfcheck_passed": true
+    },
+    "tests": {
+      "test_basic": {
+        "cycles": 633,
+        "instrs": 165,
+        "passed": true
+      },
+      "test_mem": {
+        "cycles": 972,
+        "instrs": 250,
+        "passed": true
+      },
+      "test_hello": {
+        "cycles": 2733,
+        "instrs": 697,
+        "passed": true
+      },
+      "test_timer": {
+        "cycles": 1087,
+        "instrs": 266,
+        "passed": true
+      },
+      "test_dot": {
+        "cycles": 469,
+        "instrs": 112,
+        "passed": true
+      },
+      "test_hazard": {
+        "cycles": 551,
+        "instrs": 142,
+        "passed": true
+      }
+    }
+  },
+  "pipe": {
+    "bench_dot": {
+      "sw_rolled": 2885,
+      "sw_unrolled": 1413,
+      "hw_stream": 1545,
+      "hw_cached": 385,
+      "total_cycles": 17429,
+      "total_instrs": 13611,
+      "selfcheck_passed": true
+    },
+    "bench_mix": {
+      "mac512": 5347,
+      "sum512": 3587,
+      "copy256": 2052,
+      "sort32": 5642,
+      "total_cycles": 29722,
+      "total_instrs": 22294,
+      "selfcheck_passed": true
+    },
+    "tests": {
+      "test_basic": {
+        "cycles": 198,
+        "instrs": 164,
+        "passed": true
+      },
+      "test_mem": {
+        "cycles": 319,
+        "instrs": 249,
+        "passed": true
+      },
+      "test_hello": {
+        "cycles": 1838,
+        "instrs": 1206,
+        "passed": true
+      },
+      "test_timer": {
+        "cycles": 917,
+        "instrs": 555,
+        "passed": true
+      },
+      "test_dot": {
+        "cycles": 127,
+        "instrs": 111,
+        "passed": true
+      },
+      "test_hazard": {
+        "cycles": 189,
+        "instrs": 141,
+        "passed": true
+      }
+    }
+  }
+}

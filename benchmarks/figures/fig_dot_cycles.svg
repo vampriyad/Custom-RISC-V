@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="380" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="760" height="380" fill="white"/>
+<text x="380.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">64 x 4-lane dot products -- cycles (lower is better)</text>
+<line x1="60" y1="44.0" x2="740" y2="44.0" stroke="#ddd"/>
+<text x="54" y="48.0" text-anchor="end" font-size="11" fill="#555">9693</text>
+<line x1="60" y1="110.5" x2="740" y2="110.5" stroke="#ddd"/>
+<text x="54" y="114.5" text-anchor="end" font-size="11" fill="#555">7269</text>
+<line x1="60" y1="177.0" x2="740" y2="177.0" stroke="#ddd"/>
+<text x="54" y="181.0" text-anchor="end" font-size="11" fill="#555">4846</text>
+<line x1="60" y1="243.5" x2="740" y2="243.5" stroke="#ddd"/>
+<text x="54" y="247.5" text-anchor="end" font-size="11" fill="#555">2423</text>
+<line x1="60" y1="310.0" x2="740" y2="310.0" stroke="#ddd"/>
+<text x="54" y="314.0" text-anchor="end" font-size="11" fill="#555">0</text>
+<text x="16" y="177.0" font-size="12" fill="#333" transform="rotate(-90 16 177.0)" text-anchor="middle">cycles</text>
+<rect x="83.8" y="244.8" width="36.7" height="65.2" fill="#4C6EF5"/>
+<text x="102.2" y="240.8" text-anchor="middle" font-size="10" fill="#333">2375</text>
+<rect x="124.6" y="44.0" width="36.7" height="266.0" fill="#F59F00"/>
+<text x="143.0" y="40.0" text-anchor="middle" font-size="10" fill="#333">9693</text>
+<rect x="165.4" y="230.8" width="36.7" height="79.2" fill="#2F9E44"/>
+<text x="183.8" y="226.8" text-anchor="middle" font-size="10" fill="#333">2885</text>
+<text x="145.0" y="326" text-anchor="middle" font-size="12" fill="#222">sw_rolled</text>
+<rect x="253.8" y="274.7" width="36.7" height="35.3" fill="#4C6EF5"/>
+<text x="272.2" y="270.7" text-anchor="middle" font-size="10" fill="#333">1287</text>
+<rect x="294.6" y="156.4" width="36.7" height="153.6" fill="#F59F00"/>
+<text x="313.0" y="152.4" text-anchor="middle" font-size="10" fill="#333">5597</text>
+<rect x="335.4" y="271.2" width="36.7" height="38.8" fill="#2F9E44"/>
+<text x="353.8" y="267.2" text-anchor="middle" font-size="10" fill="#333">1413</text>
+<text x="315.0" y="326" text-anchor="middle" font-size="12" fill="#222">sw_unrolled</text>
+<rect x="423.8" y="271.1" width="36.7" height="38.9" fill="#4C6EF5"/>
+<text x="442.2" y="267.1" text-anchor="middle" font-size="10" fill="#333">1419</text>
+<rect x="464.6" y="141.9" width="36.7" height="168.1" fill="#F59F00"/>
+<text x="483.0" y="137.9" text-anchor="middle" font-size="10" fill="#333">6125</text>
+<rect x="505.4" y="267.6" width="36.7" height="42.4" fill="#2F9E44"/>
+<text x="523.8" y="263.6" text-anchor="middle" font-size="10" fill="#333">1545</text>
+<text x="485.0" y="326" text-anchor="middle" font-size="12" fill="#222">hw_stream</text>
+<rect x="593.8" y="302.9" width="36.7" height="7.1" fill="#4C6EF5"/>
+<text x="612.2" y="298.9" text-anchor="middle" font-size="10" fill="#333">259</text>
+<rect x="634.6" y="283.3" width="36.7" height="26.7" fill="#F59F00"/>
+<text x="653.0" y="279.3" text-anchor="middle" font-size="10" fill="#333">973</text>
+<rect x="675.4" y="299.4" width="36.7" height="10.6" fill="#2F9E44"/>
+<text x="693.8" y="295.4" text-anchor="middle" font-size="10" fill="#333">385</text>
+<text x="655.0" y="326" text-anchor="middle" font-size="12" fill="#222">hw_cached</text>
+<rect x="60" y="341" width="12" height="12" fill="#4C6EF5"/>
+<text x="76" y="352" font-size="12" fill="#222">single core</text>
+<rect x="181" y="341" width="12" height="12" fill="#F59F00"/>
+<text x="197" y="352" font-size="12" fill="#222">multi core</text>
+<rect x="293" y="341" width="12" height="12" fill="#2F9E44"/>
+<text x="309" y="352" font-size="12" fill="#222">pipe core</text>
+</svg>

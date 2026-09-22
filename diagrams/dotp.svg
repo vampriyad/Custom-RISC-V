@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="430" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect width="820" height="430" fill="white"/>
+  <text x="410" y="26" text-anchor="middle" font-size="17" font-weight="bold">Custom dot-product unit (CDOT)</text>
+
+  <!-- vector registers -->
+  <rect x="40" y="70" width="130" height="230" rx="8" fill="#E5DBFF" stroke="#7048E8"/>
+  <text x="105" y="94" text-anchor="middle" font-size="13" font-weight="bold">vector regs</text>
+  <text x="105" y="112" text-anchor="middle" font-size="10" fill="#555">A0..A3, B0..B3</text>
+  <rect x="55" y="126" width="100" height="22" fill="#C3B0FF"/>
+  <rect x="55" y="152" width="100" height="22" fill="#C3B0FF"/>
+  <rect x="55" y="178" width="100" height="22" fill="#C3B0FF"/>
+  <rect x="55" y="204" width="100" height="22" fill="#C3B0FF"/>
+  <text x="105" y="141" text-anchor="middle" font-size="10">A0 x B0</text>
+  <text x="105" y="167" text-anchor="middle" font-size="10">A1 x B1</text>
+  <text x="105" y="193" text-anchor="middle" font-size="10">A2 x B2</text>
+  <text x="105" y="219" text-anchor="middle" font-size="10">A3 x B3</text>
+  <text x="105" y="254" text-anchor="middle" font-size="10" fill="#555">write-first bypass</text>
+  <text x="105" y="270" text-anchor="middle" font-size="10" fill="#555">on MMIO stores</text>
+
+  <!-- multipliers -->
+  <rect x="230" y="100" width="110" height="34" rx="5" fill="#B2F2BB" stroke="#2F9E44"/>
+  <rect x="230" y="150" width="110" height="34" rx="5" fill="#B2F2BB" stroke="#2F9E44"/>
+  <rect x="230" y="200" width="110" height="34" rx="5" fill="#B2F2BB" stroke="#2F9E44"/>
+  <rect x="230" y="250" width="110" height="34" rx="5" fill="#B2F2BB" stroke="#2F9E44"/>
+  <text x="285" y="122" text-anchor="middle" font-size="11">32x32 mul</text>
+  <text x="285" y="172" text-anchor="middle" font-size="11">32x32 mul</text>
+  <text x="285" y="222" text-anchor="middle" font-size="11">32x32 mul</text>
+  <text x="285" y="272" text-anchor="middle" font-size="11">32x32 mul</text>
+
+  <line x1="170" y1="137" x2="230" y2="117" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="170" y1="163" x2="230" y2="167" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="170" y1="189" x2="230" y2="217" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="170" y1="215" x2="230" y2="267" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- adder tree -->
+  <rect x="410" y="140" width="90" height="34" rx="5" fill="#FFD8A8" stroke="#F59F00"/>
+  <rect x="410" y="210" width="90" height="34" rx="5" fill="#FFD8A8" stroke="#F59F00"/>
+  <text x="455" y="161" text-anchor="middle" font-size="11">p0 + p1</text>
+  <text x="455" y="231" text-anchor="middle" font-size="11">p2 + p3</text>
+  <rect x="560" y="175" width="90" height="34" rx="5" fill="#FFD8A8" stroke="#F59F00"/>
+  <text x="605" y="196" text-anchor="middle" font-size="11">sum (32b)</text>
+
+  <line x1="340" y1="117" x2="410" y2="152" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="340" y1="167" x2="410" y2="162" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="340" y1="217" x2="410" y2="222" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="340" y1="267" x2="410" y2="232" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="500" y1="157" x2="560" y2="187" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="500" y1="227" x2="560" y2="202" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- outputs -->
+  <rect x="700" y="120" width="90" height="34" rx="5" fill="#D0EBFF" stroke="#1971C2"/>
+  <text x="745" y="141" text-anchor="middle" font-size="10">-&gt; rd (CDOT)</text>
+  <rect x="700" y="230" width="90" height="34" rx="5" fill="#D0EBFF" stroke="#1971C2"/>
+  <text x="745" y="251" text-anchor="middle" font-size="10">RESULT reg</text>
+  <line x1="650" y1="188" x2="700" y2="142" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="650" y1="198" x2="700" y2="244" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <text x="40" y="345" font-size="12" fill="#222">Semantics: rd = (A0*B0 + A1*B1 + A2*B2 + A3*B3) with 32-bit wrap -- bit-exact with a MUL/ADD software chain.</text>
+  <text x="40" y="368" font-size="12" fill="#222">Software stages vectors through the MMIO window (0x4000_0000), then one CDOT instruction produces the result in a single cycle.</text>
+  <text x="40" y="398" font-size="11" fill="#868E96">Cost: 4 multipliers + 3 adders + 8 lane registers. Measured in synthesis: 1096 LUTs equivalent logic depth 57 gates (see report).</text>
+</svg>

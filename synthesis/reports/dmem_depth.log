@@ -1,0 +1,1662 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Executing script file `/dev/stdin' --
+
+1. Executing Verilog-2005 frontend: rtl/core/alu.sv
+Parsing SystemVerilog input from `rtl/core/alu.sv' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/core/regfile.sv
+Parsing SystemVerilog input from `rtl/core/regfile.sv' to AST representation.
+Generating RTLIL representation for module `\regfile'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/core/imm_gen.sv
+Parsing SystemVerilog input from `rtl/core/imm_gen.sv' to AST representation.
+Generating RTLIL representation for module `\imm_gen'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/core/decoder.sv
+Parsing SystemVerilog input from `rtl/core/decoder.sv' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/mem/imem.sv
+Parsing SystemVerilog input from `rtl/mem/imem.sv' to AST representation.
+Generating RTLIL representation for module `\imem'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/mem/dmem.sv
+Parsing SystemVerilog input from `rtl/mem/dmem.sv' to AST representation.
+Generating RTLIL representation for module `\dmem'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/periph/uart_tx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_tx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_tx'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/periph/uart_rx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_rx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_rx'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: rtl/periph/uart.sv
+Parsing SystemVerilog input from `rtl/periph/uart.sv' to AST representation.
+Generating RTLIL representation for module `\uart'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: rtl/periph/timer.sv
+Parsing SystemVerilog input from `rtl/periph/timer.sv' to AST representation.
+Generating RTLIL representation for module `\timer'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: rtl/custom/dotp.sv
+Parsing SystemVerilog input from `rtl/custom/dotp.sv' to AST representation.
+Generating RTLIL representation for module `\dotp'.
+Warning: Replacing memory \b with list of registers. See rtl/custom/dotp.sv:63
+Warning: Replacing memory \a with list of registers. See rtl/custom/dotp.sv:62
+Successfully finished Verilog frontend.
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1. Analyzing design hierarchy..
+Top module:  \dmem
+
+12.2. Analyzing design hierarchy..
+Top module:  \dmem
+Removing unused module `\dotp'.
+Removing unused module `\timer'.
+Removing unused module `\uart'.
+Removing unused module `\uart_rx'.
+Removing unused module `\uart_tx'.
+Removing unused module `\imem'.
+Removing unused module `\decoder'.
+Removing unused module `\imm_gen'.
+Removing unused module `\regfile'.
+Removing unused module `\alu'.
+Removed 10 unused modules.
+
+13. Executing FLATTEN pass (flatten design).
+
+14. Executing SYNTH pass.
+
+14.1. Executing HIERARCHY pass (managing design hierarchy).
+
+14.1.1. Analyzing design hierarchy..
+Top module:  \dmem
+
+14.1.2. Analyzing design hierarchy..
+Top module:  \dmem
+Removed 0 unused modules.
+
+14.2. Executing PROC pass (convert processes to netlists).
+
+14.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+14.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/mem/dmem.sv:28$62 in module dmem.
+Removed a total of 0 dead cases.
+
+14.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+14.2.4. Executing PROC_INIT pass (extract init attributes).
+
+14.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+14.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+14.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dmem.$proc$rtl/mem/dmem.sv:28$62'.
+     1/3: $1$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$68
+     2/3: $1$memwr$\mem$rtl/mem/dmem.sv:30$61_DATA[31:0]$67
+     3/3: $1$memwr$\mem$rtl/mem/dmem.sv:30$61_ADDR[9:0]$66
+
+14.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+14.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dmem.$memwr$\mem$rtl/mem/dmem.sv:30$61_ADDR' using process `\dmem.$proc$rtl/mem/dmem.sv:28$62'.
+  created $dff cell `$procdff$171' with positive edge clock.
+Creating register for signal `\dmem.$memwr$\mem$rtl/mem/dmem.sv:30$61_DATA' using process `\dmem.$proc$rtl/mem/dmem.sv:28$62'.
+  created $dff cell `$procdff$172' with positive edge clock.
+Creating register for signal `\dmem.$memwr$\mem$rtl/mem/dmem.sv:30$61_EN' using process `\dmem.$proc$rtl/mem/dmem.sv:28$62'.
+  created $dff cell `$procdff$173' with positive edge clock.
+
+14.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+14.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dmem.$proc$rtl/mem/dmem.sv:28$62'.
+Removing empty process `dmem.$proc$rtl/mem/dmem.sv:28$62'.
+Cleaned up 1 empty switch.
+
+14.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+Removed 3 unused cells and 13 unused wires.
+<suppressed ~4 debug messages>
+
+14.5. Executing CHECK pass (checking for obvious problems).
+Checking module dmem...
+Found and reported 0 problems.
+
+14.6. Executing OPT pass (performing simple optimizations).
+
+14.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+14.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+    Consolidated identical input bits for $mux cell $procmux$163:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0]
+      New connections: $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [31:1] = { $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] $0$memwr$\mem$rtl/mem/dmem.sv:30$61_EN[31:0]$65 [0] }
+  Optimizing cells in module \dmem.
+Performed a total of 1 changes.
+
+14.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+14.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+14.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+Performed a total of 0 changes.
+
+14.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.6.16. Finished OPT passes. (There is nothing left to do.)
+
+14.7. Executing FSM pass (extract and optimize FSM).
+
+14.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+14.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+14.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+14.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+14.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+14.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+14.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+14.8. Executing OPT pass (performing simple optimizations).
+
+14.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+14.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+Performed a total of 0 changes.
+
+14.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.8.9. Finished OPT passes. (There is nothing left to do.)
+
+14.9. Executing WREDUCE pass (reducing word size of cells).
+
+14.10. Executing PEEPOPT pass (run peephole optimizers).
+
+14.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module dmem:
+  created 0 $alu and 0 $macc cells.
+
+14.13. Executing SHARE pass (SAT-based resource sharing).
+
+14.14. Executing OPT pass (performing simple optimizations).
+
+14.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+14.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+Performed a total of 0 changes.
+
+14.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.14.9. Finished OPT passes. (There is nothing left to do.)
+
+14.15. Executing MEMORY pass.
+
+14.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+14.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+14.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing dmem.mem write port 0.
+
+14.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+14.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\mem'[0] in module `\dmem': no output FF found.
+Checking read port address `\mem'[0] in module `\dmem': no address FF found.
+
+14.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+14.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+14.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+14.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.17. Executing OPT pass (performing simple optimizations).
+
+14.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+<suppressed ~3 debug messages>
+
+14.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+14.17.5. Finished fast OPT passes.
+
+14.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \mem in module \dmem:
+  created 1024 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 1023 $mux cells.
+  write interface: 1024 write mux blocks.
+
+14.19. Executing OPT pass (performing simple optimizations).
+
+14.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+<suppressed ~20 debug messages>
+
+14.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1025 debug messages>
+
+14.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+Performed a total of 0 changes.
+
+14.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.19.6. Executing OPT_SHARE pass.
+
+14.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+Removed 0 unused cells and 2058 unused wires.
+<suppressed ~1 debug messages>
+
+14.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+14.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1025 debug messages>
+
+14.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+Performed a total of 0 changes.
+
+14.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.19.14. Executing OPT_SHARE pass.
+
+14.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\mem[9]$195 ($dff) from module dmem (D = \wdata, Q = \mem[9]).
+Adding EN signal on $memory\mem[99]$375 ($dff) from module dmem (D = \wdata, Q = \mem[99]).
+Adding EN signal on $memory\mem[999]$2175 ($dff) from module dmem (D = \wdata, Q = \mem[999]).
+Adding EN signal on $memory\mem[998]$2173 ($dff) from module dmem (D = \wdata, Q = \mem[998]).
+Adding EN signal on $memory\mem[997]$2171 ($dff) from module dmem (D = \wdata, Q = \mem[997]).
+Adding EN signal on $memory\mem[996]$2169 ($dff) from module dmem (D = \wdata, Q = \mem[996]).
+Adding EN signal on $memory\mem[995]$2167 ($dff) from module dmem (D = \wdata, Q = \mem[995]).
+Adding EN signal on $memory\mem[994]$2165 ($dff) from module dmem (D = \wdata, Q = \mem[994]).
+Adding EN signal on $memory\mem[993]$2163 ($dff) from module dmem (D = \wdata, Q = \mem[993]).
+Adding EN signal on $memory\mem[992]$2161 ($dff) from module dmem (D = \wdata, Q = \mem[992]).
+Adding EN signal on $memory\mem[991]$2159 ($dff) from module dmem (D = \wdata, Q = \mem[991]).
+Adding EN signal on $memory\mem[990]$2157 ($dff) from module dmem (D = \wdata, Q = \mem[990]).
+Adding EN signal on $memory\mem[98]$373 ($dff) from module dmem (D = \wdata, Q = \mem[98]).
+Adding EN signal on $memory\mem[989]$2155 ($dff) from module dmem (D = \wdata, Q = \mem[989]).
+Adding EN signal on $memory\mem[988]$2153 ($dff) from module dmem (D = \wdata, Q = \mem[988]).
+Adding EN signal on $memory\mem[987]$2151 ($dff) from module dmem (D = \wdata, Q = \mem[987]).
+Adding EN signal on $memory\mem[986]$2149 ($dff) from module dmem (D = \wdata, Q = \mem[986]).
+Adding EN signal on $memory\mem[985]$2147 ($dff) from module dmem (D = \wdata, Q = \mem[985]).
+Adding EN signal on $memory\mem[984]$2145 ($dff) from module dmem (D = \wdata, Q = \mem[984]).
+Adding EN signal on $memory\mem[983]$2143 ($dff) from module dmem (D = \wdata, Q = \mem[983]).
+Adding EN signal on $memory\mem[982]$2141 ($dff) from module dmem (D = \wdata, Q = \mem[982]).
+Adding EN signal on $memory\mem[981]$2139 ($dff) from module dmem (D = \wdata, Q = \mem[981]).
+Adding EN signal on $memory\mem[980]$2137 ($dff) from module dmem (D = \wdata, Q = \mem[980]).
+Adding EN signal on $memory\mem[97]$371 ($dff) from module dmem (D = \wdata, Q = \mem[97]).
+Adding EN signal on $memory\mem[979]$2135 ($dff) from module dmem (D = \wdata, Q = \mem[979]).
+Adding EN signal on $memory\mem[978]$2133 ($dff) from module dmem (D = \wdata, Q = \mem[978]).
+Adding EN signal on $memory\mem[977]$2131 ($dff) from module dmem (D = \wdata, Q = \mem[977]).
+Adding EN signal on $memory\mem[976]$2129 ($dff) from module dmem (D = \wdata, Q = \mem[976]).
+Adding EN signal on $memory\mem[975]$2127 ($dff) from module dmem (D = \wdata, Q = \mem[975]).
+Adding EN signal on $memory\mem[974]$2125 ($dff) from module dmem (D = \wdata, Q = \mem[974]).
+Adding EN signal on $memory\mem[973]$2123 ($dff) from module dmem (D = \wdata, Q = \mem[973]).
+Adding EN signal on $memory\mem[972]$2121 ($dff) from module dmem (D = \wdata, Q = \mem[972]).
+Adding EN signal on $memory\mem[971]$2119 ($dff) from module dmem (D = \wdata, Q = \mem[971]).
+Adding EN signal on $memory\mem[970]$2117 ($dff) from module dmem (D = \wdata, Q = \mem[970]).
+Adding EN signal on $memory\mem[96]$369 ($dff) from module dmem (D = \wdata, Q = \mem[96]).
+Adding EN signal on $memory\mem[969]$2115 ($dff) from module dmem (D = \wdata, Q = \mem[969]).
+Adding EN signal on $memory\mem[968]$2113 ($dff) from module dmem (D = \wdata, Q = \mem[968]).
+Adding EN signal on $memory\mem[967]$2111 ($dff) from module dmem (D = \wdata, Q = \mem[967]).
+Adding EN signal on $memory\mem[966]$2109 ($dff) from module dmem (D = \wdata, Q = \mem[966]).
+Adding EN signal on $memory\mem[965]$2107 ($dff) from module dmem (D = \wdata, Q = \mem[965]).
+Adding EN signal on $memory\mem[964]$2105 ($dff) from module dmem (D = \wdata, Q = \mem[964]).
+Adding EN signal on $memory\mem[963]$2103 ($dff) from module dmem (D = \wdata, Q = \mem[963]).
+Adding EN signal on $memory\mem[962]$2101 ($dff) from module dmem (D = \wdata, Q = \mem[962]).
+Adding EN signal on $memory\mem[961]$2099 ($dff) from module dmem (D = \wdata, Q = \mem[961]).
+Adding EN signal on $memory\mem[960]$2097 ($dff) from module dmem (D = \wdata, Q = \mem[960]).
+Adding EN signal on $memory\mem[95]$367 ($dff) from module dmem (D = \wdata, Q = \mem[95]).
+Adding EN signal on $memory\mem[959]$2095 ($dff) from module dmem (D = \wdata, Q = \mem[959]).
+Adding EN signal on $memory\mem[958]$2093 ($dff) from module dmem (D = \wdata, Q = \mem[958]).
+Adding EN signal on $memory\mem[957]$2091 ($dff) from module dmem (D = \wdata, Q = \mem[957]).
+Adding EN signal on $memory\mem[956]$2089 ($dff) from module dmem (D = \wdata, Q = \mem[956]).
+Adding EN signal on $memory\mem[955]$2087 ($dff) from module dmem (D = \wdata, Q = \mem[955]).
+Adding EN signal on $memory\mem[954]$2085 ($dff) from module dmem (D = \wdata, Q = \mem[954]).
+Adding EN signal on $memory\mem[953]$2083 ($dff) from module dmem (D = \wdata, Q = \mem[953]).
+Adding EN signal on $memory\mem[952]$2081 ($dff) from module dmem (D = \wdata, Q = \mem[952]).
+Adding EN signal on $memory\mem[951]$2079 ($dff) from module dmem (D = \wdata, Q = \mem[951]).
+Adding EN signal on $memory\mem[950]$2077 ($dff) from module dmem (D = \wdata, Q = \mem[950]).
+Adding EN signal on $memory\mem[94]$365 ($dff) from module dmem (D = \wdata, Q = \mem[94]).
+Adding EN signal on $memory\mem[949]$2075 ($dff) from module dmem (D = \wdata, Q = \mem[949]).
+Adding EN signal on $memory\mem[948]$2073 ($dff) from module dmem (D = \wdata, Q = \mem[948]).
+Adding EN signal on $memory\mem[947]$2071 ($dff) from module dmem (D = \wdata, Q = \mem[947]).
+Adding EN signal on $memory\mem[946]$2069 ($dff) from module dmem (D = \wdata, Q = \mem[946]).
+Adding EN signal on $memory\mem[945]$2067 ($dff) from module dmem (D = \wdata, Q = \mem[945]).
+Adding EN signal on $memory\mem[944]$2065 ($dff) from module dmem (D = \wdata, Q = \mem[944]).
+Adding EN signal on $memory\mem[943]$2063 ($dff) from module dmem (D = \wdata, Q = \mem[943]).
+Adding EN signal on $memory\mem[942]$2061 ($dff) from module dmem (D = \wdata, Q = \mem[942]).
+Adding EN signal on $memory\mem[941]$2059 ($dff) from module dmem (D = \wdata, Q = \mem[941]).
+Adding EN signal on $memory\mem[940]$2057 ($dff) from module dmem (D = \wdata, Q = \mem[940]).
+Adding EN signal on $memory\mem[93]$363 ($dff) from module dmem (D = \wdata, Q = \mem[93]).
+Adding EN signal on $memory\mem[939]$2055 ($dff) from module dmem (D = \wdata, Q = \mem[939]).
+Adding EN signal on $memory\mem[938]$2053 ($dff) from module dmem (D = \wdata, Q = \mem[938]).
+Adding EN signal on $memory\mem[937]$2051 ($dff) from module dmem (D = \wdata, Q = \mem[937]).
+Adding EN signal on $memory\mem[936]$2049 ($dff) from module dmem (D = \wdata, Q = \mem[936]).
+Adding EN signal on $memory\mem[935]$2047 ($dff) from module dmem (D = \wdata, Q = \mem[935]).
+Adding EN signal on $memory\mem[934]$2045 ($dff) from module dmem (D = \wdata, Q = \mem[934]).
+Adding EN signal on $memory\mem[933]$2043 ($dff) from module dmem (D = \wdata, Q = \mem[933]).
+Adding EN signal on $memory\mem[932]$2041 ($dff) from module dmem (D = \wdata, Q = \mem[932]).
+Adding EN signal on $memory\mem[931]$2039 ($dff) from module dmem (D = \wdata, Q = \mem[931]).
+Adding EN signal on $memory\mem[930]$2037 ($dff) from module dmem (D = \wdata, Q = \mem[930]).
+Adding EN signal on $memory\mem[92]$361 ($dff) from module dmem (D = \wdata, Q = \mem[92]).
+Adding EN signal on $memory\mem[929]$2035 ($dff) from module dmem (D = \wdata, Q = \mem[929]).
+Adding EN signal on $memory\mem[928]$2033 ($dff) from module dmem (D = \wdata, Q = \mem[928]).
+Adding EN signal on $memory\mem[927]$2031 ($dff) from module dmem (D = \wdata, Q = \mem[927]).
+Adding EN signal on $memory\mem[926]$2029 ($dff) from module dmem (D = \wdata, Q = \mem[926]).
+Adding EN signal on $memory\mem[925]$2027 ($dff) from module dmem (D = \wdata, Q = \mem[925]).
+Adding EN signal on $memory\mem[924]$2025 ($dff) from module dmem (D = \wdata, Q = \mem[924]).
+Adding EN signal on $memory\mem[923]$2023 ($dff) from module dmem (D = \wdata, Q = \mem[923]).
+Adding EN signal on $memory\mem[922]$2021 ($dff) from module dmem (D = \wdata, Q = \mem[922]).
+Adding EN signal on $memory\mem[921]$2019 ($dff) from module dmem (D = \wdata, Q = \mem[921]).
+Adding EN signal on $memory\mem[920]$2017 ($dff) from module dmem (D = \wdata, Q = \mem[920]).
+Adding EN signal on $memory\mem[91]$359 ($dff) from module dmem (D = \wdata, Q = \mem[91]).
+Adding EN signal on $memory\mem[919]$2015 ($dff) from module dmem (D = \wdata, Q = \mem[919]).
+Adding EN signal on $memory\mem[918]$2013 ($dff) from module dmem (D = \wdata, Q = \mem[918]).
+Adding EN signal on $memory\mem[917]$2011 ($dff) from module dmem (D = \wdata, Q = \mem[917]).
+Adding EN signal on $memory\mem[916]$2009 ($dff) from module dmem (D = \wdata, Q = \mem[916]).
+Adding EN signal on $memory\mem[915]$2007 ($dff) from module dmem (D = \wdata, Q = \mem[915]).
+Adding EN signal on $memory\mem[914]$2005 ($dff) from module dmem (D = \wdata, Q = \mem[914]).
+Adding EN signal on $memory\mem[913]$2003 ($dff) from module dmem (D = \wdata, Q = \mem[913]).
+Adding EN signal on $memory\mem[912]$2001 ($dff) from module dmem (D = \wdata, Q = \mem[912]).
+Adding EN signal on $memory\mem[911]$1999 ($dff) from module dmem (D = \wdata, Q = \mem[911]).
+Adding EN signal on $memory\mem[910]$1997 ($dff) from module dmem (D = \wdata, Q = \mem[910]).
+Adding EN signal on $memory\mem[90]$357 ($dff) from module dmem (D = \wdata, Q = \mem[90]).
+Adding EN signal on $memory\mem[909]$1995 ($dff) from module dmem (D = \wdata, Q = \mem[909]).
+Adding EN signal on $memory\mem[908]$1993 ($dff) from module dmem (D = \wdata, Q = \mem[908]).
+Adding EN signal on $memory\mem[907]$1991 ($dff) from module dmem (D = \wdata, Q = \mem[907]).
+Adding EN signal on $memory\mem[906]$1989 ($dff) from module dmem (D = \wdata, Q = \mem[906]).
+Adding EN signal on $memory\mem[905]$1987 ($dff) from module dmem (D = \wdata, Q = \mem[905]).
+Adding EN signal on $memory\mem[904]$1985 ($dff) from module dmem (D = \wdata, Q = \mem[904]).
+Adding EN signal on $memory\mem[903]$1983 ($dff) from module dmem (D = \wdata, Q = \mem[903]).
+Adding EN signal on $memory\mem[902]$1981 ($dff) from module dmem (D = \wdata, Q = \mem[902]).
+Adding EN signal on $memory\mem[901]$1979 ($dff) from module dmem (D = \wdata, Q = \mem[901]).
+Adding EN signal on $memory\mem[900]$1977 ($dff) from module dmem (D = \wdata, Q = \mem[900]).
+Adding EN signal on $memory\mem[8]$193 ($dff) from module dmem (D = \wdata, Q = \mem[8]).
+Adding EN signal on $memory\mem[89]$355 ($dff) from module dmem (D = \wdata, Q = \mem[89]).
+Adding EN signal on $memory\mem[899]$1975 ($dff) from module dmem (D = \wdata, Q = \mem[899]).
+Adding EN signal on $memory\mem[898]$1973 ($dff) from module dmem (D = \wdata, Q = \mem[898]).
+Adding EN signal on $memory\mem[897]$1971 ($dff) from module dmem (D = \wdata, Q = \mem[897]).
+Adding EN signal on $memory\mem[896]$1969 ($dff) from module dmem (D = \wdata, Q = \mem[896]).
+Adding EN signal on $memory\mem[895]$1967 ($dff) from module dmem (D = \wdata, Q = \mem[895]).
+Adding EN signal on $memory\mem[894]$1965 ($dff) from module dmem (D = \wdata, Q = \mem[894]).
+Adding EN signal on $memory\mem[893]$1963 ($dff) from module dmem (D = \wdata, Q = \mem[893]).
+Adding EN signal on $memory\mem[892]$1961 ($dff) from module dmem (D = \wdata, Q = \mem[892]).
+Adding EN signal on $memory\mem[891]$1959 ($dff) from module dmem (D = \wdata, Q = \mem[891]).
+Adding EN signal on $memory\mem[890]$1957 ($dff) from module dmem (D = \wdata, Q = \mem[890]).
+Adding EN signal on $memory\mem[88]$353 ($dff) from module dmem (D = \wdata, Q = \mem[88]).
+Adding EN signal on $memory\mem[889]$1955 ($dff) from module dmem (D = \wdata, Q = \mem[889]).
+Adding EN signal on $memory\mem[888]$1953 ($dff) from module dmem (D = \wdata, Q = \mem[888]).
+Adding EN signal on $memory\mem[887]$1951 ($dff) from module dmem (D = \wdata, Q = \mem[887]).
+Adding EN signal on $memory\mem[886]$1949 ($dff) from module dmem (D = \wdata, Q = \mem[886]).
+Adding EN signal on $memory\mem[885]$1947 ($dff) from module dmem (D = \wdata, Q = \mem[885]).
+Adding EN signal on $memory\mem[884]$1945 ($dff) from module dmem (D = \wdata, Q = \mem[884]).
+Adding EN signal on $memory\mem[883]$1943 ($dff) from module dmem (D = \wdata, Q = \mem[883]).
+Adding EN signal on $memory\mem[882]$1941 ($dff) from module dmem (D = \wdata, Q = \mem[882]).
+Adding EN signal on $memory\mem[881]$1939 ($dff) from module dmem (D = \wdata, Q = \mem[881]).
+Adding EN signal on $memory\mem[880]$1937 ($dff) from module dmem (D = \wdata, Q = \mem[880]).
+Adding EN signal on $memory\mem[87]$351 ($dff) from module dmem (D = \wdata, Q = \mem[87]).
+Adding EN signal on $memory\mem[879]$1935 ($dff) from module dmem (D = \wdata, Q = \mem[879]).
+Adding EN signal on $memory\mem[878]$1933 ($dff) from module dmem (D = \wdata, Q = \mem[878]).
+Adding EN signal on $memory\mem[877]$1931 ($dff) from module dmem (D = \wdata, Q = \mem[877]).
+Adding EN signal on $memory\mem[876]$1929 ($dff) from module dmem (D = \wdata, Q = \mem[876]).
+Adding EN signal on $memory\mem[875]$1927 ($dff) from module dmem (D = \wdata, Q = \mem[875]).
+Adding EN signal on $memory\mem[874]$1925 ($dff) from module dmem (D = \wdata, Q = \mem[874]).
+Adding EN signal on $memory\mem[873]$1923 ($dff) from module dmem (D = \wdata, Q = \mem[873]).
+Adding EN signal on $memory\mem[872]$1921 ($dff) from module dmem (D = \wdata, Q = \mem[872]).
+Adding EN signal on $memory\mem[871]$1919 ($dff) from module dmem (D = \wdata, Q = \mem[871]).
+Adding EN signal on $memory\mem[870]$1917 ($dff) from module dmem (D = \wdata, Q = \mem[870]).
+Adding EN signal on $memory\mem[86]$349 ($dff) from module dmem (D = \wdata, Q = \mem[86]).
+Adding EN signal on $memory\mem[869]$1915 ($dff) from module dmem (D = \wdata, Q = \mem[869]).
+Adding EN signal on $memory\mem[868]$1913 ($dff) from module dmem (D = \wdata, Q = \mem[868]).
+Adding EN signal on $memory\mem[867]$1911 ($dff) from module dmem (D = \wdata, Q = \mem[867]).
+Adding EN signal on $memory\mem[866]$1909 ($dff) from module dmem (D = \wdata, Q = \mem[866]).
+Adding EN signal on $memory\mem[865]$1907 ($dff) from module dmem (D = \wdata, Q = \mem[865]).
+Adding EN signal on $memory\mem[864]$1905 ($dff) from module dmem (D = \wdata, Q = \mem[864]).
+Adding EN signal on $memory\mem[863]$1903 ($dff) from module dmem (D = \wdata, Q = \mem[863]).
+Adding EN signal on $memory\mem[862]$1901 ($dff) from module dmem (D = \wdata, Q = \mem[862]).
+Adding EN signal on $memory\mem[861]$1899 ($dff) from module dmem (D = \wdata, Q = \mem[861]).
+Adding EN signal on $memory\mem[860]$1897 ($dff) from module dmem (D = \wdata, Q = \mem[860]).
+Adding EN signal on $memory\mem[85]$347 ($dff) from module dmem (D = \wdata, Q = \mem[85]).
+Adding EN signal on $memory\mem[859]$1895 ($dff) from module dmem (D = \wdata, Q = \mem[859]).
+Adding EN signal on $memory\mem[858]$1893 ($dff) from module dmem (D = \wdata, Q = \mem[858]).
+Adding EN signal on $memory\mem[857]$1891 ($dff) from module dmem (D = \wdata, Q = \mem[857]).
+Adding EN signal on $memory\mem[856]$1889 ($dff) from module dmem (D = \wdata, Q = \mem[856]).
+Adding EN signal on $memory\mem[855]$1887 ($dff) from module dmem (D = \wdata, Q = \mem[855]).
+Adding EN signal on $memory\mem[854]$1885 ($dff) from module dmem (D = \wdata, Q = \mem[854]).
+Adding EN signal on $memory\mem[853]$1883 ($dff) from module dmem (D = \wdata, Q = \mem[853]).
+Adding EN signal on $memory\mem[852]$1881 ($dff) from module dmem (D = \wdata, Q = \mem[852]).
+Adding EN signal on $memory\mem[851]$1879 ($dff) from module dmem (D = \wdata, Q = \mem[851]).
+Adding EN signal on $memory\mem[850]$1877 ($dff) from module dmem (D = \wdata, Q = \mem[850]).
+Adding EN signal on $memory\mem[84]$345 ($dff) from module dmem (D = \wdata, Q = \mem[84]).
+Adding EN signal on $memory\mem[849]$1875 ($dff) from module dmem (D = \wdata, Q = \mem[849]).
+Adding EN signal on $memory\mem[848]$1873 ($dff) from module dmem (D = \wdata, Q = \mem[848]).
+Adding EN signal on $memory\mem[847]$1871 ($dff) from module dmem (D = \wdata, Q = \mem[847]).
+Adding EN signal on $memory\mem[846]$1869 ($dff) from module dmem (D = \wdata, Q = \mem[846]).
+Adding EN signal on $memory\mem[845]$1867 ($dff) from module dmem (D = \wdata, Q = \mem[845]).
+Adding EN signal on $memory\mem[844]$1865 ($dff) from module dmem (D = \wdata, Q = \mem[844]).
+Adding EN signal on $memory\mem[843]$1863 ($dff) from module dmem (D = \wdata, Q = \mem[843]).
+Adding EN signal on $memory\mem[842]$1861 ($dff) from module dmem (D = \wdata, Q = \mem[842]).
+Adding EN signal on $memory\mem[841]$1859 ($dff) from module dmem (D = \wdata, Q = \mem[841]).
+Adding EN signal on $memory\mem[840]$1857 ($dff) from module dmem (D = \wdata, Q = \mem[840]).
+Adding EN signal on $memory\mem[83]$343 ($dff) from module dmem (D = \wdata, Q = \mem[83]).
+Adding EN signal on $memory\mem[839]$1855 ($dff) from module dmem (D = \wdata, Q = \mem[839]).
+Adding EN signal on $memory\mem[838]$1853 ($dff) from module dmem (D = \wdata, Q = \mem[838]).
+Adding EN signal on $memory\mem[837]$1851 ($dff) from module dmem (D = \wdata, Q = \mem[837]).
+Adding EN signal on $memory\mem[836]$1849 ($dff) from module dmem (D = \wdata, Q = \mem[836]).
+Adding EN signal on $memory\mem[835]$1847 ($dff) from module dmem (D = \wdata, Q = \mem[835]).
+Adding EN signal on $memory\mem[834]$1845 ($dff) from module dmem (D = \wdata, Q = \mem[834]).
+Adding EN signal on $memory\mem[833]$1843 ($dff) from module dmem (D = \wdata, Q = \mem[833]).
+Adding EN signal on $memory\mem[832]$1841 ($dff) from module dmem (D = \wdata, Q = \mem[832]).
+Adding EN signal on $memory\mem[831]$1839 ($dff) from module dmem (D = \wdata, Q = \mem[831]).
+Adding EN signal on $memory\mem[830]$1837 ($dff) from module dmem (D = \wdata, Q = \mem[830]).
+Adding EN signal on $memory\mem[82]$341 ($dff) from module dmem (D = \wdata, Q = \mem[82]).
+Adding EN signal on $memory\mem[829]$1835 ($dff) from module dmem (D = \wdata, Q = \mem[829]).
+Adding EN signal on $memory\mem[828]$1833 ($dff) from module dmem (D = \wdata, Q = \mem[828]).
+Adding EN signal on $memory\mem[827]$1831 ($dff) from module dmem (D = \wdata, Q = \mem[827]).
+Adding EN signal on $memory\mem[826]$1829 ($dff) from module dmem (D = \wdata, Q = \mem[826]).
+Adding EN signal on $memory\mem[825]$1827 ($dff) from module dmem (D = \wdata, Q = \mem[825]).
+Adding EN signal on $memory\mem[824]$1825 ($dff) from module dmem (D = \wdata, Q = \mem[824]).
+Adding EN signal on $memory\mem[823]$1823 ($dff) from module dmem (D = \wdata, Q = \mem[823]).
+Adding EN signal on $memory\mem[822]$1821 ($dff) from module dmem (D = \wdata, Q = \mem[822]).
+Adding EN signal on $memory\mem[821]$1819 ($dff) from module dmem (D = \wdata, Q = \mem[821]).
+Adding EN signal on $memory\mem[820]$1817 ($dff) from module dmem (D = \wdata, Q = \mem[820]).
+Adding EN signal on $memory\mem[81]$339 ($dff) from module dmem (D = \wdata, Q = \mem[81]).
+Adding EN signal on $memory\mem[819]$1815 ($dff) from module dmem (D = \wdata, Q = \mem[819]).
+Adding EN signal on $memory\mem[818]$1813 ($dff) from module dmem (D = \wdata, Q = \mem[818]).
+Adding EN signal on $memory\mem[817]$1811 ($dff) from module dmem (D = \wdata, Q = \mem[817]).
+Adding EN signal on $memory\mem[816]$1809 ($dff) from module dmem (D = \wdata, Q = \mem[816]).
+Adding EN signal on $memory\mem[815]$1807 ($dff) from module dmem (D = \wdata, Q = \mem[815]).
+Adding EN signal on $memory\mem[814]$1805 ($dff) from module dmem (D = \wdata, Q = \mem[814]).
+Adding EN signal on $memory\mem[813]$1803 ($dff) from module dmem (D = \wdata, Q = \mem[813]).
+Adding EN signal on $memory\mem[812]$1801 ($dff) from module dmem (D = \wdata, Q = \mem[812]).
+Adding EN signal on $memory\mem[811]$1799 ($dff) from module dmem (D = \wdata, Q = \mem[811]).
+Adding EN signal on $memory\mem[810]$1797 ($dff) from module dmem (D = \wdata, Q = \mem[810]).
+Adding EN signal on $memory\mem[80]$337 ($dff) from module dmem (D = \wdata, Q = \mem[80]).
+Adding EN signal on $memory\mem[809]$1795 ($dff) from module dmem (D = \wdata, Q = \mem[809]).
+Adding EN signal on $memory\mem[808]$1793 ($dff) from module dmem (D = \wdata, Q = \mem[808]).
+Adding EN signal on $memory\mem[807]$1791 ($dff) from module dmem (D = \wdata, Q = \mem[807]).
+Adding EN signal on $memory\mem[806]$1789 ($dff) from module dmem (D = \wdata, Q = \mem[806]).
+Adding EN signal on $memory\mem[805]$1787 ($dff) from module dmem (D = \wdata, Q = \mem[805]).
+Adding EN signal on $memory\mem[804]$1785 ($dff) from module dmem (D = \wdata, Q = \mem[804]).
+Adding EN signal on $memory\mem[803]$1783 ($dff) from module dmem (D = \wdata, Q = \mem[803]).
+Adding EN signal on $memory\mem[802]$1781 ($dff) from module dmem (D = \wdata, Q = \mem[802]).
+Adding EN signal on $memory\mem[801]$1779 ($dff) from module dmem (D = \wdata, Q = \mem[801]).
+Adding EN signal on $memory\mem[800]$1777 ($dff) from module dmem (D = \wdata, Q = \mem[800]).
+Adding EN signal on $memory\mem[7]$191 ($dff) from module dmem (D = \wdata, Q = \mem[7]).
+Adding EN signal on $memory\mem[79]$335 ($dff) from module dmem (D = \wdata, Q = \mem[79]).
+Adding EN signal on $memory\mem[799]$1775 ($dff) from module dmem (D = \wdata, Q = \mem[799]).
+Adding EN signal on $memory\mem[798]$1773 ($dff) from module dmem (D = \wdata, Q = \mem[798]).
+Adding EN signal on $memory\mem[797]$1771 ($dff) from module dmem (D = \wdata, Q = \mem[797]).
+Adding EN signal on $memory\mem[796]$1769 ($dff) from module dmem (D = \wdata, Q = \mem[796]).
+Adding EN signal on $memory\mem[795]$1767 ($dff) from module dmem (D = \wdata, Q = \mem[795]).
+Adding EN signal on $memory\mem[794]$1765 ($dff) from module dmem (D = \wdata, Q = \mem[794]).
+Adding EN signal on $memory\mem[793]$1763 ($dff) from module dmem (D = \wdata, Q = \mem[793]).
+Adding EN signal on $memory\mem[792]$1761 ($dff) from module dmem (D = \wdata, Q = \mem[792]).
+Adding EN signal on $memory\mem[791]$1759 ($dff) from module dmem (D = \wdata, Q = \mem[791]).
+Adding EN signal on $memory\mem[790]$1757 ($dff) from module dmem (D = \wdata, Q = \mem[790]).
+Adding EN signal on $memory\mem[78]$333 ($dff) from module dmem (D = \wdata, Q = \mem[78]).
+Adding EN signal on $memory\mem[789]$1755 ($dff) from module dmem (D = \wdata, Q = \mem[789]).
+Adding EN signal on $memory\mem[788]$1753 ($dff) from module dmem (D = \wdata, Q = \mem[788]).
+Adding EN signal on $memory\mem[787]$1751 ($dff) from module dmem (D = \wdata, Q = \mem[787]).
+Adding EN signal on $memory\mem[786]$1749 ($dff) from module dmem (D = \wdata, Q = \mem[786]).
+Adding EN signal on $memory\mem[785]$1747 ($dff) from module dmem (D = \wdata, Q = \mem[785]).
+Adding EN signal on $memory\mem[784]$1745 ($dff) from module dmem (D = \wdata, Q = \mem[784]).
+Adding EN signal on $memory\mem[783]$1743 ($dff) from module dmem (D = \wdata, Q = \mem[783]).
+Adding EN signal on $memory\mem[782]$1741 ($dff) from module dmem (D = \wdata, Q = \mem[782]).
+Adding EN signal on $memory\mem[781]$1739 ($dff) from module dmem (D = \wdata, Q = \mem[781]).
+Adding EN signal on $memory\mem[780]$1737 ($dff) from module dmem (D = \wdata, Q = \mem[780]).
+Adding EN signal on $memory\mem[77]$331 ($dff) from module dmem (D = \wdata, Q = \mem[77]).
+Adding EN signal on $memory\mem[779]$1735 ($dff) from module dmem (D = \wdata, Q = \mem[779]).
+Adding EN signal on $memory\mem[778]$1733 ($dff) from module dmem (D = \wdata, Q = \mem[778]).
+Adding EN signal on $memory\mem[777]$1731 ($dff) from module dmem (D = \wdata, Q = \mem[777]).
+Adding EN signal on $memory\mem[776]$1729 ($dff) from module dmem (D = \wdata, Q = \mem[776]).
+Adding EN signal on $memory\mem[775]$1727 ($dff) from module dmem (D = \wdata, Q = \mem[775]).
+Adding EN signal on $memory\mem[774]$1725 ($dff) from module dmem (D = \wdata, Q = \mem[774]).
+Adding EN signal on $memory\mem[773]$1723 ($dff) from module dmem (D = \wdata, Q = \mem[773]).
+Adding EN signal on $memory\mem[772]$1721 ($dff) from module dmem (D = \wdata, Q = \mem[772]).
+Adding EN signal on $memory\mem[771]$1719 ($dff) from module dmem (D = \wdata, Q = \mem[771]).
+Adding EN signal on $memory\mem[770]$1717 ($dff) from module dmem (D = \wdata, Q = \mem[770]).
+Adding EN signal on $memory\mem[76]$329 ($dff) from module dmem (D = \wdata, Q = \mem[76]).
+Adding EN signal on $memory\mem[769]$1715 ($dff) from module dmem (D = \wdata, Q = \mem[769]).
+Adding EN signal on $memory\mem[768]$1713 ($dff) from module dmem (D = \wdata, Q = \mem[768]).
+Adding EN signal on $memory\mem[767]$1711 ($dff) from module dmem (D = \wdata, Q = \mem[767]).
+Adding EN signal on $memory\mem[766]$1709 ($dff) from module dmem (D = \wdata, Q = \mem[766]).
+Adding EN signal on $memory\mem[765]$1707 ($dff) from module dmem (D = \wdata, Q = \mem[765]).
+Adding EN signal on $memory\mem[764]$1705 ($dff) from module dmem (D = \wdata, Q = \mem[764]).
+Adding EN signal on $memory\mem[763]$1703 ($dff) from module dmem (D = \wdata, Q = \mem[763]).
+Adding EN signal on $memory\mem[762]$1701 ($dff) from module dmem (D = \wdata, Q = \mem[762]).
+Adding EN signal on $memory\mem[761]$1699 ($dff) from module dmem (D = \wdata, Q = \mem[761]).
+Adding EN signal on $memory\mem[760]$1697 ($dff) from module dmem (D = \wdata, Q = \mem[760]).
+Adding EN signal on $memory\mem[75]$327 ($dff) from module dmem (D = \wdata, Q = \mem[75]).
+Adding EN signal on $memory\mem[759]$1695 ($dff) from module dmem (D = \wdata, Q = \mem[759]).
+Adding EN signal on $memory\mem[758]$1693 ($dff) from module dmem (D = \wdata, Q = \mem[758]).
+Adding EN signal on $memory\mem[757]$1691 ($dff) from module dmem (D = \wdata, Q = \mem[757]).
+Adding EN signal on $memory\mem[756]$1689 ($dff) from module dmem (D = \wdata, Q = \mem[756]).
+Adding EN signal on $memory\mem[755]$1687 ($dff) from module dmem (D = \wdata, Q = \mem[755]).
+Adding EN signal on $memory\mem[754]$1685 ($dff) from module dmem (D = \wdata, Q = \mem[754]).
+Adding EN signal on $memory\mem[753]$1683 ($dff) from module dmem (D = \wdata, Q = \mem[753]).
+Adding EN signal on $memory\mem[752]$1681 ($dff) from module dmem (D = \wdata, Q = \mem[752]).
+Adding EN signal on $memory\mem[751]$1679 ($dff) from module dmem (D = \wdata, Q = \mem[751]).
+Adding EN signal on $memory\mem[750]$1677 ($dff) from module dmem (D = \wdata, Q = \mem[750]).
+Adding EN signal on $memory\mem[74]$325 ($dff) from module dmem (D = \wdata, Q = \mem[74]).
+Adding EN signal on $memory\mem[749]$1675 ($dff) from module dmem (D = \wdata, Q = \mem[749]).
+Adding EN signal on $memory\mem[748]$1673 ($dff) from module dmem (D = \wdata, Q = \mem[748]).
+Adding EN signal on $memory\mem[747]$1671 ($dff) from module dmem (D = \wdata, Q = \mem[747]).
+Adding EN signal on $memory\mem[746]$1669 ($dff) from module dmem (D = \wdata, Q = \mem[746]).
+Adding EN signal on $memory\mem[745]$1667 ($dff) from module dmem (D = \wdata, Q = \mem[745]).
+Adding EN signal on $memory\mem[744]$1665 ($dff) from module dmem (D = \wdata, Q = \mem[744]).
+Adding EN signal on $memory\mem[743]$1663 ($dff) from module dmem (D = \wdata, Q = \mem[743]).
+Adding EN signal on $memory\mem[742]$1661 ($dff) from module dmem (D = \wdata, Q = \mem[742]).
+Adding EN signal on $memory\mem[741]$1659 ($dff) from module dmem (D = \wdata, Q = \mem[741]).
+Adding EN signal on $memory\mem[740]$1657 ($dff) from module dmem (D = \wdata, Q = \mem[740]).
+Adding EN signal on $memory\mem[73]$323 ($dff) from module dmem (D = \wdata, Q = \mem[73]).
+Adding EN signal on $memory\mem[739]$1655 ($dff) from module dmem (D = \wdata, Q = \mem[739]).
+Adding EN signal on $memory\mem[738]$1653 ($dff) from module dmem (D = \wdata, Q = \mem[738]).
+Adding EN signal on $memory\mem[737]$1651 ($dff) from module dmem (D = \wdata, Q = \mem[737]).
+Adding EN signal on $memory\mem[736]$1649 ($dff) from module dmem (D = \wdata, Q = \mem[736]).
+Adding EN signal on $memory\mem[735]$1647 ($dff) from module dmem (D = \wdata, Q = \mem[735]).
+Adding EN signal on $memory\mem[734]$1645 ($dff) from module dmem (D = \wdata, Q = \mem[734]).
+Adding EN signal on $memory\mem[733]$1643 ($dff) from module dmem (D = \wdata, Q = \mem[733]).
+Adding EN signal on $memory\mem[732]$1641 ($dff) from module dmem (D = \wdata, Q = \mem[732]).
+Adding EN signal on $memory\mem[731]$1639 ($dff) from module dmem (D = \wdata, Q = \mem[731]).
+Adding EN signal on $memory\mem[730]$1637 ($dff) from module dmem (D = \wdata, Q = \mem[730]).
+Adding EN signal on $memory\mem[72]$321 ($dff) from module dmem (D = \wdata, Q = \mem[72]).
+Adding EN signal on $memory\mem[729]$1635 ($dff) from module dmem (D = \wdata, Q = \mem[729]).
+Adding EN signal on $memory\mem[728]$1633 ($dff) from module dmem (D = \wdata, Q = \mem[728]).
+Adding EN signal on $memory\mem[727]$1631 ($dff) from module dmem (D = \wdata, Q = \mem[727]).
+Adding EN signal on $memory\mem[726]$1629 ($dff) from module dmem (D = \wdata, Q = \mem[726]).
+Adding EN signal on $memory\mem[725]$1627 ($dff) from module dmem (D = \wdata, Q = \mem[725]).
+Adding EN signal on $memory\mem[724]$1625 ($dff) from module dmem (D = \wdata, Q = \mem[724]).
+Adding EN signal on $memory\mem[723]$1623 ($dff) from module dmem (D = \wdata, Q = \mem[723]).
+Adding EN signal on $memory\mem[722]$1621 ($dff) from module dmem (D = \wdata, Q = \mem[722]).
+Adding EN signal on $memory\mem[721]$1619 ($dff) from module dmem (D = \wdata, Q = \mem[721]).
+Adding EN signal on $memory\mem[720]$1617 ($dff) from module dmem (D = \wdata, Q = \mem[720]).
+Adding EN signal on $memory\mem[71]$319 ($dff) from module dmem (D = \wdata, Q = \mem[71]).
+Adding EN signal on $memory\mem[719]$1615 ($dff) from module dmem (D = \wdata, Q = \mem[719]).
+Adding EN signal on $memory\mem[718]$1613 ($dff) from module dmem (D = \wdata, Q = \mem[718]).
+Adding EN signal on $memory\mem[717]$1611 ($dff) from module dmem (D = \wdata, Q = \mem[717]).
+Adding EN signal on $memory\mem[716]$1609 ($dff) from module dmem (D = \wdata, Q = \mem[716]).
+Adding EN signal on $memory\mem[715]$1607 ($dff) from module dmem (D = \wdata, Q = \mem[715]).
+Adding EN signal on $memory\mem[714]$1605 ($dff) from module dmem (D = \wdata, Q = \mem[714]).
+Adding EN signal on $memory\mem[713]$1603 ($dff) from module dmem (D = \wdata, Q = \mem[713]).
+Adding EN signal on $memory\mem[712]$1601 ($dff) from module dmem (D = \wdata, Q = \mem[712]).
+Adding EN signal on $memory\mem[711]$1599 ($dff) from module dmem (D = \wdata, Q = \mem[711]).
+Adding EN signal on $memory\mem[710]$1597 ($dff) from module dmem (D = \wdata, Q = \mem[710]).
+Adding EN signal on $memory\mem[70]$317 ($dff) from module dmem (D = \wdata, Q = \mem[70]).
+Adding EN signal on $memory\mem[709]$1595 ($dff) from module dmem (D = \wdata, Q = \mem[709]).
+Adding EN signal on $memory\mem[708]$1593 ($dff) from module dmem (D = \wdata, Q = \mem[708]).
+Adding EN signal on $memory\mem[707]$1591 ($dff) from module dmem (D = \wdata, Q = \mem[707]).
+Adding EN signal on $memory\mem[706]$1589 ($dff) from module dmem (D = \wdata, Q = \mem[706]).
+Adding EN signal on $memory\mem[705]$1587 ($dff) from module dmem (D = \wdata, Q = \mem[705]).
+Adding EN signal on $memory\mem[704]$1585 ($dff) from module dmem (D = \wdata, Q = \mem[704]).
+Adding EN signal on $memory\mem[703]$1583 ($dff) from module dmem (D = \wdata, Q = \mem[703]).
+Adding EN signal on $memory\mem[702]$1581 ($dff) from module dmem (D = \wdata, Q = \mem[702]).
+Adding EN signal on $memory\mem[701]$1579 ($dff) from module dmem (D = \wdata, Q = \mem[701]).
+Adding EN signal on $memory\mem[700]$1577 ($dff) from module dmem (D = \wdata, Q = \mem[700]).
+Adding EN signal on $memory\mem[6]$189 ($dff) from module dmem (D = \wdata, Q = \mem[6]).
+Adding EN signal on $memory\mem[69]$315 ($dff) from module dmem (D = \wdata, Q = \mem[69]).
+Adding EN signal on $memory\mem[699]$1575 ($dff) from module dmem (D = \wdata, Q = \mem[699]).
+Adding EN signal on $memory\mem[698]$1573 ($dff) from module dmem (D = \wdata, Q = \mem[698]).
+Adding EN signal on $memory\mem[697]$1571 ($dff) from module dmem (D = \wdata, Q = \mem[697]).
+Adding EN signal on $memory\mem[696]$1569 ($dff) from module dmem (D = \wdata, Q = \mem[696]).
+Adding EN signal on $memory\mem[695]$1567 ($dff) from module dmem (D = \wdata, Q = \mem[695]).
+Adding EN signal on $memory\mem[694]$1565 ($dff) from module dmem (D = \wdata, Q = \mem[694]).
+Adding EN signal on $memory\mem[693]$1563 ($dff) from module dmem (D = \wdata, Q = \mem[693]).
+Adding EN signal on $memory\mem[692]$1561 ($dff) from module dmem (D = \wdata, Q = \mem[692]).
+Adding EN signal on $memory\mem[691]$1559 ($dff) from module dmem (D = \wdata, Q = \mem[691]).
+Adding EN signal on $memory\mem[690]$1557 ($dff) from module dmem (D = \wdata, Q = \mem[690]).
+Adding EN signal on $memory\mem[68]$313 ($dff) from module dmem (D = \wdata, Q = \mem[68]).
+Adding EN signal on $memory\mem[689]$1555 ($dff) from module dmem (D = \wdata, Q = \mem[689]).
+Adding EN signal on $memory\mem[688]$1553 ($dff) from module dmem (D = \wdata, Q = \mem[688]).
+Adding EN signal on $memory\mem[687]$1551 ($dff) from module dmem (D = \wdata, Q = \mem[687]).
+Adding EN signal on $memory\mem[686]$1549 ($dff) from module dmem (D = \wdata, Q = \mem[686]).
+Adding EN signal on $memory\mem[685]$1547 ($dff) from module dmem (D = \wdata, Q = \mem[685]).
+Adding EN signal on $memory\mem[684]$1545 ($dff) from module dmem (D = \wdata, Q = \mem[684]).
+Adding EN signal on $memory\mem[683]$1543 ($dff) from module dmem (D = \wdata, Q = \mem[683]).
+Adding EN signal on $memory\mem[682]$1541 ($dff) from module dmem (D = \wdata, Q = \mem[682]).
+Adding EN signal on $memory\mem[681]$1539 ($dff) from module dmem (D = \wdata, Q = \mem[681]).
+Adding EN signal on $memory\mem[680]$1537 ($dff) from module dmem (D = \wdata, Q = \mem[680]).
+Adding EN signal on $memory\mem[67]$311 ($dff) from module dmem (D = \wdata, Q = \mem[67]).
+Adding EN signal on $memory\mem[679]$1535 ($dff) from module dmem (D = \wdata, Q = \mem[679]).
+Adding EN signal on $memory\mem[678]$1533 ($dff) from module dmem (D = \wdata, Q = \mem[678]).
+Adding EN signal on $memory\mem[677]$1531 ($dff) from module dmem (D = \wdata, Q = \mem[677]).
+Adding EN signal on $memory\mem[676]$1529 ($dff) from module dmem (D = \wdata, Q = \mem[676]).
+Adding EN signal on $memory\mem[675]$1527 ($dff) from module dmem (D = \wdata, Q = \mem[675]).
+Adding EN signal on $memory\mem[674]$1525 ($dff) from module dmem (D = \wdata, Q = \mem[674]).
+Adding EN signal on $memory\mem[673]$1523 ($dff) from module dmem (D = \wdata, Q = \mem[673]).
+Adding EN signal on $memory\mem[672]$1521 ($dff) from module dmem (D = \wdata, Q = \mem[672]).
+Adding EN signal on $memory\mem[671]$1519 ($dff) from module dmem (D = \wdata, Q = \mem[671]).
+Adding EN signal on $memory\mem[670]$1517 ($dff) from module dmem (D = \wdata, Q = \mem[670]).
+Adding EN signal on $memory\mem[66]$309 ($dff) from module dmem (D = \wdata, Q = \mem[66]).
+Adding EN signal on $memory\mem[669]$1515 ($dff) from module dmem (D = \wdata, Q = \mem[669]).
+Adding EN signal on $memory\mem[668]$1513 ($dff) from module dmem (D = \wdata, Q = \mem[668]).
+Adding EN signal on $memory\mem[667]$1511 ($dff) from module dmem (D = \wdata, Q = \mem[667]).
+Adding EN signal on $memory\mem[666]$1509 ($dff) from module dmem (D = \wdata, Q = \mem[666]).
+Adding EN signal on $memory\mem[665]$1507 ($dff) from module dmem (D = \wdata, Q = \mem[665]).
+Adding EN signal on $memory\mem[664]$1505 ($dff) from module dmem (D = \wdata, Q = \mem[664]).
+Adding EN signal on $memory\mem[663]$1503 ($dff) from module dmem (D = \wdata, Q = \mem[663]).
+Adding EN signal on $memory\mem[662]$1501 ($dff) from module dmem (D = \wdata, Q = \mem[662]).
+Adding EN signal on $memory\mem[661]$1499 ($dff) from module dmem (D = \wdata, Q = \mem[661]).
+Adding EN signal on $memory\mem[660]$1497 ($dff) from module dmem (D = \wdata, Q = \mem[660]).
+Adding EN signal on $memory\mem[65]$307 ($dff) from module dmem (D = \wdata, Q = \mem[65]).
+Adding EN signal on $memory\mem[659]$1495 ($dff) from module dmem (D = \wdata, Q = \mem[659]).
+Adding EN signal on $memory\mem[658]$1493 ($dff) from module dmem (D = \wdata, Q = \mem[658]).
+Adding EN signal on $memory\mem[657]$1491 ($dff) from module dmem (D = \wdata, Q = \mem[657]).
+Adding EN signal on $memory\mem[656]$1489 ($dff) from module dmem (D = \wdata, Q = \mem[656]).
+Adding EN signal on $memory\mem[655]$1487 ($dff) from module dmem (D = \wdata, Q = \mem[655]).
+Adding EN signal on $memory\mem[654]$1485 ($dff) from module dmem (D = \wdata, Q = \mem[654]).
+Adding EN signal on $memory\mem[653]$1483 ($dff) from module dmem (D = \wdata, Q = \mem[653]).
+Adding EN signal on $memory\mem[652]$1481 ($dff) from module dmem (D = \wdata, Q = \mem[652]).
+Adding EN signal on $memory\mem[651]$1479 ($dff) from module dmem (D = \wdata, Q = \mem[651]).
+Adding EN signal on $memory\mem[650]$1477 ($dff) from module dmem (D = \wdata, Q = \mem[650]).
+Adding EN signal on $memory\mem[64]$305 ($dff) from module dmem (D = \wdata, Q = \mem[64]).
+Adding EN signal on $memory\mem[649]$1475 ($dff) from module dmem (D = \wdata, Q = \mem[649]).
+Adding EN signal on $memory\mem[648]$1473 ($dff) from module dmem (D = \wdata, Q = \mem[648]).
+Adding EN signal on $memory\mem[647]$1471 ($dff) from module dmem (D = \wdata, Q = \mem[647]).
+Adding EN signal on $memory\mem[646]$1469 ($dff) from module dmem (D = \wdata, Q = \mem[646]).
+Adding EN signal on $memory\mem[645]$1467 ($dff) from module dmem (D = \wdata, Q = \mem[645]).
+Adding EN signal on $memory\mem[644]$1465 ($dff) from module dmem (D = \wdata, Q = \mem[644]).
+Adding EN signal on $memory\mem[643]$1463 ($dff) from module dmem (D = \wdata, Q = \mem[643]).
+Adding EN signal on $memory\mem[642]$1461 ($dff) from module dmem (D = \wdata, Q = \mem[642]).
+Adding EN signal on $memory\mem[641]$1459 ($dff) from module dmem (D = \wdata, Q = \mem[641]).
+Adding EN signal on $memory\mem[640]$1457 ($dff) from module dmem (D = \wdata, Q = \mem[640]).
+Adding EN signal on $memory\mem[63]$303 ($dff) from module dmem (D = \wdata, Q = \mem[63]).
+Adding EN signal on $memory\mem[639]$1455 ($dff) from module dmem (D = \wdata, Q = \mem[639]).
+Adding EN signal on $memory\mem[638]$1453 ($dff) from module dmem (D = \wdata, Q = \mem[638]).
+Adding EN signal on $memory\mem[637]$1451 ($dff) from module dmem (D = \wdata, Q = \mem[637]).
+Adding EN signal on $memory\mem[636]$1449 ($dff) from module dmem (D = \wdata, Q = \mem[636]).
+Adding EN signal on $memory\mem[635]$1447 ($dff) from module dmem (D = \wdata, Q = \mem[635]).
+Adding EN signal on $memory\mem[634]$1445 ($dff) from module dmem (D = \wdata, Q = \mem[634]).
+Adding EN signal on $memory\mem[633]$1443 ($dff) from module dmem (D = \wdata, Q = \mem[633]).
+Adding EN signal on $memory\mem[632]$1441 ($dff) from module dmem (D = \wdata, Q = \mem[632]).
+Adding EN signal on $memory\mem[631]$1439 ($dff) from module dmem (D = \wdata, Q = \mem[631]).
+Adding EN signal on $memory\mem[630]$1437 ($dff) from module dmem (D = \wdata, Q = \mem[630]).
+Adding EN signal on $memory\mem[62]$301 ($dff) from module dmem (D = \wdata, Q = \mem[62]).
+Adding EN signal on $memory\mem[629]$1435 ($dff) from module dmem (D = \wdata, Q = \mem[629]).
+Adding EN signal on $memory\mem[628]$1433 ($dff) from module dmem (D = \wdata, Q = \mem[628]).
+Adding EN signal on $memory\mem[627]$1431 ($dff) from module dmem (D = \wdata, Q = \mem[627]).
+Adding EN signal on $memory\mem[626]$1429 ($dff) from module dmem (D = \wdata, Q = \mem[626]).
+Adding EN signal on $memory\mem[625]$1427 ($dff) from module dmem (D = \wdata, Q = \mem[625]).
+Adding EN signal on $memory\mem[624]$1425 ($dff) from module dmem (D = \wdata, Q = \mem[624]).
+Adding EN signal on $memory\mem[623]$1423 ($dff) from module dmem (D = \wdata, Q = \mem[623]).
+Adding EN signal on $memory\mem[622]$1421 ($dff) from module dmem (D = \wdata, Q = \mem[622]).
+Adding EN signal on $memory\mem[621]$1419 ($dff) from module dmem (D = \wdata, Q = \mem[621]).
+Adding EN signal on $memory\mem[620]$1417 ($dff) from module dmem (D = \wdata, Q = \mem[620]).
+Adding EN signal on $memory\mem[61]$299 ($dff) from module dmem (D = \wdata, Q = \mem[61]).
+Adding EN signal on $memory\mem[619]$1415 ($dff) from module dmem (D = \wdata, Q = \mem[619]).
+Adding EN signal on $memory\mem[618]$1413 ($dff) from module dmem (D = \wdata, Q = \mem[618]).
+Adding EN signal on $memory\mem[617]$1411 ($dff) from module dmem (D = \wdata, Q = \mem[617]).
+Adding EN signal on $memory\mem[616]$1409 ($dff) from module dmem (D = \wdata, Q = \mem[616]).
+Adding EN signal on $memory\mem[615]$1407 ($dff) from module dmem (D = \wdata, Q = \mem[615]).
+Adding EN signal on $memory\mem[614]$1405 ($dff) from module dmem (D = \wdata, Q = \mem[614]).
+Adding EN signal on $memory\mem[613]$1403 ($dff) from module dmem (D = \wdata, Q = \mem[613]).
+Adding EN signal on $memory\mem[612]$1401 ($dff) from module dmem (D = \wdata, Q = \mem[612]).
+Adding EN signal on $memory\mem[611]$1399 ($dff) from module dmem (D = \wdata, Q = \mem[611]).
+Adding EN signal on $memory\mem[610]$1397 ($dff) from module dmem (D = \wdata, Q = \mem[610]).
+Adding EN signal on $memory\mem[60]$297 ($dff) from module dmem (D = \wdata, Q = \mem[60]).
+Adding EN signal on $memory\mem[609]$1395 ($dff) from module dmem (D = \wdata, Q = \mem[609]).
+Adding EN signal on $memory\mem[608]$1393 ($dff) from module dmem (D = \wdata, Q = \mem[608]).
+Adding EN signal on $memory\mem[607]$1391 ($dff) from module dmem (D = \wdata, Q = \mem[607]).
+Adding EN signal on $memory\mem[606]$1389 ($dff) from module dmem (D = \wdata, Q = \mem[606]).
+Adding EN signal on $memory\mem[605]$1387 ($dff) from module dmem (D = \wdata, Q = \mem[605]).
+Adding EN signal on $memory\mem[604]$1385 ($dff) from module dmem (D = \wdata, Q = \mem[604]).
+Adding EN signal on $memory\mem[603]$1383 ($dff) from module dmem (D = \wdata, Q = \mem[603]).
+Adding EN signal on $memory\mem[602]$1381 ($dff) from module dmem (D = \wdata, Q = \mem[602]).
+Adding EN signal on $memory\mem[601]$1379 ($dff) from module dmem (D = \wdata, Q = \mem[601]).
+Adding EN signal on $memory\mem[600]$1377 ($dff) from module dmem (D = \wdata, Q = \mem[600]).
+Adding EN signal on $memory\mem[5]$187 ($dff) from module dmem (D = \wdata, Q = \mem[5]).
+Adding EN signal on $memory\mem[59]$295 ($dff) from module dmem (D = \wdata, Q = \mem[59]).
+Adding EN signal on $memory\mem[599]$1375 ($dff) from module dmem (D = \wdata, Q = \mem[599]).
+Adding EN signal on $memory\mem[598]$1373 ($dff) from module dmem (D = \wdata, Q = \mem[598]).
+Adding EN signal on $memory\mem[597]$1371 ($dff) from module dmem (D = \wdata, Q = \mem[597]).
+Adding EN signal on $memory\mem[596]$1369 ($dff) from module dmem (D = \wdata, Q = \mem[596]).
+Adding EN signal on $memory\mem[595]$1367 ($dff) from module dmem (D = \wdata, Q = \mem[595]).
+Adding EN signal on $memory\mem[594]$1365 ($dff) from module dmem (D = \wdata, Q = \mem[594]).
+Adding EN signal on $memory\mem[593]$1363 ($dff) from module dmem (D = \wdata, Q = \mem[593]).
+Adding EN signal on $memory\mem[592]$1361 ($dff) from module dmem (D = \wdata, Q = \mem[592]).
+Adding EN signal on $memory\mem[591]$1359 ($dff) from module dmem (D = \wdata, Q = \mem[591]).
+Adding EN signal on $memory\mem[590]$1357 ($dff) from module dmem (D = \wdata, Q = \mem[590]).
+Adding EN signal on $memory\mem[58]$293 ($dff) from module dmem (D = \wdata, Q = \mem[58]).
+Adding EN signal on $memory\mem[589]$1355 ($dff) from module dmem (D = \wdata, Q = \mem[589]).
+Adding EN signal on $memory\mem[588]$1353 ($dff) from module dmem (D = \wdata, Q = \mem[588]).
+Adding EN signal on $memory\mem[587]$1351 ($dff) from module dmem (D = \wdata, Q = \mem[587]).
+Adding EN signal on $memory\mem[586]$1349 ($dff) from module dmem (D = \wdata, Q = \mem[586]).
+Adding EN signal on $memory\mem[585]$1347 ($dff) from module dmem (D = \wdata, Q = \mem[585]).
+Adding EN signal on $memory\mem[584]$1345 ($dff) from module dmem (D = \wdata, Q = \mem[584]).
+Adding EN signal on $memory\mem[583]$1343 ($dff) from module dmem (D = \wdata, Q = \mem[583]).
+Adding EN signal on $memory\mem[582]$1341 ($dff) from module dmem (D = \wdata, Q = \mem[582]).
+Adding EN signal on $memory\mem[581]$1339 ($dff) from module dmem (D = \wdata, Q = \mem[581]).
+Adding EN signal on $memory\mem[580]$1337 ($dff) from module dmem (D = \wdata, Q = \mem[580]).
+Adding EN signal on $memory\mem[57]$291 ($dff) from module dmem (D = \wdata, Q = \mem[57]).
+Adding EN signal on $memory\mem[579]$1335 ($dff) from module dmem (D = \wdata, Q = \mem[579]).
+Adding EN signal on $memory\mem[578]$1333 ($dff) from module dmem (D = \wdata, Q = \mem[578]).
+Adding EN signal on $memory\mem[577]$1331 ($dff) from module dmem (D = \wdata, Q = \mem[577]).
+Adding EN signal on $memory\mem[576]$1329 ($dff) from module dmem (D = \wdata, Q = \mem[576]).
+Adding EN signal on $memory\mem[575]$1327 ($dff) from module dmem (D = \wdata, Q = \mem[575]).
+Adding EN signal on $memory\mem[574]$1325 ($dff) from module dmem (D = \wdata, Q = \mem[574]).
+Adding EN signal on $memory\mem[573]$1323 ($dff) from module dmem (D = \wdata, Q = \mem[573]).
+Adding EN signal on $memory\mem[572]$1321 ($dff) from module dmem (D = \wdata, Q = \mem[572]).
+Adding EN signal on $memory\mem[571]$1319 ($dff) from module dmem (D = \wdata, Q = \mem[571]).
+Adding EN signal on $memory\mem[570]$1317 ($dff) from module dmem (D = \wdata, Q = \mem[570]).
+Adding EN signal on $memory\mem[56]$289 ($dff) from module dmem (D = \wdata, Q = \mem[56]).
+Adding EN signal on $memory\mem[569]$1315 ($dff) from module dmem (D = \wdata, Q = \mem[569]).
+Adding EN signal on $memory\mem[568]$1313 ($dff) from module dmem (D = \wdata, Q = \mem[568]).
+Adding EN signal on $memory\mem[567]$1311 ($dff) from module dmem (D = \wdata, Q = \mem[567]).
+Adding EN signal on $memory\mem[566]$1309 ($dff) from module dmem (D = \wdata, Q = \mem[566]).
+Adding EN signal on $memory\mem[565]$1307 ($dff) from module dmem (D = \wdata, Q = \mem[565]).
+Adding EN signal on $memory\mem[564]$1305 ($dff) from module dmem (D = \wdata, Q = \mem[564]).
+Adding EN signal on $memory\mem[563]$1303 ($dff) from module dmem (D = \wdata, Q = \mem[563]).
+Adding EN signal on $memory\mem[562]$1301 ($dff) from module dmem (D = \wdata, Q = \mem[562]).
+Adding EN signal on $memory\mem[561]$1299 ($dff) from module dmem (D = \wdata, Q = \mem[561]).
+Adding EN signal on $memory\mem[560]$1297 ($dff) from module dmem (D = \wdata, Q = \mem[560]).
+Adding EN signal on $memory\mem[55]$287 ($dff) from module dmem (D = \wdata, Q = \mem[55]).
+Adding EN signal on $memory\mem[559]$1295 ($dff) from module dmem (D = \wdata, Q = \mem[559]).
+Adding EN signal on $memory\mem[558]$1293 ($dff) from module dmem (D = \wdata, Q = \mem[558]).
+Adding EN signal on $memory\mem[557]$1291 ($dff) from module dmem (D = \wdata, Q = \mem[557]).
+Adding EN signal on $memory\mem[556]$1289 ($dff) from module dmem (D = \wdata, Q = \mem[556]).
+Adding EN signal on $memory\mem[555]$1287 ($dff) from module dmem (D = \wdata, Q = \mem[555]).
+Adding EN signal on $memory\mem[554]$1285 ($dff) from module dmem (D = \wdata, Q = \mem[554]).
+Adding EN signal on $memory\mem[553]$1283 ($dff) from module dmem (D = \wdata, Q = \mem[553]).
+Adding EN signal on $memory\mem[552]$1281 ($dff) from module dmem (D = \wdata, Q = \mem[552]).
+Adding EN signal on $memory\mem[551]$1279 ($dff) from module dmem (D = \wdata, Q = \mem[551]).
+Adding EN signal on $memory\mem[550]$1277 ($dff) from module dmem (D = \wdata, Q = \mem[550]).
+Adding EN signal on $memory\mem[54]$285 ($dff) from module dmem (D = \wdata, Q = \mem[54]).
+Adding EN signal on $memory\mem[549]$1275 ($dff) from module dmem (D = \wdata, Q = \mem[549]).
+Adding EN signal on $memory\mem[548]$1273 ($dff) from module dmem (D = \wdata, Q = \mem[548]).
+Adding EN signal on $memory\mem[547]$1271 ($dff) from module dmem (D = \wdata, Q = \mem[547]).
+Adding EN signal on $memory\mem[546]$1269 ($dff) from module dmem (D = \wdata, Q = \mem[546]).
+Adding EN signal on $memory\mem[545]$1267 ($dff) from module dmem (D = \wdata, Q = \mem[545]).
+Adding EN signal on $memory\mem[544]$1265 ($dff) from module dmem (D = \wdata, Q = \mem[544]).
+Adding EN signal on $memory\mem[543]$1263 ($dff) from module dmem (D = \wdata, Q = \mem[543]).
+Adding EN signal on $memory\mem[542]$1261 ($dff) from module dmem (D = \wdata, Q = \mem[542]).
+Adding EN signal on $memory\mem[541]$1259 ($dff) from module dmem (D = \wdata, Q = \mem[541]).
+Adding EN signal on $memory\mem[540]$1257 ($dff) from module dmem (D = \wdata, Q = \mem[540]).
+Adding EN signal on $memory\mem[53]$283 ($dff) from module dmem (D = \wdata, Q = \mem[53]).
+Adding EN signal on $memory\mem[539]$1255 ($dff) from module dmem (D = \wdata, Q = \mem[539]).
+Adding EN signal on $memory\mem[538]$1253 ($dff) from module dmem (D = \wdata, Q = \mem[538]).
+Adding EN signal on $memory\mem[537]$1251 ($dff) from module dmem (D = \wdata, Q = \mem[537]).
+Adding EN signal on $memory\mem[536]$1249 ($dff) from module dmem (D = \wdata, Q = \mem[536]).
+Adding EN signal on $memory\mem[535]$1247 ($dff) from module dmem (D = \wdata, Q = \mem[535]).
+Adding EN signal on $memory\mem[534]$1245 ($dff) from module dmem (D = \wdata, Q = \mem[534]).
+Adding EN signal on $memory\mem[533]$1243 ($dff) from module dmem (D = \wdata, Q = \mem[533]).
+Adding EN signal on $memory\mem[532]$1241 ($dff) from module dmem (D = \wdata, Q = \mem[532]).
+Adding EN signal on $memory\mem[531]$1239 ($dff) from module dmem (D = \wdata, Q = \mem[531]).
+Adding EN signal on $memory\mem[530]$1237 ($dff) from module dmem (D = \wdata, Q = \mem[530]).
+Adding EN signal on $memory\mem[52]$281 ($dff) from module dmem (D = \wdata, Q = \mem[52]).
+Adding EN signal on $memory\mem[529]$1235 ($dff) from module dmem (D = \wdata, Q = \mem[529]).
+Adding EN signal on $memory\mem[528]$1233 ($dff) from module dmem (D = \wdata, Q = \mem[528]).
+Adding EN signal on $memory\mem[527]$1231 ($dff) from module dmem (D = \wdata, Q = \mem[527]).
+Adding EN signal on $memory\mem[526]$1229 ($dff) from module dmem (D = \wdata, Q = \mem[526]).
+Adding EN signal on $memory\mem[525]$1227 ($dff) from module dmem (D = \wdata, Q = \mem[525]).
+Adding EN signal on $memory\mem[524]$1225 ($dff) from module dmem (D = \wdata, Q = \mem[524]).
+Adding EN signal on $memory\mem[523]$1223 ($dff) from module dmem (D = \wdata, Q = \mem[523]).
+Adding EN signal on $memory\mem[522]$1221 ($dff) from module dmem (D = \wdata, Q = \mem[522]).
+Adding EN signal on $memory\mem[521]$1219 ($dff) from module dmem (D = \wdata, Q = \mem[521]).
+Adding EN signal on $memory\mem[520]$1217 ($dff) from module dmem (D = \wdata, Q = \mem[520]).
+Adding EN signal on $memory\mem[51]$279 ($dff) from module dmem (D = \wdata, Q = \mem[51]).
+Adding EN signal on $memory\mem[519]$1215 ($dff) from module dmem (D = \wdata, Q = \mem[519]).
+Adding EN signal on $memory\mem[518]$1213 ($dff) from module dmem (D = \wdata, Q = \mem[518]).
+Adding EN signal on $memory\mem[517]$1211 ($dff) from module dmem (D = \wdata, Q = \mem[517]).
+Adding EN signal on $memory\mem[516]$1209 ($dff) from module dmem (D = \wdata, Q = \mem[516]).
+Adding EN signal on $memory\mem[515]$1207 ($dff) from module dmem (D = \wdata, Q = \mem[515]).
+Adding EN signal on $memory\mem[514]$1205 ($dff) from module dmem (D = \wdata, Q = \mem[514]).
+Adding EN signal on $memory\mem[513]$1203 ($dff) from module dmem (D = \wdata, Q = \mem[513]).
+Adding EN signal on $memory\mem[512]$1201 ($dff) from module dmem (D = \wdata, Q = \mem[512]).
+Adding EN signal on $memory\mem[511]$1199 ($dff) from module dmem (D = \wdata, Q = \mem[511]).
+Adding EN signal on $memory\mem[510]$1197 ($dff) from module dmem (D = \wdata, Q = \mem[510]).
+Adding EN signal on $memory\mem[50]$277 ($dff) from module dmem (D = \wdata, Q = \mem[50]).
+Adding EN signal on $memory\mem[509]$1195 ($dff) from module dmem (D = \wdata, Q = \mem[509]).
+Adding EN signal on $memory\mem[508]$1193 ($dff) from module dmem (D = \wdata, Q = \mem[508]).
+Adding EN signal on $memory\mem[507]$1191 ($dff) from module dmem (D = \wdata, Q = \mem[507]).
+Adding EN signal on $memory\mem[506]$1189 ($dff) from module dmem (D = \wdata, Q = \mem[506]).
+Adding EN signal on $memory\mem[505]$1187 ($dff) from module dmem (D = \wdata, Q = \mem[505]).
+Adding EN signal on $memory\mem[504]$1185 ($dff) from module dmem (D = \wdata, Q = \mem[504]).
+Adding EN signal on $memory\mem[503]$1183 ($dff) from module dmem (D = \wdata, Q = \mem[503]).
+Adding EN signal on $memory\mem[502]$1181 ($dff) from module dmem (D = \wdata, Q = \mem[502]).
+Adding EN signal on $memory\mem[501]$1179 ($dff) from module dmem (D = \wdata, Q = \mem[501]).
+Adding EN signal on $memory\mem[500]$1177 ($dff) from module dmem (D = \wdata, Q = \mem[500]).
+Adding EN signal on $memory\mem[4]$185 ($dff) from module dmem (D = \wdata, Q = \mem[4]).
+Adding EN signal on $memory\mem[49]$275 ($dff) from module dmem (D = \wdata, Q = \mem[49]).
+Adding EN signal on $memory\mem[499]$1175 ($dff) from module dmem (D = \wdata, Q = \mem[499]).
+Adding EN signal on $memory\mem[498]$1173 ($dff) from module dmem (D = \wdata, Q = \mem[498]).
+Adding EN signal on $memory\mem[497]$1171 ($dff) from module dmem (D = \wdata, Q = \mem[497]).
+Adding EN signal on $memory\mem[496]$1169 ($dff) from module dmem (D = \wdata, Q = \mem[496]).
+Adding EN signal on $memory\mem[495]$1167 ($dff) from module dmem (D = \wdata, Q = \mem[495]).
+Adding EN signal on $memory\mem[494]$1165 ($dff) from module dmem (D = \wdata, Q = \mem[494]).
+Adding EN signal on $memory\mem[493]$1163 ($dff) from module dmem (D = \wdata, Q = \mem[493]).
+Adding EN signal on $memory\mem[492]$1161 ($dff) from module dmem (D = \wdata, Q = \mem[492]).
+Adding EN signal on $memory\mem[491]$1159 ($dff) from module dmem (D = \wdata, Q = \mem[491]).
+Adding EN signal on $memory\mem[490]$1157 ($dff) from module dmem (D = \wdata, Q = \mem[490]).
+Adding EN signal on $memory\mem[48]$273 ($dff) from module dmem (D = \wdata, Q = \mem[48]).
+Adding EN signal on $memory\mem[489]$1155 ($dff) from module dmem (D = \wdata, Q = \mem[489]).
+Adding EN signal on $memory\mem[488]$1153 ($dff) from module dmem (D = \wdata, Q = \mem[488]).
+Adding EN signal on $memory\mem[487]$1151 ($dff) from module dmem (D = \wdata, Q = \mem[487]).
+Adding EN signal on $memory\mem[486]$1149 ($dff) from module dmem (D = \wdata, Q = \mem[486]).
+Adding EN signal on $memory\mem[485]$1147 ($dff) from module dmem (D = \wdata, Q = \mem[485]).
+Adding EN signal on $memory\mem[484]$1145 ($dff) from module dmem (D = \wdata, Q = \mem[484]).
+Adding EN signal on $memory\mem[483]$1143 ($dff) from module dmem (D = \wdata, Q = \mem[483]).
+Adding EN signal on $memory\mem[482]$1141 ($dff) from module dmem (D = \wdata, Q = \mem[482]).
+Adding EN signal on $memory\mem[481]$1139 ($dff) from module dmem (D = \wdata, Q = \mem[481]).
+Adding EN signal on $memory\mem[480]$1137 ($dff) from module dmem (D = \wdata, Q = \mem[480]).
+Adding EN signal on $memory\mem[47]$271 ($dff) from module dmem (D = \wdata, Q = \mem[47]).
+Adding EN signal on $memory\mem[479]$1135 ($dff) from module dmem (D = \wdata, Q = \mem[479]).
+Adding EN signal on $memory\mem[478]$1133 ($dff) from module dmem (D = \wdata, Q = \mem[478]).
+Adding EN signal on $memory\mem[477]$1131 ($dff) from module dmem (D = \wdata, Q = \mem[477]).
+Adding EN signal on $memory\mem[476]$1129 ($dff) from module dmem (D = \wdata, Q = \mem[476]).
+Adding EN signal on $memory\mem[475]$1127 ($dff) from module dmem (D = \wdata, Q = \mem[475]).
+Adding EN signal on $memory\mem[474]$1125 ($dff) from module dmem (D = \wdata, Q = \mem[474]).
+Adding EN signal on $memory\mem[473]$1123 ($dff) from module dmem (D = \wdata, Q = \mem[473]).
+Adding EN signal on $memory\mem[472]$1121 ($dff) from module dmem (D = \wdata, Q = \mem[472]).
+Adding EN signal on $memory\mem[471]$1119 ($dff) from module dmem (D = \wdata, Q = \mem[471]).
+Adding EN signal on $memory\mem[470]$1117 ($dff) from module dmem (D = \wdata, Q = \mem[470]).
+Adding EN signal on $memory\mem[46]$269 ($dff) from module dmem (D = \wdata, Q = \mem[46]).
+Adding EN signal on $memory\mem[469]$1115 ($dff) from module dmem (D = \wdata, Q = \mem[469]).
+Adding EN signal on $memory\mem[468]$1113 ($dff) from module dmem (D = \wdata, Q = \mem[468]).
+Adding EN signal on $memory\mem[467]$1111 ($dff) from module dmem (D = \wdata, Q = \mem[467]).
+Adding EN signal on $memory\mem[466]$1109 ($dff) from module dmem (D = \wdata, Q = \mem[466]).
+Adding EN signal on $memory\mem[465]$1107 ($dff) from module dmem (D = \wdata, Q = \mem[465]).
+Adding EN signal on $memory\mem[464]$1105 ($dff) from module dmem (D = \wdata, Q = \mem[464]).
+Adding EN signal on $memory\mem[463]$1103 ($dff) from module dmem (D = \wdata, Q = \mem[463]).
+Adding EN signal on $memory\mem[462]$1101 ($dff) from module dmem (D = \wdata, Q = \mem[462]).
+Adding EN signal on $memory\mem[461]$1099 ($dff) from module dmem (D = \wdata, Q = \mem[461]).
+Adding EN signal on $memory\mem[460]$1097 ($dff) from module dmem (D = \wdata, Q = \mem[460]).
+Adding EN signal on $memory\mem[45]$267 ($dff) from module dmem (D = \wdata, Q = \mem[45]).
+Adding EN signal on $memory\mem[459]$1095 ($dff) from module dmem (D = \wdata, Q = \mem[459]).
+Adding EN signal on $memory\mem[458]$1093 ($dff) from module dmem (D = \wdata, Q = \mem[458]).
+Adding EN signal on $memory\mem[457]$1091 ($dff) from module dmem (D = \wdata, Q = \mem[457]).
+Adding EN signal on $memory\mem[456]$1089 ($dff) from module dmem (D = \wdata, Q = \mem[456]).
+Adding EN signal on $memory\mem[455]$1087 ($dff) from module dmem (D = \wdata, Q = \mem[455]).
+Adding EN signal on $memory\mem[454]$1085 ($dff) from module dmem (D = \wdata, Q = \mem[454]).
+Adding EN signal on $memory\mem[453]$1083 ($dff) from module dmem (D = \wdata, Q = \mem[453]).
+Adding EN signal on $memory\mem[452]$1081 ($dff) from module dmem (D = \wdata, Q = \mem[452]).
+Adding EN signal on $memory\mem[451]$1079 ($dff) from module dmem (D = \wdata, Q = \mem[451]).
+Adding EN signal on $memory\mem[450]$1077 ($dff) from module dmem (D = \wdata, Q = \mem[450]).
+Adding EN signal on $memory\mem[44]$265 ($dff) from module dmem (D = \wdata, Q = \mem[44]).
+Adding EN signal on $memory\mem[449]$1075 ($dff) from module dmem (D = \wdata, Q = \mem[449]).
+Adding EN signal on $memory\mem[448]$1073 ($dff) from module dmem (D = \wdata, Q = \mem[448]).
+Adding EN signal on $memory\mem[447]$1071 ($dff) from module dmem (D = \wdata, Q = \mem[447]).
+Adding EN signal on $memory\mem[446]$1069 ($dff) from module dmem (D = \wdata, Q = \mem[446]).
+Adding EN signal on $memory\mem[445]$1067 ($dff) from module dmem (D = \wdata, Q = \mem[445]).
+Adding EN signal on $memory\mem[444]$1065 ($dff) from module dmem (D = \wdata, Q = \mem[444]).
+Adding EN signal on $memory\mem[443]$1063 ($dff) from module dmem (D = \wdata, Q = \mem[443]).
+Adding EN signal on $memory\mem[442]$1061 ($dff) from module dmem (D = \wdata, Q = \mem[442]).
+Adding EN signal on $memory\mem[441]$1059 ($dff) from module dmem (D = \wdata, Q = \mem[441]).
+Adding EN signal on $memory\mem[440]$1057 ($dff) from module dmem (D = \wdata, Q = \mem[440]).
+Adding EN signal on $memory\mem[43]$263 ($dff) from module dmem (D = \wdata, Q = \mem[43]).
+Adding EN signal on $memory\mem[439]$1055 ($dff) from module dmem (D = \wdata, Q = \mem[439]).
+Adding EN signal on $memory\mem[438]$1053 ($dff) from module dmem (D = \wdata, Q = \mem[438]).
+Adding EN signal on $memory\mem[437]$1051 ($dff) from module dmem (D = \wdata, Q = \mem[437]).
+Adding EN signal on $memory\mem[436]$1049 ($dff) from module dmem (D = \wdata, Q = \mem[436]).
+Adding EN signal on $memory\mem[435]$1047 ($dff) from module dmem (D = \wdata, Q = \mem[435]).
+Adding EN signal on $memory\mem[434]$1045 ($dff) from module dmem (D = \wdata, Q = \mem[434]).
+Adding EN signal on $memory\mem[433]$1043 ($dff) from module dmem (D = \wdata, Q = \mem[433]).
+Adding EN signal on $memory\mem[432]$1041 ($dff) from module dmem (D = \wdata, Q = \mem[432]).
+Adding EN signal on $memory\mem[431]$1039 ($dff) from module dmem (D = \wdata, Q = \mem[431]).
+Adding EN signal on $memory\mem[430]$1037 ($dff) from module dmem (D = \wdata, Q = \mem[430]).
+Adding EN signal on $memory\mem[42]$261 ($dff) from module dmem (D = \wdata, Q = \mem[42]).
+Adding EN signal on $memory\mem[429]$1035 ($dff) from module dmem (D = \wdata, Q = \mem[429]).
+Adding EN signal on $memory\mem[428]$1033 ($dff) from module dmem (D = \wdata, Q = \mem[428]).
+Adding EN signal on $memory\mem[427]$1031 ($dff) from module dmem (D = \wdata, Q = \mem[427]).
+Adding EN signal on $memory\mem[426]$1029 ($dff) from module dmem (D = \wdata, Q = \mem[426]).
+Adding EN signal on $memory\mem[425]$1027 ($dff) from module dmem (D = \wdata, Q = \mem[425]).
+Adding EN signal on $memory\mem[424]$1025 ($dff) from module dmem (D = \wdata, Q = \mem[424]).
+Adding EN signal on $memory\mem[423]$1023 ($dff) from module dmem (D = \wdata, Q = \mem[423]).
+Adding EN signal on $memory\mem[422]$1021 ($dff) from module dmem (D = \wdata, Q = \mem[422]).
+Adding EN signal on $memory\mem[421]$1019 ($dff) from module dmem (D = \wdata, Q = \mem[421]).
+Adding EN signal on $memory\mem[420]$1017 ($dff) from module dmem (D = \wdata, Q = \mem[420]).
+Adding EN signal on $memory\mem[41]$259 ($dff) from module dmem (D = \wdata, Q = \mem[41]).
+Adding EN signal on $memory\mem[419]$1015 ($dff) from module dmem (D = \wdata, Q = \mem[419]).
+Adding EN signal on $memory\mem[418]$1013 ($dff) from module dmem (D = \wdata, Q = \mem[418]).
+Adding EN signal on $memory\mem[417]$1011 ($dff) from module dmem (D = \wdata, Q = \mem[417]).
+Adding EN signal on $memory\mem[416]$1009 ($dff) from module dmem (D = \wdata, Q = \mem[416]).
+Adding EN signal on $memory\mem[415]$1007 ($dff) from module dmem (D = \wdata, Q = \mem[415]).
+Adding EN signal on $memory\mem[414]$1005 ($dff) from module dmem (D = \wdata, Q = \mem[414]).
+Adding EN signal on $memory\mem[413]$1003 ($dff) from module dmem (D = \wdata, Q = \mem[413]).
+Adding EN signal on $memory\mem[412]$1001 ($dff) from module dmem (D = \wdata, Q = \mem[412]).
+Adding EN signal on $memory\mem[411]$999 ($dff) from module dmem (D = \wdata, Q = \mem[411]).
+Adding EN signal on $memory\mem[410]$997 ($dff) from module dmem (D = \wdata, Q = \mem[410]).
+Adding EN signal on $memory\mem[40]$257 ($dff) from module dmem (D = \wdata, Q = \mem[40]).
+Adding EN signal on $memory\mem[409]$995 ($dff) from module dmem (D = \wdata, Q = \mem[409]).
+Adding EN signal on $memory\mem[408]$993 ($dff) from module dmem (D = \wdata, Q = \mem[408]).
+Adding EN signal on $memory\mem[407]$991 ($dff) from module dmem (D = \wdata, Q = \mem[407]).
+Adding EN signal on $memory\mem[406]$989 ($dff) from module dmem (D = \wdata, Q = \mem[406]).
+Adding EN signal on $memory\mem[405]$987 ($dff) from module dmem (D = \wdata, Q = \mem[405]).
+Adding EN signal on $memory\mem[404]$985 ($dff) from module dmem (D = \wdata, Q = \mem[404]).
+Adding EN signal on $memory\mem[403]$983 ($dff) from module dmem (D = \wdata, Q = \mem[403]).
+Adding EN signal on $memory\mem[402]$981 ($dff) from module dmem (D = \wdata, Q = \mem[402]).
+Adding EN signal on $memory\mem[401]$979 ($dff) from module dmem (D = \wdata, Q = \mem[401]).
+Adding EN signal on $memory\mem[400]$977 ($dff) from module dmem (D = \wdata, Q = \mem[400]).
+Adding EN signal on $memory\mem[3]$183 ($dff) from module dmem (D = \wdata, Q = \mem[3]).
+Adding EN signal on $memory\mem[39]$255 ($dff) from module dmem (D = \wdata, Q = \mem[39]).
+Adding EN signal on $memory\mem[399]$975 ($dff) from module dmem (D = \wdata, Q = \mem[399]).
+Adding EN signal on $memory\mem[398]$973 ($dff) from module dmem (D = \wdata, Q = \mem[398]).
+Adding EN signal on $memory\mem[397]$971 ($dff) from module dmem (D = \wdata, Q = \mem[397]).
+Adding EN signal on $memory\mem[396]$969 ($dff) from module dmem (D = \wdata, Q = \mem[396]).
+Adding EN signal on $memory\mem[395]$967 ($dff) from module dmem (D = \wdata, Q = \mem[395]).
+Adding EN signal on $memory\mem[394]$965 ($dff) from module dmem (D = \wdata, Q = \mem[394]).
+Adding EN signal on $memory\mem[393]$963 ($dff) from module dmem (D = \wdata, Q = \mem[393]).
+Adding EN signal on $memory\mem[392]$961 ($dff) from module dmem (D = \wdata, Q = \mem[392]).
+Adding EN signal on $memory\mem[391]$959 ($dff) from module dmem (D = \wdata, Q = \mem[391]).
+Adding EN signal on $memory\mem[390]$957 ($dff) from module dmem (D = \wdata, Q = \mem[390]).
+Adding EN signal on $memory\mem[38]$253 ($dff) from module dmem (D = \wdata, Q = \mem[38]).
+Adding EN signal on $memory\mem[389]$955 ($dff) from module dmem (D = \wdata, Q = \mem[389]).
+Adding EN signal on $memory\mem[388]$953 ($dff) from module dmem (D = \wdata, Q = \mem[388]).
+Adding EN signal on $memory\mem[387]$951 ($dff) from module dmem (D = \wdata, Q = \mem[387]).
+Adding EN signal on $memory\mem[386]$949 ($dff) from module dmem (D = \wdata, Q = \mem[386]).
+Adding EN signal on $memory\mem[385]$947 ($dff) from module dmem (D = \wdata, Q = \mem[385]).
+Adding EN signal on $memory\mem[384]$945 ($dff) from module dmem (D = \wdata, Q = \mem[384]).
+Adding EN signal on $memory\mem[383]$943 ($dff) from module dmem (D = \wdata, Q = \mem[383]).
+Adding EN signal on $memory\mem[382]$941 ($dff) from module dmem (D = \wdata, Q = \mem[382]).
+Adding EN signal on $memory\mem[381]$939 ($dff) from module dmem (D = \wdata, Q = \mem[381]).
+Adding EN signal on $memory\mem[380]$937 ($dff) from module dmem (D = \wdata, Q = \mem[380]).
+Adding EN signal on $memory\mem[37]$251 ($dff) from module dmem (D = \wdata, Q = \mem[37]).
+Adding EN signal on $memory\mem[379]$935 ($dff) from module dmem (D = \wdata, Q = \mem[379]).
+Adding EN signal on $memory\mem[378]$933 ($dff) from module dmem (D = \wdata, Q = \mem[378]).
+Adding EN signal on $memory\mem[377]$931 ($dff) from module dmem (D = \wdata, Q = \mem[377]).
+Adding EN signal on $memory\mem[376]$929 ($dff) from module dmem (D = \wdata, Q = \mem[376]).
+Adding EN signal on $memory\mem[375]$927 ($dff) from module dmem (D = \wdata, Q = \mem[375]).
+Adding EN signal on $memory\mem[374]$925 ($dff) from module dmem (D = \wdata, Q = \mem[374]).
+Adding EN signal on $memory\mem[373]$923 ($dff) from module dmem (D = \wdata, Q = \mem[373]).
+Adding EN signal on $memory\mem[372]$921 ($dff) from module dmem (D = \wdata, Q = \mem[372]).
+Adding EN signal on $memory\mem[371]$919 ($dff) from module dmem (D = \wdata, Q = \mem[371]).
+Adding EN signal on $memory\mem[370]$917 ($dff) from module dmem (D = \wdata, Q = \mem[370]).
+Adding EN signal on $memory\mem[36]$249 ($dff) from module dmem (D = \wdata, Q = \mem[36]).
+Adding EN signal on $memory\mem[369]$915 ($dff) from module dmem (D = \wdata, Q = \mem[369]).
+Adding EN signal on $memory\mem[368]$913 ($dff) from module dmem (D = \wdata, Q = \mem[368]).
+Adding EN signal on $memory\mem[367]$911 ($dff) from module dmem (D = \wdata, Q = \mem[367]).
+Adding EN signal on $memory\mem[366]$909 ($dff) from module dmem (D = \wdata, Q = \mem[366]).
+Adding EN signal on $memory\mem[365]$907 ($dff) from module dmem (D = \wdata, Q = \mem[365]).
+Adding EN signal on $memory\mem[364]$905 ($dff) from module dmem (D = \wdata, Q = \mem[364]).
+Adding EN signal on $memory\mem[363]$903 ($dff) from module dmem (D = \wdata, Q = \mem[363]).
+Adding EN signal on $memory\mem[362]$901 ($dff) from module dmem (D = \wdata, Q = \mem[362]).
+Adding EN signal on $memory\mem[361]$899 ($dff) from module dmem (D = \wdata, Q = \mem[361]).
+Adding EN signal on $memory\mem[360]$897 ($dff) from module dmem (D = \wdata, Q = \mem[360]).
+Adding EN signal on $memory\mem[35]$247 ($dff) from module dmem (D = \wdata, Q = \mem[35]).
+Adding EN signal on $memory\mem[359]$895 ($dff) from module dmem (D = \wdata, Q = \mem[359]).
+Adding EN signal on $memory\mem[358]$893 ($dff) from module dmem (D = \wdata, Q = \mem[358]).
+Adding EN signal on $memory\mem[357]$891 ($dff) from module dmem (D = \wdata, Q = \mem[357]).
+Adding EN signal on $memory\mem[356]$889 ($dff) from module dmem (D = \wdata, Q = \mem[356]).
+Adding EN signal on $memory\mem[355]$887 ($dff) from module dmem (D = \wdata, Q = \mem[355]).
+Adding EN signal on $memory\mem[354]$885 ($dff) from module dmem (D = \wdata, Q = \mem[354]).
+Adding EN signal on $memory\mem[353]$883 ($dff) from module dmem (D = \wdata, Q = \mem[353]).
+Adding EN signal on $memory\mem[352]$881 ($dff) from module dmem (D = \wdata, Q = \mem[352]).
+Adding EN signal on $memory\mem[351]$879 ($dff) from module dmem (D = \wdata, Q = \mem[351]).
+Adding EN signal on $memory\mem[350]$877 ($dff) from module dmem (D = \wdata, Q = \mem[350]).
+Adding EN signal on $memory\mem[34]$245 ($dff) from module dmem (D = \wdata, Q = \mem[34]).
+Adding EN signal on $memory\mem[349]$875 ($dff) from module dmem (D = \wdata, Q = \mem[349]).
+Adding EN signal on $memory\mem[348]$873 ($dff) from module dmem (D = \wdata, Q = \mem[348]).
+Adding EN signal on $memory\mem[347]$871 ($dff) from module dmem (D = \wdata, Q = \mem[347]).
+Adding EN signal on $memory\mem[346]$869 ($dff) from module dmem (D = \wdata, Q = \mem[346]).
+Adding EN signal on $memory\mem[345]$867 ($dff) from module dmem (D = \wdata, Q = \mem[345]).
+Adding EN signal on $memory\mem[344]$865 ($dff) from module dmem (D = \wdata, Q = \mem[344]).
+Adding EN signal on $memory\mem[343]$863 ($dff) from module dmem (D = \wdata, Q = \mem[343]).
+Adding EN signal on $memory\mem[342]$861 ($dff) from module dmem (D = \wdata, Q = \mem[342]).
+Adding EN signal on $memory\mem[341]$859 ($dff) from module dmem (D = \wdata, Q = \mem[341]).
+Adding EN signal on $memory\mem[340]$857 ($dff) from module dmem (D = \wdata, Q = \mem[340]).
+Adding EN signal on $memory\mem[33]$243 ($dff) from module dmem (D = \wdata, Q = \mem[33]).
+Adding EN signal on $memory\mem[339]$855 ($dff) from module dmem (D = \wdata, Q = \mem[339]).
+Adding EN signal on $memory\mem[338]$853 ($dff) from module dmem (D = \wdata, Q = \mem[338]).
+Adding EN signal on $memory\mem[337]$851 ($dff) from module dmem (D = \wdata, Q = \mem[337]).
+Adding EN signal on $memory\mem[336]$849 ($dff) from module dmem (D = \wdata, Q = \mem[336]).
+Adding EN signal on $memory\mem[335]$847 ($dff) from module dmem (D = \wdata, Q = \mem[335]).
+Adding EN signal on $memory\mem[334]$845 ($dff) from module dmem (D = \wdata, Q = \mem[334]).
+Adding EN signal on $memory\mem[333]$843 ($dff) from module dmem (D = \wdata, Q = \mem[333]).
+Adding EN signal on $memory\mem[332]$841 ($dff) from module dmem (D = \wdata, Q = \mem[332]).
+Adding EN signal on $memory\mem[331]$839 ($dff) from module dmem (D = \wdata, Q = \mem[331]).
+Adding EN signal on $memory\mem[330]$837 ($dff) from module dmem (D = \wdata, Q = \mem[330]).
+Adding EN signal on $memory\mem[32]$241 ($dff) from module dmem (D = \wdata, Q = \mem[32]).
+Adding EN signal on $memory\mem[329]$835 ($dff) from module dmem (D = \wdata, Q = \mem[329]).
+Adding EN signal on $memory\mem[328]$833 ($dff) from module dmem (D = \wdata, Q = \mem[328]).
+Adding EN signal on $memory\mem[327]$831 ($dff) from module dmem (D = \wdata, Q = \mem[327]).
+Adding EN signal on $memory\mem[326]$829 ($dff) from module dmem (D = \wdata, Q = \mem[326]).
+Adding EN signal on $memory\mem[325]$827 ($dff) from module dmem (D = \wdata, Q = \mem[325]).
+Adding EN signal on $memory\mem[324]$825 ($dff) from module dmem (D = \wdata, Q = \mem[324]).
+Adding EN signal on $memory\mem[323]$823 ($dff) from module dmem (D = \wdata, Q = \mem[323]).
+Adding EN signal on $memory\mem[322]$821 ($dff) from module dmem (D = \wdata, Q = \mem[322]).
+Adding EN signal on $memory\mem[321]$819 ($dff) from module dmem (D = \wdata, Q = \mem[321]).
+Adding EN signal on $memory\mem[320]$817 ($dff) from module dmem (D = \wdata, Q = \mem[320]).
+Adding EN signal on $memory\mem[31]$239 ($dff) from module dmem (D = \wdata, Q = \mem[31]).
+Adding EN signal on $memory\mem[319]$815 ($dff) from module dmem (D = \wdata, Q = \mem[319]).
+Adding EN signal on $memory\mem[318]$813 ($dff) from module dmem (D = \wdata, Q = \mem[318]).
+Adding EN signal on $memory\mem[317]$811 ($dff) from module dmem (D = \wdata, Q = \mem[317]).
+Adding EN signal on $memory\mem[316]$809 ($dff) from module dmem (D = \wdata, Q = \mem[316]).
+Adding EN signal on $memory\mem[315]$807 ($dff) from module dmem (D = \wdata, Q = \mem[315]).
+Adding EN signal on $memory\mem[314]$805 ($dff) from module dmem (D = \wdata, Q = \mem[314]).
+Adding EN signal on $memory\mem[313]$803 ($dff) from module dmem (D = \wdata, Q = \mem[313]).
+Adding EN signal on $memory\mem[312]$801 ($dff) from module dmem (D = \wdata, Q = \mem[312]).
+Adding EN signal on $memory\mem[311]$799 ($dff) from module dmem (D = \wdata, Q = \mem[311]).
+Adding EN signal on $memory\mem[310]$797 ($dff) from module dmem (D = \wdata, Q = \mem[310]).
+Adding EN signal on $memory\mem[30]$237 ($dff) from module dmem (D = \wdata, Q = \mem[30]).
+Adding EN signal on $memory\mem[309]$795 ($dff) from module dmem (D = \wdata, Q = \mem[309]).
+Adding EN signal on $memory\mem[308]$793 ($dff) from module dmem (D = \wdata, Q = \mem[308]).
+Adding EN signal on $memory\mem[307]$791 ($dff) from module dmem (D = \wdata, Q = \mem[307]).
+Adding EN signal on $memory\mem[306]$789 ($dff) from module dmem (D = \wdata, Q = \mem[306]).
+Adding EN signal on $memory\mem[305]$787 ($dff) from module dmem (D = \wdata, Q = \mem[305]).
+Adding EN signal on $memory\mem[304]$785 ($dff) from module dmem (D = \wdata, Q = \mem[304]).
+Adding EN signal on $memory\mem[303]$783 ($dff) from module dmem (D = \wdata, Q = \mem[303]).
+Adding EN signal on $memory\mem[302]$781 ($dff) from module dmem (D = \wdata, Q = \mem[302]).
+Adding EN signal on $memory\mem[301]$779 ($dff) from module dmem (D = \wdata, Q = \mem[301]).
+Adding EN signal on $memory\mem[300]$777 ($dff) from module dmem (D = \wdata, Q = \mem[300]).
+Adding EN signal on $memory\mem[2]$181 ($dff) from module dmem (D = \wdata, Q = \mem[2]).
+Adding EN signal on $memory\mem[29]$235 ($dff) from module dmem (D = \wdata, Q = \mem[29]).
+Adding EN signal on $memory\mem[299]$775 ($dff) from module dmem (D = \wdata, Q = \mem[299]).
+Adding EN signal on $memory\mem[298]$773 ($dff) from module dmem (D = \wdata, Q = \mem[298]).
+Adding EN signal on $memory\mem[297]$771 ($dff) from module dmem (D = \wdata, Q = \mem[297]).
+Adding EN signal on $memory\mem[296]$769 ($dff) from module dmem (D = \wdata, Q = \mem[296]).
+Adding EN signal on $memory\mem[295]$767 ($dff) from module dmem (D = \wdata, Q = \mem[295]).
+Adding EN signal on $memory\mem[294]$765 ($dff) from module dmem (D = \wdata, Q = \mem[294]).
+Adding EN signal on $memory\mem[293]$763 ($dff) from module dmem (D = \wdata, Q = \mem[293]).
+Adding EN signal on $memory\mem[292]$761 ($dff) from module dmem (D = \wdata, Q = \mem[292]).
+Adding EN signal on $memory\mem[291]$759 ($dff) from module dmem (D = \wdata, Q = \mem[291]).
+Adding EN signal on $memory\mem[290]$757 ($dff) from module dmem (D = \wdata, Q = \mem[290]).
+Adding EN signal on $memory\mem[28]$233 ($dff) from module dmem (D = \wdata, Q = \mem[28]).
+Adding EN signal on $memory\mem[289]$755 ($dff) from module dmem (D = \wdata, Q = \mem[289]).
+Adding EN signal on $memory\mem[288]$753 ($dff) from module dmem (D = \wdata, Q = \mem[288]).
+Adding EN signal on $memory\mem[287]$751 ($dff) from module dmem (D = \wdata, Q = \mem[287]).
+Adding EN signal on $memory\mem[286]$749 ($dff) from module dmem (D = \wdata, Q = \mem[286]).
+Adding EN signal on $memory\mem[285]$747 ($dff) from module dmem (D = \wdata, Q = \mem[285]).
+Adding EN signal on $memory\mem[284]$745 ($dff) from module dmem (D = \wdata, Q = \mem[284]).
+Adding EN signal on $memory\mem[283]$743 ($dff) from module dmem (D = \wdata, Q = \mem[283]).
+Adding EN signal on $memory\mem[282]$741 ($dff) from module dmem (D = \wdata, Q = \mem[282]).
+Adding EN signal on $memory\mem[281]$739 ($dff) from module dmem (D = \wdata, Q = \mem[281]).
+Adding EN signal on $memory\mem[280]$737 ($dff) from module dmem (D = \wdata, Q = \mem[280]).
+Adding EN signal on $memory\mem[27]$231 ($dff) from module dmem (D = \wdata, Q = \mem[27]).
+Adding EN signal on $memory\mem[279]$735 ($dff) from module dmem (D = \wdata, Q = \mem[279]).
+Adding EN signal on $memory\mem[278]$733 ($dff) from module dmem (D = \wdata, Q = \mem[278]).
+Adding EN signal on $memory\mem[277]$731 ($dff) from module dmem (D = \wdata, Q = \mem[277]).
+Adding EN signal on $memory\mem[276]$729 ($dff) from module dmem (D = \wdata, Q = \mem[276]).
+Adding EN signal on $memory\mem[275]$727 ($dff) from module dmem (D = \wdata, Q = \mem[275]).
+Adding EN signal on $memory\mem[274]$725 ($dff) from module dmem (D = \wdata, Q = \mem[274]).
+Adding EN signal on $memory\mem[273]$723 ($dff) from module dmem (D = \wdata, Q = \mem[273]).
+Adding EN signal on $memory\mem[272]$721 ($dff) from module dmem (D = \wdata, Q = \mem[272]).
+Adding EN signal on $memory\mem[271]$719 ($dff) from module dmem (D = \wdata, Q = \mem[271]).
+Adding EN signal on $memory\mem[270]$717 ($dff) from module dmem (D = \wdata, Q = \mem[270]).
+Adding EN signal on $memory\mem[26]$229 ($dff) from module dmem (D = \wdata, Q = \mem[26]).
+Adding EN signal on $memory\mem[269]$715 ($dff) from module dmem (D = \wdata, Q = \mem[269]).
+Adding EN signal on $memory\mem[268]$713 ($dff) from module dmem (D = \wdata, Q = \mem[268]).
+Adding EN signal on $memory\mem[267]$711 ($dff) from module dmem (D = \wdata, Q = \mem[267]).
+Adding EN signal on $memory\mem[266]$709 ($dff) from module dmem (D = \wdata, Q = \mem[266]).
+Adding EN signal on $memory\mem[265]$707 ($dff) from module dmem (D = \wdata, Q = \mem[265]).
+Adding EN signal on $memory\mem[264]$705 ($dff) from module dmem (D = \wdata, Q = \mem[264]).
+Adding EN signal on $memory\mem[263]$703 ($dff) from module dmem (D = \wdata, Q = \mem[263]).
+Adding EN signal on $memory\mem[262]$701 ($dff) from module dmem (D = \wdata, Q = \mem[262]).
+Adding EN signal on $memory\mem[261]$699 ($dff) from module dmem (D = \wdata, Q = \mem[261]).
+Adding EN signal on $memory\mem[260]$697 ($dff) from module dmem (D = \wdata, Q = \mem[260]).
+Adding EN signal on $memory\mem[25]$227 ($dff) from module dmem (D = \wdata, Q = \mem[25]).
+Adding EN signal on $memory\mem[259]$695 ($dff) from module dmem (D = \wdata, Q = \mem[259]).
+Adding EN signal on $memory\mem[258]$693 ($dff) from module dmem (D = \wdata, Q = \mem[258]).
+Adding EN signal on $memory\mem[257]$691 ($dff) from module dmem (D = \wdata, Q = \mem[257]).
+Adding EN signal on $memory\mem[256]$689 ($dff) from module dmem (D = \wdata, Q = \mem[256]).
+Adding EN signal on $memory\mem[255]$687 ($dff) from module dmem (D = \wdata, Q = \mem[255]).
+Adding EN signal on $memory\mem[254]$685 ($dff) from module dmem (D = \wdata, Q = \mem[254]).
+Adding EN signal on $memory\mem[253]$683 ($dff) from module dmem (D = \wdata, Q = \mem[253]).
+Adding EN signal on $memory\mem[252]$681 ($dff) from module dmem (D = \wdata, Q = \mem[252]).
+Adding EN signal on $memory\mem[251]$679 ($dff) from module dmem (D = \wdata, Q = \mem[251]).
+Adding EN signal on $memory\mem[250]$677 ($dff) from module dmem (D = \wdata, Q = \mem[250]).
+Adding EN signal on $memory\mem[24]$225 ($dff) from module dmem (D = \wdata, Q = \mem[24]).
+Adding EN signal on $memory\mem[249]$675 ($dff) from module dmem (D = \wdata, Q = \mem[249]).
+Adding EN signal on $memory\mem[248]$673 ($dff) from module dmem (D = \wdata, Q = \mem[248]).
+Adding EN signal on $memory\mem[247]$671 ($dff) from module dmem (D = \wdata, Q = \mem[247]).
+Adding EN signal on $memory\mem[246]$669 ($dff) from module dmem (D = \wdata, Q = \mem[246]).
+Adding EN signal on $memory\mem[245]$667 ($dff) from module dmem (D = \wdata, Q = \mem[245]).
+Adding EN signal on $memory\mem[244]$665 ($dff) from module dmem (D = \wdata, Q = \mem[244]).
+Adding EN signal on $memory\mem[243]$663 ($dff) from module dmem (D = \wdata, Q = \mem[243]).
+Adding EN signal on $memory\mem[242]$661 ($dff) from module dmem (D = \wdata, Q = \mem[242]).
+Adding EN signal on $memory\mem[241]$659 ($dff) from module dmem (D = \wdata, Q = \mem[241]).
+Adding EN signal on $memory\mem[240]$657 ($dff) from module dmem (D = \wdata, Q = \mem[240]).
+Adding EN signal on $memory\mem[23]$223 ($dff) from module dmem (D = \wdata, Q = \mem[23]).
+Adding EN signal on $memory\mem[239]$655 ($dff) from module dmem (D = \wdata, Q = \mem[239]).
+Adding EN signal on $memory\mem[238]$653 ($dff) from module dmem (D = \wdata, Q = \mem[238]).
+Adding EN signal on $memory\mem[237]$651 ($dff) from module dmem (D = \wdata, Q = \mem[237]).
+Adding EN signal on $memory\mem[236]$649 ($dff) from module dmem (D = \wdata, Q = \mem[236]).
+Adding EN signal on $memory\mem[235]$647 ($dff) from module dmem (D = \wdata, Q = \mem[235]).
+Adding EN signal on $memory\mem[234]$645 ($dff) from module dmem (D = \wdata, Q = \mem[234]).
+Adding EN signal on $memory\mem[233]$643 ($dff) from module dmem (D = \wdata, Q = \mem[233]).
+Adding EN signal on $memory\mem[232]$641 ($dff) from module dmem (D = \wdata, Q = \mem[232]).
+Adding EN signal on $memory\mem[231]$639 ($dff) from module dmem (D = \wdata, Q = \mem[231]).
+Adding EN signal on $memory\mem[230]$637 ($dff) from module dmem (D = \wdata, Q = \mem[230]).
+Adding EN signal on $memory\mem[22]$221 ($dff) from module dmem (D = \wdata, Q = \mem[22]).
+Adding EN signal on $memory\mem[229]$635 ($dff) from module dmem (D = \wdata, Q = \mem[229]).
+Adding EN signal on $memory\mem[228]$633 ($dff) from module dmem (D = \wdata, Q = \mem[228]).
+Adding EN signal on $memory\mem[227]$631 ($dff) from module dmem (D = \wdata, Q = \mem[227]).
+Adding EN signal on $memory\mem[226]$629 ($dff) from module dmem (D = \wdata, Q = \mem[226]).
+Adding EN signal on $memory\mem[225]$627 ($dff) from module dmem (D = \wdata, Q = \mem[225]).
+Adding EN signal on $memory\mem[224]$625 ($dff) from module dmem (D = \wdata, Q = \mem[224]).
+Adding EN signal on $memory\mem[223]$623 ($dff) from module dmem (D = \wdata, Q = \mem[223]).
+Adding EN signal on $memory\mem[222]$621 ($dff) from module dmem (D = \wdata, Q = \mem[222]).
+Adding EN signal on $memory\mem[221]$619 ($dff) from module dmem (D = \wdata, Q = \mem[221]).
+Adding EN signal on $memory\mem[220]$617 ($dff) from module dmem (D = \wdata, Q = \mem[220]).
+Adding EN signal on $memory\mem[21]$219 ($dff) from module dmem (D = \wdata, Q = \mem[21]).
+Adding EN signal on $memory\mem[219]$615 ($dff) from module dmem (D = \wdata, Q = \mem[219]).
+Adding EN signal on $memory\mem[218]$613 ($dff) from module dmem (D = \wdata, Q = \mem[218]).
+Adding EN signal on $memory\mem[217]$611 ($dff) from module dmem (D = \wdata, Q = \mem[217]).
+Adding EN signal on $memory\mem[216]$609 ($dff) from module dmem (D = \wdata, Q = \mem[216]).
+Adding EN signal on $memory\mem[215]$607 ($dff) from module dmem (D = \wdata, Q = \mem[215]).
+Adding EN signal on $memory\mem[214]$605 ($dff) from module dmem (D = \wdata, Q = \mem[214]).
+Adding EN signal on $memory\mem[213]$603 ($dff) from module dmem (D = \wdata, Q = \mem[213]).
+Adding EN signal on $memory\mem[212]$601 ($dff) from module dmem (D = \wdata, Q = \mem[212]).
+Adding EN signal on $memory\mem[211]$599 ($dff) from module dmem (D = \wdata, Q = \mem[211]).
+Adding EN signal on $memory\mem[210]$597 ($dff) from module dmem (D = \wdata, Q = \mem[210]).
+Adding EN signal on $memory\mem[20]$217 ($dff) from module dmem (D = \wdata, Q = \mem[20]).
+Adding EN signal on $memory\mem[209]$595 ($dff) from module dmem (D = \wdata, Q = \mem[209]).
+Adding EN signal on $memory\mem[208]$593 ($dff) from module dmem (D = \wdata, Q = \mem[208]).
+Adding EN signal on $memory\mem[207]$591 ($dff) from module dmem (D = \wdata, Q = \mem[207]).
+Adding EN signal on $memory\mem[206]$589 ($dff) from module dmem (D = \wdata, Q = \mem[206]).
+Adding EN signal on $memory\mem[205]$587 ($dff) from module dmem (D = \wdata, Q = \mem[205]).
+Adding EN signal on $memory\mem[204]$585 ($dff) from module dmem (D = \wdata, Q = \mem[204]).
+Adding EN signal on $memory\mem[203]$583 ($dff) from module dmem (D = \wdata, Q = \mem[203]).
+Adding EN signal on $memory\mem[202]$581 ($dff) from module dmem (D = \wdata, Q = \mem[202]).
+Adding EN signal on $memory\mem[201]$579 ($dff) from module dmem (D = \wdata, Q = \mem[201]).
+Adding EN signal on $memory\mem[200]$577 ($dff) from module dmem (D = \wdata, Q = \mem[200]).
+Adding EN signal on $memory\mem[1]$179 ($dff) from module dmem (D = \wdata, Q = \mem[1]).
+Adding EN signal on $memory\mem[19]$215 ($dff) from module dmem (D = \wdata, Q = \mem[19]).
+Adding EN signal on $memory\mem[199]$575 ($dff) from module dmem (D = \wdata, Q = \mem[199]).
+Adding EN signal on $memory\mem[198]$573 ($dff) from module dmem (D = \wdata, Q = \mem[198]).
+Adding EN signal on $memory\mem[197]$571 ($dff) from module dmem (D = \wdata, Q = \mem[197]).
+Adding EN signal on $memory\mem[196]$569 ($dff) from module dmem (D = \wdata, Q = \mem[196]).
+Adding EN signal on $memory\mem[195]$567 ($dff) from module dmem (D = \wdata, Q = \mem[195]).
+Adding EN signal on $memory\mem[194]$565 ($dff) from module dmem (D = \wdata, Q = \mem[194]).
+Adding EN signal on $memory\mem[193]$563 ($dff) from module dmem (D = \wdata, Q = \mem[193]).
+Adding EN signal on $memory\mem[192]$561 ($dff) from module dmem (D = \wdata, Q = \mem[192]).
+Adding EN signal on $memory\mem[191]$559 ($dff) from module dmem (D = \wdata, Q = \mem[191]).
+Adding EN signal on $memory\mem[190]$557 ($dff) from module dmem (D = \wdata, Q = \mem[190]).
+Adding EN signal on $memory\mem[18]$213 ($dff) from module dmem (D = \wdata, Q = \mem[18]).
+Adding EN signal on $memory\mem[189]$555 ($dff) from module dmem (D = \wdata, Q = \mem[189]).
+Adding EN signal on $memory\mem[188]$553 ($dff) from module dmem (D = \wdata, Q = \mem[188]).
+Adding EN signal on $memory\mem[187]$551 ($dff) from module dmem (D = \wdata, Q = \mem[187]).
+Adding EN signal on $memory\mem[186]$549 ($dff) from module dmem (D = \wdata, Q = \mem[186]).
+Adding EN signal on $memory\mem[185]$547 ($dff) from module dmem (D = \wdata, Q = \mem[185]).
+Adding EN signal on $memory\mem[184]$545 ($dff) from module dmem (D = \wdata, Q = \mem[184]).
+Adding EN signal on $memory\mem[183]$543 ($dff) from module dmem (D = \wdata, Q = \mem[183]).
+Adding EN signal on $memory\mem[182]$541 ($dff) from module dmem (D = \wdata, Q = \mem[182]).
+Adding EN signal on $memory\mem[181]$539 ($dff) from module dmem (D = \wdata, Q = \mem[181]).
+Adding EN signal on $memory\mem[180]$537 ($dff) from module dmem (D = \wdata, Q = \mem[180]).
+Adding EN signal on $memory\mem[17]$211 ($dff) from module dmem (D = \wdata, Q = \mem[17]).
+Adding EN signal on $memory\mem[179]$535 ($dff) from module dmem (D = \wdata, Q = \mem[179]).
+Adding EN signal on $memory\mem[178]$533 ($dff) from module dmem (D = \wdata, Q = \mem[178]).
+Adding EN signal on $memory\mem[177]$531 ($dff) from module dmem (D = \wdata, Q = \mem[177]).
+Adding EN signal on $memory\mem[176]$529 ($dff) from module dmem (D = \wdata, Q = \mem[176]).
+Adding EN signal on $memory\mem[175]$527 ($dff) from module dmem (D = \wdata, Q = \mem[175]).
+Adding EN signal on $memory\mem[174]$525 ($dff) from module dmem (D = \wdata, Q = \mem[174]).
+Adding EN signal on $memory\mem[173]$523 ($dff) from module dmem (D = \wdata, Q = \mem[173]).
+Adding EN signal on $memory\mem[172]$521 ($dff) from module dmem (D = \wdata, Q = \mem[172]).
+Adding EN signal on $memory\mem[171]$519 ($dff) from module dmem (D = \wdata, Q = \mem[171]).
+Adding EN signal on $memory\mem[170]$517 ($dff) from module dmem (D = \wdata, Q = \mem[170]).
+Adding EN signal on $memory\mem[16]$209 ($dff) from module dmem (D = \wdata, Q = \mem[16]).
+Adding EN signal on $memory\mem[169]$515 ($dff) from module dmem (D = \wdata, Q = \mem[169]).
+Adding EN signal on $memory\mem[168]$513 ($dff) from module dmem (D = \wdata, Q = \mem[168]).
+Adding EN signal on $memory\mem[167]$511 ($dff) from module dmem (D = \wdata, Q = \mem[167]).
+Adding EN signal on $memory\mem[166]$509 ($dff) from module dmem (D = \wdata, Q = \mem[166]).
+Adding EN signal on $memory\mem[165]$507 ($dff) from module dmem (D = \wdata, Q = \mem[165]).
+Adding EN signal on $memory\mem[164]$505 ($dff) from module dmem (D = \wdata, Q = \mem[164]).
+Adding EN signal on $memory\mem[163]$503 ($dff) from module dmem (D = \wdata, Q = \mem[163]).
+Adding EN signal on $memory\mem[162]$501 ($dff) from module dmem (D = \wdata, Q = \mem[162]).
+Adding EN signal on $memory\mem[161]$499 ($dff) from module dmem (D = \wdata, Q = \mem[161]).
+Adding EN signal on $memory\mem[160]$497 ($dff) from module dmem (D = \wdata, Q = \mem[160]).
+Adding EN signal on $memory\mem[15]$207 ($dff) from module dmem (D = \wdata, Q = \mem[15]).
+Adding EN signal on $memory\mem[159]$495 ($dff) from module dmem (D = \wdata, Q = \mem[159]).
+Adding EN signal on $memory\mem[158]$493 ($dff) from module dmem (D = \wdata, Q = \mem[158]).
+Adding EN signal on $memory\mem[157]$491 ($dff) from module dmem (D = \wdata, Q = \mem[157]).
+Adding EN signal on $memory\mem[156]$489 ($dff) from module dmem (D = \wdata, Q = \mem[156]).
+Adding EN signal on $memory\mem[155]$487 ($dff) from module dmem (D = \wdata, Q = \mem[155]).
+Adding EN signal on $memory\mem[154]$485 ($dff) from module dmem (D = \wdata, Q = \mem[154]).
+Adding EN signal on $memory\mem[153]$483 ($dff) from module dmem (D = \wdata, Q = \mem[153]).
+Adding EN signal on $memory\mem[152]$481 ($dff) from module dmem (D = \wdata, Q = \mem[152]).
+Adding EN signal on $memory\mem[151]$479 ($dff) from module dmem (D = \wdata, Q = \mem[151]).
+Adding EN signal on $memory\mem[150]$477 ($dff) from module dmem (D = \wdata, Q = \mem[150]).
+Adding EN signal on $memory\mem[14]$205 ($dff) from module dmem (D = \wdata, Q = \mem[14]).
+Adding EN signal on $memory\mem[149]$475 ($dff) from module dmem (D = \wdata, Q = \mem[149]).
+Adding EN signal on $memory\mem[148]$473 ($dff) from module dmem (D = \wdata, Q = \mem[148]).
+Adding EN signal on $memory\mem[147]$471 ($dff) from module dmem (D = \wdata, Q = \mem[147]).
+Adding EN signal on $memory\mem[146]$469 ($dff) from module dmem (D = \wdata, Q = \mem[146]).
+Adding EN signal on $memory\mem[145]$467 ($dff) from module dmem (D = \wdata, Q = \mem[145]).
+Adding EN signal on $memory\mem[144]$465 ($dff) from module dmem (D = \wdata, Q = \mem[144]).
+Adding EN signal on $memory\mem[143]$463 ($dff) from module dmem (D = \wdata, Q = \mem[143]).
+Adding EN signal on $memory\mem[142]$461 ($dff) from module dmem (D = \wdata, Q = \mem[142]).
+Adding EN signal on $memory\mem[141]$459 ($dff) from module dmem (D = \wdata, Q = \mem[141]).
+Adding EN signal on $memory\mem[140]$457 ($dff) from module dmem (D = \wdata, Q = \mem[140]).
+Adding EN signal on $memory\mem[13]$203 ($dff) from module dmem (D = \wdata, Q = \mem[13]).
+Adding EN signal on $memory\mem[139]$455 ($dff) from module dmem (D = \wdata, Q = \mem[139]).
+Adding EN signal on $memory\mem[138]$453 ($dff) from module dmem (D = \wdata, Q = \mem[138]).
+Adding EN signal on $memory\mem[137]$451 ($dff) from module dmem (D = \wdata, Q = \mem[137]).
+Adding EN signal on $memory\mem[136]$449 ($dff) from module dmem (D = \wdata, Q = \mem[136]).
+Adding EN signal on $memory\mem[135]$447 ($dff) from module dmem (D = \wdata, Q = \mem[135]).
+Adding EN signal on $memory\mem[134]$445 ($dff) from module dmem (D = \wdata, Q = \mem[134]).
+Adding EN signal on $memory\mem[133]$443 ($dff) from module dmem (D = \wdata, Q = \mem[133]).
+Adding EN signal on $memory\mem[132]$441 ($dff) from module dmem (D = \wdata, Q = \mem[132]).
+Adding EN signal on $memory\mem[131]$439 ($dff) from module dmem (D = \wdata, Q = \mem[131]).
+Adding EN signal on $memory\mem[130]$437 ($dff) from module dmem (D = \wdata, Q = \mem[130]).
+Adding EN signal on $memory\mem[12]$201 ($dff) from module dmem (D = \wdata, Q = \mem[12]).
+Adding EN signal on $memory\mem[129]$435 ($dff) from module dmem (D = \wdata, Q = \mem[129]).
+Adding EN signal on $memory\mem[128]$433 ($dff) from module dmem (D = \wdata, Q = \mem[128]).
+Adding EN signal on $memory\mem[127]$431 ($dff) from module dmem (D = \wdata, Q = \mem[127]).
+Adding EN signal on $memory\mem[126]$429 ($dff) from module dmem (D = \wdata, Q = \mem[126]).
+Adding EN signal on $memory\mem[125]$427 ($dff) from module dmem (D = \wdata, Q = \mem[125]).
+Adding EN signal on $memory\mem[124]$425 ($dff) from module dmem (D = \wdata, Q = \mem[124]).
+Adding EN signal on $memory\mem[123]$423 ($dff) from module dmem (D = \wdata, Q = \mem[123]).
+Adding EN signal on $memory\mem[122]$421 ($dff) from module dmem (D = \wdata, Q = \mem[122]).
+Adding EN signal on $memory\mem[121]$419 ($dff) from module dmem (D = \wdata, Q = \mem[121]).
+Adding EN signal on $memory\mem[120]$417 ($dff) from module dmem (D = \wdata, Q = \mem[120]).
+Adding EN signal on $memory\mem[11]$199 ($dff) from module dmem (D = \wdata, Q = \mem[11]).
+Adding EN signal on $memory\mem[119]$415 ($dff) from module dmem (D = \wdata, Q = \mem[119]).
+Adding EN signal on $memory\mem[118]$413 ($dff) from module dmem (D = \wdata, Q = \mem[118]).
+Adding EN signal on $memory\mem[117]$411 ($dff) from module dmem (D = \wdata, Q = \mem[117]).
+Adding EN signal on $memory\mem[116]$409 ($dff) from module dmem (D = \wdata, Q = \mem[116]).
+Adding EN signal on $memory\mem[115]$407 ($dff) from module dmem (D = \wdata, Q = \mem[115]).
+Adding EN signal on $memory\mem[114]$405 ($dff) from module dmem (D = \wdata, Q = \mem[114]).
+Adding EN signal on $memory\mem[113]$403 ($dff) from module dmem (D = \wdata, Q = \mem[113]).
+Adding EN signal on $memory\mem[112]$401 ($dff) from module dmem (D = \wdata, Q = \mem[112]).
+Adding EN signal on $memory\mem[111]$399 ($dff) from module dmem (D = \wdata, Q = \mem[111]).
+Adding EN signal on $memory\mem[110]$397 ($dff) from module dmem (D = \wdata, Q = \mem[110]).
+Adding EN signal on $memory\mem[10]$197 ($dff) from module dmem (D = \wdata, Q = \mem[10]).
+Adding EN signal on $memory\mem[109]$395 ($dff) from module dmem (D = \wdata, Q = \mem[109]).
+Adding EN signal on $memory\mem[108]$393 ($dff) from module dmem (D = \wdata, Q = \mem[108]).
+Adding EN signal on $memory\mem[107]$391 ($dff) from module dmem (D = \wdata, Q = \mem[107]).
+Adding EN signal on $memory\mem[106]$389 ($dff) from module dmem (D = \wdata, Q = \mem[106]).
+Adding EN signal on $memory\mem[105]$387 ($dff) from module dmem (D = \wdata, Q = \mem[105]).
+Adding EN signal on $memory\mem[104]$385 ($dff) from module dmem (D = \wdata, Q = \mem[104]).
+Adding EN signal on $memory\mem[103]$383 ($dff) from module dmem (D = \wdata, Q = \mem[103]).
+Adding EN signal on $memory\mem[102]$381 ($dff) from module dmem (D = \wdata, Q = \mem[102]).
+Adding EN signal on $memory\mem[1023]$2223 ($dff) from module dmem (D = \wdata, Q = \mem[1023]).
+Adding EN signal on $memory\mem[1022]$2221 ($dff) from module dmem (D = \wdata, Q = \mem[1022]).
+Adding EN signal on $memory\mem[1021]$2219 ($dff) from module dmem (D = \wdata, Q = \mem[1021]).
+Adding EN signal on $memory\mem[1020]$2217 ($dff) from module dmem (D = \wdata, Q = \mem[1020]).
+Adding EN signal on $memory\mem[101]$379 ($dff) from module dmem (D = \wdata, Q = \mem[101]).
+Adding EN signal on $memory\mem[1019]$2215 ($dff) from module dmem (D = \wdata, Q = \mem[1019]).
+Adding EN signal on $memory\mem[1018]$2213 ($dff) from module dmem (D = \wdata, Q = \mem[1018]).
+Adding EN signal on $memory\mem[1017]$2211 ($dff) from module dmem (D = \wdata, Q = \mem[1017]).
+Adding EN signal on $memory\mem[1016]$2209 ($dff) from module dmem (D = \wdata, Q = \mem[1016]).
+Adding EN signal on $memory\mem[1015]$2207 ($dff) from module dmem (D = \wdata, Q = \mem[1015]).
+Adding EN signal on $memory\mem[1014]$2205 ($dff) from module dmem (D = \wdata, Q = \mem[1014]).
+Adding EN signal on $memory\mem[1013]$2203 ($dff) from module dmem (D = \wdata, Q = \mem[1013]).
+Adding EN signal on $memory\mem[1012]$2201 ($dff) from module dmem (D = \wdata, Q = \mem[1012]).
+Adding EN signal on $memory\mem[1011]$2199 ($dff) from module dmem (D = \wdata, Q = \mem[1011]).
+Adding EN signal on $memory\mem[1010]$2197 ($dff) from module dmem (D = \wdata, Q = \mem[1010]).
+Adding EN signal on $memory\mem[100]$377 ($dff) from module dmem (D = \wdata, Q = \mem[100]).
+Adding EN signal on $memory\mem[1009]$2195 ($dff) from module dmem (D = \wdata, Q = \mem[1009]).
+Adding EN signal on $memory\mem[1008]$2193 ($dff) from module dmem (D = \wdata, Q = \mem[1008]).
+Adding EN signal on $memory\mem[1007]$2191 ($dff) from module dmem (D = \wdata, Q = \mem[1007]).
+Adding EN signal on $memory\mem[1006]$2189 ($dff) from module dmem (D = \wdata, Q = \mem[1006]).
+Adding EN signal on $memory\mem[1005]$2187 ($dff) from module dmem (D = \wdata, Q = \mem[1005]).
+Adding EN signal on $memory\mem[1004]$2185 ($dff) from module dmem (D = \wdata, Q = \mem[1004]).
+Adding EN signal on $memory\mem[1003]$2183 ($dff) from module dmem (D = \wdata, Q = \mem[1003]).
+Adding EN signal on $memory\mem[1002]$2181 ($dff) from module dmem (D = \wdata, Q = \mem[1002]).
+Adding EN signal on $memory\mem[1001]$2179 ($dff) from module dmem (D = \wdata, Q = \mem[1001]).
+Adding EN signal on $memory\mem[1000]$2177 ($dff) from module dmem (D = \wdata, Q = \mem[1000]).
+Adding EN signal on $memory\mem[0]$177 ($dff) from module dmem (D = \wdata, Q = \mem[0]).
+
+14.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+Removed 1024 unused cells and 1024 unused wires.
+<suppressed ~1025 debug messages>
+
+14.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+14.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dmem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+14.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dmem.
+Performed a total of 0 changes.
+
+14.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.19.22. Executing OPT_SHARE pass.
+
+14.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.19.26. Finished OPT passes. (There is nothing left to do.)
+
+14.20. Executing TECHMAP pass (map to technology primitives).
+
+14.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+14.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~4276 debug messages>
+
+14.21. Executing OPT pass (performing simple optimizations).
+
+14.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+
+14.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+
+14.21.5. Finished fast OPT passes.
+
+14.22. Executing ABC pass (technology mapping using ABC).
+
+14.22.1. Extracting gate netlist of module `\dmem' to `<abc-temp-dir>/input.blif'..
+Extracted 34890 gates and 67669 wires to a netlist network with 32779 inputs and 1056 outputs.
+
+14.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+14.22.1.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:     1024
+ABC RESULTS:               MUX cells:    32736
+ABC RESULTS:              NAND cells:        4
+ABC RESULTS:               NOT cells:        9
+ABC RESULTS:                OR cells:     1108
+ABC RESULTS:             ORNOT cells:        8
+ABC RESULTS:        internal signals:    33834
+ABC RESULTS:           input signals:    32779
+ABC RESULTS:          output signals:     1056
+Removing temp directory.
+
+14.23. Executing OPT pass (performing simple optimizations).
+
+14.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dmem.
+<suppressed ~16352 debug messages>
+
+14.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dmem'.
+Removed a total of 0 cells.
+
+14.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dmem..
+Removed 7 unused cells and 35994 unused wires.
+<suppressed ~8 debug messages>
+
+14.23.5. Finished fast OPT passes.
+
+14.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `dmem'. Setting top module to dmem.
+
+14.24.1. Analyzing design hierarchy..
+Top module:  \dmem
+
+14.24.2. Analyzing design hierarchy..
+Top module:  \dmem
+Removed 0 unused modules.
+
+14.25. Printing statistics.
+
+=== dmem ===
+
+   Number of wires:              35879
+   Number of wire bits:          67716
+   Number of public wires:        1029
+   Number of public wire bits:   32866
+   Number of ports:                  5
+   Number of port bits:             98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              67650
+     $_ANDNOT_                    1024
+     $_DFFE_PP_                  32768
+     $_MUX_                      32736
+     $_NAND_                         4
+     $_NOT_                          2
+     $_ORNOT_                        8
+     $_OR_                        1108
+
+14.26. Executing CHECK pass (checking for obvious problems).
+Checking module dmem...
+Found and reported 0 problems.
+
+15. Executing LTP pass (find longest path).
+
+Longest topological path in dmem (length=10):
+    0: \mem[9] [31]
+    1: $abc$80429$new_n65565 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112159)
+    2: $abc$80429$new_n65567 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112161)
+    3: $abc$80429$new_n65571 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112165)
+    4: $abc$80429$new_n65572 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112166)
+    5: $abc$80429$new_n65588 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112182)
+    6: $abc$80429$new_n65620 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112214)
+    7: $abc$80429$new_n65684 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112278)
+    8: $abc$80429$new_n65812 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112406)
+    9: $abc$80429$new_n66068 (via $abc$80429$auto$blifparse.cc:396:parse_blif$112662)
+   10: \rdata [31] (via $abc$80429$auto$blifparse.cc:396:parse_blif$113174)
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 3362cfe2db, CPU: user 6.64s system 0.12s, MEM: 235.80 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 25% 1x abc (1 sec), 20% 16x opt_clean (1 sec), ...

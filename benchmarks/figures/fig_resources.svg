@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="380" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="760" height="380" fill="white"/>
+<text x="380.0" y="24" text-anchor="middle" font-size="15" font-weight="bold">Post-synthesis resources (xc7 mapping)</text>
+<line x1="60" y1="44.0" x2="740" y2="44.0" stroke="#ddd"/>
+<text x="54" y="48.0" text-anchor="end" font-size="11" fill="#555">3000</text>
+<line x1="60" y1="110.5" x2="740" y2="110.5" stroke="#ddd"/>
+<text x="54" y="114.5" text-anchor="end" font-size="11" fill="#555">2250</text>
+<line x1="60" y1="177.0" x2="740" y2="177.0" stroke="#ddd"/>
+<text x="54" y="181.0" text-anchor="end" font-size="11" fill="#555">1500</text>
+<line x1="60" y1="243.5" x2="740" y2="243.5" stroke="#ddd"/>
+<text x="54" y="247.5" text-anchor="end" font-size="11" fill="#555">750</text>
+<line x1="60" y1="310.0" x2="740" y2="310.0" stroke="#ddd"/>
+<text x="54" y="314.0" text-anchor="end" font-size="11" fill="#555">0</text>
+<text x="16" y="177.0" font-size="12" fill="#333" transform="rotate(-90 16 177.0)" text-anchor="middle">cells</text>
+<rect x="75.9" y="109.4" width="36.7" height="200.6" fill="#4C6EF5"/>
+<text x="94.2" y="105.4" text-anchor="middle" font-size="10" fill="#333">2262</text>
+<rect x="116.7" y="298.5" width="36.7" height="11.5" fill="#E8590C"/>
+<text x="135.0" y="294.5" text-anchor="middle" font-size="10" fill="#333">130</text>
+<text x="116.7" y="326" text-anchor="middle" font-size="12" fill="#222">core_single</text>
+<rect x="189.2" y="95.4" width="36.7" height="214.6" fill="#4C6EF5"/>
+<text x="207.6" y="91.4" text-anchor="middle" font-size="10" fill="#333">2420</text>
+<rect x="230.0" y="263.9" width="36.7" height="46.1" fill="#E8590C"/>
+<text x="248.4" y="259.9" text-anchor="middle" font-size="10" fill="#333">520</text>
+<text x="230.0" y="326" text-anchor="middle" font-size="12" fill="#222">core_multi</text>
+<rect x="302.5" y="44.0" width="36.7" height="266.0" fill="#4C6EF5"/>
+<text x="320.9" y="40.0" text-anchor="middle" font-size="10" fill="#333">3000</text>
+<rect x="343.3" y="229.8" width="36.7" height="80.2" fill="#E8590C"/>
+<text x="361.7" y="225.8" text-anchor="middle" font-size="10" fill="#333">904</text>
+<text x="343.3" y="326" text-anchor="middle" font-size="12" fill="#222">core_pipe</text>
+<rect x="415.9" y="212.8" width="36.7" height="97.2" fill="#4C6EF5"/>
+<text x="434.2" y="208.8" text-anchor="middle" font-size="10" fill="#333">1096</text>
+<rect x="456.7" y="258.9" width="36.7" height="51.1" fill="#E8590C"/>
+<text x="475.0" y="254.9" text-anchor="middle" font-size="10" fill="#333">576</text>
+<text x="456.7" y="326" text-anchor="middle" font-size="12" fill="#222">dotp</text>
+<rect x="529.2" y="286.9" width="36.7" height="23.1" fill="#4C6EF5"/>
+<text x="547.6" y="282.9" text-anchor="middle" font-size="10" fill="#333">260</text>
+<rect x="570.0" y="288.4" width="36.7" height="21.6" fill="#E8590C"/>
+<text x="588.4" y="284.4" text-anchor="middle" font-size="10" fill="#333">244</text>
+<text x="570.0" y="326" text-anchor="middle" font-size="12" fill="#222">uart</text>
+<rect x="642.5" y="294.2" width="36.7" height="15.8" fill="#4C6EF5"/>
+<text x="660.9" y="290.2" text-anchor="middle" font-size="10" fill="#333">178</text>
+<rect x="683.3" y="298.3" width="36.7" height="11.7" fill="#E8590C"/>
+<text x="701.7" y="294.3" text-anchor="middle" font-size="10" fill="#333">132</text>
+<text x="683.3" y="326" text-anchor="middle" font-size="12" fill="#222">timer</text>
+<rect x="60" y="341" width="12" height="12" fill="#4C6EF5"/>
+<text x="76" y="352" font-size="12" fill="#222">LUTs</text>
+<rect x="118" y="341" width="12" height="12" fill="#E8590C"/>
+<text x="134" y="352" font-size="12" fill="#222">FFs</text>
+</svg>

@@ -1,0 +1,2430 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Executing script file `/dev/stdin' --
+
+1. Executing Verilog-2005 frontend: rtl/core/alu.sv
+Parsing SystemVerilog input from `rtl/core/alu.sv' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/core/regfile.sv
+Parsing SystemVerilog input from `rtl/core/regfile.sv' to AST representation.
+Generating RTLIL representation for module `\regfile'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/core/imm_gen.sv
+Parsing SystemVerilog input from `rtl/core/imm_gen.sv' to AST representation.
+Generating RTLIL representation for module `\imm_gen'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/core/decoder.sv
+Parsing SystemVerilog input from `rtl/core/decoder.sv' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/mem/imem.sv
+Parsing SystemVerilog input from `rtl/mem/imem.sv' to AST representation.
+Generating RTLIL representation for module `\imem'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/mem/dmem.sv
+Parsing SystemVerilog input from `rtl/mem/dmem.sv' to AST representation.
+Generating RTLIL representation for module `\dmem'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/periph/uart_tx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_tx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_tx'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/periph/uart_rx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_rx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_rx'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: rtl/periph/uart.sv
+Parsing SystemVerilog input from `rtl/periph/uart.sv' to AST representation.
+Generating RTLIL representation for module `\uart'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: rtl/periph/timer.sv
+Parsing SystemVerilog input from `rtl/periph/timer.sv' to AST representation.
+Generating RTLIL representation for module `\timer'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: rtl/custom/dotp.sv
+Parsing SystemVerilog input from `rtl/custom/dotp.sv' to AST representation.
+Generating RTLIL representation for module `\dotp'.
+Warning: Replacing memory \b with list of registers. See rtl/custom/dotp.sv:63
+Warning: Replacing memory \a with list of registers. See rtl/custom/dotp.sv:62
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: rtl/core/core_pipe.sv
+Parsing SystemVerilog input from `rtl/core/core_pipe.sv' to AST representation.
+Generating RTLIL representation for module `\core_pipe'.
+Successfully finished Verilog frontend.
+
+13. Executing HIERARCHY pass (managing design hierarchy).
+
+13.1. Analyzing design hierarchy..
+Top module:  \core_pipe
+Used module:     \alu
+Used module:     \regfile
+Used module:     \imm_gen
+Used module:     \decoder
+Parameter \BYPASS = 1'1
+
+13.2. Executing AST frontend in derive mode using pre-parsed AST for module `\regfile'.
+Parameter \BYPASS = 1'1
+Generating RTLIL representation for module `$paramod\regfile\BYPASS=1'1'.
+
+13.3. Analyzing design hierarchy..
+Top module:  \core_pipe
+Used module:     \alu
+Used module:     $paramod\regfile\BYPASS=1'1
+Used module:     \imm_gen
+Used module:     \decoder
+
+13.4. Analyzing design hierarchy..
+Top module:  \core_pipe
+Used module:     \alu
+Used module:     $paramod\regfile\BYPASS=1'1
+Used module:     \imm_gen
+Used module:     \decoder
+Removing unused module `\dotp'.
+Removing unused module `\timer'.
+Removing unused module `\uart'.
+Removing unused module `\uart_rx'.
+Removing unused module `\uart_tx'.
+Removing unused module `\dmem'.
+Removing unused module `\imem'.
+Removing unused module `\regfile'.
+Removed 8 unused modules.
+
+14. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\regfile\BYPASS=1'1.
+Deleting now unused module decoder.
+Deleting now unused module imm_gen.
+Deleting now unused module alu.
+<suppressed ~4 debug messages>
+
+15. Executing SYNTH pass.
+
+15.1. Executing HIERARCHY pass (managing design hierarchy).
+
+15.1.1. Analyzing design hierarchy..
+Top module:  \core_pipe
+
+15.1.2. Analyzing design hierarchy..
+Top module:  \core_pipe
+Removed 0 unused modules.
+
+15.2. Executing PROC pass (convert processes to netlists).
+
+15.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $flatten\u_alu.$proc$rtl/core/alu.sv:0$4 in module core_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_rf.$proc$rtl/core/regfile.sv:32$230 in module core_pipe.
+Marked 4 switch rules as full_case in process $flatten\u_rf.$proc$rtl/core/regfile.sv:0$249 in module core_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39 in module core_pipe.
+Removed 2 dead cases from process $flatten\u_dec.$proc$rtl/core/decoder.sv:0$40 in module core_pipe.
+Marked 24 switch rules as full_case in process $flatten\u_dec.$proc$rtl/core/decoder.sv:0$40 in module core_pipe.
+Marked 4 switch rules as full_case in process $proc$rtl/core/core_pipe.sv:249$226 in module core_pipe.
+Marked 3 switch rules as full_case in process $proc$rtl/core/core_pipe.sv:0$223 in module core_pipe.
+Marked 1 switch rules as full_case in process $proc$rtl/core/core_pipe.sv:0$185 in module core_pipe.
+Marked 1 switch rules as full_case in process $proc$rtl/core/core_pipe.sv:0$183 in module core_pipe.
+Marked 4 switch rules as full_case in process $proc$rtl/core/core_pipe.sv:0$162 in module core_pipe.
+Removed a total of 2 dead cases.
+
+15.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 20 redundant assignments.
+Promoted 24 assignments to connections.
+
+15.2.4. Executing PROC_INIT pass (extract init attributes).
+
+15.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+
+15.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~45 debug messages>
+
+15.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\core_pipe.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+     1/1: $flatten\u_alu.$1\y[31:0]
+Creating decoders for process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$230'.
+     1/3: $flatten\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$238
+     2/3: $flatten\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$229_DATA[31:0]$237
+     3/3: $flatten\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$229_ADDR[4:0]$236
+Creating decoders for process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$249'.
+     1/4: $flatten\u_rf.$2\rdata2[31:0]
+     2/4: $flatten\u_rf.$1\rdata2[31:0]
+     3/4: $flatten\u_rf.$2\rdata1[31:0]
+     4/4: $flatten\u_rf.$1\rdata1[31:0]
+Creating decoders for process `\core_pipe.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+     1/1: $flatten\u_imm.$1\imm[31:0]
+Creating decoders for process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+     1/67: $flatten\u_dec.$3\is_cus[0:0]
+     2/67: $flatten\u_dec.$3\is_mret[0:0]
+     3/67: $flatten\u_dec.$4\br_type[2:0]
+     4/67: $flatten\u_dec.$3\mem_we[0:0]
+     5/67: $flatten\u_dec.$5\reg_we[0:0]
+     6/67: $flatten\u_dec.$2\is_cus[0:0]
+     7/67: $flatten\u_dec.$4\wb_sel[1:0]
+     8/67: $flatten\u_dec.$4\reg_we[0:0]
+     9/67: $flatten\u_dec.$23\illegal[0:0]
+    10/67: $flatten\u_dec.$2\is_mret[0:0]
+    11/67: $flatten\u_dec.$22\illegal[0:0]
+    12/67: $flatten\u_dec.$21\illegal[0:0]
+    13/67: $flatten\u_dec.$20\illegal[0:0]
+    14/67: $flatten\u_dec.$12\alu_op[3:0]
+    15/67: $flatten\u_dec.$19\illegal[0:0]
+    16/67: $flatten\u_dec.$11\alu_op[3:0]
+    17/67: $flatten\u_dec.$18\illegal[0:0]
+    18/67: $flatten\u_dec.$17\illegal[0:0]
+    19/67: $flatten\u_dec.$16\illegal[0:0]
+    20/67: $flatten\u_dec.$15\illegal[0:0]
+    21/67: $flatten\u_dec.$14\illegal[0:0]
+    22/67: $flatten\u_dec.$10\alu_op[3:0]
+    23/67: $flatten\u_dec.$13\illegal[0:0]
+    24/67: $flatten\u_dec.$9\alu_op[3:0]
+    25/67: $flatten\u_dec.$12\illegal[0:0]
+    26/67: $flatten\u_dec.$8\alu_op[3:0]
+    27/67: $flatten\u_dec.$11\illegal[0:0]
+    28/67: $flatten\u_dec.$10\illegal[0:0]
+    29/67: $flatten\u_dec.$7\alu_op[3:0]
+    30/67: $flatten\u_dec.$6\alu_op[3:0]
+    31/67: $flatten\u_dec.$9\illegal[0:0]
+    32/67: $flatten\u_dec.$5\alu_op[3:0]
+    33/67: $flatten\u_dec.$8\illegal[0:0]
+    34/67: $flatten\u_dec.$7\illegal[0:0]
+    35/67: $flatten\u_dec.$4\alu_op[3:0]
+    36/67: $flatten\u_dec.$6\illegal[0:0]
+    37/67: $flatten\u_dec.$4\imm_type[2:0]
+    38/67: $flatten\u_dec.$3\alu_op[3:0]
+    39/67: $flatten\u_dec.$3\alu_b_imm[0:0]
+    40/67: $flatten\u_dec.$2\mem_we[0:0]
+    41/67: $flatten\u_dec.$5\illegal[0:0]
+    42/67: $flatten\u_dec.$3\imm_type[2:0]
+    43/67: $flatten\u_dec.$2\alu_op[3:0]
+    44/67: $flatten\u_dec.$2\alu_b_imm[0:0]
+    45/67: $flatten\u_dec.$3\wb_sel[1:0]
+    46/67: $flatten\u_dec.$3\reg_we[0:0]
+    47/67: $flatten\u_dec.$4\illegal[0:0]
+    48/67: $flatten\u_dec.$3\br_type[2:0]
+    49/67: $flatten\u_dec.$3\illegal[0:0]
+    50/67: $flatten\u_dec.$2\imm_type[2:0]
+    51/67: $flatten\u_dec.$2\jalr[0:0]
+    52/67: $flatten\u_dec.$2\br_type[2:0]
+    53/67: $flatten\u_dec.$2\wb_sel[1:0]
+    54/67: $flatten\u_dec.$2\reg_we[0:0]
+    55/67: $flatten\u_dec.$2\illegal[0:0]
+    56/67: $flatten\u_dec.$1\imm_type[2:0]
+    57/67: $flatten\u_dec.$1\alu_op[3:0]
+    58/67: $flatten\u_dec.$1\alu_b_imm[0:0]
+    59/67: $flatten\u_dec.$1\alu_a_sel[1:0]
+    60/67: $flatten\u_dec.$1\reg_we[0:0]
+    61/67: $flatten\u_dec.$1\illegal[0:0]
+    62/67: $flatten\u_dec.$1\is_cus[0:0]
+    63/67: $flatten\u_dec.$1\is_mret[0:0]
+    64/67: $flatten\u_dec.$1\jalr[0:0]
+    65/67: $flatten\u_dec.$1\br_type[2:0]
+    66/67: $flatten\u_dec.$1\mem_we[0:0]
+    67/67: $flatten\u_dec.$1\wb_sel[1:0]
+Creating decoders for process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+     1/40: $0\idex_valid[0:0]
+     2/40: $0\ifid_instr[31:0]
+     3/40: $0\ifid_pc[31:0]
+     4/40: $0\ifid_valid[0:0]
+     5/40: $0\memwb_is_mret[0:0]
+     6/40: $0\memwb_wb_sel[1:0]
+     7/40: $0\memwb_reg_we[0:0]
+     8/40: $0\memwb_rd[4:0]
+     9/40: $0\memwb_mem_data[31:0]
+    10/40: $0\memwb_result[31:0]
+    11/40: $0\memwb_valid[0:0]
+    12/40: $0\exmem_is_mret[0:0]
+    13/40: $0\exmem_wb_sel[1:0]
+    14/40: $0\exmem_mem_we[0:0]
+    15/40: $0\exmem_reg_we[0:0]
+    16/40: $0\exmem_rd[4:0]
+    17/40: $0\exmem_store_data[31:0]
+    18/40: $0\exmem_result[31:0]
+    19/40: $0\exmem_valid[0:0]
+    20/40: $0\pc[31:0]
+    21/40: $0\idex_br_type[2:0]
+    22/40: $0\idex_alu_op[3:0]
+    23/40: $0\idex_alu_a_sel[1:0]
+    24/40: $0\idex_wb_sel[1:0]
+    25/40: $0\idex_is_cus[0:0]
+    26/40: $0\idex_is_mret[0:0]
+    27/40: $0\idex_jalr[0:0]
+    28/40: $0\idex_alu_b_imm[0:0]
+    29/40: $0\idex_mem_we[0:0]
+    30/40: $0\idex_reg_we[0:0]
+    31/40: $0\idex_rs2[4:0]
+    32/40: $0\idex_rs1[4:0]
+    33/40: $0\idex_rd[4:0]
+    34/40: $0\idex_imm[31:0]
+    35/40: $0\idex_rs2_val[31:0]
+    36/40: $0\idex_rs1_val[31:0]
+    37/40: $0\idex_pc[31:0]
+    38/40: $0\in_handler[0:0]
+    39/40: $0\drain[0:0]
+    40/40: $0\epc[31:0]
+Creating decoders for process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$223'.
+     1/3: $3\pc_next[31:0]
+     2/3: $2\pc_next[31:0]
+     3/3: $1\pc_next[31:0]
+Creating decoders for process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$185'.
+     1/1: $1\br_cond[0:0]
+Creating decoders for process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$183'.
+     1/1: $1\alu_a[31:0]
+Creating decoders for process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$162'.
+     1/4: $2\fwd_b[31:0]
+     2/4: $2\fwd_a[31:0]
+     3/4: $1\fwd_b[31:0]
+     4/4: $1\fwd_a[31:0]
+
+15.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\core_pipe.\u_alu.y' from process `\core_pipe.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+No latch inferred for signal `\core_pipe.\u_rf.rdata1' from process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$249'.
+No latch inferred for signal `\core_pipe.\u_rf.rdata2' from process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$249'.
+No latch inferred for signal `\core_pipe.\u_imm.imm' from process `\core_pipe.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+No latch inferred for signal `\core_pipe.\u_dec.imm_type' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.reg_we' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.wb_sel' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.mem_we' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.alu_a_sel' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.alu_b_imm' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.alu_op' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.br_type' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.jalr' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.is_mret' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.is_cus' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\u_dec.illegal' from process `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\core_pipe.\pc_next' from process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$223'.
+No latch inferred for signal `\core_pipe.\br_cond' from process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$185'.
+No latch inferred for signal `\core_pipe.\alu_a' from process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$183'.
+No latch inferred for signal `\core_pipe.\fwd_a' from process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$162'.
+No latch inferred for signal `\core_pipe.\fwd_b' from process `\core_pipe.$proc$rtl/core/core_pipe.sv:0$162'.
+
+15.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\core_pipe.$flatten\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$229_ADDR' using process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$230'.
+  created $dff cell `$procdff$1180' with positive edge clock.
+Creating register for signal `\core_pipe.$flatten\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$229_DATA' using process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$230'.
+  created $dff cell `$procdff$1181' with positive edge clock.
+Creating register for signal `\core_pipe.$flatten\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$229_EN' using process `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$230'.
+  created $dff cell `$procdff$1182' with positive edge clock.
+Creating register for signal `\core_pipe.\pc' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1187' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\epc' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1192' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\drain' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1197' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\in_handler' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1202' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\ifid_valid' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1207' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\ifid_pc' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1212' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\ifid_instr' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1217' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_valid' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1222' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_pc' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1227' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_rs1_val' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1232' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_rs2_val' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1237' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_imm' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1242' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_rd' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1247' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_rs1' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1252' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_rs2' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1257' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_reg_we' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1262' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_mem_we' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1267' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_alu_b_imm' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1272' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_jalr' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1277' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_is_mret' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1282' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_is_cus' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1287' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_wb_sel' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1292' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_alu_a_sel' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1297' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_alu_op' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1302' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\idex_br_type' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1307' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_valid' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1312' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_result' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1317' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_store_data' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1322' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_rd' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1327' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_reg_we' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1332' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_mem_we' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1337' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_is_mret' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1342' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\exmem_wb_sel' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1347' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_valid' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1352' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_result' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1357' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_mem_data' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1362' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_rd' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1367' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_reg_we' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1372' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_is_mret' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1377' with positive edge clock and positive level reset.
+Creating register for signal `\core_pipe.\memwb_wb_sel' using process `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+  created $adff cell `$procdff$1382' with positive edge clock and positive level reset.
+
+15.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\core_pipe.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Removing empty process `core_pipe.$flatten\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Found and cleaned up 1 empty switch in `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$230'.
+Removing empty process `core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:32$230'.
+Found and cleaned up 4 empty switches in `\core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$249'.
+Removing empty process `core_pipe.$flatten\u_rf.$proc$rtl/core/regfile.sv:0$249'.
+Found and cleaned up 1 empty switch in `\core_pipe.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Removing empty process `core_pipe.$flatten\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Found and cleaned up 24 empty switches in `\core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Removing empty process `core_pipe.$flatten\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Found and cleaned up 5 empty switches in `\core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+Removing empty process `core_pipe.$proc$rtl/core/core_pipe.sv:249$226'.
+Found and cleaned up 3 empty switches in `\core_pipe.$proc$rtl/core/core_pipe.sv:0$223'.
+Removing empty process `core_pipe.$proc$rtl/core/core_pipe.sv:0$223'.
+Found and cleaned up 1 empty switch in `\core_pipe.$proc$rtl/core/core_pipe.sv:0$185'.
+Removing empty process `core_pipe.$proc$rtl/core/core_pipe.sv:0$185'.
+Found and cleaned up 1 empty switch in `\core_pipe.$proc$rtl/core/core_pipe.sv:0$183'.
+Removing empty process `core_pipe.$proc$rtl/core/core_pipe.sv:0$183'.
+Found and cleaned up 4 empty switches in `\core_pipe.$proc$rtl/core/core_pipe.sv:0$162'.
+Removing empty process `core_pipe.$proc$rtl/core/core_pipe.sv:0$162'.
+Cleaned up 45 empty switches.
+
+15.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~118 debug messages>
+
+15.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 44 unused cells and 375 unused wires.
+<suppressed ~45 debug messages>
+
+15.5. Executing CHECK pass (checking for obvious problems).
+Checking module core_pipe...
+Found and reported 0 problems.
+
+15.6. Executing OPT pass (performing simple optimizations).
+
+15.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+<suppressed ~504 debug messages>
+Removed a total of 168 cells.
+
+15.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$1141.
+    dead port 1/2 on $mux $procmux$1144.
+    dead port 1/2 on $mux $procmux$1150.
+    dead port 1/2 on $mux $procmux$284.
+    dead port 1/2 on $mux $procmux$293.
+    dead port 2/2 on $mux $procmux$324.
+    dead port 2/2 on $mux $procmux$329.
+    dead port 2/2 on $mux $procmux$335.
+    dead port 2/2 on $mux $procmux$341.
+    dead port 2/2 on $mux $procmux$348.
+    dead port 2/2 on $mux $procmux$355.
+    dead port 2/2 on $mux $procmux$363.
+    dead port 2/2 on $mux $procmux$365.
+    dead port 2/2 on $mux $procmux$374.
+    dead port 2/2 on $mux $procmux$376.
+    dead port 1/2 on $mux $procmux$387.
+    dead port 2/2 on $mux $procmux$389.
+    dead port 2/2 on $mux $procmux$391.
+    dead port 1/2 on $mux $procmux$402.
+    dead port 2/2 on $mux $procmux$404.
+    dead port 2/2 on $mux $procmux$406.
+    dead port 2/2 on $mux $procmux$416.
+    dead port 2/2 on $mux $procmux$418.
+    dead port 2/2 on $mux $procmux$428.
+    dead port 2/2 on $mux $procmux$430.
+    dead port 2/2 on $mux $procmux$441.
+    dead port 2/2 on $mux $procmux$443.
+    dead port 2/2 on $mux $procmux$455.
+    dead port 2/2 on $mux $procmux$457.
+    dead port 2/2 on $mux $procmux$470.
+    dead port 2/2 on $mux $procmux$472.
+    dead port 2/2 on $mux $procmux$486.
+    dead port 2/2 on $mux $procmux$488.
+    dead port 1/2 on $mux $procmux$504.
+    dead port 1/2 on $mux $procmux$507.
+    dead port 2/2 on $mux $procmux$509.
+    dead port 2/2 on $mux $procmux$511.
+    dead port 1/2 on $mux $procmux$527.
+    dead port 1/2 on $mux $procmux$530.
+    dead port 2/2 on $mux $procmux$532.
+    dead port 2/2 on $mux $procmux$534.
+    dead port 1/2 on $mux $procmux$550.
+    dead port 2/2 on $mux $procmux$552.
+    dead port 2/2 on $mux $procmux$554.
+    dead port 1/2 on $mux $procmux$570.
+    dead port 2/2 on $mux $procmux$572.
+    dead port 2/2 on $mux $procmux$574.
+    dead port 2/2 on $mux $procmux$589.
+    dead port 2/2 on $mux $procmux$591.
+    dead port 2/2 on $mux $procmux$606.
+    dead port 2/2 on $mux $procmux$608.
+    dead port 2/2 on $mux $procmux$622.
+    dead port 2/2 on $mux $procmux$636.
+    dead port 1/2 on $mux $procmux$646.
+    dead port 2/2 on $mux $procmux$648.
+    dead port 2/2 on $mux $procmux$650.
+    dead port 1/2 on $mux $procmux$660.
+    dead port 2/2 on $mux $procmux$662.
+    dead port 2/2 on $mux $procmux$664.
+    dead port 2/2 on $mux $procmux$673.
+    dead port 2/2 on $mux $procmux$675.
+    dead port 2/2 on $mux $procmux$684.
+    dead port 2/2 on $mux $procmux$686.
+    dead port 2/2 on $mux $procmux$696.
+    dead port 2/2 on $mux $procmux$698.
+    dead port 2/2 on $mux $procmux$713.
+    dead port 2/2 on $mux $procmux$728.
+    dead port 2/2 on $mux $procmux$738.
+    dead port 2/2 on $mux $procmux$747.
+    dead port 2/2 on $mux $procmux$757.
+    dead port 2/2 on $mux $procmux$767.
+    dead port 2/2 on $mux $procmux$777.
+    dead port 2/2 on $mux $procmux$787.
+    dead port 2/2 on $mux $procmux$797.
+    dead port 2/2 on $mux $procmux$808.
+    dead port 2/2 on $mux $procmux$819.
+    dead port 2/2 on $mux $procmux$830.
+    dead port 2/2 on $mux $procmux$841.
+    dead port 2/2 on $mux $procmux$858.
+    dead port 2/2 on $mux $procmux$875.
+    dead port 2/2 on $mux $procmux$887.
+    dead port 2/2 on $mux $procmux$900.
+    dead port 2/2 on $mux $procmux$913.
+    dead port 2/2 on $mux $procmux$926.
+    dead port 2/2 on $mux $procmux$939.
+    dead port 2/2 on $mux $procmux$952.
+Removed 86 multiplexer ports.
+<suppressed ~37 debug messages>
+
+15.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+    New ctrl vector for $pmux cell $procmux$719: { $auto$opt_reduce.cc:137:opt_pmux$1385 $procmux$487_CMP $procmux$390_CMP }
+    Consolidated identical input bits for $mux cell $procmux$272:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233
+      New ports: A=1'0, B=1'1, Y=$flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0]
+      New connections: $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [31:1] = { $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] $flatten\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$229_EN[31:0]$233 [0] }
+    New ctrl vector for $pmux cell $procmux$1057: { $procmux$1005_CMP $procmux$1004_CMP $procmux$1003_CMP }
+    New ctrl vector for $pmux cell $procmux$868: $auto$opt_reduce.cc:137:opt_pmux$1387
+    New ctrl vector for $pmux cell $procmux$1009: { $auto$opt_reduce.cc:137:opt_pmux$1389 $procmux$1004_CMP $procmux$1016_CMP $procmux$1003_CMP $procmux$1014_CMP $procmux$1002_CMP $procmux$1001_CMP $procmux$1011_CMP $procmux$1000_CMP }
+    New ctrl vector for $pmux cell $procmux$959: { $auto$opt_reduce.cc:137:opt_pmux$1391 $procmux$1005_CMP $procmux$1016_CMP $procmux$1014_CMP }
+    New ctrl vector for $pmux cell $procmux$970: { $procmux$1002_CMP $procmux$1001_CMP }
+    New ctrl vector for $pmux cell $procmux$979: { $procmux$1003_CMP $procmux$1014_CMP $auto$opt_reduce.cc:137:opt_pmux$1393 }
+    New ctrl vector for $pmux cell $procmux$999: { $procmux$1004_CMP $procmux$1003_CMP $auto$opt_reduce.cc:137:opt_pmux$1395 $procmux$1000_CMP }
+  Optimizing cells in module \core_pipe.
+Performed a total of 9 changes.
+
+15.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+<suppressed ~54 debug messages>
+Removed a total of 18 cells.
+
+15.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 0 unused cells and 272 unused wires.
+<suppressed ~1 debug messages>
+
+15.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+15.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+    New ctrl vector for $pmux cell $procmux$1009: { $auto$opt_reduce.cc:137:opt_pmux$1389 $procmux$1016_CMP $auto$opt_reduce.cc:137:opt_pmux$1399 $procmux$1002_CMP $procmux$1001_CMP $procmux$1011_CMP $auto$opt_reduce.cc:137:opt_pmux$1397 }
+    New ctrl vector for $pmux cell $procmux$613: { $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $procmux$390_CMP $auto$opt_reduce.cc:137:opt_pmux$1401 }
+    New ctrl vector for $pmux cell $procmux$979: { $auto$opt_reduce.cc:137:opt_pmux$1403 $auto$opt_reduce.cc:137:opt_pmux$1393 }
+    New ctrl vector for $pmux cell $procmux$999: { $procmux$1003_CMP $auto$opt_reduce.cc:137:opt_pmux$1395 $auto$opt_reduce.cc:137:opt_pmux$1405 }
+  Optimizing cells in module \core_pipe.
+Performed a total of 4 changes.
+
+15.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+15.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+15.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+15.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.6.23. Finished OPT passes. (There is nothing left to do.)
+
+15.7. Executing FSM pass (extract and optimize FSM).
+
+15.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register core_pipe.idex_alu_a_sel.
+Found FSM state register core_pipe.idex_alu_op.
+Found FSM state register core_pipe.idex_br_type.
+Not marking core_pipe.idex_wb_sel as FSM state register:
+    Users of register don't seem to benefit from recoding.
+
+15.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\idex_alu_a_sel' from module `\core_pipe'.
+  found $adff cell for state register: $procdff$1297
+  root of input selection tree: $0\idex_alu_a_sel[1:0]
+  found reset state: 2'00 (from async reset)
+  found ctrl input: \ex_redirect
+  found ctrl input: $procmux$1006_CMP
+  found ctrl input: $procmux$1007_CMP
+  found state code: 2'01
+  found state code: 2'10
+  found ctrl output: $procmux$1166_CMP
+  found ctrl output: $procmux$1167_CMP
+  ctrl inputs: { $procmux$1007_CMP $procmux$1006_CMP \ex_redirect }
+  ctrl outputs: { $procmux$1167_CMP $procmux$1166_CMP $0\idex_alu_a_sel[1:0] }
+  transition:       2'00 3'000 ->       2'00 4'0000
+  transition:       2'00 3'1-0 ->       2'10 4'0010
+  transition:       2'00 3'-10 ->       2'01 4'0001
+  transition:       2'00 3'--1 ->       2'00 4'0000
+  transition:       2'10 3'000 ->       2'00 4'0100
+  transition:       2'10 3'1-0 ->       2'10 4'0110
+  transition:       2'10 3'-10 ->       2'01 4'0101
+  transition:       2'10 3'--1 ->       2'10 4'0110
+  transition:       2'01 3'000 ->       2'00 4'1000
+  transition:       2'01 3'1-0 ->       2'10 4'1010
+  transition:       2'01 3'-10 ->       2'01 4'1001
+  transition:       2'01 3'--1 ->       2'01 4'1001
+Extracting FSM `\idex_alu_op' from module `\core_pipe'.
+  found $adff cell for state register: $procdff$1302
+  root of input selection tree: $0\idex_alu_op[3:0]
+  found reset state: 4'0000 (from async reset)
+  found ctrl input: \ex_redirect
+  found ctrl input: $procmux$1001_CMP
+  found ctrl input: $procmux$1002_CMP
+  found ctrl input: $procmux$364_CMP
+  found ctrl input: $procmux$375_CMP
+  found ctrl input: $procmux$390_CMP
+  found ctrl input: $procmux$442_CMP
+  found ctrl input: $procmux$456_CMP
+  found ctrl input: $flatten\u_dec.$eq$rtl/core/decoder.sv:105$43_Y
+  found ctrl input: $procmux$487_CMP
+  found ctrl input: $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+  found state code: 4'1001
+  found state code: 4'1000
+  found ctrl input: $flatten\u_dec.$eq$rtl/core/decoder.sv:130$45_Y
+  found ctrl input: $flatten\u_dec.$eq$rtl/core/decoder.sv:131$46_Y
+  found state code: 4'0111
+  found state code: 4'0110
+  found state code: 4'0101
+  found state code: 4'0100
+  found state code: 4'0011
+  found state code: 4'0010
+  found ctrl input: $flatten\u_dec.$eq$rtl/core/decoder.sv:143$49_Y
+  found state code: 4'1010
+  found state code: 4'0001
+  found ctrl output: $procmux$267_CMP
+  found ctrl output: $procmux$266_CMP
+  found ctrl output: $procmux$265_CMP
+  found ctrl output: $procmux$264_CMP
+  found ctrl output: $procmux$263_CMP
+  found ctrl output: $procmux$262_CMP
+  found ctrl output: $procmux$270_CMP
+  found ctrl output: $procmux$261_CMP
+  found ctrl output: $procmux$269_CMP
+  found ctrl output: $procmux$268_CMP
+  found ctrl output: $procmux$260_CMP
+  ctrl inputs: { $procmux$1002_CMP $procmux$1001_CMP $procmux$487_CMP $procmux$442_CMP \ex_redirect $flatten\u_dec.$eq$rtl/core/decoder.sv:105$43_Y $flatten\u_dec.$eq$rtl/core/decoder.sv:131$46_Y $flatten\u_dec.$eq$rtl/core/decoder.sv:130$45_Y $procmux$364_CMP $procmux$375_CMP $procmux$390_CMP $flatten\u_dec.$eq$rtl/core/decoder.sv:143$49_Y $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $procmux$456_CMP }
+  ctrl outputs: { $0\idex_alu_op[3:0] $procmux$260_CMP $procmux$268_CMP $procmux$269_CMP $procmux$261_CMP $procmux$270_CMP $procmux$262_CMP $procmux$263_CMP $procmux$264_CMP $procmux$265_CMP $procmux$266_CMP $procmux$267_CMP }
+  transition:     4'0000 14'00--0--------- ->     4'0000 15'000000001000000
+  transition:     4'0000 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00001000000  <ignored invalid transition!>
+  transition:     4'0000 14'1---0-------1- ->     4'0000 15'000000001000000
+  transition:     4'0000 14'1---01-------- ->     4'0011 15'001100001000000
+  transition:     4'0000 14'1---0--------1 ->     4'0100 15'010000001000000
+  transition:     4'0000 14'1--10--------- ->     4'0101 15'010100001000000
+  transition:     4'0000 14'1---0----1---- ->     4'1000 15'100000001000000
+  transition:     4'0000 14'1---0---1----- ->     4'1001 15'100100001000000
+  transition:     4'0000 14'1-1-0--------- ->     4'0010 15'001000001000000
+  transition:     4'0000 14'1---0-00--1--- ->     4'0000 15'000000001000000
+  transition:     4'0000 14'1---0-10--1--- ->     4'0111 15'011100001000000
+  transition:     4'0000 14'1---0--1--1--- ->     4'0110 15'011000001000000
+  transition:     4'0000 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00001000000  <ignored invalid transition!>
+  transition:     4'0000 14'-1--0-00---01- ->     4'0000 15'000000001000000
+  transition:     4'0000 14'-1--0-00---11- ->     4'1010 15'101000001000000
+  transition:     4'0000 14'-1--0-10----1- ->     4'0001 15'000100001000000
+  transition:     4'0000 14'-1--0--1----1- ->     4'0000 15'000000001000000
+  transition:     4'0000 14'-11-0--------- ->     4'0010 15'001000001000000
+  transition:     4'0000 14'-1--01-------- ->     4'0011 15'001100001000000
+  transition:     4'0000 14'-1--0--------1 ->     4'0100 15'010000001000000
+  transition:     4'0000 14'-1-10--------- ->     4'0101 15'010100001000000
+  transition:     4'0000 14'-1--0-00--1--- ->     4'0000 15'000000001000000
+  transition:     4'0000 14'-1--0-10--1--- ->     4'0111 15'011100001000000
+  transition:     4'0000 14'-1--0--1--1--- ->     4'0110 15'011000001000000
+  transition:     4'0000 14'-1--0----1---- ->     4'1000 15'100000001000000
+  transition:     4'0000 14'-1--0---1----- ->     4'1001 15'100100001000000
+  transition:     4'0000 14'----1--------- ->     4'0000 15'000000001000000
+  transition:     4'1000 14'00--0--------- ->     4'0000 15'000000000100000
+  transition:     4'1000 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000100000  <ignored invalid transition!>
+  transition:     4'1000 14'1---0-------1- ->     4'0000 15'000000000100000
+  transition:     4'1000 14'1---01-------- ->     4'0011 15'001100000100000
+  transition:     4'1000 14'1---0--------1 ->     4'0100 15'010000000100000
+  transition:     4'1000 14'1--10--------- ->     4'0101 15'010100000100000
+  transition:     4'1000 14'1---0----1---- ->     4'1000 15'100000000100000
+  transition:     4'1000 14'1---0---1----- ->     4'1001 15'100100000100000
+  transition:     4'1000 14'1-1-0--------- ->     4'0010 15'001000000100000
+  transition:     4'1000 14'1---0-00--1--- ->     4'0000 15'000000000100000
+  transition:     4'1000 14'1---0-10--1--- ->     4'0111 15'011100000100000
+  transition:     4'1000 14'1---0--1--1--- ->     4'0110 15'011000000100000
+  transition:     4'1000 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000100000  <ignored invalid transition!>
+  transition:     4'1000 14'-1--0-00---01- ->     4'0000 15'000000000100000
+  transition:     4'1000 14'-1--0-00---11- ->     4'1010 15'101000000100000
+  transition:     4'1000 14'-1--0-10----1- ->     4'0001 15'000100000100000
+  transition:     4'1000 14'-1--0--1----1- ->     4'0000 15'000000000100000
+  transition:     4'1000 14'-11-0--------- ->     4'0010 15'001000000100000
+  transition:     4'1000 14'-1--01-------- ->     4'0011 15'001100000100000
+  transition:     4'1000 14'-1--0--------1 ->     4'0100 15'010000000100000
+  transition:     4'1000 14'-1-10--------- ->     4'0101 15'010100000100000
+  transition:     4'1000 14'-1--0-00--1--- ->     4'0000 15'000000000100000
+  transition:     4'1000 14'-1--0-10--1--- ->     4'0111 15'011100000100000
+  transition:     4'1000 14'-1--0--1--1--- ->     4'0110 15'011000000100000
+  transition:     4'1000 14'-1--0----1---- ->     4'1000 15'100000000100000
+  transition:     4'1000 14'-1--0---1----- ->     4'1001 15'100100000100000
+  transition:     4'1000 14'----1--------- ->     4'1000 15'100000000100000
+  transition:     4'0100 14'00--0--------- ->     4'0000 15'000000000000010
+  transition:     4'0100 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000000010  <ignored invalid transition!>
+  transition:     4'0100 14'1---0-------1- ->     4'0000 15'000000000000010
+  transition:     4'0100 14'1---01-------- ->     4'0011 15'001100000000010
+  transition:     4'0100 14'1---0--------1 ->     4'0100 15'010000000000010
+  transition:     4'0100 14'1--10--------- ->     4'0101 15'010100000000010
+  transition:     4'0100 14'1---0----1---- ->     4'1000 15'100000000000010
+  transition:     4'0100 14'1---0---1----- ->     4'1001 15'100100000000010
+  transition:     4'0100 14'1-1-0--------- ->     4'0010 15'001000000000010
+  transition:     4'0100 14'1---0-00--1--- ->     4'0000 15'000000000000010
+  transition:     4'0100 14'1---0-10--1--- ->     4'0111 15'011100000000010
+  transition:     4'0100 14'1---0--1--1--- ->     4'0110 15'011000000000010
+  transition:     4'0100 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000000010  <ignored invalid transition!>
+  transition:     4'0100 14'-1--0-00---01- ->     4'0000 15'000000000000010
+  transition:     4'0100 14'-1--0-00---11- ->     4'1010 15'101000000000010
+  transition:     4'0100 14'-1--0-10----1- ->     4'0001 15'000100000000010
+  transition:     4'0100 14'-1--0--1----1- ->     4'0000 15'000000000000010
+  transition:     4'0100 14'-11-0--------- ->     4'0010 15'001000000000010
+  transition:     4'0100 14'-1--01-------- ->     4'0011 15'001100000000010
+  transition:     4'0100 14'-1--0--------1 ->     4'0100 15'010000000000010
+  transition:     4'0100 14'-1-10--------- ->     4'0101 15'010100000000010
+  transition:     4'0100 14'-1--0-00--1--- ->     4'0000 15'000000000000010
+  transition:     4'0100 14'-1--0-10--1--- ->     4'0111 15'011100000000010
+  transition:     4'0100 14'-1--0--1--1--- ->     4'0110 15'011000000000010
+  transition:     4'0100 14'-1--0----1---- ->     4'1000 15'100000000000010
+  transition:     4'0100 14'-1--0---1----- ->     4'1001 15'100100000000010
+  transition:     4'0100 14'----1--------- ->     4'0100 15'010000000000010
+  transition:     4'0010 14'00--0--------- ->     4'0000 15'000001000000000
+  transition:     4'0010 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx01000000000  <ignored invalid transition!>
+  transition:     4'0010 14'1---0-------1- ->     4'0000 15'000001000000000
+  transition:     4'0010 14'1---01-------- ->     4'0011 15'001101000000000
+  transition:     4'0010 14'1---0--------1 ->     4'0100 15'010001000000000
+  transition:     4'0010 14'1--10--------- ->     4'0101 15'010101000000000
+  transition:     4'0010 14'1---0----1---- ->     4'1000 15'100001000000000
+  transition:     4'0010 14'1---0---1----- ->     4'1001 15'100101000000000
+  transition:     4'0010 14'1-1-0--------- ->     4'0010 15'001001000000000
+  transition:     4'0010 14'1---0-00--1--- ->     4'0000 15'000001000000000
+  transition:     4'0010 14'1---0-10--1--- ->     4'0111 15'011101000000000
+  transition:     4'0010 14'1---0--1--1--- ->     4'0110 15'011001000000000
+  transition:     4'0010 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx01000000000  <ignored invalid transition!>
+  transition:     4'0010 14'-1--0-00---01- ->     4'0000 15'000001000000000
+  transition:     4'0010 14'-1--0-00---11- ->     4'1010 15'101001000000000
+  transition:     4'0010 14'-1--0-10----1- ->     4'0001 15'000101000000000
+  transition:     4'0010 14'-1--0--1----1- ->     4'0000 15'000001000000000
+  transition:     4'0010 14'-11-0--------- ->     4'0010 15'001001000000000
+  transition:     4'0010 14'-1--01-------- ->     4'0011 15'001101000000000
+  transition:     4'0010 14'-1--0--------1 ->     4'0100 15'010001000000000
+  transition:     4'0010 14'-1-10--------- ->     4'0101 15'010101000000000
+  transition:     4'0010 14'-1--0-00--1--- ->     4'0000 15'000001000000000
+  transition:     4'0010 14'-1--0-10--1--- ->     4'0111 15'011101000000000
+  transition:     4'0010 14'-1--0--1--1--- ->     4'0110 15'011001000000000
+  transition:     4'0010 14'-1--0----1---- ->     4'1000 15'100001000000000
+  transition:     4'0010 14'-1--0---1----- ->     4'1001 15'100101000000000
+  transition:     4'0010 14'----1--------- ->     4'0010 15'001001000000000
+  transition:     4'1010 14'00--0--------- ->     4'0000 15'000010000000000
+  transition:     4'1010 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx10000000000  <ignored invalid transition!>
+  transition:     4'1010 14'1---0-------1- ->     4'0000 15'000010000000000
+  transition:     4'1010 14'1---01-------- ->     4'0011 15'001110000000000
+  transition:     4'1010 14'1---0--------1 ->     4'0100 15'010010000000000
+  transition:     4'1010 14'1--10--------- ->     4'0101 15'010110000000000
+  transition:     4'1010 14'1---0----1---- ->     4'1000 15'100010000000000
+  transition:     4'1010 14'1---0---1----- ->     4'1001 15'100110000000000
+  transition:     4'1010 14'1-1-0--------- ->     4'0010 15'001010000000000
+  transition:     4'1010 14'1---0-00--1--- ->     4'0000 15'000010000000000
+  transition:     4'1010 14'1---0-10--1--- ->     4'0111 15'011110000000000
+  transition:     4'1010 14'1---0--1--1--- ->     4'0110 15'011010000000000
+  transition:     4'1010 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx10000000000  <ignored invalid transition!>
+  transition:     4'1010 14'-1--0-00---01- ->     4'0000 15'000010000000000
+  transition:     4'1010 14'-1--0-00---11- ->     4'1010 15'101010000000000
+  transition:     4'1010 14'-1--0-10----1- ->     4'0001 15'000110000000000
+  transition:     4'1010 14'-1--0--1----1- ->     4'0000 15'000010000000000
+  transition:     4'1010 14'-11-0--------- ->     4'0010 15'001010000000000
+  transition:     4'1010 14'-1--01-------- ->     4'0011 15'001110000000000
+  transition:     4'1010 14'-1--0--------1 ->     4'0100 15'010010000000000
+  transition:     4'1010 14'-1-10--------- ->     4'0101 15'010110000000000
+  transition:     4'1010 14'-1--0-00--1--- ->     4'0000 15'000010000000000
+  transition:     4'1010 14'-1--0-10--1--- ->     4'0111 15'011110000000000
+  transition:     4'1010 14'-1--0--1--1--- ->     4'0110 15'011010000000000
+  transition:     4'1010 14'-1--0----1---- ->     4'1000 15'100010000000000
+  transition:     4'1010 14'-1--0---1----- ->     4'1001 15'100110000000000
+  transition:     4'1010 14'----1--------- ->     4'1010 15'101010000000000
+  transition:     4'0110 14'00--0--------- ->     4'0000 15'000000000001000
+  transition:     4'0110 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000001000  <ignored invalid transition!>
+  transition:     4'0110 14'1---0-------1- ->     4'0000 15'000000000001000
+  transition:     4'0110 14'1---01-------- ->     4'0011 15'001100000001000
+  transition:     4'0110 14'1---0--------1 ->     4'0100 15'010000000001000
+  transition:     4'0110 14'1--10--------- ->     4'0101 15'010100000001000
+  transition:     4'0110 14'1---0----1---- ->     4'1000 15'100000000001000
+  transition:     4'0110 14'1---0---1----- ->     4'1001 15'100100000001000
+  transition:     4'0110 14'1-1-0--------- ->     4'0010 15'001000000001000
+  transition:     4'0110 14'1---0-00--1--- ->     4'0000 15'000000000001000
+  transition:     4'0110 14'1---0-10--1--- ->     4'0111 15'011100000001000
+  transition:     4'0110 14'1---0--1--1--- ->     4'0110 15'011000000001000
+  transition:     4'0110 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000001000  <ignored invalid transition!>
+  transition:     4'0110 14'-1--0-00---01- ->     4'0000 15'000000000001000
+  transition:     4'0110 14'-1--0-00---11- ->     4'1010 15'101000000001000
+  transition:     4'0110 14'-1--0-10----1- ->     4'0001 15'000100000001000
+  transition:     4'0110 14'-1--0--1----1- ->     4'0000 15'000000000001000
+  transition:     4'0110 14'-11-0--------- ->     4'0010 15'001000000001000
+  transition:     4'0110 14'-1--01-------- ->     4'0011 15'001100000001000
+  transition:     4'0110 14'-1--0--------1 ->     4'0100 15'010000000001000
+  transition:     4'0110 14'-1-10--------- ->     4'0101 15'010100000001000
+  transition:     4'0110 14'-1--0-00--1--- ->     4'0000 15'000000000001000
+  transition:     4'0110 14'-1--0-10--1--- ->     4'0111 15'011100000001000
+  transition:     4'0110 14'-1--0--1--1--- ->     4'0110 15'011000000001000
+  transition:     4'0110 14'-1--0----1---- ->     4'1000 15'100000000001000
+  transition:     4'0110 14'-1--0---1----- ->     4'1001 15'100100000001000
+  transition:     4'0110 14'----1--------- ->     4'0110 15'011000000001000
+  transition:     4'0001 14'00--0--------- ->     4'0000 15'000000100000000
+  transition:     4'0001 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00100000000  <ignored invalid transition!>
+  transition:     4'0001 14'1---0-------1- ->     4'0000 15'000000100000000
+  transition:     4'0001 14'1---01-------- ->     4'0011 15'001100100000000
+  transition:     4'0001 14'1---0--------1 ->     4'0100 15'010000100000000
+  transition:     4'0001 14'1--10--------- ->     4'0101 15'010100100000000
+  transition:     4'0001 14'1---0----1---- ->     4'1000 15'100000100000000
+  transition:     4'0001 14'1---0---1----- ->     4'1001 15'100100100000000
+  transition:     4'0001 14'1-1-0--------- ->     4'0010 15'001000100000000
+  transition:     4'0001 14'1---0-00--1--- ->     4'0000 15'000000100000000
+  transition:     4'0001 14'1---0-10--1--- ->     4'0111 15'011100100000000
+  transition:     4'0001 14'1---0--1--1--- ->     4'0110 15'011000100000000
+  transition:     4'0001 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00100000000  <ignored invalid transition!>
+  transition:     4'0001 14'-1--0-00---01- ->     4'0000 15'000000100000000
+  transition:     4'0001 14'-1--0-00---11- ->     4'1010 15'101000100000000
+  transition:     4'0001 14'-1--0-10----1- ->     4'0001 15'000100100000000
+  transition:     4'0001 14'-1--0--1----1- ->     4'0000 15'000000100000000
+  transition:     4'0001 14'-11-0--------- ->     4'0010 15'001000100000000
+  transition:     4'0001 14'-1--01-------- ->     4'0011 15'001100100000000
+  transition:     4'0001 14'-1--0--------1 ->     4'0100 15'010000100000000
+  transition:     4'0001 14'-1-10--------- ->     4'0101 15'010100100000000
+  transition:     4'0001 14'-1--0-00--1--- ->     4'0000 15'000000100000000
+  transition:     4'0001 14'-1--0-10--1--- ->     4'0111 15'011100100000000
+  transition:     4'0001 14'-1--0--1--1--- ->     4'0110 15'011000100000000
+  transition:     4'0001 14'-1--0----1---- ->     4'1000 15'100000100000000
+  transition:     4'0001 14'-1--0---1----- ->     4'1001 15'100100100000000
+  transition:     4'0001 14'----1--------- ->     4'0001 15'000100100000000
+  transition:     4'1001 14'00--0--------- ->     4'0000 15'000000010000000
+  transition:     4'1001 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00010000000  <ignored invalid transition!>
+  transition:     4'1001 14'1---0-------1- ->     4'0000 15'000000010000000
+  transition:     4'1001 14'1---01-------- ->     4'0011 15'001100010000000
+  transition:     4'1001 14'1---0--------1 ->     4'0100 15'010000010000000
+  transition:     4'1001 14'1--10--------- ->     4'0101 15'010100010000000
+  transition:     4'1001 14'1---0----1---- ->     4'1000 15'100000010000000
+  transition:     4'1001 14'1---0---1----- ->     4'1001 15'100100010000000
+  transition:     4'1001 14'1-1-0--------- ->     4'0010 15'001000010000000
+  transition:     4'1001 14'1---0-00--1--- ->     4'0000 15'000000010000000
+  transition:     4'1001 14'1---0-10--1--- ->     4'0111 15'011100010000000
+  transition:     4'1001 14'1---0--1--1--- ->     4'0110 15'011000010000000
+  transition:     4'1001 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00010000000  <ignored invalid transition!>
+  transition:     4'1001 14'-1--0-00---01- ->     4'0000 15'000000010000000
+  transition:     4'1001 14'-1--0-00---11- ->     4'1010 15'101000010000000
+  transition:     4'1001 14'-1--0-10----1- ->     4'0001 15'000100010000000
+  transition:     4'1001 14'-1--0--1----1- ->     4'0000 15'000000010000000
+  transition:     4'1001 14'-11-0--------- ->     4'0010 15'001000010000000
+  transition:     4'1001 14'-1--01-------- ->     4'0011 15'001100010000000
+  transition:     4'1001 14'-1--0--------1 ->     4'0100 15'010000010000000
+  transition:     4'1001 14'-1-10--------- ->     4'0101 15'010100010000000
+  transition:     4'1001 14'-1--0-00--1--- ->     4'0000 15'000000010000000
+  transition:     4'1001 14'-1--0-10--1--- ->     4'0111 15'011100010000000
+  transition:     4'1001 14'-1--0--1--1--- ->     4'0110 15'011000010000000
+  transition:     4'1001 14'-1--0----1---- ->     4'1000 15'100000010000000
+  transition:     4'1001 14'-1--0---1----- ->     4'1001 15'100100010000000
+  transition:     4'1001 14'----1--------- ->     4'1001 15'100100010000000
+  transition:     4'0101 14'00--0--------- ->     4'0000 15'000000000000100
+  transition:     4'0101 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000000100  <ignored invalid transition!>
+  transition:     4'0101 14'1---0-------1- ->     4'0000 15'000000000000100
+  transition:     4'0101 14'1---01-------- ->     4'0011 15'001100000000100
+  transition:     4'0101 14'1---0--------1 ->     4'0100 15'010000000000100
+  transition:     4'0101 14'1--10--------- ->     4'0101 15'010100000000100
+  transition:     4'0101 14'1---0----1---- ->     4'1000 15'100000000000100
+  transition:     4'0101 14'1---0---1----- ->     4'1001 15'100100000000100
+  transition:     4'0101 14'1-1-0--------- ->     4'0010 15'001000000000100
+  transition:     4'0101 14'1---0-00--1--- ->     4'0000 15'000000000000100
+  transition:     4'0101 14'1---0-10--1--- ->     4'0111 15'011100000000100
+  transition:     4'0101 14'1---0--1--1--- ->     4'0110 15'011000000000100
+  transition:     4'0101 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000000100  <ignored invalid transition!>
+  transition:     4'0101 14'-1--0-00---01- ->     4'0000 15'000000000000100
+  transition:     4'0101 14'-1--0-00---11- ->     4'1010 15'101000000000100
+  transition:     4'0101 14'-1--0-10----1- ->     4'0001 15'000100000000100
+  transition:     4'0101 14'-1--0--1----1- ->     4'0000 15'000000000000100
+  transition:     4'0101 14'-11-0--------- ->     4'0010 15'001000000000100
+  transition:     4'0101 14'-1--01-------- ->     4'0011 15'001100000000100
+  transition:     4'0101 14'-1--0--------1 ->     4'0100 15'010000000000100
+  transition:     4'0101 14'-1-10--------- ->     4'0101 15'010100000000100
+  transition:     4'0101 14'-1--0-00--1--- ->     4'0000 15'000000000000100
+  transition:     4'0101 14'-1--0-10--1--- ->     4'0111 15'011100000000100
+  transition:     4'0101 14'-1--0--1--1--- ->     4'0110 15'011000000000100
+  transition:     4'0101 14'-1--0----1---- ->     4'1000 15'100000000000100
+  transition:     4'0101 14'-1--0---1----- ->     4'1001 15'100100000000100
+  transition:     4'0101 14'----1--------- ->     4'0101 15'010100000000100
+  transition:     4'0011 14'00--0--------- ->     4'0000 15'000000000000001
+  transition:     4'0011 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000000001  <ignored invalid transition!>
+  transition:     4'0011 14'1---0-------1- ->     4'0000 15'000000000000001
+  transition:     4'0011 14'1---01-------- ->     4'0011 15'001100000000001
+  transition:     4'0011 14'1---0--------1 ->     4'0100 15'010000000000001
+  transition:     4'0011 14'1--10--------- ->     4'0101 15'010100000000001
+  transition:     4'0011 14'1---0----1---- ->     4'1000 15'100000000000001
+  transition:     4'0011 14'1---0---1----- ->     4'1001 15'100100000000001
+  transition:     4'0011 14'1-1-0--------- ->     4'0010 15'001000000000001
+  transition:     4'0011 14'1---0-00--1--- ->     4'0000 15'000000000000001
+  transition:     4'0011 14'1---0-10--1--- ->     4'0111 15'011100000000001
+  transition:     4'0011 14'1---0--1--1--- ->     4'0110 15'011000000000001
+  transition:     4'0011 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000000001  <ignored invalid transition!>
+  transition:     4'0011 14'-1--0-00---01- ->     4'0000 15'000000000000001
+  transition:     4'0011 14'-1--0-00---11- ->     4'1010 15'101000000000001
+  transition:     4'0011 14'-1--0-10----1- ->     4'0001 15'000100000000001
+  transition:     4'0011 14'-1--0--1----1- ->     4'0000 15'000000000000001
+  transition:     4'0011 14'-11-0--------- ->     4'0010 15'001000000000001
+  transition:     4'0011 14'-1--01-------- ->     4'0011 15'001100000000001
+  transition:     4'0011 14'-1--0--------1 ->     4'0100 15'010000000000001
+  transition:     4'0011 14'-1-10--------- ->     4'0101 15'010100000000001
+  transition:     4'0011 14'-1--0-00--1--- ->     4'0000 15'000000000000001
+  transition:     4'0011 14'-1--0-10--1--- ->     4'0111 15'011100000000001
+  transition:     4'0011 14'-1--0--1--1--- ->     4'0110 15'011000000000001
+  transition:     4'0011 14'-1--0----1---- ->     4'1000 15'100000000000001
+  transition:     4'0011 14'-1--0---1----- ->     4'1001 15'100100000000001
+  transition:     4'0011 14'----1--------- ->     4'0011 15'001100000000001
+  transition:     4'0111 14'00--0--------- ->     4'0000 15'000000000010000
+  transition:     4'0111 14'1-0000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000010000  <ignored invalid transition!>
+  transition:     4'0111 14'1---0-------1- ->     4'0000 15'000000000010000
+  transition:     4'0111 14'1---01-------- ->     4'0011 15'001100000010000
+  transition:     4'0111 14'1---0--------1 ->     4'0100 15'010000000010000
+  transition:     4'0111 14'1--10--------- ->     4'0101 15'010100000010000
+  transition:     4'0111 14'1---0----1---- ->     4'1000 15'100000000010000
+  transition:     4'0111 14'1---0---1----- ->     4'1001 15'100100000010000
+  transition:     4'0111 14'1-1-0--------- ->     4'0010 15'001000000010000
+  transition:     4'0111 14'1---0-00--1--- ->     4'0000 15'000000000010000
+  transition:     4'0111 14'1---0-10--1--- ->     4'0111 15'011100000010000
+  transition:     4'0111 14'1---0--1--1--- ->     4'0110 15'011000000010000
+  transition:     4'0111 14'-10000--000-00 -> INVALID_STATE(4'x) 15'xxxx00000010000  <ignored invalid transition!>
+  transition:     4'0111 14'-1--0-00---01- ->     4'0000 15'000000000010000
+  transition:     4'0111 14'-1--0-00---11- ->     4'1010 15'101000000010000
+  transition:     4'0111 14'-1--0-10----1- ->     4'0001 15'000100000010000
+  transition:     4'0111 14'-1--0--1----1- ->     4'0000 15'000000000010000
+  transition:     4'0111 14'-11-0--------- ->     4'0010 15'001000000010000
+  transition:     4'0111 14'-1--01-------- ->     4'0011 15'001100000010000
+  transition:     4'0111 14'-1--0--------1 ->     4'0100 15'010000000010000
+  transition:     4'0111 14'-1-10--------- ->     4'0101 15'010100000010000
+  transition:     4'0111 14'-1--0-00--1--- ->     4'0000 15'000000000010000
+  transition:     4'0111 14'-1--0-10--1--- ->     4'0111 15'011100000010000
+  transition:     4'0111 14'-1--0--1--1--- ->     4'0110 15'011000000010000
+  transition:     4'0111 14'-1--0----1---- ->     4'1000 15'100000000010000
+  transition:     4'0111 14'-1--0---1----- ->     4'1001 15'100100000010000
+  transition:     4'0111 14'----1--------- ->     4'0111 15'011100000010000
+Extracting FSM `\idex_br_type' from module `\core_pipe'.
+  found $adff cell for state register: $procdff$1307
+  root of input selection tree: $0\idex_br_type[2:0]
+  found reset state: 3'000 (from async reset)
+  found ctrl input: \ex_redirect
+  found ctrl input: \dec_illegal
+  found ctrl input: $procmux$1016_CMP
+  found ctrl input: $procmux$1004_CMP
+  found ctrl input: $procmux$1005_CMP
+  found ctrl input: $procmux$364_CMP
+  found ctrl input: $procmux$375_CMP
+  found ctrl input: $procmux$390_CMP
+  found ctrl input: $procmux$442_CMP
+  found ctrl input: $procmux$487_CMP
+  found ctrl input: $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+  found state code: 3'110
+  found state code: 3'101
+  found state code: 3'100
+  found state code: 3'011
+  found state code: 3'010
+  found state code: 3'001
+  found state code: 3'111
+  found ctrl output: $procmux$1157_CMP
+  found ctrl output: $procmux$1158_CMP
+  found ctrl output: $procmux$1159_CMP
+  found ctrl output: $procmux$1160_CMP
+  found ctrl output: $procmux$1161_CMP
+  found ctrl output: $procmux$1162_CMP
+  found ctrl output: $procmux$1163_CMP
+  ctrl inputs: { $procmux$1016_CMP $procmux$1005_CMP $procmux$1004_CMP $procmux$487_CMP $procmux$442_CMP \ex_redirect \dec_illegal $procmux$364_CMP $procmux$375_CMP $procmux$390_CMP $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y }
+  ctrl outputs: { $procmux$1163_CMP $procmux$1162_CMP $procmux$1161_CMP $procmux$1160_CMP $procmux$1159_CMP $procmux$1158_CMP $procmux$1157_CMP $0\idex_br_type[2:0] }
+  transition:      3'000 11'000--00---- ->      3'000 10'0000000000
+  transition:      3'000 11'-1---00---- ->      3'111 10'0000000111
+  transition:      3'000 11'--1--00---0 ->      3'000 10'0000000000
+  transition:      3'000 11'--1--00---1 ->      3'111 10'0000000111
+  transition:      3'000 11'1--00000000 ->      3'000 10'0000000000
+  transition:      3'000 11'1----00---1 ->      3'001 10'0000000001
+  transition:      3'000 11'1--1-00---- ->      3'010 10'0000000010
+  transition:      3'000 11'1---100---- ->      3'011 10'0000000011
+  transition:      3'000 11'1----00--1- ->      3'100 10'0000000100
+  transition:      3'000 11'1----00-1-- ->      3'101 10'0000000101
+  transition:      3'000 11'1----001--- ->      3'110 10'0000000110
+  transition:      3'000 11'-----01---- ->      3'000 10'0000000000
+  transition:      3'000 11'-----1----- ->      3'000 10'0000000000
+  transition:      3'100 11'000--00---- ->      3'000 10'0001000000
+  transition:      3'100 11'-1---00---- ->      3'111 10'0001000111
+  transition:      3'100 11'--1--00---0 ->      3'000 10'0001000000
+  transition:      3'100 11'--1--00---1 ->      3'111 10'0001000111
+  transition:      3'100 11'1--00000000 ->      3'000 10'0001000000
+  transition:      3'100 11'1----00---1 ->      3'001 10'0001000001
+  transition:      3'100 11'1--1-00---- ->      3'010 10'0001000010
+  transition:      3'100 11'1---100---- ->      3'011 10'0001000011
+  transition:      3'100 11'1----00--1- ->      3'100 10'0001000100
+  transition:      3'100 11'1----00-1-- ->      3'101 10'0001000101
+  transition:      3'100 11'1----001--- ->      3'110 10'0001000110
+  transition:      3'100 11'-----01---- ->      3'000 10'0001000000
+  transition:      3'100 11'-----1----- ->      3'100 10'0001000100
+  transition:      3'010 11'000--00---- ->      3'000 10'0100000000
+  transition:      3'010 11'-1---00---- ->      3'111 10'0100000111
+  transition:      3'010 11'--1--00---0 ->      3'000 10'0100000000
+  transition:      3'010 11'--1--00---1 ->      3'111 10'0100000111
+  transition:      3'010 11'1--00000000 ->      3'000 10'0100000000
+  transition:      3'010 11'1----00---1 ->      3'001 10'0100000001
+  transition:      3'010 11'1--1-00---- ->      3'010 10'0100000010
+  transition:      3'010 11'1---100---- ->      3'011 10'0100000011
+  transition:      3'010 11'1----00--1- ->      3'100 10'0100000100
+  transition:      3'010 11'1----00-1-- ->      3'101 10'0100000101
+  transition:      3'010 11'1----001--- ->      3'110 10'0100000110
+  transition:      3'010 11'-----01---- ->      3'000 10'0100000000
+  transition:      3'010 11'-----1----- ->      3'010 10'0100000010
+  transition:      3'110 11'000--00---- ->      3'000 10'0000010000
+  transition:      3'110 11'-1---00---- ->      3'111 10'0000010111
+  transition:      3'110 11'--1--00---0 ->      3'000 10'0000010000
+  transition:      3'110 11'--1--00---1 ->      3'111 10'0000010111
+  transition:      3'110 11'1--00000000 ->      3'000 10'0000010000
+  transition:      3'110 11'1----00---1 ->      3'001 10'0000010001
+  transition:      3'110 11'1--1-00---- ->      3'010 10'0000010010
+  transition:      3'110 11'1---100---- ->      3'011 10'0000010011
+  transition:      3'110 11'1----00--1- ->      3'100 10'0000010100
+  transition:      3'110 11'1----00-1-- ->      3'101 10'0000010101
+  transition:      3'110 11'1----001--- ->      3'110 10'0000010110
+  transition:      3'110 11'-----01---- ->      3'000 10'0000010000
+  transition:      3'110 11'-----1----- ->      3'110 10'0000010110
+  transition:      3'001 11'000--00---- ->      3'000 10'1000000000
+  transition:      3'001 11'-1---00---- ->      3'111 10'1000000111
+  transition:      3'001 11'--1--00---0 ->      3'000 10'1000000000
+  transition:      3'001 11'--1--00---1 ->      3'111 10'1000000111
+  transition:      3'001 11'1--00000000 ->      3'000 10'1000000000
+  transition:      3'001 11'1----00---1 ->      3'001 10'1000000001
+  transition:      3'001 11'1--1-00---- ->      3'010 10'1000000010
+  transition:      3'001 11'1---100---- ->      3'011 10'1000000011
+  transition:      3'001 11'1----00--1- ->      3'100 10'1000000100
+  transition:      3'001 11'1----00-1-- ->      3'101 10'1000000101
+  transition:      3'001 11'1----001--- ->      3'110 10'1000000110
+  transition:      3'001 11'-----01---- ->      3'000 10'1000000000
+  transition:      3'001 11'-----1----- ->      3'001 10'1000000001
+  transition:      3'101 11'000--00---- ->      3'000 10'0000100000
+  transition:      3'101 11'-1---00---- ->      3'111 10'0000100111
+  transition:      3'101 11'--1--00---0 ->      3'000 10'0000100000
+  transition:      3'101 11'--1--00---1 ->      3'111 10'0000100111
+  transition:      3'101 11'1--00000000 ->      3'000 10'0000100000
+  transition:      3'101 11'1----00---1 ->      3'001 10'0000100001
+  transition:      3'101 11'1--1-00---- ->      3'010 10'0000100010
+  transition:      3'101 11'1---100---- ->      3'011 10'0000100011
+  transition:      3'101 11'1----00--1- ->      3'100 10'0000100100
+  transition:      3'101 11'1----00-1-- ->      3'101 10'0000100101
+  transition:      3'101 11'1----001--- ->      3'110 10'0000100110
+  transition:      3'101 11'-----01---- ->      3'000 10'0000100000
+  transition:      3'101 11'-----1----- ->      3'101 10'0000100101
+  transition:      3'011 11'000--00---- ->      3'000 10'0010000000
+  transition:      3'011 11'-1---00---- ->      3'111 10'0010000111
+  transition:      3'011 11'--1--00---0 ->      3'000 10'0010000000
+  transition:      3'011 11'--1--00---1 ->      3'111 10'0010000111
+  transition:      3'011 11'1--00000000 ->      3'000 10'0010000000
+  transition:      3'011 11'1----00---1 ->      3'001 10'0010000001
+  transition:      3'011 11'1--1-00---- ->      3'010 10'0010000010
+  transition:      3'011 11'1---100---- ->      3'011 10'0010000011
+  transition:      3'011 11'1----00--1- ->      3'100 10'0010000100
+  transition:      3'011 11'1----00-1-- ->      3'101 10'0010000101
+  transition:      3'011 11'1----001--- ->      3'110 10'0010000110
+  transition:      3'011 11'-----01---- ->      3'000 10'0010000000
+  transition:      3'011 11'-----1----- ->      3'011 10'0010000011
+  transition:      3'111 11'000--00---- ->      3'000 10'0000001000
+  transition:      3'111 11'-1---00---- ->      3'111 10'0000001111
+  transition:      3'111 11'--1--00---0 ->      3'000 10'0000001000
+  transition:      3'111 11'--1--00---1 ->      3'111 10'0000001111
+  transition:      3'111 11'1--00000000 ->      3'000 10'0000001000
+  transition:      3'111 11'1----00---1 ->      3'001 10'0000001001
+  transition:      3'111 11'1--1-00---- ->      3'010 10'0000001010
+  transition:      3'111 11'1---100---- ->      3'011 10'0000001011
+  transition:      3'111 11'1----00--1- ->      3'100 10'0000001100
+  transition:      3'111 11'1----00-1-- ->      3'101 10'0000001101
+  transition:      3'111 11'1----001--- ->      3'110 10'0000001110
+  transition:      3'111 11'-----01---- ->      3'000 10'0000001000
+  transition:      3'111 11'-----1----- ->      3'111 10'0000001111
+
+15.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\idex_br_type$1423' from module `\core_pipe'.
+Optimizing FSM `$fsm$\idex_alu_op$1410' from module `\core_pipe'.
+Optimizing FSM `$fsm$\idex_alu_a_sel$1406' from module `\core_pipe'.
+
+15.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 39 unused cells and 43 unused wires.
+<suppressed ~47 debug messages>
+
+15.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\idex_alu_a_sel$1406' from module `\core_pipe'.
+  Removing unused output signal $0\idex_alu_a_sel[1:0] [0].
+  Removing unused output signal $0\idex_alu_a_sel[1:0] [1].
+Optimizing FSM `$fsm$\idex_alu_op$1410' from module `\core_pipe'.
+  Removing unused output signal $0\idex_alu_op[3:0] [0].
+  Removing unused output signal $0\idex_alu_op[3:0] [1].
+  Removing unused output signal $0\idex_alu_op[3:0] [2].
+  Removing unused output signal $0\idex_alu_op[3:0] [3].
+Optimizing FSM `$fsm$\idex_br_type$1423' from module `\core_pipe'.
+  Removing unused output signal $0\idex_br_type[2:0] [0].
+  Removing unused output signal $0\idex_br_type[2:0] [1].
+  Removing unused output signal $0\idex_br_type[2:0] [2].
+
+15.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\idex_alu_a_sel$1406' from module `\core_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> --1
+  10 -> -1-
+  01 -> 1--
+Recoding FSM `$fsm$\idex_alu_op$1410' from module `\core_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  0000 -> ----------1
+  1000 -> ---------1-
+  0100 -> --------1--
+  0010 -> -------1---
+  1010 -> ------1----
+  0110 -> -----1-----
+  0001 -> ----1------
+  1001 -> ---1-------
+  0101 -> --1--------
+  0011 -> -1---------
+  0111 -> 1----------
+Recoding FSM `$fsm$\idex_br_type$1423' from module `\core_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> -------1
+  100 -> ------1-
+  010 -> -----1--
+  110 -> ----1---
+  001 -> ---1----
+  101 -> --1-----
+  011 -> -1------
+  111 -> 1-------
+
+15.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\idex_alu_a_sel$1406' from module `core_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\idex_alu_a_sel$1406 (\idex_alu_a_sel):
+
+  Number of input signals:    3
+  Number of output signals:   2
+  Number of state bits:       3
+
+  Input signals:
+    0: \ex_redirect
+    1: $procmux$1006_CMP
+    2: $procmux$1007_CMP
+
+  Output signals:
+    0: $procmux$1166_CMP
+    1: $procmux$1167_CMP
+
+  State encoding:
+    0:      3'--1  <RESET STATE>
+    1:      3'-1-
+    2:      3'1--
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 3'000   ->     0 2'00
+      1:     0 3'--1   ->     0 2'00
+      2:     0 3'1-0   ->     1 2'00
+      3:     0 3'-10   ->     2 2'00
+      4:     1 3'000   ->     0 2'01
+      5:     1 3'1-0   ->     1 2'01
+      6:     1 3'--1   ->     1 2'01
+      7:     1 3'-10   ->     2 2'01
+      8:     2 3'000   ->     0 2'10
+      9:     2 3'1-0   ->     1 2'10
+     10:     2 3'-10   ->     2 2'10
+     11:     2 3'--1   ->     2 2'10
+
+-------------------------------------
+
+FSM `$fsm$\idex_alu_op$1410' from module `core_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\idex_alu_op$1410 (\idex_alu_op):
+
+  Number of input signals:   14
+  Number of output signals:  11
+  Number of state bits:      11
+
+  Input signals:
+    0: $procmux$456_CMP
+    1: $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+    2: $flatten\u_dec.$eq$rtl/core/decoder.sv:143$49_Y
+    3: $procmux$390_CMP
+    4: $procmux$375_CMP
+    5: $procmux$364_CMP
+    6: $flatten\u_dec.$eq$rtl/core/decoder.sv:130$45_Y
+    7: $flatten\u_dec.$eq$rtl/core/decoder.sv:131$46_Y
+    8: $flatten\u_dec.$eq$rtl/core/decoder.sv:105$43_Y
+    9: \ex_redirect
+   10: $procmux$442_CMP
+   11: $procmux$487_CMP
+   12: $procmux$1001_CMP
+   13: $procmux$1002_CMP
+
+  Output signals:
+    0: $procmux$267_CMP
+    1: $procmux$266_CMP
+    2: $procmux$265_CMP
+    3: $procmux$264_CMP
+    4: $procmux$263_CMP
+    5: $procmux$262_CMP
+    6: $procmux$270_CMP
+    7: $procmux$261_CMP
+    8: $procmux$269_CMP
+    9: $procmux$268_CMP
+   10: $procmux$260_CMP
+
+  State encoding:
+    0: 11'----------1  <RESET STATE>
+    1: 11'---------1-
+    2: 11'--------1--
+    3: 11'-------1---
+    4: 11'------1----
+    5: 11'-----1-----
+    6: 11'----1------
+    7: 11'---1-------
+    8: 11'--1--------
+    9: 11'-1---------
+   10: 11'1----------
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 14'-1--0-00---01-   ->     0 11'00001000000
+      1:     0 14'-1--0--1----1-   ->     0 11'00001000000
+      2:     0 14'1---0-------1-   ->     0 11'00001000000
+      3:     0 14'-1--0-00--1---   ->     0 11'00001000000
+      4:     0 14'1---0-00--1---   ->     0 11'00001000000
+      5:     0 14'00--0---------   ->     0 11'00001000000
+      6:     0 14'----1---------   ->     0 11'00001000000
+      7:     0 14'-1--0----1----   ->     1 11'00001000000
+      8:     0 14'1---0----1----   ->     1 11'00001000000
+      9:     0 14'-1--0--------1   ->     2 11'00001000000
+     10:     0 14'1---0--------1   ->     2 11'00001000000
+     11:     0 14'-11-0---------   ->     3 11'00001000000
+     12:     0 14'1-1-0---------   ->     3 11'00001000000
+     13:     0 14'-1--0-00---11-   ->     4 11'00001000000
+     14:     0 14'-1--0--1--1---   ->     5 11'00001000000
+     15:     0 14'1---0--1--1---   ->     5 11'00001000000
+     16:     0 14'-1--0-10----1-   ->     6 11'00001000000
+     17:     0 14'-1--0---1-----   ->     7 11'00001000000
+     18:     0 14'1---0---1-----   ->     7 11'00001000000
+     19:     0 14'-1-10---------   ->     8 11'00001000000
+     20:     0 14'1--10---------   ->     8 11'00001000000
+     21:     0 14'-1--01--------   ->     9 11'00001000000
+     22:     0 14'1---01--------   ->     9 11'00001000000
+     23:     0 14'-1--0-10--1---   ->    10 11'00001000000
+     24:     0 14'1---0-10--1---   ->    10 11'00001000000
+     25:     1 14'-1--0-00---01-   ->     0 11'00000100000
+     26:     1 14'-1--0--1----1-   ->     0 11'00000100000
+     27:     1 14'1---0-------1-   ->     0 11'00000100000
+     28:     1 14'-1--0-00--1---   ->     0 11'00000100000
+     29:     1 14'1---0-00--1---   ->     0 11'00000100000
+     30:     1 14'00--0---------   ->     0 11'00000100000
+     31:     1 14'-1--0----1----   ->     1 11'00000100000
+     32:     1 14'1---0----1----   ->     1 11'00000100000
+     33:     1 14'----1---------   ->     1 11'00000100000
+     34:     1 14'-1--0--------1   ->     2 11'00000100000
+     35:     1 14'1---0--------1   ->     2 11'00000100000
+     36:     1 14'-11-0---------   ->     3 11'00000100000
+     37:     1 14'1-1-0---------   ->     3 11'00000100000
+     38:     1 14'-1--0-00---11-   ->     4 11'00000100000
+     39:     1 14'-1--0--1--1---   ->     5 11'00000100000
+     40:     1 14'1---0--1--1---   ->     5 11'00000100000
+     41:     1 14'-1--0-10----1-   ->     6 11'00000100000
+     42:     1 14'-1--0---1-----   ->     7 11'00000100000
+     43:     1 14'1---0---1-----   ->     7 11'00000100000
+     44:     1 14'-1-10---------   ->     8 11'00000100000
+     45:     1 14'1--10---------   ->     8 11'00000100000
+     46:     1 14'-1--01--------   ->     9 11'00000100000
+     47:     1 14'1---01--------   ->     9 11'00000100000
+     48:     1 14'-1--0-10--1---   ->    10 11'00000100000
+     49:     1 14'1---0-10--1---   ->    10 11'00000100000
+     50:     2 14'-1--0-00---01-   ->     0 11'00000000010
+     51:     2 14'-1--0--1----1-   ->     0 11'00000000010
+     52:     2 14'1---0-------1-   ->     0 11'00000000010
+     53:     2 14'-1--0-00--1---   ->     0 11'00000000010
+     54:     2 14'1---0-00--1---   ->     0 11'00000000010
+     55:     2 14'00--0---------   ->     0 11'00000000010
+     56:     2 14'-1--0----1----   ->     1 11'00000000010
+     57:     2 14'1---0----1----   ->     1 11'00000000010
+     58:     2 14'-1--0--------1   ->     2 11'00000000010
+     59:     2 14'1---0--------1   ->     2 11'00000000010
+     60:     2 14'----1---------   ->     2 11'00000000010
+     61:     2 14'-11-0---------   ->     3 11'00000000010
+     62:     2 14'1-1-0---------   ->     3 11'00000000010
+     63:     2 14'-1--0-00---11-   ->     4 11'00000000010
+     64:     2 14'-1--0--1--1---   ->     5 11'00000000010
+     65:     2 14'1---0--1--1---   ->     5 11'00000000010
+     66:     2 14'-1--0-10----1-   ->     6 11'00000000010
+     67:     2 14'-1--0---1-----   ->     7 11'00000000010
+     68:     2 14'1---0---1-----   ->     7 11'00000000010
+     69:     2 14'-1-10---------   ->     8 11'00000000010
+     70:     2 14'1--10---------   ->     8 11'00000000010
+     71:     2 14'-1--01--------   ->     9 11'00000000010
+     72:     2 14'1---01--------   ->     9 11'00000000010
+     73:     2 14'-1--0-10--1---   ->    10 11'00000000010
+     74:     2 14'1---0-10--1---   ->    10 11'00000000010
+     75:     3 14'-1--0-00---01-   ->     0 11'01000000000
+     76:     3 14'-1--0--1----1-   ->     0 11'01000000000
+     77:     3 14'1---0-------1-   ->     0 11'01000000000
+     78:     3 14'-1--0-00--1---   ->     0 11'01000000000
+     79:     3 14'1---0-00--1---   ->     0 11'01000000000
+     80:     3 14'00--0---------   ->     0 11'01000000000
+     81:     3 14'-1--0----1----   ->     1 11'01000000000
+     82:     3 14'1---0----1----   ->     1 11'01000000000
+     83:     3 14'-1--0--------1   ->     2 11'01000000000
+     84:     3 14'1---0--------1   ->     2 11'01000000000
+     85:     3 14'-11-0---------   ->     3 11'01000000000
+     86:     3 14'1-1-0---------   ->     3 11'01000000000
+     87:     3 14'----1---------   ->     3 11'01000000000
+     88:     3 14'-1--0-00---11-   ->     4 11'01000000000
+     89:     3 14'-1--0--1--1---   ->     5 11'01000000000
+     90:     3 14'1---0--1--1---   ->     5 11'01000000000
+     91:     3 14'-1--0-10----1-   ->     6 11'01000000000
+     92:     3 14'-1--0---1-----   ->     7 11'01000000000
+     93:     3 14'1---0---1-----   ->     7 11'01000000000
+     94:     3 14'-1-10---------   ->     8 11'01000000000
+     95:     3 14'1--10---------   ->     8 11'01000000000
+     96:     3 14'-1--01--------   ->     9 11'01000000000
+     97:     3 14'1---01--------   ->     9 11'01000000000
+     98:     3 14'-1--0-10--1---   ->    10 11'01000000000
+     99:     3 14'1---0-10--1---   ->    10 11'01000000000
+    100:     4 14'-1--0-00---01-   ->     0 11'10000000000
+    101:     4 14'-1--0--1----1-   ->     0 11'10000000000
+    102:     4 14'1---0-------1-   ->     0 11'10000000000
+    103:     4 14'-1--0-00--1---   ->     0 11'10000000000
+    104:     4 14'1---0-00--1---   ->     0 11'10000000000
+    105:     4 14'00--0---------   ->     0 11'10000000000
+    106:     4 14'-1--0----1----   ->     1 11'10000000000
+    107:     4 14'1---0----1----   ->     1 11'10000000000
+    108:     4 14'-1--0--------1   ->     2 11'10000000000
+    109:     4 14'1---0--------1   ->     2 11'10000000000
+    110:     4 14'-11-0---------   ->     3 11'10000000000
+    111:     4 14'1-1-0---------   ->     3 11'10000000000
+    112:     4 14'-1--0-00---11-   ->     4 11'10000000000
+    113:     4 14'----1---------   ->     4 11'10000000000
+    114:     4 14'-1--0--1--1---   ->     5 11'10000000000
+    115:     4 14'1---0--1--1---   ->     5 11'10000000000
+    116:     4 14'-1--0-10----1-   ->     6 11'10000000000
+    117:     4 14'-1--0---1-----   ->     7 11'10000000000
+    118:     4 14'1---0---1-----   ->     7 11'10000000000
+    119:     4 14'-1-10---------   ->     8 11'10000000000
+    120:     4 14'1--10---------   ->     8 11'10000000000
+    121:     4 14'-1--01--------   ->     9 11'10000000000
+    122:     4 14'1---01--------   ->     9 11'10000000000
+    123:     4 14'-1--0-10--1---   ->    10 11'10000000000
+    124:     4 14'1---0-10--1---   ->    10 11'10000000000
+    125:     5 14'-1--0-00---01-   ->     0 11'00000001000
+    126:     5 14'-1--0--1----1-   ->     0 11'00000001000
+    127:     5 14'1---0-------1-   ->     0 11'00000001000
+    128:     5 14'-1--0-00--1---   ->     0 11'00000001000
+    129:     5 14'1---0-00--1---   ->     0 11'00000001000
+    130:     5 14'00--0---------   ->     0 11'00000001000
+    131:     5 14'-1--0----1----   ->     1 11'00000001000
+    132:     5 14'1---0----1----   ->     1 11'00000001000
+    133:     5 14'-1--0--------1   ->     2 11'00000001000
+    134:     5 14'1---0--------1   ->     2 11'00000001000
+    135:     5 14'-11-0---------   ->     3 11'00000001000
+    136:     5 14'1-1-0---------   ->     3 11'00000001000
+    137:     5 14'-1--0-00---11-   ->     4 11'00000001000
+    138:     5 14'-1--0--1--1---   ->     5 11'00000001000
+    139:     5 14'1---0--1--1---   ->     5 11'00000001000
+    140:     5 14'----1---------   ->     5 11'00000001000
+    141:     5 14'-1--0-10----1-   ->     6 11'00000001000
+    142:     5 14'-1--0---1-----   ->     7 11'00000001000
+    143:     5 14'1---0---1-----   ->     7 11'00000001000
+    144:     5 14'-1-10---------   ->     8 11'00000001000
+    145:     5 14'1--10---------   ->     8 11'00000001000
+    146:     5 14'-1--01--------   ->     9 11'00000001000
+    147:     5 14'1---01--------   ->     9 11'00000001000
+    148:     5 14'-1--0-10--1---   ->    10 11'00000001000
+    149:     5 14'1---0-10--1---   ->    10 11'00000001000
+    150:     6 14'-1--0-00---01-   ->     0 11'00100000000
+    151:     6 14'-1--0--1----1-   ->     0 11'00100000000
+    152:     6 14'1---0-------1-   ->     0 11'00100000000
+    153:     6 14'-1--0-00--1---   ->     0 11'00100000000
+    154:     6 14'1---0-00--1---   ->     0 11'00100000000
+    155:     6 14'00--0---------   ->     0 11'00100000000
+    156:     6 14'-1--0----1----   ->     1 11'00100000000
+    157:     6 14'1---0----1----   ->     1 11'00100000000
+    158:     6 14'-1--0--------1   ->     2 11'00100000000
+    159:     6 14'1---0--------1   ->     2 11'00100000000
+    160:     6 14'-11-0---------   ->     3 11'00100000000
+    161:     6 14'1-1-0---------   ->     3 11'00100000000
+    162:     6 14'-1--0-00---11-   ->     4 11'00100000000
+    163:     6 14'-1--0--1--1---   ->     5 11'00100000000
+    164:     6 14'1---0--1--1---   ->     5 11'00100000000
+    165:     6 14'-1--0-10----1-   ->     6 11'00100000000
+    166:     6 14'----1---------   ->     6 11'00100000000
+    167:     6 14'-1--0---1-----   ->     7 11'00100000000
+    168:     6 14'1---0---1-----   ->     7 11'00100000000
+    169:     6 14'-1-10---------   ->     8 11'00100000000
+    170:     6 14'1--10---------   ->     8 11'00100000000
+    171:     6 14'-1--01--------   ->     9 11'00100000000
+    172:     6 14'1---01--------   ->     9 11'00100000000
+    173:     6 14'-1--0-10--1---   ->    10 11'00100000000
+    174:     6 14'1---0-10--1---   ->    10 11'00100000000
+    175:     7 14'-1--0-00---01-   ->     0 11'00010000000
+    176:     7 14'-1--0--1----1-   ->     0 11'00010000000
+    177:     7 14'1---0-------1-   ->     0 11'00010000000
+    178:     7 14'-1--0-00--1---   ->     0 11'00010000000
+    179:     7 14'1---0-00--1---   ->     0 11'00010000000
+    180:     7 14'00--0---------   ->     0 11'00010000000
+    181:     7 14'-1--0----1----   ->     1 11'00010000000
+    182:     7 14'1---0----1----   ->     1 11'00010000000
+    183:     7 14'-1--0--------1   ->     2 11'00010000000
+    184:     7 14'1---0--------1   ->     2 11'00010000000
+    185:     7 14'-11-0---------   ->     3 11'00010000000
+    186:     7 14'1-1-0---------   ->     3 11'00010000000
+    187:     7 14'-1--0-00---11-   ->     4 11'00010000000
+    188:     7 14'-1--0--1--1---   ->     5 11'00010000000
+    189:     7 14'1---0--1--1---   ->     5 11'00010000000
+    190:     7 14'-1--0-10----1-   ->     6 11'00010000000
+    191:     7 14'-1--0---1-----   ->     7 11'00010000000
+    192:     7 14'1---0---1-----   ->     7 11'00010000000
+    193:     7 14'----1---------   ->     7 11'00010000000
+    194:     7 14'-1-10---------   ->     8 11'00010000000
+    195:     7 14'1--10---------   ->     8 11'00010000000
+    196:     7 14'-1--01--------   ->     9 11'00010000000
+    197:     7 14'1---01--------   ->     9 11'00010000000
+    198:     7 14'-1--0-10--1---   ->    10 11'00010000000
+    199:     7 14'1---0-10--1---   ->    10 11'00010000000
+    200:     8 14'-1--0-00---01-   ->     0 11'00000000100
+    201:     8 14'-1--0--1----1-   ->     0 11'00000000100
+    202:     8 14'1---0-------1-   ->     0 11'00000000100
+    203:     8 14'-1--0-00--1---   ->     0 11'00000000100
+    204:     8 14'1---0-00--1---   ->     0 11'00000000100
+    205:     8 14'00--0---------   ->     0 11'00000000100
+    206:     8 14'-1--0----1----   ->     1 11'00000000100
+    207:     8 14'1---0----1----   ->     1 11'00000000100
+    208:     8 14'-1--0--------1   ->     2 11'00000000100
+    209:     8 14'1---0--------1   ->     2 11'00000000100
+    210:     8 14'-11-0---------   ->     3 11'00000000100
+    211:     8 14'1-1-0---------   ->     3 11'00000000100
+    212:     8 14'-1--0-00---11-   ->     4 11'00000000100
+    213:     8 14'-1--0--1--1---   ->     5 11'00000000100
+    214:     8 14'1---0--1--1---   ->     5 11'00000000100
+    215:     8 14'-1--0-10----1-   ->     6 11'00000000100
+    216:     8 14'-1--0---1-----   ->     7 11'00000000100
+    217:     8 14'1---0---1-----   ->     7 11'00000000100
+    218:     8 14'-1-10---------   ->     8 11'00000000100
+    219:     8 14'1--10---------   ->     8 11'00000000100
+    220:     8 14'----1---------   ->     8 11'00000000100
+    221:     8 14'-1--01--------   ->     9 11'00000000100
+    222:     8 14'1---01--------   ->     9 11'00000000100
+    223:     8 14'-1--0-10--1---   ->    10 11'00000000100
+    224:     8 14'1---0-10--1---   ->    10 11'00000000100
+    225:     9 14'-1--0-00---01-   ->     0 11'00000000001
+    226:     9 14'-1--0--1----1-   ->     0 11'00000000001
+    227:     9 14'1---0-------1-   ->     0 11'00000000001
+    228:     9 14'-1--0-00--1---   ->     0 11'00000000001
+    229:     9 14'1---0-00--1---   ->     0 11'00000000001
+    230:     9 14'00--0---------   ->     0 11'00000000001
+    231:     9 14'-1--0----1----   ->     1 11'00000000001
+    232:     9 14'1---0----1----   ->     1 11'00000000001
+    233:     9 14'-1--0--------1   ->     2 11'00000000001
+    234:     9 14'1---0--------1   ->     2 11'00000000001
+    235:     9 14'-11-0---------   ->     3 11'00000000001
+    236:     9 14'1-1-0---------   ->     3 11'00000000001
+    237:     9 14'-1--0-00---11-   ->     4 11'00000000001
+    238:     9 14'-1--0--1--1---   ->     5 11'00000000001
+    239:     9 14'1---0--1--1---   ->     5 11'00000000001
+    240:     9 14'-1--0-10----1-   ->     6 11'00000000001
+    241:     9 14'-1--0---1-----   ->     7 11'00000000001
+    242:     9 14'1---0---1-----   ->     7 11'00000000001
+    243:     9 14'-1-10---------   ->     8 11'00000000001
+    244:     9 14'1--10---------   ->     8 11'00000000001
+    245:     9 14'-1--01--------   ->     9 11'00000000001
+    246:     9 14'1---01--------   ->     9 11'00000000001
+    247:     9 14'----1---------   ->     9 11'00000000001
+    248:     9 14'-1--0-10--1---   ->    10 11'00000000001
+    249:     9 14'1---0-10--1---   ->    10 11'00000000001
+    250:    10 14'-1--0-00---01-   ->     0 11'00000010000
+    251:    10 14'-1--0--1----1-   ->     0 11'00000010000
+    252:    10 14'1---0-------1-   ->     0 11'00000010000
+    253:    10 14'-1--0-00--1---   ->     0 11'00000010000
+    254:    10 14'1---0-00--1---   ->     0 11'00000010000
+    255:    10 14'00--0---------   ->     0 11'00000010000
+    256:    10 14'-1--0----1----   ->     1 11'00000010000
+    257:    10 14'1---0----1----   ->     1 11'00000010000
+    258:    10 14'-1--0--------1   ->     2 11'00000010000
+    259:    10 14'1---0--------1   ->     2 11'00000010000
+    260:    10 14'-11-0---------   ->     3 11'00000010000
+    261:    10 14'1-1-0---------   ->     3 11'00000010000
+    262:    10 14'-1--0-00---11-   ->     4 11'00000010000
+    263:    10 14'-1--0--1--1---   ->     5 11'00000010000
+    264:    10 14'1---0--1--1---   ->     5 11'00000010000
+    265:    10 14'-1--0-10----1-   ->     6 11'00000010000
+    266:    10 14'-1--0---1-----   ->     7 11'00000010000
+    267:    10 14'1---0---1-----   ->     7 11'00000010000
+    268:    10 14'-1-10---------   ->     8 11'00000010000
+    269:    10 14'1--10---------   ->     8 11'00000010000
+    270:    10 14'-1--01--------   ->     9 11'00000010000
+    271:    10 14'1---01--------   ->     9 11'00000010000
+    272:    10 14'-1--0-10--1---   ->    10 11'00000010000
+    273:    10 14'1---0-10--1---   ->    10 11'00000010000
+    274:    10 14'----1---------   ->    10 11'00000010000
+
+-------------------------------------
+
+FSM `$fsm$\idex_br_type$1423' from module `core_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\idex_br_type$1423 (\idex_br_type):
+
+  Number of input signals:   11
+  Number of output signals:   7
+  Number of state bits:       8
+
+  Input signals:
+    0: $flatten\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+    1: $procmux$390_CMP
+    2: $procmux$375_CMP
+    3: $procmux$364_CMP
+    4: \dec_illegal
+    5: \ex_redirect
+    6: $procmux$442_CMP
+    7: $procmux$487_CMP
+    8: $procmux$1004_CMP
+    9: $procmux$1005_CMP
+   10: $procmux$1016_CMP
+
+  Output signals:
+    0: $procmux$1157_CMP
+    1: $procmux$1158_CMP
+    2: $procmux$1159_CMP
+    3: $procmux$1160_CMP
+    4: $procmux$1161_CMP
+    5: $procmux$1162_CMP
+    6: $procmux$1163_CMP
+
+  State encoding:
+    0: 8'-------1  <RESET STATE>
+    1: 8'------1-
+    2: 8'-----1--
+    3: 8'----1---
+    4: 8'---1----
+    5: 8'--1-----
+    6: 8'-1------
+    7: 8'1-------
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 11'1--00000000   ->     0 7'0000000
+      1:     0 11'--1--00---0   ->     0 7'0000000
+      2:     0 11'000--00----   ->     0 7'0000000
+      3:     0 11'-----01----   ->     0 7'0000000
+      4:     0 11'-----1-----   ->     0 7'0000000
+      5:     0 11'1----00--1-   ->     1 7'0000000
+      6:     0 11'1--1-00----   ->     2 7'0000000
+      7:     0 11'1----001---   ->     3 7'0000000
+      8:     0 11'1----00---1   ->     4 7'0000000
+      9:     0 11'1----00-1--   ->     5 7'0000000
+     10:     0 11'1---100----   ->     6 7'0000000
+     11:     0 11'--1--00---1   ->     7 7'0000000
+     12:     0 11'-1---00----   ->     7 7'0000000
+     13:     1 11'1--00000000   ->     0 7'0001000
+     14:     1 11'--1--00---0   ->     0 7'0001000
+     15:     1 11'000--00----   ->     0 7'0001000
+     16:     1 11'-----01----   ->     0 7'0001000
+     17:     1 11'1----00--1-   ->     1 7'0001000
+     18:     1 11'-----1-----   ->     1 7'0001000
+     19:     1 11'1--1-00----   ->     2 7'0001000
+     20:     1 11'1----001---   ->     3 7'0001000
+     21:     1 11'1----00---1   ->     4 7'0001000
+     22:     1 11'1----00-1--   ->     5 7'0001000
+     23:     1 11'1---100----   ->     6 7'0001000
+     24:     1 11'--1--00---1   ->     7 7'0001000
+     25:     1 11'-1---00----   ->     7 7'0001000
+     26:     2 11'1--00000000   ->     0 7'0100000
+     27:     2 11'--1--00---0   ->     0 7'0100000
+     28:     2 11'000--00----   ->     0 7'0100000
+     29:     2 11'-----01----   ->     0 7'0100000
+     30:     2 11'1----00--1-   ->     1 7'0100000
+     31:     2 11'1--1-00----   ->     2 7'0100000
+     32:     2 11'-----1-----   ->     2 7'0100000
+     33:     2 11'1----001---   ->     3 7'0100000
+     34:     2 11'1----00---1   ->     4 7'0100000
+     35:     2 11'1----00-1--   ->     5 7'0100000
+     36:     2 11'1---100----   ->     6 7'0100000
+     37:     2 11'--1--00---1   ->     7 7'0100000
+     38:     2 11'-1---00----   ->     7 7'0100000
+     39:     3 11'1--00000000   ->     0 7'0000010
+     40:     3 11'--1--00---0   ->     0 7'0000010
+     41:     3 11'000--00----   ->     0 7'0000010
+     42:     3 11'-----01----   ->     0 7'0000010
+     43:     3 11'1----00--1-   ->     1 7'0000010
+     44:     3 11'1--1-00----   ->     2 7'0000010
+     45:     3 11'1----001---   ->     3 7'0000010
+     46:     3 11'-----1-----   ->     3 7'0000010
+     47:     3 11'1----00---1   ->     4 7'0000010
+     48:     3 11'1----00-1--   ->     5 7'0000010
+     49:     3 11'1---100----   ->     6 7'0000010
+     50:     3 11'--1--00---1   ->     7 7'0000010
+     51:     3 11'-1---00----   ->     7 7'0000010
+     52:     4 11'1--00000000   ->     0 7'1000000
+     53:     4 11'--1--00---0   ->     0 7'1000000
+     54:     4 11'000--00----   ->     0 7'1000000
+     55:     4 11'-----01----   ->     0 7'1000000
+     56:     4 11'1----00--1-   ->     1 7'1000000
+     57:     4 11'1--1-00----   ->     2 7'1000000
+     58:     4 11'1----001---   ->     3 7'1000000
+     59:     4 11'1----00---1   ->     4 7'1000000
+     60:     4 11'-----1-----   ->     4 7'1000000
+     61:     4 11'1----00-1--   ->     5 7'1000000
+     62:     4 11'1---100----   ->     6 7'1000000
+     63:     4 11'--1--00---1   ->     7 7'1000000
+     64:     4 11'-1---00----   ->     7 7'1000000
+     65:     5 11'1--00000000   ->     0 7'0000100
+     66:     5 11'--1--00---0   ->     0 7'0000100
+     67:     5 11'000--00----   ->     0 7'0000100
+     68:     5 11'-----01----   ->     0 7'0000100
+     69:     5 11'1----00--1-   ->     1 7'0000100
+     70:     5 11'1--1-00----   ->     2 7'0000100
+     71:     5 11'1----001---   ->     3 7'0000100
+     72:     5 11'1----00---1   ->     4 7'0000100
+     73:     5 11'1----00-1--   ->     5 7'0000100
+     74:     5 11'-----1-----   ->     5 7'0000100
+     75:     5 11'1---100----   ->     6 7'0000100
+     76:     5 11'--1--00---1   ->     7 7'0000100
+     77:     5 11'-1---00----   ->     7 7'0000100
+     78:     6 11'1--00000000   ->     0 7'0010000
+     79:     6 11'--1--00---0   ->     0 7'0010000
+     80:     6 11'000--00----   ->     0 7'0010000
+     81:     6 11'-----01----   ->     0 7'0010000
+     82:     6 11'1----00--1-   ->     1 7'0010000
+     83:     6 11'1--1-00----   ->     2 7'0010000
+     84:     6 11'1----001---   ->     3 7'0010000
+     85:     6 11'1----00---1   ->     4 7'0010000
+     86:     6 11'1----00-1--   ->     5 7'0010000
+     87:     6 11'1---100----   ->     6 7'0010000
+     88:     6 11'-----1-----   ->     6 7'0010000
+     89:     6 11'--1--00---1   ->     7 7'0010000
+     90:     6 11'-1---00----   ->     7 7'0010000
+     91:     7 11'1--00000000   ->     0 7'0000001
+     92:     7 11'--1--00---0   ->     0 7'0000001
+     93:     7 11'000--00----   ->     0 7'0000001
+     94:     7 11'-----01----   ->     0 7'0000001
+     95:     7 11'1----00--1-   ->     1 7'0000001
+     96:     7 11'1--1-00----   ->     2 7'0000001
+     97:     7 11'1----001---   ->     3 7'0000001
+     98:     7 11'1----00---1   ->     4 7'0000001
+     99:     7 11'1----00-1--   ->     5 7'0000001
+    100:     7 11'1---100----   ->     6 7'0000001
+    101:     7 11'--1--00---1   ->     7 7'0000001
+    102:     7 11'-1---00----   ->     7 7'0000001
+    103:     7 11'-----1-----   ->     7 7'0000001
+
+-------------------------------------
+
+15.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\idex_alu_a_sel$1406' from module `\core_pipe'.
+Mapping FSM `$fsm$\idex_alu_op$1410' from module `\core_pipe'.
+Mapping FSM `$fsm$\idex_br_type$1423' from module `\core_pipe'.
+
+15.8. Executing OPT pass (performing simple optimizations).
+
+15.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~25 debug messages>
+
+15.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~38 debug messages>
+
+15.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1292 ($adff) from module core_pipe (D = \u_dec.wb_sel, Q = \idex_wb_sel).
+Adding EN signal on $procdff$1287 ($adff) from module core_pipe (D = \u_dec.is_cus, Q = \idex_is_cus).
+Adding EN signal on $procdff$1282 ($adff) from module core_pipe (D = \u_dec.is_mret, Q = \idex_is_mret).
+Adding EN signal on $procdff$1277 ($adff) from module core_pipe (D = \u_dec.jalr, Q = \idex_jalr).
+Adding EN signal on $procdff$1272 ($adff) from module core_pipe (D = \u_dec.alu_b_imm, Q = \idex_alu_b_imm).
+Adding EN signal on $procdff$1267 ($adff) from module core_pipe (D = \u_dec.mem_we, Q = \idex_mem_we).
+Adding EN signal on $procdff$1262 ($adff) from module core_pipe (D = \u_dec.reg_we, Q = \idex_reg_we).
+Adding EN signal on $procdff$1257 ($adff) from module core_pipe (D = \ifid_instr [24:20], Q = \idex_rs2).
+Adding EN signal on $procdff$1252 ($adff) from module core_pipe (D = \ifid_instr [19:15], Q = \idex_rs1).
+Adding EN signal on $procdff$1247 ($adff) from module core_pipe (D = \ifid_instr [11:7], Q = \idex_rd).
+Adding EN signal on $procdff$1242 ($adff) from module core_pipe (D = \u_imm.imm, Q = \idex_imm).
+Adding EN signal on $procdff$1237 ($adff) from module core_pipe (D = \u_rf.rdata2, Q = \idex_rs2_val).
+Adding EN signal on $procdff$1232 ($adff) from module core_pipe (D = \u_rf.rdata1, Q = \idex_rs1_val).
+Adding EN signal on $procdff$1227 ($adff) from module core_pipe (D = \ifid_pc, Q = \idex_pc).
+Adding EN signal on $procdff$1202 ($adff) from module core_pipe (D = $0\in_handler[0:0], Q = \in_handler).
+Adding EN signal on $procdff$1197 ($adff) from module core_pipe (D = $0\drain[0:0], Q = \drain).
+Adding EN signal on $procdff$1192 ($adff) from module core_pipe (D = \pc, Q = \epc).
+Adding EN signal on $procdff$1187 ($adff) from module core_pipe (D = \pc_next, Q = \pc).
+
+15.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 15 unused cells and 66 unused wires.
+<suppressed ~16 debug messages>
+
+15.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~2 debug messages>
+
+15.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+15.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.8.16. Finished OPT passes. (There is nothing left to do.)
+
+15.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell core_pipe.$procmux$456_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell core_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$1575 ($eq).
+Removed top 2 bits (of 3) from port B of cell core_pipe.$procmux$303_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_pipe.$procmux$302_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_pipe.$procmux$301_CMP0 ($eq).
+Removed top 2 bits (of 32) from port B of cell core_pipe.$flatten\u_dec.$eq$rtl/core/decoder.sv:161$58 ($eq).
+Removed top 1 bits (of 3) from port B of cell core_pipe.$flatten\u_dec.$eq$rtl/core/decoder.sv:105$43 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_pipe.$flatten\u_dec.$eq$rtl/core/decoder.sv:131$46 ($eq).
+Removed top 6 bits (of 7) from port B of cell core_pipe.$flatten\u_dec.$eq$rtl/core/decoder.sv:143$49 ($eq).
+Removed top 29 bits (of 32) from port B of cell core_pipe.$add$rtl/core/core_pipe.sv:208$195 ($add).
+Removed top 1 bits (of 2) from port B of cell core_pipe.$eq$rtl/core/core_pipe.sv:222$202 ($eq).
+Removed top 1 bits (of 2) from port B of cell core_pipe.$eq$rtl/core/core_pipe.sv:228$206 ($eq).
+Removed top 29 bits (of 32) from port B of cell core_pipe.$add$rtl/core/core_pipe.sv:245$225 ($add).
+Removed top 2 bits (of 3) from port B of cell core_pipe.$procmux$487_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell core_pipe.$procmux$736 ($mux).
+Removed top 1 bits (of 2) from mux cell core_pipe.$procmux$817 ($mux).
+Removed top 3 bits (of 7) from port B of cell core_pipe.$procmux$1000_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_pipe.$procmux$1001_CMP0 ($eq).
+Removed top 2 bits (of 7) from port B of cell core_pipe.$procmux$1002_CMP0 ($eq).
+Removed top 5 bits (of 7) from port B of cell core_pipe.$procmux$1003_CMP0 ($eq).
+Removed top 2 bits (of 7) from port B of cell core_pipe.$procmux$1006_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_pipe.$procmux$1007_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell core_pipe.$procmux$1014_CMP0 ($eq).
+Removed top 1 bits (of 2) from wire core_pipe.$flatten\u_dec.$3\wb_sel[1:0].
+Removed top 2 bits (of 3) from wire core_pipe.$flatten\u_dec.$4\imm_type[2:0].
+
+15.10. Executing PEEPOPT pass (run peephole optimizers).
+
+15.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+15.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module core_pipe:
+  creating $macc model for $add$rtl/core/core_pipe.sv:197$189 ($add).
+  creating $macc model for $add$rtl/core/core_pipe.sv:198$191 ($add).
+  creating $macc model for $add$rtl/core/core_pipe.sv:208$195 ($add).
+  creating $macc model for $add$rtl/core/core_pipe.sv:245$225 ($add).
+  creating $macc model for $flatten\u_alu.$add$rtl/core/alu.sv:22$5 ($add).
+  creating $macc model for $flatten\u_alu.$mul$rtl/core/alu.sv:32$13 ($mul).
+  creating $macc model for $flatten\u_alu.$sub$rtl/core/alu.sv:23$6 ($sub).
+  creating $alu model for $macc $flatten\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $macc $flatten\u_alu.$add$rtl/core/alu.sv:22$5.
+  creating $alu model for $macc $add$rtl/core/core_pipe.sv:245$225.
+  creating $alu model for $macc $add$rtl/core/core_pipe.sv:208$195.
+  creating $alu model for $macc $add$rtl/core/core_pipe.sv:198$191.
+  creating $alu model for $macc $add$rtl/core/core_pipe.sv:197$189.
+  creating $macc cell for $flatten\u_alu.$mul$rtl/core/alu.sv:32$13: $auto$alumacc.cc:365:replace_macc$1658
+  creating $alu model for $flatten\u_alu.$lt$rtl/core/alu.sv:17$2 ($lt): new $alu
+  creating $alu model for $flatten\u_alu.$lt$rtl/core/alu.sv:18$3 ($lt): merged with $flatten\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $flatten\u_alu.$eq$rtl/core/alu.sv:16$1 ($eq): merged with $flatten\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu cell for $add$rtl/core/core_pipe.sv:197$189: $auto$alumacc.cc:495:replace_alu$1660
+  creating $alu cell for $add$rtl/core/core_pipe.sv:198$191: $auto$alumacc.cc:495:replace_alu$1663
+  creating $alu cell for $add$rtl/core/core_pipe.sv:208$195: $auto$alumacc.cc:495:replace_alu$1666
+  creating $alu cell for $add$rtl/core/core_pipe.sv:245$225: $auto$alumacc.cc:495:replace_alu$1669
+  creating $alu cell for $flatten\u_alu.$add$rtl/core/alu.sv:22$5: $auto$alumacc.cc:495:replace_alu$1672
+  creating $alu cell for $flatten\u_alu.$lt$rtl/core/alu.sv:17$2: $auto$alumacc.cc:495:replace_alu$1675
+  creating $alu cell for $flatten\u_alu.$sub$rtl/core/alu.sv:23$6, $flatten\u_alu.$lt$rtl/core/alu.sv:18$3, $flatten\u_alu.$eq$rtl/core/alu.sv:16$1: $auto$alumacc.cc:495:replace_alu$1682
+  created 7 $alu and 1 $macc cells.
+
+15.13. Executing SHARE pass (SAT-based resource sharing).
+Found 5 cells in module core_pipe that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$253 ($memrd):
+    Found 1 activation_patterns using ctrl signal { \u_rf.hit2 $flatten\u_rf.$eq$rtl/core/regfile.sv:49$252_Y }.
+    Found 1 candidates: $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$251
+    Analyzing resource sharing with $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$251 ($memrd):
+      Found 1 activation_patterns using ctrl signal { \u_rf.hit1 $flatten\u_rf.$eq$rtl/core/regfile.sv:42$250_Y }.
+      Activation pattern for cell $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$253: { \u_rf.hit2 $flatten\u_rf.$eq$rtl/core/regfile.sv:49$252_Y } = 2'00
+      Activation pattern for cell $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$251: { \u_rf.hit1 $flatten\u_rf.$eq$rtl/core/regfile.sv:42$250_Y } = 2'00
+      Size of SAT problem: 10 cells, 112 variables, 278 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { \u_rf.hit2 \u_rf.hit1 $flatten\u_rf.$eq$rtl/core/regfile.sv:42$250_Y $flatten\u_rf.$eq$rtl/core/regfile.sv:49$252_Y } = 4'0000
+  Analyzing resource sharing options for $flatten\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$251 ($memrd):
+    Found 1 activation_patterns using ctrl signal { \u_rf.hit1 $flatten\u_rf.$eq$rtl/core/regfile.sv:42$250_Y }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_alu.$sshr$rtl/core/alu.sv:29$10 ($sshr):
+    Found 1 activation_patterns using ctrl signal { $eq$rtl/core/core_pipe.sv:208$194_Y \idex_is_cus \idex_alu_op [10] }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_alu.$shr$rtl/core/alu.sv:28$9 ($shr):
+    Found 1 activation_patterns using ctrl signal { $eq$rtl/core/core_pipe.sv:208$194_Y \idex_is_cus \idex_alu_op [5] }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_alu.$shl$rtl/core/alu.sv:24$7 ($shl):
+    Found 1 activation_patterns using ctrl signal { $eq$rtl/core/core_pipe.sv:208$194_Y \idex_is_cus \idex_alu_op [3] }.
+    No candidates found.
+
+15.14. Executing OPT pass (performing simple optimizations).
+
+15.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~1 debug messages>
+
+15.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+15.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+15.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+15.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+15.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.14.16. Finished OPT passes. (There is nothing left to do.)
+
+15.15. Executing MEMORY pass.
+
+15.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+15.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+15.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing core_pipe.u_rf.regs write port 0.
+
+15.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+15.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\u_rf.regs'[0] in module `\core_pipe': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port `\u_rf.regs'[1] in module `\core_pipe': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port address `\u_rf.regs'[0] in module `\core_pipe': address FF has async set and/or reset, not supported.
+Checking read port address `\u_rf.regs'[1] in module `\core_pipe': address FF has async set and/or reset, not supported.
+
+15.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory core_pipe.u_rf.regs by address:
+
+15.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+15.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+15.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.17. Executing OPT pass (performing simple optimizations).
+
+15.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~25 debug messages>
+
+15.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:266:slice$1653 ($adffe) from module core_pipe (D = \pc_next [1:0], Q = \pc [1:0]).
+
+15.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 1 unused cells and 11 unused wires.
+<suppressed ~2 debug messages>
+
+15.17.5. Rerunning OPT passes. (Removed registers in this run.)
+
+15.17.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~3 debug messages>
+
+15.17.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.17.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.17.10. Finished fast OPT passes.
+
+15.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \u_rf.regs in module \core_pipe:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+15.19. Executing OPT pass (performing simple optimizations).
+
+15.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~10 debug messages>
+
+15.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~55 debug messages>
+
+15.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+    Consolidated identical input bits for $mux cell $procmux$924:
+      Old ports: A=2'00, B=2'10, Y=$flatten\u_dec.$2\wb_sel[1:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_dec.$2\wb_sel[1:0] [1]
+      New connections: $flatten\u_dec.$2\wb_sel[1:0] [0] = 1'0
+  Optimizing cells in module \core_pipe.
+Performed a total of 1 changes.
+
+15.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.19.6. Executing OPT_SHARE pass.
+
+15.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 0 unused cells and 101 unused wires.
+<suppressed ~1 debug messages>
+
+15.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~1 debug messages>
+
+15.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~55 debug messages>
+
+15.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.19.14. Executing OPT_SHARE pass.
+
+15.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\u_rf.regs[9]$1717 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[9]).
+Adding EN signal on $memory\u_rf.regs[8]$1715 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[8]).
+Adding EN signal on $memory\u_rf.regs[7]$1713 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[7]).
+Adding EN signal on $memory\u_rf.regs[6]$1711 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[6]).
+Adding EN signal on $memory\u_rf.regs[5]$1709 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[5]).
+Adding EN signal on $memory\u_rf.regs[4]$1707 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[4]).
+Adding EN signal on $memory\u_rf.regs[3]$1705 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[3]).
+Adding EN signal on $memory\u_rf.regs[31]$1761 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[31]).
+Adding EN signal on $memory\u_rf.regs[30]$1759 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[30]).
+Adding EN signal on $memory\u_rf.regs[2]$1703 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[2]).
+Adding EN signal on $memory\u_rf.regs[29]$1757 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[29]).
+Adding EN signal on $memory\u_rf.regs[28]$1755 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[28]).
+Adding EN signal on $memory\u_rf.regs[27]$1753 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[27]).
+Adding EN signal on $memory\u_rf.regs[26]$1751 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[26]).
+Adding EN signal on $memory\u_rf.regs[25]$1749 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[25]).
+Adding EN signal on $memory\u_rf.regs[24]$1747 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[24]).
+Adding EN signal on $memory\u_rf.regs[23]$1745 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[23]).
+Adding EN signal on $memory\u_rf.regs[22]$1743 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[22]).
+Adding EN signal on $memory\u_rf.regs[21]$1741 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[21]).
+Adding EN signal on $memory\u_rf.regs[20]$1739 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[20]).
+Adding EN signal on $memory\u_rf.regs[1]$1701 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[1]).
+Adding EN signal on $memory\u_rf.regs[19]$1737 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[19]).
+Adding EN signal on $memory\u_rf.regs[18]$1735 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[18]).
+Adding EN signal on $memory\u_rf.regs[17]$1733 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[17]).
+Adding EN signal on $memory\u_rf.regs[16]$1731 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[16]).
+Adding EN signal on $memory\u_rf.regs[15]$1729 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[15]).
+Adding EN signal on $memory\u_rf.regs[14]$1727 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[14]).
+Adding EN signal on $memory\u_rf.regs[13]$1725 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[13]).
+Adding EN signal on $memory\u_rf.regs[12]$1723 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[12]).
+Adding EN signal on $memory\u_rf.regs[11]$1721 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[11]).
+Adding EN signal on $memory\u_rf.regs[10]$1719 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[10]).
+Adding EN signal on $memory\u_rf.regs[0]$1699 ($dff) from module core_pipe (D = \u_rf.wdata, Q = \u_rf.regs[0]).
+
+15.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 32 unused cells and 33 unused wires.
+<suppressed ~33 debug messages>
+
+15.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \core_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+15.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \core_pipe.
+Performed a total of 0 changes.
+
+15.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+Removed a total of 0 cells.
+
+15.19.22. Executing OPT_SHARE pass.
+
+15.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+
+15.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+
+15.19.26. Finished OPT passes. (There is nothing left to do.)
+
+15.20. Executing TECHMAP pass (map to technology primitives).
+
+15.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+15.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$8fabc56b80a569262acfc42757a02ca0b8e91278\_90_pmux for cells of type $pmux.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$335cfd09f1afa8139c4aafcbbe5f361887b79c5e\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$feecc7a0dbd012970970f2858f15e786e251f677\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$e765c459d3029c22a22a27989e94858fd9ebfa9c\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshr.
+Using template $paramod$a5f0941832cc861549e29ccafffe20bfdf2e5528\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$59b03ae2620a41577de8da5f5c97b2919e82362b\_90_pmux for cells of type $pmux.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \u_alu.a * \u_alu.b (32x32 bits, unsigned)
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$2653f68ddb8eab7b1907b4a20767b72a824a7a36\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$44a13d10af618e7fbe7b9aad2f6151ffcee1e2fa\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $ne.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$d31bf4d7d72e59528d18fbd4f322e9d608532043\_90_pmux for cells of type $pmux.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod$bf541dd3c0ba8228982b61e7bfbc350a2c253f4c\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000100000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011110 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~3756 debug messages>
+
+15.21. Executing OPT pass (performing simple optimizations).
+
+15.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~4296 debug messages>
+
+15.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+<suppressed ~2256 debug messages>
+Removed a total of 752 cells.
+
+15.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 338 unused cells and 1735 unused wires.
+<suppressed ~339 debug messages>
+
+15.21.5. Finished fast OPT passes.
+
+15.22. Executing ABC pass (technology mapping using ABC).
+
+15.22.1. Extracting gate netlist of module `\core_pipe' to `<abc-temp-dir>/input.blif'..
+Replacing 2 occurrences of constant undef bits with constant zero bits
+Extracted 8505 gates and 10007 wires to a netlist network with 1499 inputs and 393 outputs.
+
+15.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+15.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      167
+ABC RESULTS:            ANDNOT cells:     2213
+ABC RESULTS:               MUX cells:     2775
+ABC RESULTS:              NAND cells:      216
+ABC RESULTS:               NOR cells:      383
+ABC RESULTS:               NOT cells:     1330
+ABC RESULTS:                OR cells:     1043
+ABC RESULTS:             ORNOT cells:      220
+ABC RESULTS:              XNOR cells:      275
+ABC RESULTS:               XOR cells:     1059
+ABC RESULTS:        internal signals:     8115
+ABC RESULTS:           input signals:     1499
+ABC RESULTS:          output signals:      393
+Removing temp directory.
+
+15.23. Executing OPT pass (performing simple optimizations).
+
+15.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module core_pipe.
+<suppressed ~1983 debug messages>
+
+15.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\core_pipe'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+15.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+15.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \core_pipe..
+Removed 5 unused cells and 3243 unused wires.
+<suppressed ~33 debug messages>
+
+15.23.5. Finished fast OPT passes.
+
+15.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `core_pipe'. Setting top module to core_pipe.
+
+15.24.1. Analyzing design hierarchy..
+Top module:  \core_pipe
+
+15.24.2. Analyzing design hierarchy..
+Top module:  \core_pipe
+Removed 0 unused modules.
+
+15.25. Printing statistics.
+
+=== core_pipe ===
+
+   Number of wires:               9473
+   Number of wire bits:          11700
+   Number of public wires:         131
+   Number of public wire bits:    2327
+   Number of ports:                 17
+   Number of port bits:            298
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              11154
+     $_ANDNOT_                    2213
+     $_AND_                        167
+     $_DFFE_PN0N_                  151
+     $_DFFE_PN0P_                   66
+     $_DFFE_PP_                   1024
+     $_DFF_PN0_                    231
+     $_DFF_PN1_                      4
+     $_MUX_                       2775
+     $_NAND_                       216
+     $_NOR_                        383
+     $_NOT_                       1325
+     $_ORNOT_                      219
+     $_OR_                        1042
+     $_XNOR_                       275
+     $_XOR_                       1059
+     $scopeinfo                      4
+
+15.26. Executing CHECK pass (checking for obvious problems).
+Checking module core_pipe...
+Found and reported 0 problems.
+
+16. Executing LTP pass (find longest path).
+
+Longest topological path in core_pipe (length=52):
+    0: \memwb_rd [3]
+    1: $abc$20166$new_n1952 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20226)
+    2: $abc$20166$new_n1953 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20227)
+    3: $abc$20166$new_n1954 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20228)
+    4: $abc$20166$new_n1956 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20230)
+    5: $abc$20166$new_n1957 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20231)
+    6: $abc$20166$new_n2565 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20839)
+    7: $abc$20166$new_n2566 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20840)
+    8: $abc$20166$new_n2567 (via $abc$20166$auto$blifparse.cc:396:parse_blif$20841)
+    9: $abc$20166$new_n7781 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26055)
+   10: $abc$20166$new_n7783 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26057)
+   11: $abc$20166$new_n7935 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26209)
+   12: $abc$20166$new_n7936 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26210)
+   13: $abc$20166$new_n7937 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26211)
+   14: $abc$20166$new_n8091 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26365)
+   15: $abc$20166$new_n8092 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26366)
+   16: $abc$20166$new_n8093 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26367)
+   17: $abc$20166$new_n8268 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26542)
+   18: $abc$20166$new_n8269 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26543)
+   19: $abc$20166$new_n8270 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26544)
+   20: $abc$20166$new_n8449 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26723)
+   21: $abc$20166$new_n8450 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26724)
+   22: $abc$20166$new_n8451 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26725)
+   23: $abc$20166$new_n8662 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26936)
+   24: $abc$20166$new_n8663 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26937)
+   25: $abc$20166$new_n8664 (via $abc$20166$auto$blifparse.cc:396:parse_blif$26938)
+   26: $abc$20166$new_n8841 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27115)
+   27: $abc$20166$new_n8842 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27116)
+   28: $abc$20166$new_n8843 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27117)
+   29: $abc$20166$new_n9029 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27303)
+   30: $abc$20166$new_n9030 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27304)
+   31: $abc$20166$new_n9031 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27305)
+   32: $abc$20166$new_n9033 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27307)
+   33: $abc$20166$new_n9217 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27491)
+   34: $abc$20166$new_n9220 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27494)
+   35: $abc$20166$new_n9223 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27497)
+   36: $abc$20166$new_n9224 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27498)
+   37: $abc$20166$new_n9225 (via $abc$20166$auto$blifparse.cc:396:parse_blif$27499)
+   38: $abc$20166$new_n10032 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28306)
+   39: $abc$20166$new_n10033 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28307)
+   40: $abc$20166$new_n10463 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28737)
+   41: $abc$20166$new_n10464 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28738)
+   42: $abc$20166$new_n10684 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28958)
+   43: $abc$20166$new_n10685 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28959)
+   44: $abc$20166$new_n10686 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28960)
+   45: $abc$20166$new_n10687 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28961)
+   46: $abc$20166$new_n10689 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28963)
+   47: $abc$20166$new_n10693 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28967)
+   48: $abc$20166$new_n10699 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28973)
+   49: $abc$20166$new_n10714 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28988)
+   50: $abc$20166$new_n10715 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28989)
+   51: $abc$20166$new_n10716 (via $abc$20166$auto$blifparse.cc:396:parse_blif$28990)
+   52: \wb_val_ex [31] (via $abc$20166$auto$blifparse.cc:396:parse_blif$28991)
+   ff: \exmem_result [31] (via $auto$ff.cc:266:slice$9634)
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 79e744d413, CPU: user 1.60s system 0.05s, MEM: 55.68 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 25% 1x abc (0 sec), 17% 30x opt_expr (0 sec), ...

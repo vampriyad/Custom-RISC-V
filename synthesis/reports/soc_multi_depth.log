@@ -1,0 +1,1779 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Executing script file `/dev/stdin' --
+
+1. Executing Verilog-2005 frontend: rtl/core/alu.sv
+Parsing SystemVerilog input from `rtl/core/alu.sv' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/core/regfile.sv
+Parsing SystemVerilog input from `rtl/core/regfile.sv' to AST representation.
+Generating RTLIL representation for module `\regfile'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/core/imm_gen.sv
+Parsing SystemVerilog input from `rtl/core/imm_gen.sv' to AST representation.
+Generating RTLIL representation for module `\imm_gen'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/core/decoder.sv
+Parsing SystemVerilog input from `rtl/core/decoder.sv' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/mem/imem.sv
+Parsing SystemVerilog input from `rtl/mem/imem.sv' to AST representation.
+Generating RTLIL representation for module `\imem'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/mem/dmem.sv
+Parsing SystemVerilog input from `rtl/mem/dmem.sv' to AST representation.
+Generating RTLIL representation for module `\dmem'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/periph/uart_tx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_tx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_tx'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/periph/uart_rx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_rx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_rx'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: rtl/periph/uart.sv
+Parsing SystemVerilog input from `rtl/periph/uart.sv' to AST representation.
+Generating RTLIL representation for module `\uart'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: rtl/periph/timer.sv
+Parsing SystemVerilog input from `rtl/periph/timer.sv' to AST representation.
+Generating RTLIL representation for module `\timer'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: rtl/custom/dotp.sv
+Parsing SystemVerilog input from `rtl/custom/dotp.sv' to AST representation.
+Generating RTLIL representation for module `\dotp'.
+Warning: Replacing memory \b with list of registers. See rtl/custom/dotp.sv:63
+Warning: Replacing memory \a with list of registers. See rtl/custom/dotp.sv:62
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: rtl/core/core_multi.sv
+Parsing SystemVerilog input from `rtl/core/core_multi.sv' to AST representation.
+Generating RTLIL representation for module `\core_multi'.
+Successfully finished Verilog frontend.
+
+13. Executing Verilog-2005 frontend: rtl/soc/soc_multi.sv
+Parsing SystemVerilog input from `rtl/soc/soc_multi.sv' to AST representation.
+Generating RTLIL representation for module `\soc_multi'.
+Successfully finished Verilog frontend.
+
+14. Executing HIERARCHY pass (managing design hierarchy).
+
+14.1. Analyzing design hierarchy..
+Top module:  \soc_multi
+Used module:     \dotp
+Used module:     \timer
+Used module:     \uart
+Used module:         \uart_rx
+Used module:         \uart_tx
+Used module:     \core_multi
+Used module:         \alu
+Used module:         \imm_gen
+Used module:         \regfile
+Used module:         \decoder
+Parameter \DIV = 868
+
+14.2. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_rx'.
+Parameter \DIV = 868
+Generating RTLIL representation for module `$paramod\uart_rx\DIV=s32'00000000000000000000001101100100'.
+Parameter \DIV = 868
+
+14.3. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_tx'.
+Parameter \DIV = 868
+Generating RTLIL representation for module `$paramod\uart_tx\DIV=s32'00000000000000000000001101100100'.
+Parameter \BYPASS = 1'0
+
+14.4. Executing AST frontend in derive mode using pre-parsed AST for module `\regfile'.
+Parameter \BYPASS = 1'0
+Generating RTLIL representation for module `$paramod\regfile\BYPASS=1'0'.
+Parameter \DIV = 868
+
+14.5. Executing AST frontend in derive mode using pre-parsed AST for module `\uart'.
+Parameter \DIV = 868
+Generating RTLIL representation for module `$paramod\uart\DIV=s32'00000000000000000000001101100100'.
+Parameter \RESET_ADDR = 0
+Parameter \IRQ_ADDR = 4
+
+14.6. Executing AST frontend in derive mode using pre-parsed AST for module `\core_multi'.
+Parameter \RESET_ADDR = 0
+Parameter \IRQ_ADDR = 4
+Generating RTLIL representation for module `$paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_multi'.
+
+14.7. Analyzing design hierarchy..
+Top module:  \soc_multi
+Used module:     \dotp
+Used module:     \timer
+Used module:     $paramod\uart\DIV=s32'00000000000000000000001101100100
+Used module:         \uart_rx
+Used module:         \uart_tx
+Used module:     $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_multi
+Used module:         \alu
+Used module:         \imm_gen
+Used module:         \regfile
+Used module:         \decoder
+Parameter \DIV = 868
+Found cached RTLIL representation for module `$paramod\uart_rx\DIV=s32'00000000000000000000001101100100'.
+Parameter \DIV = 868
+Found cached RTLIL representation for module `$paramod\uart_tx\DIV=s32'00000000000000000000001101100100'.
+Parameter \BYPASS = 1'0
+Found cached RTLIL representation for module `$paramod\regfile\BYPASS=1'0'.
+
+14.8. Analyzing design hierarchy..
+Top module:  \soc_multi
+Used module:     \dotp
+Used module:     \timer
+Used module:     $paramod\uart\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_rx\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_tx\DIV=s32'00000000000000000000001101100100
+Used module:     $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_multi
+Used module:         \alu
+Used module:         \imm_gen
+Used module:         $paramod\regfile\BYPASS=1'0
+Used module:         \decoder
+
+14.9. Analyzing design hierarchy..
+Top module:  \soc_multi
+Used module:     \dotp
+Used module:     \timer
+Used module:     $paramod\uart\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_rx\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_tx\DIV=s32'00000000000000000000001101100100
+Used module:     $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_multi
+Used module:         \alu
+Used module:         \imm_gen
+Used module:         $paramod\regfile\BYPASS=1'0
+Used module:         \decoder
+Removing unused module `\core_multi'.
+Removing unused module `\uart'.
+Removing unused module `\uart_rx'.
+Removing unused module `\uart_tx'.
+Removing unused module `\regfile'.
+Removed 5 unused modules.
+
+15. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_multi.
+Deleting now unused module dotp.
+Deleting now unused module timer.
+Deleting now unused module $paramod\uart\DIV=s32'00000000000000000000001101100100.
+Deleting now unused module $paramod\regfile\BYPASS=1'0.
+Deleting now unused module $paramod\uart_tx\DIV=s32'00000000000000000000001101100100.
+Deleting now unused module decoder.
+Deleting now unused module imm_gen.
+Deleting now unused module $paramod\uart_rx\DIV=s32'00000000000000000000001101100100.
+Deleting now unused module alu.
+<suppressed ~10 debug messages>
+
+16. Executing SYNTH pass.
+
+16.1. Executing HIERARCHY pass (managing design hierarchy).
+
+16.1.1. Analyzing design hierarchy..
+Top module:  \soc_multi
+
+16.1.2. Analyzing design hierarchy..
+Top module:  \soc_multi
+Removed 0 unused modules.
+
+16.2. Executing PROC pass (convert processes to netlists).
+
+16.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_timer.$proc$rtl/periph/timer.sv:28$113 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_timer.$proc$rtl/periph/timer.sv:0$118 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_uart.$proc$rtl/periph/uart.sv:47$272 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_uart.$proc$rtl/periph/uart.sv:68$287 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_uart.$proc$rtl/periph/uart.sv:0$289 in module soc_multi.
+Marked 4 switch rules as full_case in process $flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238 in module soc_multi.
+Marked 7 switch rules as full_case in process $flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$223 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_multi.sv:0$294 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_multi.sv:0$296 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_multi.sv:0$314 in module soc_multi.
+Marked 2 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_multi.sv:194$327 in module soc_multi.
+Removed 2 dead cases from process $flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40 in module soc_multi.
+Marked 24 switch rules as full_case in process $flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40 in module soc_multi.
+Marked 4 switch rules as full_case in process $flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$265 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39 in module soc_multi.
+Marked 1 switch rules as full_case in process $flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4 in module soc_multi.
+Marked 1 switch rules as full_case in process $proc$rtl/soc/soc_multi.sv:138$220 in module soc_multi.
+Marked 1 switch rules as full_case in process $proc$rtl/soc/soc_multi.sv:0$219 in module soc_multi.
+Removed a total of 2 dead cases.
+
+16.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 26 assignments to connections.
+
+16.2.4. Executing PROC_INIT pass (extract init attributes).
+
+16.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \u_dotp.rst_n in `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+Found async reset \u_timer.rst_n in `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+Found async reset \u_uart.rst_n in `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+Found async reset \u_uart.rst_n in `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$287'.
+Found async reset \u_uart.u_tx.rst_n in `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+Found async reset \u_uart.u_rx.rst_n in `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+Found async reset \u_uart.u_rx.rst_n in `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$223'.
+Found async reset \u_core.rst_n in `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+Found async reset \rst_n in `\soc_multi.$proc$rtl/soc/soc_multi.sv:138$220'.
+
+16.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~69 debug messages>
+
+16.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+     1/9: $flatten\u_dotp.$0\b[3][31:0]
+     2/9: $flatten\u_dotp.$0\b[2][31:0]
+     3/9: $flatten\u_dotp.$0\b[1][31:0]
+     4/9: $flatten\u_dotp.$0\b[0][31:0]
+     5/9: $flatten\u_dotp.$0\a[3][31:0]
+     6/9: $flatten\u_dotp.$0\a[2][31:0]
+     7/9: $flatten\u_dotp.$0\a[1][31:0]
+     8/9: $flatten\u_dotp.$0\a[0][31:0]
+     9/9: $flatten\u_dotp.$0\result[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+     1/1: $flatten\u_dotp.$1\rdata[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+     1/4: $flatten\u_timer.$0\cnt[31:0]
+     2/4: $flatten\u_timer.$0\pending[0:0]
+     3/4: $flatten\u_timer.$0\ie[0:0]
+     4/4: $flatten\u_timer.$0\cmp[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+     1/1: $flatten\u_timer.$1\rdata[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+     1/3: $flatten\u_uart.$0\tx_pending[0:0]
+     2/3: $flatten\u_uart.$0\tx_hold[7:0]
+     3/3: $flatten\u_uart.$0\rx_avail[0:0]
+Creating decoders for process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$287'.
+     1/1: $flatten\u_uart.$0\rx_hold[7:0]
+Creating decoders for process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$289'.
+     1/1: $flatten\u_uart.$1\rdata[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+     1/4: $flatten\u_uart.\u_tx.$0\baud_cnt[31:0]
+     2/4: $flatten\u_uart.\u_tx.$0\active[0:0]
+     3/4: $flatten\u_uart.\u_tx.$0\bitpos[3:0]
+     4/4: $flatten\u_uart.\u_tx.$0\frame[9:0]
+Creating decoders for process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+     1/6: $flatten\u_uart.\u_rx.$0\ready[0:0]
+     2/6: $flatten\u_uart.\u_rx.$0\shreg[7:0]
+     3/6: $flatten\u_uart.\u_rx.$0\state[1:0]
+     4/6: $flatten\u_uart.\u_rx.$0\baud_cnt[31:0]
+     5/6: $flatten\u_uart.\u_rx.$0\bitpos[2:0]
+     6/6: $flatten\u_uart.\u_rx.$0\data[7:0]
+Creating decoders for process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$223'.
+     1/2: $flatten\u_uart.\u_rx.$0\rx_sync[0:0]
+     2/2: $flatten\u_uart.\u_rx.$0\rx_meta[0:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$294'.
+     1/1: $flatten\u_core.$1\alu_a[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$296'.
+     1/1: $flatten\u_core.$1\br_cond[0:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$314'.
+     1/1: $flatten\u_core.$1\state_next[2:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+     1/10: $flatten\u_core.$0\load_data[31:0]
+     2/10: $flatten\u_core.$0\ex_result[31:0]
+     3/10: $flatten\u_core.$0\rs2_val[31:0]
+     4/10: $flatten\u_core.$0\rs1_val[31:0]
+     5/10: $flatten\u_core.$0\in_handler[0:0]
+     6/10: $flatten\u_core.$0\epc[31:0]
+     7/10: $flatten\u_core.$0\nextpc_q[31:0]
+     8/10: $flatten\u_core.$0\pc[31:0]
+     9/10: $flatten\u_core.$0\state[2:0]
+    10/10: $flatten\u_core.$0\instr[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+     1/67: $flatten\u_core.\u_dec.$3\is_cus[0:0]
+     2/67: $flatten\u_core.\u_dec.$3\is_mret[0:0]
+     3/67: $flatten\u_core.\u_dec.$4\br_type[2:0]
+     4/67: $flatten\u_core.\u_dec.$3\mem_we[0:0]
+     5/67: $flatten\u_core.\u_dec.$5\reg_we[0:0]
+     6/67: $flatten\u_core.\u_dec.$2\is_cus[0:0]
+     7/67: $flatten\u_core.\u_dec.$4\wb_sel[1:0]
+     8/67: $flatten\u_core.\u_dec.$4\reg_we[0:0]
+     9/67: $flatten\u_core.\u_dec.$23\illegal[0:0]
+    10/67: $flatten\u_core.\u_dec.$2\is_mret[0:0]
+    11/67: $flatten\u_core.\u_dec.$22\illegal[0:0]
+    12/67: $flatten\u_core.\u_dec.$21\illegal[0:0]
+    13/67: $flatten\u_core.\u_dec.$20\illegal[0:0]
+    14/67: $flatten\u_core.\u_dec.$12\alu_op[3:0]
+    15/67: $flatten\u_core.\u_dec.$19\illegal[0:0]
+    16/67: $flatten\u_core.\u_dec.$11\alu_op[3:0]
+    17/67: $flatten\u_core.\u_dec.$18\illegal[0:0]
+    18/67: $flatten\u_core.\u_dec.$17\illegal[0:0]
+    19/67: $flatten\u_core.\u_dec.$16\illegal[0:0]
+    20/67: $flatten\u_core.\u_dec.$15\illegal[0:0]
+    21/67: $flatten\u_core.\u_dec.$14\illegal[0:0]
+    22/67: $flatten\u_core.\u_dec.$10\alu_op[3:0]
+    23/67: $flatten\u_core.\u_dec.$13\illegal[0:0]
+    24/67: $flatten\u_core.\u_dec.$9\alu_op[3:0]
+    25/67: $flatten\u_core.\u_dec.$12\illegal[0:0]
+    26/67: $flatten\u_core.\u_dec.$8\alu_op[3:0]
+    27/67: $flatten\u_core.\u_dec.$11\illegal[0:0]
+    28/67: $flatten\u_core.\u_dec.$10\illegal[0:0]
+    29/67: $flatten\u_core.\u_dec.$7\alu_op[3:0]
+    30/67: $flatten\u_core.\u_dec.$6\alu_op[3:0]
+    31/67: $flatten\u_core.\u_dec.$9\illegal[0:0]
+    32/67: $flatten\u_core.\u_dec.$5\alu_op[3:0]
+    33/67: $flatten\u_core.\u_dec.$8\illegal[0:0]
+    34/67: $flatten\u_core.\u_dec.$7\illegal[0:0]
+    35/67: $flatten\u_core.\u_dec.$4\alu_op[3:0]
+    36/67: $flatten\u_core.\u_dec.$6\illegal[0:0]
+    37/67: $flatten\u_core.\u_dec.$4\imm_type[2:0]
+    38/67: $flatten\u_core.\u_dec.$3\alu_op[3:0]
+    39/67: $flatten\u_core.\u_dec.$3\alu_b_imm[0:0]
+    40/67: $flatten\u_core.\u_dec.$2\mem_we[0:0]
+    41/67: $flatten\u_core.\u_dec.$5\illegal[0:0]
+    42/67: $flatten\u_core.\u_dec.$3\imm_type[2:0]
+    43/67: $flatten\u_core.\u_dec.$2\alu_op[3:0]
+    44/67: $flatten\u_core.\u_dec.$2\alu_b_imm[0:0]
+    45/67: $flatten\u_core.\u_dec.$3\wb_sel[1:0]
+    46/67: $flatten\u_core.\u_dec.$3\reg_we[0:0]
+    47/67: $flatten\u_core.\u_dec.$4\illegal[0:0]
+    48/67: $flatten\u_core.\u_dec.$3\br_type[2:0]
+    49/67: $flatten\u_core.\u_dec.$3\illegal[0:0]
+    50/67: $flatten\u_core.\u_dec.$2\imm_type[2:0]
+    51/67: $flatten\u_core.\u_dec.$2\jalr[0:0]
+    52/67: $flatten\u_core.\u_dec.$2\br_type[2:0]
+    53/67: $flatten\u_core.\u_dec.$2\wb_sel[1:0]
+    54/67: $flatten\u_core.\u_dec.$2\reg_we[0:0]
+    55/67: $flatten\u_core.\u_dec.$2\illegal[0:0]
+    56/67: $flatten\u_core.\u_dec.$1\imm_type[2:0]
+    57/67: $flatten\u_core.\u_dec.$1\alu_op[3:0]
+    58/67: $flatten\u_core.\u_dec.$1\alu_b_imm[0:0]
+    59/67: $flatten\u_core.\u_dec.$1\alu_a_sel[1:0]
+    60/67: $flatten\u_core.\u_dec.$1\reg_we[0:0]
+    61/67: $flatten\u_core.\u_dec.$1\illegal[0:0]
+    62/67: $flatten\u_core.\u_dec.$1\is_cus[0:0]
+    63/67: $flatten\u_core.\u_dec.$1\is_mret[0:0]
+    64/67: $flatten\u_core.\u_dec.$1\jalr[0:0]
+    65/67: $flatten\u_core.\u_dec.$1\br_type[2:0]
+    66/67: $flatten\u_core.\u_dec.$1\mem_we[0:0]
+    67/67: $flatten\u_core.\u_dec.$1\wb_sel[1:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$265'.
+     1/4: $flatten\u_core.\u_rf.$2\rdata2[31:0]
+     2/4: $flatten\u_core.\u_rf.$1\rdata2[31:0]
+     3/4: $flatten\u_core.\u_rf.$2\rdata1[31:0]
+     4/4: $flatten\u_core.\u_rf.$1\rdata1[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246'.
+     1/3: $flatten\u_core.\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$254
+     2/3: $flatten\u_core.\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$245_DATA[31:0]$253
+     3/3: $flatten\u_core.\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$245_ADDR[4:0]$252
+Creating decoders for process `\soc_multi.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+     1/1: $flatten\u_core.\u_imm.$1\imm[31:0]
+Creating decoders for process `\soc_multi.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+     1/1: $flatten\u_core.\u_alu.$1\y[31:0]
+Creating decoders for process `\soc_multi.$proc$rtl/soc/soc_multi.sv:138$220'.
+     1/2: $0\exit_code[31:0]
+     2/2: $0\exit_valid[0:0]
+Creating decoders for process `\soc_multi.$proc$rtl/soc/soc_multi.sv:0$219'.
+     1/1: $1\dmem_rdata[31:0]
+
+16.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\soc_multi.\u_dotp.rdata' from process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+No latch inferred for signal `\soc_multi.\u_timer.rdata' from process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+No latch inferred for signal `\soc_multi.\u_uart.rdata' from process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$289'.
+No latch inferred for signal `\soc_multi.\u_core.alu_a' from process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$294'.
+No latch inferred for signal `\soc_multi.\u_core.br_cond' from process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$296'.
+No latch inferred for signal `\soc_multi.\u_core.state_next' from process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$314'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.imm_type' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.reg_we' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.wb_sel' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.mem_we' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.alu_a_sel' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.alu_b_imm' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.alu_op' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.br_type' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.jalr' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.is_mret' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.is_cus' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_dec.illegal' from process `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_multi.\u_core.u_rf.rdata1' from process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$265'.
+No latch inferred for signal `\soc_multi.\u_core.u_rf.rdata2' from process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$265'.
+No latch inferred for signal `\soc_multi.\u_core.u_imm.imm' from process `\soc_multi.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+No latch inferred for signal `\soc_multi.\u_core.u_alu.y' from process `\soc_multi.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+No latch inferred for signal `\soc_multi.\dmem_rdata' from process `\soc_multi.$proc$rtl/soc/soc_multi.sv:0$219'.
+
+16.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\soc_multi.\u_dotp.result' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1500' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.a[0]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1505' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.a[1]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1510' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.a[2]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1515' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.a[3]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1520' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.b[0]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1525' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.b[1]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1530' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.b[2]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1535' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_dotp.b[3]' using process `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1540' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_timer.cnt' using process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1545' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_timer.cmp' using process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1550' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_timer.ie' using process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1555' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_timer.pending' using process `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1560' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.rx_avail' using process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+  created $adff cell `$procdff$1565' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.tx_hold' using process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+  created $adff cell `$procdff$1570' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.tx_pending' using process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+  created $adff cell `$procdff$1575' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.rx_hold' using process `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$287'.
+  created $adff cell `$procdff$1580' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_tx.frame' using process `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+  created $adff cell `$procdff$1585' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_tx.bitpos' using process `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+  created $adff cell `$procdff$1590' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_tx.baud_cnt' using process `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+  created $adff cell `$procdff$1595' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_tx.active' using process `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+  created $adff cell `$procdff$1600' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.data' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+  created $adff cell `$procdff$1605' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.bitpos' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+  created $adff cell `$procdff$1610' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.baud_cnt' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+  created $adff cell `$procdff$1615' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.ready' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+  created $adff cell `$procdff$1620' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.state' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+  created $adff cell `$procdff$1625' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.shreg' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+  created $adff cell `$procdff$1630' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.rx_meta' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$223'.
+  created $adff cell `$procdff$1635' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_uart.u_rx.rx_sync' using process `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$223'.
+  created $adff cell `$procdff$1640' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.instr' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1645' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.state' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1650' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.pc' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1655' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.nextpc_q' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1660' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.epc' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1665' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.in_handler' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1670' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.rs1_val' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1675' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.rs2_val' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1680' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.ex_result' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1685' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\u_core.load_data' using process `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+  created $adff cell `$procdff$1690' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.$flatten\u_core.\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$245_ADDR' using process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246'.
+  created $dff cell `$procdff$1691' with positive edge clock.
+Creating register for signal `\soc_multi.$flatten\u_core.\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$245_DATA' using process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246'.
+  created $dff cell `$procdff$1692' with positive edge clock.
+Creating register for signal `\soc_multi.$flatten\u_core.\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$245_EN' using process `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246'.
+  created $dff cell `$procdff$1693' with positive edge clock.
+Creating register for signal `\soc_multi.\exit_valid' using process `\soc_multi.$proc$rtl/soc/soc_multi.sv:138$220'.
+  created $adff cell `$procdff$1698' with positive edge clock and positive level reset.
+Creating register for signal `\soc_multi.\exit_code' using process `\soc_multi.$proc$rtl/soc/soc_multi.sv:138$220'.
+  created $adff cell `$procdff$1703' with positive edge clock and positive level reset.
+
+16.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+16.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+Removing empty process `soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+Removing empty process `soc_multi.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+Found and cleaned up 4 empty switches in `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+Removing empty process `soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+Removing empty process `soc_multi.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+Found and cleaned up 4 empty switches in `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+Removing empty process `soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$272'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$287'.
+Removing empty process `soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$287'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$289'.
+Removing empty process `soc_multi.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$289'.
+Found and cleaned up 4 empty switches in `\soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+Removing empty process `soc_multi.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$238'.
+Found and cleaned up 8 empty switches in `\soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+Removing empty process `soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$225'.
+Removing empty process `soc_multi.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$223'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$294'.
+Removing empty process `soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$294'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$296'.
+Removing empty process `soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$296'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$314'.
+Removing empty process `soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:0$314'.
+Found and cleaned up 6 empty switches in `\soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+Removing empty process `soc_multi.$flatten\u_core.$proc$rtl/core/core_multi.sv:194$327'.
+Found and cleaned up 24 empty switches in `\soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Removing empty process `soc_multi.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Found and cleaned up 4 empty switches in `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$265'.
+Removing empty process `soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$265'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246'.
+Removing empty process `soc_multi.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$246'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Removing empty process `soc_multi.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Found and cleaned up 1 empty switch in `\soc_multi.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Removing empty process `soc_multi.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Found and cleaned up 1 empty switch in `\soc_multi.$proc$rtl/soc/soc_multi.sv:138$220'.
+Removing empty process `soc_multi.$proc$rtl/soc/soc_multi.sv:138$220'.
+Found and cleaned up 1 empty switch in `\soc_multi.$proc$rtl/soc/soc_multi.sv:0$219'.
+Removing empty process `soc_multi.$proc$rtl/soc/soc_multi.sv:0$219'.
+Cleaned up 69 empty switches.
+
+16.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~150 debug messages>
+
+16.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 60 unused cells and 449 unused wires.
+<suppressed ~61 debug messages>
+
+16.5. Executing CHECK pass (checking for obvious problems).
+Checking module soc_multi...
+Found and reported 0 problems.
+
+16.6. Executing OPT pass (performing simple optimizations).
+
+16.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~708 debug messages>
+Removed a total of 236 cells.
+
+16.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$487: \u_uart.u_tx.active -> 1'1
+      Replacing known input bits on port A of cell $procmux$485: \u_uart.u_tx.active -> 1'1
+      Replacing known input bits on port A of cell $procmux$490: \u_uart.u_tx.active -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$1073.
+    dead port 2/2 on $mux $procmux$1075.
+    dead port 2/2 on $mux $procmux$1090.
+    dead port 2/2 on $mux $procmux$1105.
+    dead port 2/2 on $mux $procmux$1115.
+    dead port 2/2 on $mux $procmux$1124.
+    dead port 2/2 on $mux $procmux$1134.
+    dead port 2/2 on $mux $procmux$1144.
+    dead port 2/2 on $mux $procmux$1154.
+    dead port 2/2 on $mux $procmux$1164.
+    dead port 2/2 on $mux $procmux$1174.
+    dead port 2/2 on $mux $procmux$1185.
+    dead port 2/2 on $mux $procmux$1196.
+    dead port 2/2 on $mux $procmux$1207.
+    dead port 2/2 on $mux $procmux$1218.
+    dead port 2/2 on $mux $procmux$1235.
+    dead port 2/2 on $mux $procmux$1252.
+    dead port 2/2 on $mux $procmux$1264.
+    dead port 2/2 on $mux $procmux$1277.
+    dead port 2/2 on $mux $procmux$1290.
+    dead port 2/2 on $mux $procmux$1303.
+    dead port 2/2 on $mux $procmux$1316.
+    dead port 2/2 on $mux $procmux$1329.
+    dead port 1/2 on $mux $procmux$1443.
+    dead port 1/2 on $mux $procmux$1452.
+    dead port 2/2 on $mux $procmux$1063.
+    dead port 2/2 on $mux $procmux$701.
+    dead port 2/2 on $mux $procmux$706.
+    dead port 2/2 on $mux $procmux$712.
+    dead port 2/2 on $mux $procmux$718.
+    dead port 2/2 on $mux $procmux$725.
+    dead port 2/2 on $mux $procmux$732.
+    dead port 2/2 on $mux $procmux$740.
+    dead port 2/2 on $mux $procmux$742.
+    dead port 2/2 on $mux $procmux$751.
+    dead port 2/2 on $mux $procmux$753.
+    dead port 1/2 on $mux $procmux$764.
+    dead port 2/2 on $mux $procmux$766.
+    dead port 2/2 on $mux $procmux$768.
+    dead port 1/2 on $mux $procmux$779.
+    dead port 2/2 on $mux $procmux$781.
+    dead port 2/2 on $mux $procmux$783.
+    dead port 2/2 on $mux $procmux$793.
+    dead port 2/2 on $mux $procmux$795.
+    dead port 2/2 on $mux $procmux$805.
+    dead port 2/2 on $mux $procmux$807.
+    dead port 2/2 on $mux $procmux$818.
+    dead port 2/2 on $mux $procmux$820.
+    dead port 2/2 on $mux $procmux$832.
+    dead port 2/2 on $mux $procmux$834.
+    dead port 2/2 on $mux $procmux$847.
+    dead port 2/2 on $mux $procmux$849.
+    dead port 2/2 on $mux $procmux$863.
+    dead port 2/2 on $mux $procmux$1013.
+    dead port 2/2 on $mux $procmux$865.
+    dead port 1/2 on $mux $procmux$881.
+    dead port 1/2 on $mux $procmux$884.
+    dead port 2/2 on $mux $procmux$886.
+    dead port 2/2 on $mux $procmux$888.
+    dead port 1/2 on $mux $procmux$1023.
+    dead port 1/2 on $mux $procmux$904.
+    dead port 1/2 on $mux $procmux$907.
+    dead port 2/2 on $mux $procmux$909.
+    dead port 2/2 on $mux $procmux$1025.
+    dead port 2/2 on $mux $procmux$911.
+    dead port 1/2 on $mux $procmux$927.
+    dead port 2/2 on $mux $procmux$929.
+    dead port 2/2 on $mux $procmux$1027.
+    dead port 2/2 on $mux $procmux$931.
+    dead port 1/2 on $mux $procmux$947.
+    dead port 2/2 on $mux $procmux$949.
+    dead port 2/2 on $mux $procmux$951.
+    dead port 1/2 on $mux $procmux$1037.
+    dead port 2/2 on $mux $procmux$966.
+    dead port 2/2 on $mux $procmux$1039.
+    dead port 2/2 on $mux $procmux$968.
+    dead port 2/2 on $mux $procmux$983.
+    dead port 2/2 on $mux $procmux$1041.
+    dead port 2/2 on $mux $procmux$985.
+    dead port 2/2 on $mux $procmux$1050.
+    dead port 2/2 on $mux $procmux$1052.
+    dead port 2/2 on $mux $procmux$1061.
+    dead port 2/2 on $mux $procmux$999.
+Removed 83 multiplexer ports.
+<suppressed ~72 debug messages>
+
+16.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+    New ctrl vector for $pmux cell $procmux$1336: { $auto$opt_reduce.cc:137:opt_pmux$1706 $procmux$1341_CMP $procmux$1236_CMP $procmux$1116_CMP }
+    New ctrl vector for $pmux cell $procmux$1347: { $procmux$1028_CMP $procmux$1000_CMP }
+    New ctrl vector for $pmux cell $procmux$1356: { $procmux$1165_CMP $procmux$1116_CMP $auto$opt_reduce.cc:137:opt_pmux$1708 }
+    New ctrl vector for $pmux cell $procmux$1376: { $procmux$1265_CMP $procmux$1165_CMP $auto$opt_reduce.cc:137:opt_pmux$1710 $procmux$1377_CMP }
+    New ctrl vector for $pmux cell $procmux$1386: { $auto$opt_reduce.cc:137:opt_pmux$1712 $procmux$1265_CMP $procmux$1236_CMP $procmux$1165_CMP $procmux$1116_CMP $procmux$1028_CMP $procmux$1000_CMP $procmux$1388_CMP $procmux$1377_CMP }
+    New ctrl vector for $pmux cell $procmux$1434: { $procmux$1341_CMP $procmux$1265_CMP $procmux$1165_CMP }
+    Consolidated identical input bits for $mux cell $procmux$1458:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0]
+      New connections: $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [31:1] = { $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$245_EN[31:0]$249 [0] }
+    New ctrl vector for $pmux cell $procmux$473: { $procmux$452_CMP $auto$opt_reduce.cc:137:opt_pmux$1714 }
+    New ctrl vector for $pmux cell $procmux$664: { $flatten\u_core.$eq$rtl/core/core_multi.sv:192$323_Y $procmux$603_CMP $auto$opt_reduce.cc:137:opt_pmux$1716 $flatten\u_core.$eq$rtl/core/core_multi.sv:110$290_Y }
+    New ctrl vector for $pmux cell $procmux$1245: $auto$opt_reduce.cc:137:opt_pmux$1718
+    New ctrl vector for $pmux cell $procmux$1096: { $auto$opt_reduce.cc:137:opt_pmux$1720 $procmux$1011_CMP $procmux$1007_CMP }
+  Optimizing cells in module \soc_multi.
+Performed a total of 11 changes.
+
+16.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~60 debug messages>
+Removed a total of 20 cells.
+
+16.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 0 unused cells and 339 unused wires.
+<suppressed ~1 debug messages>
+
+16.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~78 debug messages>
+
+16.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+    New ctrl vector for $pmux cell $procmux$1356: { $auto$opt_reduce.cc:137:opt_pmux$1722 $auto$opt_reduce.cc:137:opt_pmux$1708 }
+    New ctrl vector for $pmux cell $procmux$1376: { $procmux$1165_CMP $auto$opt_reduce.cc:137:opt_pmux$1710 $auto$opt_reduce.cc:137:opt_pmux$1724 }
+    New ctrl vector for $pmux cell $procmux$1386: { $auto$opt_reduce.cc:137:opt_pmux$1712 $procmux$1236_CMP $auto$opt_reduce.cc:137:opt_pmux$1728 $procmux$1028_CMP $procmux$1000_CMP $procmux$1388_CMP $auto$opt_reduce.cc:137:opt_pmux$1726 }
+    New ctrl vector for $pmux cell $procmux$549: { $procmux$545_CMP $procmux$542_CMP $auto$opt_reduce.cc:137:opt_pmux$1730 }
+    New ctrl vector for $pmux cell $procmux$990: { $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $procmux$1007_CMP $auto$opt_reduce.cc:137:opt_pmux$1732 }
+  Optimizing cells in module \soc_multi.
+Performed a total of 5 changes.
+
+16.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+16.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+16.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~78 debug messages>
+
+16.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.6.23. Finished OPT passes. (There is nothing left to do.)
+
+16.7. Executing FSM pass (extract and optimize FSM).
+
+16.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking soc_multi.u_core.state as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Found FSM state register soc_multi.u_uart.u_rx.state.
+
+16.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\u_uart.u_rx.state' from module `\soc_multi'.
+  found $adff cell for state register: $procdff$1625
+  root of input selection tree: $flatten\u_uart.\u_rx.$0\state[1:0]
+  found reset state: 2'00 (from async reset)
+  found ctrl input: $procmux$517_CMP
+  found ctrl input: $procmux$523_CMP
+  found ctrl input: $procmux$542_CMP
+  found ctrl input: $procmux$545_CMP
+  found ctrl input: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$231_Y
+  found ctrl input: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:63$232_Y
+  found state code: 2'11
+  found ctrl input: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$228_Y
+  found ctrl input: \u_uart.u_rx.rx_sync
+  found state code: 2'10
+  found state code: 2'01
+  found ctrl output: $procmux$517_CMP
+  found ctrl output: $procmux$523_CMP
+  found ctrl output: $procmux$545_CMP
+  found ctrl output: $procmux$542_CMP
+  ctrl inputs: { $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:63$232_Y $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$231_Y $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$228_Y \u_uart.u_rx.rx_sync }
+  ctrl outputs: { $flatten\u_uart.\u_rx.$0\state[1:0] $procmux$542_CMP $procmux$545_CMP $procmux$523_CMP $procmux$517_CMP }
+  transition:       2'00 4'---0 ->       2'01 6'010100
+  transition:       2'00 4'---1 ->       2'00 6'000100
+  transition:       2'10 4'-0-- ->       2'10 6'100010
+  transition:       2'10 4'01-- ->       2'10 6'100010
+  transition:       2'10 4'11-- ->       2'11 6'110010
+  transition:       2'01 4'--0- ->       2'01 6'011000
+  transition:       2'01 4'--10 ->       2'10 6'101000
+  transition:       2'01 4'--11 ->       2'00 6'001000
+  transition:       2'11 4'-0-- ->       2'11 6'110001
+  transition:       2'11 4'-1-- ->       2'00 6'000001
+
+16.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\u_uart.u_rx.state$1733' from module `\soc_multi'.
+
+16.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 12 unused cells and 12 unused wires.
+<suppressed ~13 debug messages>
+
+16.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\u_uart.u_rx.state$1733' from module `\soc_multi'.
+  Removing unused output signal $flatten\u_uart.\u_rx.$0\state[1:0] [0].
+  Removing unused output signal $flatten\u_uart.\u_rx.$0\state[1:0] [1].
+
+16.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\u_uart.u_rx.state$1733' from module `\soc_multi' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+16.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\u_uart.u_rx.state$1733' from module `soc_multi':
+-------------------------------------
+
+  Information on FSM $fsm$\u_uart.u_rx.state$1733 (\u_uart.u_rx.state):
+
+  Number of input signals:    4
+  Number of output signals:   4
+  Number of state bits:       4
+
+  Input signals:
+    0: \u_uart.u_rx.rx_sync
+    1: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$228_Y
+    2: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$231_Y
+    3: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:63$232_Y
+
+  Output signals:
+    0: $procmux$517_CMP
+    1: $procmux$523_CMP
+    2: $procmux$545_CMP
+    3: $procmux$542_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 4'---1   ->     0 4'0100
+      1:     0 4'---0   ->     2 4'0100
+      2:     1 4'-0--   ->     1 4'0010
+      3:     1 4'01--   ->     1 4'0010
+      4:     1 4'11--   ->     3 4'0010
+      5:     2 4'--11   ->     0 4'1000
+      6:     2 4'--10   ->     1 4'1000
+      7:     2 4'--0-   ->     2 4'1000
+      8:     3 4'-1--   ->     0 4'0001
+      9:     3 4'-0--   ->     3 4'0001
+
+-------------------------------------
+
+16.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\u_uart.u_rx.state$1733' from module `\soc_multi'.
+
+16.8. Executing OPT pass (performing simple optimizations).
+
+16.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~6 debug messages>
+
+16.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~77 debug messages>
+
+16.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1703 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \exit_code).
+Adding EN signal on $procdff$1698 ($adff) from module soc_multi (D = 1'1, Q = \exit_valid).
+Adding EN signal on $procdff$1690 ($adff) from module soc_multi (D = \dmem_rdata, Q = \u_core.load_data).
+Adding EN signal on $procdff$1685 ($adff) from module soc_multi (D = $flatten\u_core.$ternary$rtl/core/core_multi.sv:231$332_Y, Q = \u_core.ex_result).
+Adding EN signal on $procdff$1680 ($adff) from module soc_multi (D = \u_core.u_rf.rdata2, Q = \u_core.rs2_val).
+Adding EN signal on $procdff$1675 ($adff) from module soc_multi (D = \u_core.u_rf.rdata1, Q = \u_core.rs1_val).
+Adding EN signal on $procdff$1670 ($adff) from module soc_multi (D = $flatten\u_core.$0\in_handler[0:0], Q = \u_core.in_handler).
+Adding EN signal on $procdff$1665 ($adff) from module soc_multi (D = \u_core.pc, Q = \u_core.epc).
+Adding EN signal on $procdff$1660 ($adff) from module soc_multi (D = $flatten\u_core.$0\nextpc_q[31:0], Q = \u_core.nextpc_q).
+Adding EN signal on $procdff$1650 ($adff) from module soc_multi (D = $flatten\u_core.$0\state[2:0], Q = \u_core.state).
+Adding EN signal on $procdff$1645 ($adff) from module soc_multi (D = \imem_rdata, Q = \u_core.instr).
+Adding EN signal on $procdff$1630 ($adff) from module soc_multi (D = { \u_uart.u_rx.rx_sync \u_uart.u_rx.shreg [7:1] }, Q = \u_uart.u_rx.shreg).
+Adding EN signal on $procdff$1615 ($adff) from module soc_multi (D = $flatten\u_uart.\u_rx.$0\baud_cnt[31:0], Q = \u_uart.u_rx.baud_cnt).
+Adding EN signal on $procdff$1610 ($adff) from module soc_multi (D = $flatten\u_uart.\u_rx.$0\bitpos[2:0], Q = \u_uart.u_rx.bitpos).
+Adding EN signal on $procdff$1605 ($adff) from module soc_multi (D = \u_uart.u_rx.shreg, Q = \u_uart.u_rx.data).
+Adding EN signal on $procdff$1590 ($adff) from module soc_multi (D = $flatten\u_uart.\u_tx.$0\bitpos[3:0], Q = \u_uart.u_tx.bitpos).
+Adding EN signal on $procdff$1585 ($adff) from module soc_multi (D = $flatten\u_uart.\u_tx.$0\frame[9:0], Q = \u_uart.u_tx.frame).
+Adding EN signal on $procdff$1580 ($adff) from module soc_multi (D = \u_uart.u_rx.data, Q = \u_uart.rx_hold).
+Adding EN signal on $procdff$1575 ($adff) from module soc_multi (D = $flatten\u_uart.$0\tx_pending[0:0], Q = \u_uart.tx_pending).
+Adding EN signal on $procdff$1570 ($adff) from module soc_multi (D = \u_core.rs2_val [7:0], Q = \u_uart.tx_hold).
+Adding EN signal on $procdff$1565 ($adff) from module soc_multi (D = $flatten\u_uart.$0\rx_avail[0:0], Q = \u_uart.rx_avail).
+Adding EN signal on $procdff$1555 ($adff) from module soc_multi (D = \u_core.rs2_val [0], Q = \u_timer.ie).
+Adding EN signal on $procdff$1550 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_timer.cmp).
+Adding EN signal on $procdff$1540 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.b[3]).
+Adding EN signal on $procdff$1535 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.b[2]).
+Adding EN signal on $procdff$1530 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.b[1]).
+Adding EN signal on $procdff$1525 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.b[0]).
+Adding EN signal on $procdff$1520 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.a[3]).
+Adding EN signal on $procdff$1515 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.a[2]).
+Adding EN signal on $procdff$1510 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.a[1]).
+Adding EN signal on $procdff$1505 ($adff) from module soc_multi (D = \u_core.rs2_val, Q = \u_dotp.a[0]).
+
+16.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 38 unused cells and 48 unused wires.
+<suppressed ~39 debug messages>
+
+16.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~8 debug messages>
+
+16.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~59 debug messages>
+
+16.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+16.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+16.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~59 debug messages>
+
+16.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.8.23. Finished OPT passes. (There is nothing left to do.)
+
+16.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 24 bits (of 32) from mux cell soc_multi.$procmux$473 ($pmux).
+Removed top 3 bits (of 4) from port B of cell soc_multi.$procmux$452_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_multi.$procmux$603_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell soc_multi.$procmux$418_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell soc_multi.$procmux$670 ($mux).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$procmux$596_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_multi.$procmux$597_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$auto$opt_dff.cc:195:make_patterns_logic$1836 ($ne).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$auto$opt_dff.cc:195:make_patterns_logic$1842 ($ne).
+Removed top 2 bits (of 7) from port B of cell soc_multi.$procmux$1028_CMP0 ($eq).
+Removed top 1 bits (of 4) from mux cell soc_multi.$procmux$761 ($mux).
+Removed top 2 bits (of 3) from mux cell soc_multi.$procmux$1113 ($mux).
+Removed top 1 bits (of 7) from port B of cell soc_multi.$procmux$1000_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$procmux$1009_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_multi.$procmux$1011_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_multi.$eq$rtl/soc/soc_multi.sv:69$209 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_multi.$eq$rtl/soc/soc_multi.sv:70$210 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_multi.$eq$rtl/soc/soc_multi.sv:71$211 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_multi.$eq$rtl/soc/soc_multi.sv:72$212 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_multi.$eq$rtl/soc/soc_multi.sv:73$213 ($eq).
+Removed top 2 bits (of 6) from port B of cell soc_multi.$procmux$423_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$procmux$595_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$procmux$588_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_multi.$procmux$1116_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$auto$opt_dff.cc:195:make_patterns_logic$1850 ($ne).
+Removed top 1 bits (of 2) from mux cell soc_multi.$procmux$1194 ($mux).
+Removed top 5 bits (of 7) from port B of cell soc_multi.$procmux$1165_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$auto$opt_dff.cc:195:make_patterns_logic$1801 ($ne).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$auto$fsm_map.cc:77:implement_pattern_cache$1765 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$auto$opt_dff.cc:195:make_patterns_logic$1799 ($ne).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:105$43 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_multi.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:131$46 ($eq).
+Removed top 6 bits (of 7) from port B of cell soc_multi.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:143$49 ($eq).
+Removed top 2 bits (of 32) from port B of cell soc_multi.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:161$58 ($eq).
+Removed top 29 bits (of 32) from port B of cell soc_multi.$flatten\u_core.$add$rtl/core/core_multi.sv:171$311 ($add).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$flatten\u_core.$eq$rtl/core/core_multi.sv:164$306 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$flatten\u_core.$eq$rtl/core/core_multi.sv:156$304 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_multi.$flatten\u_core.$eq$rtl/core/core_multi.sv:112$292 ($eq).
+Removed top 23 bits (of 32) from port B of cell soc_multi.$flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$228 ($eq).
+Removed top 31 bits (of 32) from port B of cell soc_multi.$flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$230 ($add).
+Removed top 22 bits (of 32) from port B of cell soc_multi.$flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$231 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_multi.$flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$233 ($add).
+Removed top 22 bits (of 32) from port B of cell soc_multi.$flatten\u_uart.\u_tx.$eq$rtl/periph/uart_tx.sv:35$241 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_multi.$flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$243 ($add).
+Removed top 31 bits (of 32) from port B of cell soc_multi.$flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$244 ($add).
+Removed top 2 bits (of 4) from port B of cell soc_multi.$flatten\u_uart.$eq$rtl/periph/uart.sv:62$285 ($eq).
+Removed top 31 bits (of 32) from port B of cell soc_multi.$flatten\u_timer.$add$rtl/periph/timer.sv:35$115 ($add).
+Removed top 3 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:49$148 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:48$144 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:47$140 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:46$136 ($eq).
+Removed top 4 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:45$132 ($eq).
+Removed top 4 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:44$128 ($eq).
+Removed top 5 bits (of 6) from port B of cell soc_multi.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:43$124 ($eq).
+Removed top 2 bits (of 7) from port B of cell soc_multi.$procmux$1342_CMP0 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_multi.$procmux$1343_CMP0 ($eq).
+Removed top 3 bits (of 7) from port B of cell soc_multi.$procmux$1377_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$procmux$1469_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_multi.$procmux$1470_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_multi.$procmux$1471_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_multi.$procmux$1478_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_multi.$procmux$1479_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_multi.$procmux$1480_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_multi.$procmux$1481_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_multi.$procmux$1482_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_multi.$procmux$1483_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_multi.$procmux$1484_CMP0 ($eq).
+Removed top 1 bits (of 4) from wire soc_multi.$flatten\u_core.\u_dec.$12\alu_op[3:0].
+Removed top 1 bits (of 2) from wire soc_multi.$flatten\u_core.\u_dec.$3\wb_sel[1:0].
+Removed top 2 bits (of 3) from wire soc_multi.$flatten\u_core.\u_dec.$4\imm_type[2:0].
+Removed top 2 bits (of 3) from wire soc_multi.$procmux$670_Y.
+Removed top 24 bits (of 32) from wire soc_multi.uart_rdata.
+
+16.10. Executing PEEPOPT pass (run peephole optimizers).
+
+16.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+16.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module soc_multi:
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_multi.sv:153$300 ($add).
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_multi.sv:153$302 ($add).
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_multi.sv:171$311 ($add).
+  creating $macc model for $flatten\u_core.\u_alu.$add$rtl/core/alu.sv:22$5 ($add).
+  creating $macc model for $flatten\u_core.\u_alu.$mul$rtl/core/alu.sv:32$13 ($mul).
+  creating $macc model for $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6 ($sub).
+  creating $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155 ($add).
+  creating $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156 ($add).
+  creating $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157 ($add).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 ($mul).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 ($mul).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 ($mul).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 ($mul).
+  creating $macc model for $flatten\u_timer.$add$rtl/periph/timer.sv:35$115 ($add).
+  creating $macc model for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$230 ($add).
+  creating $macc model for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$233 ($add).
+  creating $macc model for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$243 ($add).
+  creating $macc model for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$244 ($add).
+  merging $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  creating $alu model for $macc $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$233.
+  creating $alu model for $macc $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$243.
+  creating $alu model for $macc $flatten\u_timer.$add$rtl/periph/timer.sv:35$115.
+  creating $alu model for $macc $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$230.
+  creating $alu model for $macc $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$244.
+  creating $alu model for $macc $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $macc $flatten\u_core.\u_alu.$add$rtl/core/alu.sv:22$5.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_multi.sv:171$311.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_multi.sv:153$302.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_multi.sv:153$300.
+  creating $macc cell for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157: $auto$alumacc.cc:365:replace_macc$1905
+  creating $macc cell for $flatten\u_core.\u_alu.$mul$rtl/core/alu.sv:32$13: $auto$alumacc.cc:365:replace_macc$1906
+  creating $alu model for $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:17$2 ($lt): new $alu
+  creating $alu model for $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:18$3 ($lt): merged with $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $flatten\u_core.\u_alu.$eq$rtl/core/alu.sv:16$1 ($eq): merged with $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_multi.sv:153$300: $auto$alumacc.cc:495:replace_alu$1908
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_multi.sv:153$302: $auto$alumacc.cc:495:replace_alu$1911
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_multi.sv:171$311: $auto$alumacc.cc:495:replace_alu$1914
+  creating $alu cell for $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:17$2: $auto$alumacc.cc:495:replace_alu$1917
+  creating $alu cell for $flatten\u_core.\u_alu.$add$rtl/core/alu.sv:22$5: $auto$alumacc.cc:495:replace_alu$1924
+  creating $alu cell for $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6, $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:18$3, $flatten\u_core.\u_alu.$eq$rtl/core/alu.sv:16$1: $auto$alumacc.cc:495:replace_alu$1927
+  creating $alu cell for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$244: $auto$alumacc.cc:495:replace_alu$1934
+  creating $alu cell for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$230: $auto$alumacc.cc:495:replace_alu$1937
+  creating $alu cell for $flatten\u_timer.$add$rtl/periph/timer.sv:35$115: $auto$alumacc.cc:495:replace_alu$1940
+  creating $alu cell for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$243: $auto$alumacc.cc:495:replace_alu$1943
+  creating $alu cell for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$233: $auto$alumacc.cc:495:replace_alu$1946
+  created 11 $alu and 2 $macc cells.
+
+16.13. Executing SHARE pass (SAT-based resource sharing).
+Found 9 cells in module soc_multi that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$269 ($memrd):
+    Found 1 activation_patterns using ctrl signal $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:49$268_Y.
+    Found 1 candidates: $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$267
+    Analyzing resource sharing with $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$267 ($memrd):
+      Found 1 activation_patterns using ctrl signal $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$266_Y.
+      Activation pattern for cell $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$269: $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:49$268_Y = 1'0
+      Activation pattern for cell $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$267: $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$266_Y = 1'0
+      Size of SAT problem: 2 cells, 27 variables, 51 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:49$268_Y $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$266_Y } = 2'00
+  Analyzing resource sharing options for $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$267 ($memrd):
+    Found 1 activation_patterns using ctrl signal $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$266_Y.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_core.\u_alu.$sshr$rtl/core/alu.sv:29$10 ($sshr):
+    Found 1 activation_patterns using ctrl signal { $procmux$1478_CMP \u_core.is_cus $flatten\u_core.$eq$rtl/core/core_multi.sv:231$329_Y }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_core.\u_alu.$shr$rtl/core/alu.sv:28$9 ($shr):
+    Found 1 activation_patterns using ctrl signal { $procmux$1479_CMP \u_core.is_cus $flatten\u_core.$eq$rtl/core/core_multi.sv:231$329_Y }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_core.\u_alu.$shl$rtl/core/alu.sv:24$7 ($shl):
+    Found 1 activation_patterns using ctrl signal { $procmux$1483_CMP \u_core.is_cus $flatten\u_core.$eq$rtl/core/core_multi.sv:231$329_Y }.
+    No candidates found.
+Removing 6 cells in module soc_multi:
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 ($mul).
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 ($mul).
+  Removing cell $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155 ($add).
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 ($mul).
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 ($mul).
+  Removing cell $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156 ($add).
+
+16.14. Executing OPT pass (performing simple optimizations).
+
+16.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~1 debug messages>
+
+16.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~59 debug messages>
+
+16.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+16.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~1 debug messages>
+
+16.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~59 debug messages>
+
+16.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.14.16. Finished OPT passes. (There is nothing left to do.)
+
+16.15. Executing MEMORY pass.
+
+16.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+16.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+16.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing soc_multi.u_core.u_rf.regs write port 0.
+
+16.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+16.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\u_core.u_rf.regs'[0] in module `\soc_multi': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port `\u_core.u_rf.regs'[1] in module `\soc_multi': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port address `\u_core.u_rf.regs'[0] in module `\soc_multi': address FF has async set and/or reset, not supported.
+Checking read port address `\u_core.u_rf.regs'[1] in module `\soc_multi': address FF has async set and/or reset, not supported.
+
+16.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory soc_multi.u_core.u_rf.regs by address:
+
+16.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+16.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+16.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.17. Executing OPT pass (performing simple optimizations).
+
+16.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~50 debug messages>
+
+16.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 1 unused cells and 26 unused wires.
+<suppressed ~2 debug messages>
+
+16.17.5. Finished fast OPT passes.
+
+16.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \u_core.u_rf.regs in module \soc_multi:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+16.19. Executing OPT pass (performing simple optimizations).
+
+16.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~12 debug messages>
+
+16.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~80 debug messages>
+
+16.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+    Consolidated identical input bits for $mux cell $flatten\u_core.$ternary$rtl/core/core_multi.sv:180$317:
+      Old ports: A=3'000, B=3'100, Y=$flatten\u_core.$ternary$rtl/core/core_multi.sv:180$317_Y
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.$ternary$rtl/core/core_multi.sv:180$317_Y [2]
+      New connections: $flatten\u_core.$ternary$rtl/core/core_multi.sv:180$317_Y [1:0] = 2'00
+    Consolidated identical input bits for $mux cell $procmux$1288:
+      Old ports: A=3'000, B=3'111, Y=$flatten\u_core.\u_dec.$2\br_type[2:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.\u_dec.$2\br_type[2:0] [0]
+      New connections: $flatten\u_core.\u_dec.$2\br_type[2:0] [2:1] = { $flatten\u_core.\u_dec.$2\br_type[2:0] [0] $flatten\u_core.\u_dec.$2\br_type[2:0] [0] }
+    Consolidated identical input bits for $mux cell $procmux$1301:
+      Old ports: A=2'00, B=2'10, Y=$flatten\u_core.\u_dec.$2\wb_sel[1:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.\u_dec.$2\wb_sel[1:0] [1]
+      New connections: $flatten\u_core.\u_dec.$2\wb_sel[1:0] [0] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$509:
+      Old ports: A={ 1'1 \u_uart.tx_hold 1'0 }, B={ 1'1 \u_uart.u_tx.frame [9:1] }, Y=$flatten\u_uart.\u_tx.$0\frame[9:0]
+      New ports: A={ \u_uart.tx_hold 1'0 }, B=\u_uart.u_tx.frame [9:1], Y=$flatten\u_uart.\u_tx.$0\frame[9:0] [8:0]
+      New connections: $flatten\u_uart.\u_tx.$0\frame[9:0] [9] = 1'1
+    Consolidated identical input bits for $mux cell $procmux$761:
+      Old ports: A=3'000, B=3'111, Y=$auto$wreduce.cc:514:run$1900 [2:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:514:run$1900 [0]
+      New connections: $auto$wreduce.cc:514:run$1900 [2:1] = { $auto$wreduce.cc:514:run$1900 [0] $auto$wreduce.cc:514:run$1900 [0] }
+    Consolidated identical input bits for $mux cell $procmux$791:
+      Old ports: A={ 1'0 $auto$wreduce.cc:514:run$1900 [2:0] }, B=4'0110, Y=$flatten\u_core.\u_dec.$11\alu_op[3:0]
+      New ports: A=$auto$wreduce.cc:514:run$1900 [2:0], B=3'110, Y=$flatten\u_core.\u_dec.$11\alu_op[3:0] [2:0]
+      New connections: $flatten\u_core.\u_dec.$11\alu_op[3:0] [3] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$878:
+      Old ports: A=4'0000, B=4'1010, Y=$flatten\u_core.\u_dec.$10\alu_op[3:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.\u_dec.$10\alu_op[3:0] [1]
+      New connections: { $flatten\u_core.\u_dec.$10\alu_op[3:0] [3:2] $flatten\u_core.\u_dec.$10\alu_op[3:0] [0] } = { $flatten\u_core.\u_dec.$10\alu_op[3:0] [1] 2'00 }
+  Optimizing cells in module \soc_multi.
+    Consolidated identical input bits for $mux cell $flatten\u_core.$ternary$rtl/core/core_multi.sv:179$318:
+      Old ports: A=$flatten\u_core.$ternary$rtl/core/core_multi.sv:180$317_Y, B=3'011, Y=$flatten\u_core.$ternary$rtl/core/core_multi.sv:179$318_Y
+      New ports: A={ $flatten\u_core.$ternary$rtl/core/core_multi.sv:180$317_Y [2] 1'0 }, B=2'01, Y={ $flatten\u_core.$ternary$rtl/core/core_multi.sv:179$318_Y [2] $flatten\u_core.$ternary$rtl/core/core_multi.sv:179$318_Y [0] }
+      New connections: $flatten\u_core.$ternary$rtl/core/core_multi.sv:179$318_Y [1] = $flatten\u_core.$ternary$rtl/core/core_multi.sv:179$318_Y [0]
+    Consolidated identical input bits for $mux cell $procmux$791:
+      Old ports: A=$auto$wreduce.cc:514:run$1900 [2:0], B=3'110, Y=$flatten\u_core.\u_dec.$11\alu_op[3:0] [2:0]
+      New ports: A={ $auto$wreduce.cc:514:run$1900 [0] $auto$wreduce.cc:514:run$1900 [0] }, B=2'10, Y=$flatten\u_core.\u_dec.$11\alu_op[3:0] [1:0]
+      New connections: $flatten\u_core.\u_dec.$11\alu_op[3:0] [2] = $flatten\u_core.\u_dec.$11\alu_op[3:0] [1]
+    Consolidated identical input bits for $mux cell $procmux$924:
+      Old ports: A=$flatten\u_core.\u_dec.$10\alu_op[3:0], B=4'0001, Y=$flatten\u_core.\u_dec.$9\alu_op[3:0]
+      New ports: A={ $flatten\u_core.\u_dec.$10\alu_op[3:0] [1] 1'0 }, B=2'01, Y=$flatten\u_core.\u_dec.$9\alu_op[3:0] [1:0]
+      New connections: $flatten\u_core.\u_dec.$9\alu_op[3:0] [3:2] = { $flatten\u_core.\u_dec.$9\alu_op[3:0] [1] 1'0 }
+  Optimizing cells in module \soc_multi.
+    Consolidated identical input bits for $mux cell $procmux$964:
+      Old ports: A=$flatten\u_core.\u_dec.$9\alu_op[3:0], B=4'0000, Y=$flatten\u_core.\u_dec.$8\alu_op[3:0]
+      New ports: A=$flatten\u_core.\u_dec.$9\alu_op[3:0] [1:0], B=2'00, Y=$flatten\u_core.\u_dec.$8\alu_op[3:0] [1:0]
+      New connections: $flatten\u_core.\u_dec.$8\alu_op[3:0] [3:2] = { $flatten\u_core.\u_dec.$8\alu_op[3:0] [1] 1'0 }
+  Optimizing cells in module \soc_multi.
+Performed a total of 11 changes.
+
+16.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.19.6. Executing OPT_SHARE pass.
+
+16.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 0 unused cells and 102 unused wires.
+<suppressed ~1 debug messages>
+
+16.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~4 debug messages>
+
+16.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~79 debug messages>
+
+16.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.19.14. Executing OPT_SHARE pass.
+
+16.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\u_core.u_rf.regs[9]$1971 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[9]).
+Adding EN signal on $memory\u_core.u_rf.regs[8]$1969 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[8]).
+Adding EN signal on $memory\u_core.u_rf.regs[7]$1967 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[7]).
+Adding EN signal on $memory\u_core.u_rf.regs[6]$1965 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[6]).
+Adding EN signal on $memory\u_core.u_rf.regs[5]$1963 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[5]).
+Adding EN signal on $memory\u_core.u_rf.regs[4]$1961 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[4]).
+Adding EN signal on $memory\u_core.u_rf.regs[3]$1959 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[3]).
+Adding EN signal on $memory\u_core.u_rf.regs[31]$2015 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[31]).
+Adding EN signal on $memory\u_core.u_rf.regs[30]$2013 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[30]).
+Adding EN signal on $memory\u_core.u_rf.regs[2]$1957 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[2]).
+Adding EN signal on $memory\u_core.u_rf.regs[29]$2011 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[29]).
+Adding EN signal on $memory\u_core.u_rf.regs[28]$2009 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[28]).
+Adding EN signal on $memory\u_core.u_rf.regs[27]$2007 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[27]).
+Adding EN signal on $memory\u_core.u_rf.regs[26]$2005 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[26]).
+Adding EN signal on $memory\u_core.u_rf.regs[25]$2003 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[25]).
+Adding EN signal on $memory\u_core.u_rf.regs[24]$2001 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[24]).
+Adding EN signal on $memory\u_core.u_rf.regs[23]$1999 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[23]).
+Adding EN signal on $memory\u_core.u_rf.regs[22]$1997 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[22]).
+Adding EN signal on $memory\u_core.u_rf.regs[21]$1995 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[21]).
+Adding EN signal on $memory\u_core.u_rf.regs[20]$1993 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[20]).
+Adding EN signal on $memory\u_core.u_rf.regs[1]$1955 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[1]).
+Adding EN signal on $memory\u_core.u_rf.regs[19]$1991 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[19]).
+Adding EN signal on $memory\u_core.u_rf.regs[18]$1989 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[18]).
+Adding EN signal on $memory\u_core.u_rf.regs[17]$1987 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[17]).
+Adding EN signal on $memory\u_core.u_rf.regs[16]$1985 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[16]).
+Adding EN signal on $memory\u_core.u_rf.regs[15]$1983 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[15]).
+Adding EN signal on $memory\u_core.u_rf.regs[14]$1981 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[14]).
+Adding EN signal on $memory\u_core.u_rf.regs[13]$1979 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[13]).
+Adding EN signal on $memory\u_core.u_rf.regs[12]$1977 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[12]).
+Adding EN signal on $memory\u_core.u_rf.regs[11]$1975 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[11]).
+Adding EN signal on $memory\u_core.u_rf.regs[10]$1973 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[10]).
+Adding EN signal on $memory\u_core.u_rf.regs[0]$1953 ($dff) from module soc_multi (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[0]).
+Setting constant 1-bit at position 9 on $auto$ff.cc:266:slice$1855 ($adffe) from module soc_multi.
+
+16.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 32 unused cells and 36 unused wires.
+<suppressed ~33 debug messages>
+
+16.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_multi..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~47 debug messages>
+
+16.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_multi.
+Performed a total of 0 changes.
+
+16.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+Removed a total of 0 cells.
+
+16.19.22. Executing OPT_SHARE pass.
+
+16.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+
+16.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+
+16.19.26. Finished OPT passes. (There is nothing left to do.)
+
+16.20. Executing TECHMAP pass (map to technology primitives).
+
+16.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+16.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $adffe.
+Using template $paramod$fc16b9f758000d363d24f130038bd99b46b4fa1b\_90_pmux for cells of type $pmux.
+Using template $paramod$54d740639e1393b22262823179ff783ea9f17a35\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$d31bf4d7d72e59528d18fbd4f322e9d608532043\_90_pmux for cells of type $pmux.
+Using template $paramod$85df5dc01c7df96a7d8e5f1fdf76ce9ac452af63\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using template $paramod$57f63e8a3282e053be0430389b09fa050ac7dca0\_90_pmux for cells of type $pmux.
+Using template $paramod$33afdd83bf3811dac2de7a968d39eea5718691bc\_90_pmux for cells of type $pmux.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$80834bdd89ff0e27a02312429a7cc3a2e63489a8\_90_pmux for cells of type $pmux.
+Using template $paramod$8fabc56b80a569262acfc42757a02ca0b8e91278\_90_pmux for cells of type $pmux.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using template $paramod$bf541dd3c0ba8228982b61e7bfbc350a2c253f4c\_90_pmux for cells of type $pmux.
+Using template $paramod$59b03ae2620a41577de8da5f5c97b2919e82362b\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$335cfd09f1afa8139c4aafcbbe5f361887b79c5e\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$feecc7a0dbd012970970f2858f15e786e251f677\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$e765c459d3029c22a22a27989e94858fd9ebfa9c\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshr.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$2653f68ddb8eab7b1907b4a20767b72a824a7a36\_90_alu for cells of type $alu.
+Using template $paramod$44a13d10af618e7fbe7b9aad2f6151ffcee1e2fa\_90_alu for cells of type $alu.
+Using template $paramod$6a42b6fefed750f8a1c58eab59479d960557103c\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \u_dotp.aeff0 * \u_dotp.beff0 (32x32 bits, unsigned)
+  add \u_dotp.aeff2 * \u_dotp.beff2 (32x32 bits, unsigned)
+  add \u_dotp.aeff1 * \u_dotp.beff1 (32x32 bits, unsigned)
+  add \u_dotp.aeff3 * \u_dotp.beff3 (32x32 bits, unsigned)
+  add \u_core.u_alu.a * \u_core.u_alu.b (32x32 bits, unsigned)
+Using template $paramod$bf2533632d512eac76dd186c0da49367e29b8e98\_90_pmux for cells of type $pmux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using template $paramod$a5f0941832cc861549e29ccafffe20bfdf2e5528\_90_pmux for cells of type $pmux.
+Using template $paramod$b098bc6f249c0ac91c4d6e19d54b23c285914115\_90_pmux for cells of type $pmux.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011110 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000100000 for cells of type $fa.
+No more expansions possible.
+<suppressed ~5839 debug messages>
+
+16.21. Executing OPT pass (performing simple optimizations).
+
+16.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~17079 debug messages>
+
+16.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~2817 debug messages>
+Removed a total of 939 cells.
+
+16.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 775 unused cells and 4103 unused wires.
+<suppressed ~776 debug messages>
+
+16.21.5. Finished fast OPT passes.
+
+16.22. Executing ABC pass (technology mapping using ABC).
+
+16.22.1. Extracting gate netlist of module `\soc_multi' to `<abc-temp-dir>/input.blif'..
+Extracted 22874 gates and 24651 wires to a netlist network with 1775 inputs and 441 outputs.
+
+16.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+16.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      222
+ABC RESULTS:            ANDNOT cells:     6520
+ABC RESULTS:               MUX cells:     3081
+ABC RESULTS:              NAND cells:      873
+ABC RESULTS:               NOR cells:     3254
+ABC RESULTS:               NOT cells:      753
+ABC RESULTS:                OR cells:     2505
+ABC RESULTS:             ORNOT cells:      462
+ABC RESULTS:              XNOR cells:     1788
+ABC RESULTS:               XOR cells:     3956
+ABC RESULTS:        internal signals:    22435
+ABC RESULTS:           input signals:     1775
+ABC RESULTS:          output signals:      441
+Removing temp directory.
+
+16.23. Executing OPT pass (performing simple optimizations).
+
+16.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_multi.
+<suppressed ~1120 debug messages>
+
+16.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_multi'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_multi..
+Removed 3 unused cells and 4558 unused wires.
+<suppressed ~90 debug messages>
+
+16.23.5. Finished fast OPT passes.
+
+16.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `soc_multi'. Setting top module to soc_multi.
+
+16.24.1. Analyzing design hierarchy..
+Top module:  \soc_multi
+
+16.24.2. Analyzing design hierarchy..
+Top module:  \soc_multi
+Removed 0 unused modules.
+
+16.25. Printing statistics.
+
+=== soc_multi ===
+
+   Number of wires:              23400
+   Number of wire bits:          26261
+   Number of public wires:         153
+   Number of public wire bits:    2981
+   Number of ports:                  8
+   Number of port bits:            101
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              25215
+     $_ANDNOT_                    6520
+     $_AND_                        222
+     $_DFFE_PN0N_                   64
+     $_DFFE_PN0P_                  524
+     $_DFFE_PN1P_                   44
+     $_DFFE_PP_                   1024
+     $_DFF_PN0_                    134
+     $_DFF_PN1_                      3
+     $_MUX_                       3081
+     $_NAND_                       873
+     $_NOR_                       3254
+     $_NOT_                        750
+     $_ORNOT_                      461
+     $_OR_                        2505
+     $_XNOR_                      1788
+     $_XOR_                       3956
+     $scopeinfo                     10
+     dmem                            1
+     imem                            1
+
+16.26. Executing CHECK pass (checking for obvious problems).
+Checking module soc_multi...
+Found and reported 0 problems.
+
+17. Executing LTP pass (find longest path).
+
+Longest topological path in soc_multi (length=71):
+    0: \u_core.instr [30]
+    1: $abc$49571$new_n2375 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49730)
+    2: $abc$49571$new_n2376 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49731)
+    3: $abc$49571$new_n2377 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49732)
+    4: $abc$49571$new_n2390 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49745)
+    5: $abc$49571$new_n2391 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49746)
+    6: $abc$49571$new_n2396 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49751)
+    7: $abc$49571$new_n2398 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49753)
+    8: $abc$49571$new_n2399 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49754)
+    9: $abc$49571$new_n2400 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49755)
+   10: $abc$49571$new_n2401 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49756)
+   11: $abc$49571$new_n2414 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49769)
+   12: $abc$49571$new_n2415 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49770)
+   13: $abc$49571$new_n2416 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49771)
+   14: $abc$49571$new_n2417 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49772)
+   15: $abc$49571$new_n2428 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49783)
+   16: $abc$49571$new_n2432 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49787)
+   17: $abc$49571$new_n2433 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49788)
+   18: $abc$49571$auto$opt_dff.cc:219:make_patterns_logic$1898 (via $abc$49571$auto$blifparse.cc:396:parse_blif$49878)
+   19: $abc$49571$new_n8263 (via $abc$49571$auto$blifparse.cc:396:parse_blif$55618)
+   20: $abc$49571$new_n8264 (via $abc$49571$auto$blifparse.cc:396:parse_blif$55619)
+   21: $abc$49571$new_n8266 (via $abc$49571$auto$blifparse.cc:396:parse_blif$55621)
+   22: $abc$49571$new_n8453 (via $abc$49571$auto$blifparse.cc:396:parse_blif$55808)
+   23: $abc$49571$new_n8454 (via $abc$49571$auto$blifparse.cc:396:parse_blif$55809)
+   24: $abc$49571$new_n8455 (via $abc$49571$auto$blifparse.cc:396:parse_blif$55810)
+   25: $abc$49571$new_n8671 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56026)
+   26: $abc$49571$new_n8672 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56027)
+   27: $abc$49571$new_n8673 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56028)
+   28: $abc$49571$new_n8937 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56292)
+   29: $abc$49571$new_n8938 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56293)
+   30: $abc$49571$new_n8939 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56294)
+   31: $abc$49571$new_n9213 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56568)
+   32: $abc$49571$new_n9214 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56569)
+   33: $abc$49571$new_n9215 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56570)
+   34: $abc$49571$new_n9514 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56869)
+   35: $abc$49571$new_n9515 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56870)
+   36: $abc$49571$new_n9516 (via $abc$49571$auto$blifparse.cc:396:parse_blif$56871)
+   37: $abc$49571$new_n9850 (via $abc$49571$auto$blifparse.cc:396:parse_blif$57205)
+   38: $abc$49571$new_n9851 (via $abc$49571$auto$blifparse.cc:396:parse_blif$57206)
+   39: $abc$49571$new_n9852 (via $abc$49571$auto$blifparse.cc:396:parse_blif$57207)
+   40: $abc$49571$new_n10262 (via $abc$49571$auto$blifparse.cc:396:parse_blif$57617)
+   41: $abc$49571$new_n10263 (via $abc$49571$auto$blifparse.cc:396:parse_blif$57618)
+   42: $abc$49571$new_n10264 (via $abc$49571$auto$blifparse.cc:396:parse_blif$57619)
+   43: $abc$49571$new_n10714 (via $abc$49571$auto$blifparse.cc:396:parse_blif$58069)
+   44: $abc$49571$new_n10715 (via $abc$49571$auto$blifparse.cc:396:parse_blif$58070)
+   45: $abc$49571$new_n10716 (via $abc$49571$auto$blifparse.cc:396:parse_blif$58071)
+   46: $abc$49571$new_n11220 (via $abc$49571$auto$blifparse.cc:396:parse_blif$58575)
+   47: $abc$49571$new_n11221 (via $abc$49571$auto$blifparse.cc:396:parse_blif$58576)
+   48: $abc$49571$new_n11222 (via $abc$49571$auto$blifparse.cc:396:parse_blif$58577)
+   49: $abc$49571$new_n11659 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59014)
+   50: $abc$49571$new_n11660 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59015)
+   51: $abc$49571$new_n11661 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59016)
+   52: $abc$49571$new_n12125 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59480)
+   53: $abc$49571$new_n12126 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59481)
+   54: $abc$49571$new_n12127 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59482)
+   55: $abc$49571$new_n12605 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59960)
+   56: $abc$49571$new_n12606 (via $abc$49571$auto$blifparse.cc:396:parse_blif$59961)
+   57: $abc$49571$new_n13625 (via $abc$49571$auto$blifparse.cc:396:parse_blif$60980)
+   58: $abc$49571$new_n13626 (via $abc$49571$auto$blifparse.cc:396:parse_blif$60981)
+   59: $abc$49571$new_n15961 (via $abc$49571$auto$blifparse.cc:396:parse_blif$63316)
+   60: $abc$49571$new_n15962 (via $abc$49571$auto$blifparse.cc:396:parse_blif$63317)
+   61: $abc$49571$new_n15965 (via $abc$49571$auto$blifparse.cc:396:parse_blif$63320)
+   62: $abc$49571$new_n18656 (via $abc$49571$auto$blifparse.cc:396:parse_blif$66011)
+   63: $abc$49571$new_n18657 (via $abc$49571$auto$blifparse.cc:396:parse_blif$66012)
+   64: $abc$49571$new_n20133 (via $abc$49571$auto$blifparse.cc:396:parse_blif$67488)
+   65: $abc$49571$new_n20134 (via $abc$49571$auto$blifparse.cc:396:parse_blif$67489)
+   66: $abc$49571$new_n20896 (via $abc$49571$auto$blifparse.cc:396:parse_blif$68251)
+   67: $abc$49571$new_n20897 (via $abc$49571$auto$blifparse.cc:396:parse_blif$68252)
+   68: $abc$49571$new_n20898 (via $abc$49571$auto$blifparse.cc:396:parse_blif$68253)
+   69: $abc$49571$new_n20899 (via $abc$49571$auto$blifparse.cc:396:parse_blif$68254)
+   70: $abc$49571$new_n20900 (via $abc$49571$auto$blifparse.cc:396:parse_blif$68255)
+   71: $abc$49571$flatten\u_dotp.$0\result[31:0][31] (via $abc$49571$auto$blifparse.cc:396:parse_blif$68256)
+   ff: \u_dotp.result [31] (via $auto$ff.cc:266:slice$11267)
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 09adf94284, CPU: user 3.23s system 0.05s, MEM: 106.69 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 29% 1x abc (1 sec), 18% 34x opt_expr (0 sec), ...

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="520" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect width="860" height="520" fill="white"/>
+  <text x="430" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#111">SoC architecture (soc_single / soc_multi / soc_pipe)</text>
+
+  <!-- CPU -->
+  <rect x="330" y="52" width="200" height="74" rx="8" fill="#4C6EF5" stroke="#1864AB"/>
+  <text x="430" y="84" text-anchor="middle" font-size="15" font-weight="bold" fill="white">RISC-V CPU core</text>
+  <text x="430" y="104" text-anchor="middle" font-size="11" fill="#D0EBFF">RV32I + MUL + CDOT + MRET</text>
+
+  <!-- imem -->
+  <rect x="80" y="52" width="180" height="74" rx="8" fill="#E9ECEF" stroke="#868E96"/>
+  <text x="170" y="82" text-anchor="middle" font-size="13" font-weight="bold">instruction mem</text>
+  <text x="170" y="102" text-anchor="middle" font-size="11" fill="#555">1K x 32, +HEX file</text>
+  <line x1="260" y1="78" x2="330" y2="78" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="330" y1="96" x2="260" y2="96" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="295" y="70" text-anchor="middle" font-size="10" fill="#555">addr</text>
+  <text x="295" y="114" text-anchor="middle" font-size="10" fill="#555">instr</text>
+
+  <!-- bus -->
+  <rect x="120" y="188" width="620" height="36" rx="6" fill="#FFF3BF" stroke="#F59F00"/>
+  <text x="430" y="211" text-anchor="middle" font-size="13" font-weight="bold">system bus -- address decode (0x1 / 0x2 / 0x3 / 0x4 / 0x5 in addr[31:28])</text>
+  <line x1="430" y1="126" x2="430" y2="188" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+  <!-- peripherals -->
+  <rect x="80" y="300" width="150" height="64" rx="8" fill="#E9ECEF" stroke="#868E96"/>
+  <text x="155" y="326" text-anchor="middle" font-size="13" font-weight="bold">data RAM</text>
+  <text x="155" y="346" text-anchor="middle" font-size="11" fill="#555">1K x 32 @ 0x1000_0000</text>
+
+  <rect x="265" y="300" width="150" height="64" rx="8" fill="#D3F9D8" stroke="#2F9E44"/>
+  <text x="340" y="326" text-anchor="middle" font-size="13" font-weight="bold">UART 8N1</text>
+  <text x="340" y="346" text-anchor="middle" font-size="11" fill="#555">@ 0x2000_0000</text>
+  <line x1="340" y1="364" x2="340" y2="430" stroke="#2F9E44" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="350" y="420" font-size="11" fill="#2F9E44">tx / rx pins</text>
+
+  <rect x="450" y="300" width="150" height="64" rx="8" fill="#FFDEEB" stroke="#D6336C"/>
+  <text x="525" y="326" text-anchor="middle" font-size="13" font-weight="bold">timer</text>
+  <text x="525" y="346" text-anchor="middle" font-size="11" fill="#555">@ 0x3000_0000</text>
+  <line x1="525" y1="300" x2="525" y2="258" x2="500" y2="224" stroke="#D6336C" stroke-width="1.5"/>
+  <line x1="525" y1="300" x2="500" y2="258" stroke="#D6336C" stroke-width="1.5"/>
+  <line x1="500" y1="258" x2="466" y2="224" stroke="#D6336C" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="555" y="270" font-size="11" fill="#D6336C">irq</text>
+
+  <rect x="635" y="300" width="160" height="64" rx="8" fill="#E5DBFF" stroke="#7048E8"/>
+  <text x="715" y="326" text-anchor="middle" font-size="13" font-weight="bold">dot-product unit</text>
+  <text x="715" y="346" text-anchor="middle" font-size="11" fill="#555">@ 0x4000_0000</text>
+  <line x1="715" y1="300" x2="715" y2="224" x2="620" y2="224" stroke="#7048E8" stroke-width="1.5"/>
+  <line x1="715" y1="300" x2="715" y2="260" stroke="#7048E8" stroke-width="1.5"/>
+  <line x1="715" y1="260" x2="620" y2="260" stroke="#7048E8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="640" y="255" font-size="11" fill="#7048E8">CDOT result</text>
+
+  <!-- bus drop lines -->
+  <line x1="155" y1="224" x2="155" y2="300" stroke="#333" stroke-width="1.5"/>
+  <line x1="155" y1="224" x2="155" y2="250" stroke="#333" stroke-width="1.5" marker-start="url(#arrow)"/>
+  <line x1="340" y1="224" x2="340" y2="300" stroke="#333" stroke-width="1.5" marker-start="url(#arrow)"/>
+  <line x1="525" y1="224" x2="525" y2="300" stroke="#333" stroke-width="1.5" marker-start="url(#arrow)"/>
+  <line x1="715" y1="224" x2="715" y2="300" stroke="#333" stroke-width="1.5" marker-start="url(#arrow)"/>
+
+  <!-- sim exit -->
+  <rect x="635" y="420" width="160" height="44" rx="8" fill="#F1F3F5" stroke="#ADB5BD" stroke-dasharray="4 3"/>
+  <text x="715" y="446" text-anchor="middle" font-size="11" fill="#868E96">sim exit @ 0x5000_0000</text>
+
+  <text x="24" y="492" font-size="11" fill="#868E96">Harvard split at the top level: fetch from instruction mem, loads/stores through the bus. Same bus and peripherals hang off all three cores.</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="white"/>
+  <text x="460" y="26" text-anchor="middle" font-size="17" font-weight="bold">Pipelined core (core_pipe): 5 stages with forwarding</text>
+
+  <!-- stage boxes -->
+  <rect x="40"  y="70" width="150" height="64" rx="8" fill="#D0EBFF" stroke="#1971C2"/>
+  <text x="115" y="98"  text-anchor="middle" font-size="14" font-weight="bold">IF</text>
+  <text x="115" y="118" text-anchor="middle" font-size="10" fill="#555">pc, instr fetch</text>
+
+  <rect x="230" y="70" width="150" height="64" rx="8" fill="#FFD8A8" stroke="#F59F00"/>
+  <text x="305" y="98"  text-anchor="middle" font-size="14" font-weight="bold">ID</text>
+  <text x="305" y="118" text-anchor="middle" font-size="10" fill="#555">decode, regfile read</text>
+
+  <rect x="420" y="70" width="150" height="64" rx="8" fill="#B2F2BB" stroke="#2F9E44"/>
+  <text x="495" y="98"  text-anchor="middle" font-size="14" font-weight="bold">EX</text>
+  <text x="495" y="118" text-anchor="middle" font-size="10" fill="#555">ALU, branch, CDOT</text>
+
+  <rect x="610" y="70" width="150" height="64" rx="8" fill="#FFDEEB" stroke="#D6336C"/>
+  <text x="685" y="98"  text-anchor="middle" font-size="14" font-weight="bold">MEM</text>
+  <text x="685" y="118" text-anchor="middle" font-size="10" fill="#555">data access</text>
+
+  <rect x="800" y="70" width="80" height="64" rx="8" fill="#E5DBFF" stroke="#7048E8"/>
+  <text x="840" y="98"  text-anchor="middle" font-size="14" font-weight="bold">WB</text>
+  <text x="840" y="118" text-anchor="middle" font-size="10" fill="#555">write</text>
+
+  <!-- pipeline registers -->
+  <rect x="192" y="82" width="36" height="40" fill="#868E96"/>
+  <text x="210" y="106" text-anchor="middle" font-size="9" fill="white">IF/ID</text>
+  <rect x="382" y="82" width="36" height="40" fill="#868E96"/>
+  <text x="400" y="106" text-anchor="middle" font-size="9" fill="white">ID/EX</text>
+  <rect x="572" y="82" width="36" height="40" fill="#868E96"/>
+  <text x="590" y="106" text-anchor="middle" font-size="9" fill="white">EX/M</text>
+  <rect x="762" y="82" width="36" height="40" fill="#868E96"/>
+  <text x="780" y="106" text-anchor="middle" font-size="9" fill="white">M/WB</text>
+
+  <line x1="190" y1="102" x2="192" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="228" y1="102" x2="230" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="380" y1="102" x2="382" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="418" y1="102" x2="420" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="570" y1="102" x2="572" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="608" y1="102" x2="610" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="760" y1="102" x2="762" y2="102" stroke="#333" stroke-width="2"/>
+  <line x1="798" y1="102" x2="800" y2="102" stroke="#333" stroke-width="2"/>
+
+  <!-- forwarding paths -->
+  <path d="M 685 134 C 685 230, 520 230, 505 138" fill="none" stroke="#E8590C" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="620" y="248" text-anchor="middle" font-size="11" fill="#E8590C">MEM -&gt; EX forward (incl. load data)</text>
+
+  <path d="M 840 134 C 840 300, 480 300, 480 138" fill="none" stroke="#D6336C" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+  <text x="700" y="318" text-anchor="middle" font-size="11" fill="#D6336C">WB -&gt; EX forward</text>
+
+  <path d="M 810 134 C 780 200, 340 200, 330 138" fill="none" stroke="#7048E8" stroke-width="1.6" stroke-dasharray="2 3" marker-end="url(#arrow)"/>
+  <text x="520" y="192" text-anchor="middle" font-size="11" fill="#7048E8">WB -&gt; ID (write-first regfile bypass)</text>
+
+  <!-- flush -->
+  <path d="M 470 138 C 300 150, 220 150, 155 138" fill="none" stroke="#E03131" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="290" y="374" text-anchor="middle" font-size="11" fill="#E03131">taken branch in EX: flush IF/ID + ID/EX (2-cycle penalty), redirect PC</text>
+  <path d="M 470 130 C 350 60, 250 40, 130 62" fill="none" stroke="#E03131" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <!-- interrupt drain -->
+  <rect x="40" y="400" width="840" height="64" rx="8" fill="#F8F9FA" stroke="#ADB5BD"/>
+  <text x="460" y="424" text-anchor="middle" font-size="12" font-weight="bold">interrupts: stop fetch, drain the pipe (everything fetched retires), then vector to IRQ_ADDR</text>
+  <text x="460" y="446" text-anchor="middle" font-size="11" fill="#555">EPC = first instruction that did not execute -- precise, and branch redirects during the drain keep EPC honest</text>
+
+  <text x="40" y="356" font-size="11" fill="#868E96">Because data RAM is combinational-read, load results forward from MEM directly: no load-use stall needed.</text>
+</svg>

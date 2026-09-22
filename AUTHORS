@@ -1,0 +1,15 @@
+All work in this repository is my own.
+
+RTL: all SystemVerilog modules in rtl/ - basic gates, ALU, regfile, imm_gen, decoder, core_single, core_multi, core_pipe, imem, dmem, uart_tx/rx, uart, timer, dotp, soc_single/multi/pipe - written by me.
+
+Assembly: all 8 programs in programs/asm/ - test_basic, test_mem, test_hello, test_timer, test_dot, test_hazard, bench_dot, bench_mix - written by me.
+
+Testbenches: all 14 testbenches in testbench/ - 11 unit + 3 SoC - written by me.
+
+Tools: all Python tools in tools/ - asm.py assembler, run_tests.py, run_bench.py, run_synth.py, make_charts.py, vcd2svg.py - written by me.
+
+Diagrams and waveforms: all SVGs in diagrams/ and waveforms/ and benchmarks/figures/ - created by me.
+
+Docs: README.md, docs/REPORT.md, docs/setup.md - written by me.
+
+No downloaded CPU cores, no black-box IP, no team, no AI-generated code dump. Every number in the report comes from my own simulation and synthesis runs.

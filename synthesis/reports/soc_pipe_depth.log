@@ -1,0 +1,2939 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Executing script file `/dev/stdin' --
+
+1. Executing Verilog-2005 frontend: rtl/core/alu.sv
+Parsing SystemVerilog input from `rtl/core/alu.sv' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/core/regfile.sv
+Parsing SystemVerilog input from `rtl/core/regfile.sv' to AST representation.
+Generating RTLIL representation for module `\regfile'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/core/imm_gen.sv
+Parsing SystemVerilog input from `rtl/core/imm_gen.sv' to AST representation.
+Generating RTLIL representation for module `\imm_gen'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/core/decoder.sv
+Parsing SystemVerilog input from `rtl/core/decoder.sv' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/mem/imem.sv
+Parsing SystemVerilog input from `rtl/mem/imem.sv' to AST representation.
+Generating RTLIL representation for module `\imem'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/mem/dmem.sv
+Parsing SystemVerilog input from `rtl/mem/dmem.sv' to AST representation.
+Generating RTLIL representation for module `\dmem'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/periph/uart_tx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_tx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_tx'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/periph/uart_rx.sv
+Parsing SystemVerilog input from `rtl/periph/uart_rx.sv' to AST representation.
+Generating RTLIL representation for module `\uart_rx'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: rtl/periph/uart.sv
+Parsing SystemVerilog input from `rtl/periph/uart.sv' to AST representation.
+Generating RTLIL representation for module `\uart'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: rtl/periph/timer.sv
+Parsing SystemVerilog input from `rtl/periph/timer.sv' to AST representation.
+Generating RTLIL representation for module `\timer'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: rtl/custom/dotp.sv
+Parsing SystemVerilog input from `rtl/custom/dotp.sv' to AST representation.
+Generating RTLIL representation for module `\dotp'.
+Warning: Replacing memory \b with list of registers. See rtl/custom/dotp.sv:63
+Warning: Replacing memory \a with list of registers. See rtl/custom/dotp.sv:62
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: rtl/core/core_pipe.sv
+Parsing SystemVerilog input from `rtl/core/core_pipe.sv' to AST representation.
+Generating RTLIL representation for module `\core_pipe'.
+Successfully finished Verilog frontend.
+
+13. Executing Verilog-2005 frontend: rtl/soc/soc_pipe.sv
+Parsing SystemVerilog input from `rtl/soc/soc_pipe.sv' to AST representation.
+Generating RTLIL representation for module `\soc_pipe'.
+Successfully finished Verilog frontend.
+
+14. Executing HIERARCHY pass (managing design hierarchy).
+
+14.1. Analyzing design hierarchy..
+Top module:  \soc_pipe
+Used module:     \dotp
+Used module:     \timer
+Used module:     \uart
+Used module:         \uart_rx
+Used module:         \uart_tx
+Used module:     \core_pipe
+Used module:         \alu
+Used module:         \regfile
+Used module:         \imm_gen
+Used module:         \decoder
+Parameter \DIV = 868
+
+14.2. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_rx'.
+Parameter \DIV = 868
+Generating RTLIL representation for module `$paramod\uart_rx\DIV=s32'00000000000000000000001101100100'.
+Parameter \DIV = 868
+
+14.3. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_tx'.
+Parameter \DIV = 868
+Generating RTLIL representation for module `$paramod\uart_tx\DIV=s32'00000000000000000000001101100100'.
+Parameter \BYPASS = 1'1
+
+14.4. Executing AST frontend in derive mode using pre-parsed AST for module `\regfile'.
+Parameter \BYPASS = 1'1
+Generating RTLIL representation for module `$paramod\regfile\BYPASS=1'1'.
+Parameter \DIV = 868
+
+14.5. Executing AST frontend in derive mode using pre-parsed AST for module `\uart'.
+Parameter \DIV = 868
+Generating RTLIL representation for module `$paramod\uart\DIV=s32'00000000000000000000001101100100'.
+Parameter \RESET_ADDR = 0
+Parameter \IRQ_ADDR = 4
+
+14.6. Executing AST frontend in derive mode using pre-parsed AST for module `\core_pipe'.
+Parameter \RESET_ADDR = 0
+Parameter \IRQ_ADDR = 4
+Generating RTLIL representation for module `$paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_pipe'.
+
+14.7. Analyzing design hierarchy..
+Top module:  \soc_pipe
+Used module:     \dotp
+Used module:     \timer
+Used module:     $paramod\uart\DIV=s32'00000000000000000000001101100100
+Used module:         \uart_rx
+Used module:         \uart_tx
+Used module:     $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_pipe
+Used module:         \alu
+Used module:         \regfile
+Used module:         \imm_gen
+Used module:         \decoder
+Parameter \DIV = 868
+Found cached RTLIL representation for module `$paramod\uart_rx\DIV=s32'00000000000000000000001101100100'.
+Parameter \DIV = 868
+Found cached RTLIL representation for module `$paramod\uart_tx\DIV=s32'00000000000000000000001101100100'.
+Parameter \BYPASS = 1'1
+Found cached RTLIL representation for module `$paramod\regfile\BYPASS=1'1'.
+
+14.8. Analyzing design hierarchy..
+Top module:  \soc_pipe
+Used module:     \dotp
+Used module:     \timer
+Used module:     $paramod\uart\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_rx\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_tx\DIV=s32'00000000000000000000001101100100
+Used module:     $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_pipe
+Used module:         \alu
+Used module:         $paramod\regfile\BYPASS=1'1
+Used module:         \imm_gen
+Used module:         \decoder
+
+14.9. Analyzing design hierarchy..
+Top module:  \soc_pipe
+Used module:     \dotp
+Used module:     \timer
+Used module:     $paramod\uart\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_rx\DIV=s32'00000000000000000000001101100100
+Used module:         $paramod\uart_tx\DIV=s32'00000000000000000000001101100100
+Used module:     $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_pipe
+Used module:         \alu
+Used module:         $paramod\regfile\BYPASS=1'1
+Used module:         \imm_gen
+Used module:         \decoder
+Removing unused module `\core_pipe'.
+Removing unused module `\uart'.
+Removing unused module `\uart_rx'.
+Removing unused module `\uart_tx'.
+Removing unused module `\regfile'.
+Removed 5 unused modules.
+
+15. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$5d5effb5ec0b6f8601d0119f1bfc6235e3bdaddf\core_pipe.
+Deleting now unused module dotp.
+Deleting now unused module timer.
+Deleting now unused module $paramod\uart\DIV=s32'00000000000000000000001101100100.
+Deleting now unused module $paramod\regfile\BYPASS=1'1.
+Deleting now unused module $paramod\uart_tx\DIV=s32'00000000000000000000001101100100.
+Deleting now unused module decoder.
+Deleting now unused module imm_gen.
+Deleting now unused module $paramod\uart_rx\DIV=s32'00000000000000000000001101100100.
+Deleting now unused module alu.
+<suppressed ~10 debug messages>
+
+16. Executing SYNTH pass.
+
+16.1. Executing HIERARCHY pass (managing design hierarchy).
+
+16.1.1. Analyzing design hierarchy..
+Top module:  \soc_pipe
+
+16.1.2. Analyzing design hierarchy..
+Top module:  \soc_pipe
+Removed 0 unused modules.
+
+16.2. Executing PROC pass (convert processes to netlists).
+
+16.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_timer.$proc$rtl/periph/timer.sv:28$113 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_timer.$proc$rtl/periph/timer.sv:0$118 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_uart.$proc$rtl/periph/uart.sv:47$292 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_uart.$proc$rtl/periph/uart.sv:68$307 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_uart.$proc$rtl/periph/uart.sv:0$309 in module soc_pipe.
+Marked 4 switch rules as full_case in process $flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258 in module soc_pipe.
+Marked 7 switch rules as full_case in process $flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$243 in module soc_pipe.
+Marked 4 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_pipe.sv:0$310 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_pipe.sv:0$331 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_pipe.sv:0$333 in module soc_pipe.
+Marked 3 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_pipe.sv:0$371 in module soc_pipe.
+Marked 4 switch rules as full_case in process $flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374 in module soc_pipe.
+Removed 2 dead cases from process $flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40 in module soc_pipe.
+Marked 24 switch rules as full_case in process $flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39 in module soc_pipe.
+Marked 4 switch rules as full_case in process $flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$285 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266 in module soc_pipe.
+Marked 1 switch rules as full_case in process $flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4 in module soc_pipe.
+Marked 1 switch rules as full_case in process $proc$rtl/soc/soc_pipe.sv:138$240 in module soc_pipe.
+Marked 1 switch rules as full_case in process $proc$rtl/soc/soc_pipe.sv:0$239 in module soc_pipe.
+Removed a total of 2 dead cases.
+
+16.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 25 redundant assignments.
+Promoted 28 assignments to connections.
+
+16.2.4. Executing PROC_INIT pass (extract init attributes).
+
+16.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \u_dotp.rst_n in `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+Found async reset \u_timer.rst_n in `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+Found async reset \u_uart.rst_n in `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+Found async reset \u_uart.rst_n in `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$307'.
+Found async reset \u_uart.u_tx.rst_n in `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+Found async reset \u_uart.u_rx.rst_n in `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+Found async reset \u_uart.u_rx.rst_n in `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$243'.
+Found async reset \u_core.rst_n in `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+Found async reset \rst_n in `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:138$240'.
+
+16.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~74 debug messages>
+
+16.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+     1/9: $flatten\u_dotp.$0\b[3][31:0]
+     2/9: $flatten\u_dotp.$0\b[2][31:0]
+     3/9: $flatten\u_dotp.$0\b[1][31:0]
+     4/9: $flatten\u_dotp.$0\b[0][31:0]
+     5/9: $flatten\u_dotp.$0\a[3][31:0]
+     6/9: $flatten\u_dotp.$0\a[2][31:0]
+     7/9: $flatten\u_dotp.$0\a[1][31:0]
+     8/9: $flatten\u_dotp.$0\a[0][31:0]
+     9/9: $flatten\u_dotp.$0\result[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+     1/1: $flatten\u_dotp.$1\rdata[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+     1/4: $flatten\u_timer.$0\cnt[31:0]
+     2/4: $flatten\u_timer.$0\pending[0:0]
+     3/4: $flatten\u_timer.$0\ie[0:0]
+     4/4: $flatten\u_timer.$0\cmp[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+     1/1: $flatten\u_timer.$1\rdata[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+     1/3: $flatten\u_uart.$0\tx_pending[0:0]
+     2/3: $flatten\u_uart.$0\tx_hold[7:0]
+     3/3: $flatten\u_uart.$0\rx_avail[0:0]
+Creating decoders for process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$307'.
+     1/1: $flatten\u_uart.$0\rx_hold[7:0]
+Creating decoders for process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$309'.
+     1/1: $flatten\u_uart.$1\rdata[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+     1/4: $flatten\u_uart.\u_tx.$0\baud_cnt[31:0]
+     2/4: $flatten\u_uart.\u_tx.$0\active[0:0]
+     3/4: $flatten\u_uart.\u_tx.$0\bitpos[3:0]
+     4/4: $flatten\u_uart.\u_tx.$0\frame[9:0]
+Creating decoders for process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+     1/6: $flatten\u_uart.\u_rx.$0\ready[0:0]
+     2/6: $flatten\u_uart.\u_rx.$0\shreg[7:0]
+     3/6: $flatten\u_uart.\u_rx.$0\state[1:0]
+     4/6: $flatten\u_uart.\u_rx.$0\baud_cnt[31:0]
+     5/6: $flatten\u_uart.\u_rx.$0\bitpos[2:0]
+     6/6: $flatten\u_uart.\u_rx.$0\data[7:0]
+Creating decoders for process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$243'.
+     1/2: $flatten\u_uart.\u_rx.$0\rx_sync[0:0]
+     2/2: $flatten\u_uart.\u_rx.$0\rx_meta[0:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$310'.
+     1/4: $flatten\u_core.$2\fwd_b[31:0]
+     2/4: $flatten\u_core.$2\fwd_a[31:0]
+     3/4: $flatten\u_core.$1\fwd_b[31:0]
+     4/4: $flatten\u_core.$1\fwd_a[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$331'.
+     1/1: $flatten\u_core.$1\alu_a[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$333'.
+     1/1: $flatten\u_core.$1\br_cond[0:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$371'.
+     1/3: $flatten\u_core.$3\pc_next[31:0]
+     2/3: $flatten\u_core.$2\pc_next[31:0]
+     3/3: $flatten\u_core.$1\pc_next[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+     1/40: $flatten\u_core.$0\idex_valid[0:0]
+     2/40: $flatten\u_core.$0\ifid_instr[31:0]
+     3/40: $flatten\u_core.$0\ifid_pc[31:0]
+     4/40: $flatten\u_core.$0\ifid_valid[0:0]
+     5/40: $flatten\u_core.$0\memwb_is_mret[0:0]
+     6/40: $flatten\u_core.$0\memwb_wb_sel[1:0]
+     7/40: $flatten\u_core.$0\memwb_reg_we[0:0]
+     8/40: $flatten\u_core.$0\memwb_rd[4:0]
+     9/40: $flatten\u_core.$0\memwb_mem_data[31:0]
+    10/40: $flatten\u_core.$0\memwb_result[31:0]
+    11/40: $flatten\u_core.$0\memwb_valid[0:0]
+    12/40: $flatten\u_core.$0\exmem_is_mret[0:0]
+    13/40: $flatten\u_core.$0\exmem_wb_sel[1:0]
+    14/40: $flatten\u_core.$0\exmem_mem_we[0:0]
+    15/40: $flatten\u_core.$0\exmem_reg_we[0:0]
+    16/40: $flatten\u_core.$0\exmem_rd[4:0]
+    17/40: $flatten\u_core.$0\exmem_store_data[31:0]
+    18/40: $flatten\u_core.$0\exmem_result[31:0]
+    19/40: $flatten\u_core.$0\exmem_valid[0:0]
+    20/40: $flatten\u_core.$0\pc[31:0]
+    21/40: $flatten\u_core.$0\idex_br_type[2:0]
+    22/40: $flatten\u_core.$0\idex_alu_op[3:0]
+    23/40: $flatten\u_core.$0\idex_alu_a_sel[1:0]
+    24/40: $flatten\u_core.$0\idex_wb_sel[1:0]
+    25/40: $flatten\u_core.$0\idex_is_cus[0:0]
+    26/40: $flatten\u_core.$0\idex_is_mret[0:0]
+    27/40: $flatten\u_core.$0\idex_jalr[0:0]
+    28/40: $flatten\u_core.$0\idex_alu_b_imm[0:0]
+    29/40: $flatten\u_core.$0\idex_mem_we[0:0]
+    30/40: $flatten\u_core.$0\idex_reg_we[0:0]
+    31/40: $flatten\u_core.$0\idex_rs2[4:0]
+    32/40: $flatten\u_core.$0\idex_rs1[4:0]
+    33/40: $flatten\u_core.$0\idex_rd[4:0]
+    34/40: $flatten\u_core.$0\idex_imm[31:0]
+    35/40: $flatten\u_core.$0\idex_rs2_val[31:0]
+    36/40: $flatten\u_core.$0\idex_rs1_val[31:0]
+    37/40: $flatten\u_core.$0\idex_pc[31:0]
+    38/40: $flatten\u_core.$0\in_handler[0:0]
+    39/40: $flatten\u_core.$0\drain[0:0]
+    40/40: $flatten\u_core.$0\epc[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+     1/67: $flatten\u_core.\u_dec.$3\is_cus[0:0]
+     2/67: $flatten\u_core.\u_dec.$3\is_mret[0:0]
+     3/67: $flatten\u_core.\u_dec.$4\br_type[2:0]
+     4/67: $flatten\u_core.\u_dec.$3\mem_we[0:0]
+     5/67: $flatten\u_core.\u_dec.$5\reg_we[0:0]
+     6/67: $flatten\u_core.\u_dec.$2\is_cus[0:0]
+     7/67: $flatten\u_core.\u_dec.$4\wb_sel[1:0]
+     8/67: $flatten\u_core.\u_dec.$4\reg_we[0:0]
+     9/67: $flatten\u_core.\u_dec.$23\illegal[0:0]
+    10/67: $flatten\u_core.\u_dec.$2\is_mret[0:0]
+    11/67: $flatten\u_core.\u_dec.$22\illegal[0:0]
+    12/67: $flatten\u_core.\u_dec.$21\illegal[0:0]
+    13/67: $flatten\u_core.\u_dec.$20\illegal[0:0]
+    14/67: $flatten\u_core.\u_dec.$12\alu_op[3:0]
+    15/67: $flatten\u_core.\u_dec.$19\illegal[0:0]
+    16/67: $flatten\u_core.\u_dec.$11\alu_op[3:0]
+    17/67: $flatten\u_core.\u_dec.$18\illegal[0:0]
+    18/67: $flatten\u_core.\u_dec.$17\illegal[0:0]
+    19/67: $flatten\u_core.\u_dec.$16\illegal[0:0]
+    20/67: $flatten\u_core.\u_dec.$15\illegal[0:0]
+    21/67: $flatten\u_core.\u_dec.$14\illegal[0:0]
+    22/67: $flatten\u_core.\u_dec.$10\alu_op[3:0]
+    23/67: $flatten\u_core.\u_dec.$13\illegal[0:0]
+    24/67: $flatten\u_core.\u_dec.$9\alu_op[3:0]
+    25/67: $flatten\u_core.\u_dec.$12\illegal[0:0]
+    26/67: $flatten\u_core.\u_dec.$8\alu_op[3:0]
+    27/67: $flatten\u_core.\u_dec.$11\illegal[0:0]
+    28/67: $flatten\u_core.\u_dec.$10\illegal[0:0]
+    29/67: $flatten\u_core.\u_dec.$7\alu_op[3:0]
+    30/67: $flatten\u_core.\u_dec.$6\alu_op[3:0]
+    31/67: $flatten\u_core.\u_dec.$9\illegal[0:0]
+    32/67: $flatten\u_core.\u_dec.$5\alu_op[3:0]
+    33/67: $flatten\u_core.\u_dec.$8\illegal[0:0]
+    34/67: $flatten\u_core.\u_dec.$7\illegal[0:0]
+    35/67: $flatten\u_core.\u_dec.$4\alu_op[3:0]
+    36/67: $flatten\u_core.\u_dec.$6\illegal[0:0]
+    37/67: $flatten\u_core.\u_dec.$4\imm_type[2:0]
+    38/67: $flatten\u_core.\u_dec.$3\alu_op[3:0]
+    39/67: $flatten\u_core.\u_dec.$3\alu_b_imm[0:0]
+    40/67: $flatten\u_core.\u_dec.$2\mem_we[0:0]
+    41/67: $flatten\u_core.\u_dec.$5\illegal[0:0]
+    42/67: $flatten\u_core.\u_dec.$3\imm_type[2:0]
+    43/67: $flatten\u_core.\u_dec.$2\alu_op[3:0]
+    44/67: $flatten\u_core.\u_dec.$2\alu_b_imm[0:0]
+    45/67: $flatten\u_core.\u_dec.$3\wb_sel[1:0]
+    46/67: $flatten\u_core.\u_dec.$3\reg_we[0:0]
+    47/67: $flatten\u_core.\u_dec.$4\illegal[0:0]
+    48/67: $flatten\u_core.\u_dec.$3\br_type[2:0]
+    49/67: $flatten\u_core.\u_dec.$3\illegal[0:0]
+    50/67: $flatten\u_core.\u_dec.$2\imm_type[2:0]
+    51/67: $flatten\u_core.\u_dec.$2\jalr[0:0]
+    52/67: $flatten\u_core.\u_dec.$2\br_type[2:0]
+    53/67: $flatten\u_core.\u_dec.$2\wb_sel[1:0]
+    54/67: $flatten\u_core.\u_dec.$2\reg_we[0:0]
+    55/67: $flatten\u_core.\u_dec.$2\illegal[0:0]
+    56/67: $flatten\u_core.\u_dec.$1\imm_type[2:0]
+    57/67: $flatten\u_core.\u_dec.$1\alu_op[3:0]
+    58/67: $flatten\u_core.\u_dec.$1\alu_b_imm[0:0]
+    59/67: $flatten\u_core.\u_dec.$1\alu_a_sel[1:0]
+    60/67: $flatten\u_core.\u_dec.$1\reg_we[0:0]
+    61/67: $flatten\u_core.\u_dec.$1\illegal[0:0]
+    62/67: $flatten\u_core.\u_dec.$1\is_cus[0:0]
+    63/67: $flatten\u_core.\u_dec.$1\is_mret[0:0]
+    64/67: $flatten\u_core.\u_dec.$1\jalr[0:0]
+    65/67: $flatten\u_core.\u_dec.$1\br_type[2:0]
+    66/67: $flatten\u_core.\u_dec.$1\mem_we[0:0]
+    67/67: $flatten\u_core.\u_dec.$1\wb_sel[1:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+     1/1: $flatten\u_core.\u_imm.$1\imm[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$285'.
+     1/4: $flatten\u_core.\u_rf.$2\rdata2[31:0]
+     2/4: $flatten\u_core.\u_rf.$1\rdata2[31:0]
+     3/4: $flatten\u_core.\u_rf.$2\rdata1[31:0]
+     4/4: $flatten\u_core.\u_rf.$1\rdata1[31:0]
+Creating decoders for process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266'.
+     1/3: $flatten\u_core.\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$274
+     2/3: $flatten\u_core.\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$265_DATA[31:0]$273
+     3/3: $flatten\u_core.\u_rf.$1$memwr$\regs$rtl/core/regfile.sv:34$265_ADDR[4:0]$272
+Creating decoders for process `\soc_pipe.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+     1/1: $flatten\u_core.\u_alu.$1\y[31:0]
+Creating decoders for process `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:138$240'.
+     1/2: $0\exit_code[31:0]
+     2/2: $0\exit_valid[0:0]
+Creating decoders for process `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:0$239'.
+     1/1: $1\dmem_rdata[31:0]
+
+16.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\soc_pipe.\u_dotp.rdata' from process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+No latch inferred for signal `\soc_pipe.\u_timer.rdata' from process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+No latch inferred for signal `\soc_pipe.\u_uart.rdata' from process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$309'.
+No latch inferred for signal `\soc_pipe.\u_core.fwd_a' from process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$310'.
+No latch inferred for signal `\soc_pipe.\u_core.fwd_b' from process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$310'.
+No latch inferred for signal `\soc_pipe.\u_core.alu_a' from process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$331'.
+No latch inferred for signal `\soc_pipe.\u_core.br_cond' from process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$333'.
+No latch inferred for signal `\soc_pipe.\u_core.pc_next' from process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$371'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.imm_type' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.reg_we' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.wb_sel' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.mem_we' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.alu_a_sel' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.alu_b_imm' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.alu_op' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.br_type' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.jalr' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.is_mret' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.is_cus' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_dec.illegal' from process `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+No latch inferred for signal `\soc_pipe.\u_core.u_imm.imm' from process `\soc_pipe.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+No latch inferred for signal `\soc_pipe.\u_core.u_rf.rdata1' from process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$285'.
+No latch inferred for signal `\soc_pipe.\u_core.u_rf.rdata2' from process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$285'.
+No latch inferred for signal `\soc_pipe.\u_core.u_alu.y' from process `\soc_pipe.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+No latch inferred for signal `\soc_pipe.\dmem_rdata' from process `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:0$239'.
+
+16.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\soc_pipe.\u_dotp.result' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1561' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.a[0]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1566' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.a[1]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1571' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.a[2]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1576' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.a[3]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1581' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.b[0]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1586' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.b[1]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1591' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.b[2]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1596' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_dotp.b[3]' using process `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+  created $adff cell `$procdff$1601' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_timer.cnt' using process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1606' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_timer.cmp' using process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1611' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_timer.ie' using process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1616' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_timer.pending' using process `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+  created $adff cell `$procdff$1621' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.rx_avail' using process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+  created $adff cell `$procdff$1626' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.tx_hold' using process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+  created $adff cell `$procdff$1631' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.tx_pending' using process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+  created $adff cell `$procdff$1636' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.rx_hold' using process `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$307'.
+  created $adff cell `$procdff$1641' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_tx.frame' using process `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+  created $adff cell `$procdff$1646' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_tx.bitpos' using process `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+  created $adff cell `$procdff$1651' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_tx.baud_cnt' using process `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+  created $adff cell `$procdff$1656' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_tx.active' using process `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+  created $adff cell `$procdff$1661' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.data' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+  created $adff cell `$procdff$1666' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.bitpos' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+  created $adff cell `$procdff$1671' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.baud_cnt' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+  created $adff cell `$procdff$1676' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.ready' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+  created $adff cell `$procdff$1681' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.state' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+  created $adff cell `$procdff$1686' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.shreg' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+  created $adff cell `$procdff$1691' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.rx_meta' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$243'.
+  created $adff cell `$procdff$1696' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_uart.u_rx.rx_sync' using process `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$243'.
+  created $adff cell `$procdff$1701' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.pc' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1706' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.epc' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1711' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.drain' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1716' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.in_handler' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1721' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.ifid_valid' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1726' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.ifid_pc' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1731' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.ifid_instr' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1736' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_valid' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1741' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_pc' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1746' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_rs1_val' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1751' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_rs2_val' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1756' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_imm' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1761' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_rd' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1766' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_rs1' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1771' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_rs2' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1776' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_reg_we' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1781' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_mem_we' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1786' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_alu_b_imm' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1791' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_jalr' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1796' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_is_mret' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1801' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_is_cus' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1806' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_wb_sel' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1811' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_alu_a_sel' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1816' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_alu_op' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1821' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.idex_br_type' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1826' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_valid' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1831' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_result' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1836' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_store_data' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1841' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_rd' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1846' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_reg_we' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1851' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_mem_we' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1856' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_is_mret' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1861' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.exmem_wb_sel' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1866' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_valid' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1871' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_result' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1876' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_mem_data' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1881' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_rd' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1886' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_reg_we' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1891' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_is_mret' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1896' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\u_core.memwb_wb_sel' using process `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+  created $adff cell `$procdff$1901' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.$flatten\u_core.\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$265_ADDR' using process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266'.
+  created $dff cell `$procdff$1902' with positive edge clock.
+Creating register for signal `\soc_pipe.$flatten\u_core.\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$265_DATA' using process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266'.
+  created $dff cell `$procdff$1903' with positive edge clock.
+Creating register for signal `\soc_pipe.$flatten\u_core.\u_rf.$memwr$\regs$rtl/core/regfile.sv:34$265_EN' using process `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266'.
+  created $dff cell `$procdff$1904' with positive edge clock.
+Creating register for signal `\soc_pipe.\exit_valid' using process `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:138$240'.
+  created $adff cell `$procdff$1909' with positive edge clock and positive level reset.
+Creating register for signal `\soc_pipe.\exit_code' using process `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:138$240'.
+  created $adff cell `$procdff$1914' with positive edge clock and positive level reset.
+
+16.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+16.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+Removing empty process `soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:60$158'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+Removing empty process `soc_pipe.$flatten\u_dotp.$proc$rtl/custom/dotp.sv:0$161'.
+Found and cleaned up 4 empty switches in `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+Removing empty process `soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:28$113'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+Removing empty process `soc_pipe.$flatten\u_timer.$proc$rtl/periph/timer.sv:0$118'.
+Found and cleaned up 4 empty switches in `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+Removing empty process `soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:47$292'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$307'.
+Removing empty process `soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:68$307'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$309'.
+Removing empty process `soc_pipe.$flatten\u_uart.$proc$rtl/periph/uart.sv:0$309'.
+Found and cleaned up 4 empty switches in `\soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+Removing empty process `soc_pipe.$flatten\u_uart.\u_tx.$proc$rtl/periph/uart_tx.sv:21$258'.
+Found and cleaned up 8 empty switches in `\soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+Removing empty process `soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:30$245'.
+Removing empty process `soc_pipe.$flatten\u_uart.\u_rx.$proc$rtl/periph/uart_rx.sv:13$243'.
+Found and cleaned up 4 empty switches in `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$310'.
+Removing empty process `soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$310'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$331'.
+Removing empty process `soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$331'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$333'.
+Removing empty process `soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$333'.
+Found and cleaned up 3 empty switches in `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$371'.
+Removing empty process `soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:0$371'.
+Found and cleaned up 5 empty switches in `\soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+Removing empty process `soc_pipe.$flatten\u_core.$proc$rtl/core/core_pipe.sv:249$374'.
+Found and cleaned up 24 empty switches in `\soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Removing empty process `soc_pipe.$flatten\u_core.\u_dec.$proc$rtl/core/decoder.sv:0$40'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Removing empty process `soc_pipe.$flatten\u_core.\u_imm.$proc$rtl/core/imm_gen.sv:0$39'.
+Found and cleaned up 4 empty switches in `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$285'.
+Removing empty process `soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:0$285'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266'.
+Removing empty process `soc_pipe.$flatten\u_core.\u_rf.$proc$rtl/core/regfile.sv:32$266'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Removing empty process `soc_pipe.$flatten\u_core.\u_alu.$proc$rtl/core/alu.sv:0$4'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:138$240'.
+Removing empty process `soc_pipe.$proc$rtl/soc/soc_pipe.sv:138$240'.
+Found and cleaned up 1 empty switch in `\soc_pipe.$proc$rtl/soc/soc_pipe.sv:0$239'.
+Removing empty process `soc_pipe.$proc$rtl/soc/soc_pipe.sv:0$239'.
+Cleaned up 74 empty switches.
+
+16.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~197 debug messages>
+
+16.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 86 unused cells and 571 unused wires.
+<suppressed ~87 debug messages>
+
+16.5. Executing CHECK pass (checking for obvious problems).
+Checking module soc_pipe...
+Found and reported 0 problems.
+
+16.6. Executing OPT pass (performing simple optimizations).
+
+16.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~660 debug messages>
+Removed a total of 220 cells.
+
+16.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$527: \u_uart.u_tx.active -> 1'1
+      Replacing known input bits on port A of cell $procmux$525: \u_uart.u_tx.active -> 1'1
+      Replacing known input bits on port A of cell $procmux$530: \u_uart.u_tx.active -> 1'0
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$1008.
+    dead port 2/2 on $mux $procmux$1010.
+    dead port 2/2 on $mux $procmux$1012.
+    dead port 2/2 on $mux $procmux$1027.
+    dead port 2/2 on $mux $procmux$1029.
+    dead port 2/2 on $mux $procmux$1044.
+    dead port 2/2 on $mux $procmux$1046.
+    dead port 2/2 on $mux $procmux$1060.
+    dead port 2/2 on $mux $procmux$1074.
+    dead port 1/2 on $mux $procmux$1084.
+    dead port 2/2 on $mux $procmux$1086.
+    dead port 2/2 on $mux $procmux$1088.
+    dead port 1/2 on $mux $procmux$1098.
+    dead port 2/2 on $mux $procmux$1100.
+    dead port 2/2 on $mux $procmux$1102.
+    dead port 2/2 on $mux $procmux$1111.
+    dead port 2/2 on $mux $procmux$1113.
+    dead port 2/2 on $mux $procmux$1122.
+    dead port 2/2 on $mux $procmux$1124.
+    dead port 2/2 on $mux $procmux$1134.
+    dead port 2/2 on $mux $procmux$1136.
+    dead port 2/2 on $mux $procmux$1151.
+    dead port 2/2 on $mux $procmux$1166.
+    dead port 2/2 on $mux $procmux$1176.
+    dead port 2/2 on $mux $procmux$1185.
+    dead port 2/2 on $mux $procmux$1195.
+    dead port 2/2 on $mux $procmux$1205.
+    dead port 2/2 on $mux $procmux$1215.
+    dead port 2/2 on $mux $procmux$1225.
+    dead port 2/2 on $mux $procmux$1235.
+    dead port 2/2 on $mux $procmux$1246.
+    dead port 2/2 on $mux $procmux$1257.
+    dead port 2/2 on $mux $procmux$1268.
+    dead port 2/2 on $mux $procmux$1279.
+    dead port 2/2 on $mux $procmux$1296.
+    dead port 2/2 on $mux $procmux$1313.
+    dead port 2/2 on $mux $procmux$1325.
+    dead port 2/2 on $mux $procmux$1338.
+    dead port 2/2 on $mux $procmux$1351.
+    dead port 2/2 on $mux $procmux$1364.
+    dead port 2/2 on $mux $procmux$1377.
+    dead port 2/2 on $mux $procmux$1390.
+    dead port 1/2 on $mux $procmux$1511.
+    dead port 1/2 on $mux $procmux$1520.
+    dead port 1/2 on $mux $procmux$654.
+    dead port 1/2 on $mux $procmux$657.
+    dead port 1/2 on $mux $procmux$663.
+    dead port 2/2 on $mux $procmux$762.
+    dead port 2/2 on $mux $procmux$767.
+    dead port 2/2 on $mux $procmux$773.
+    dead port 2/2 on $mux $procmux$779.
+    dead port 2/2 on $mux $procmux$786.
+    dead port 2/2 on $mux $procmux$793.
+    dead port 2/2 on $mux $procmux$801.
+    dead port 2/2 on $mux $procmux$803.
+    dead port 2/2 on $mux $procmux$812.
+    dead port 2/2 on $mux $procmux$814.
+    dead port 1/2 on $mux $procmux$825.
+    dead port 2/2 on $mux $procmux$827.
+    dead port 2/2 on $mux $procmux$829.
+    dead port 1/2 on $mux $procmux$840.
+    dead port 2/2 on $mux $procmux$842.
+    dead port 2/2 on $mux $procmux$844.
+    dead port 2/2 on $mux $procmux$854.
+    dead port 2/2 on $mux $procmux$856.
+    dead port 2/2 on $mux $procmux$866.
+    dead port 2/2 on $mux $procmux$868.
+    dead port 2/2 on $mux $procmux$879.
+    dead port 2/2 on $mux $procmux$881.
+    dead port 2/2 on $mux $procmux$893.
+    dead port 2/2 on $mux $procmux$895.
+    dead port 2/2 on $mux $procmux$908.
+    dead port 2/2 on $mux $procmux$910.
+    dead port 2/2 on $mux $procmux$924.
+    dead port 2/2 on $mux $procmux$926.
+    dead port 1/2 on $mux $procmux$942.
+    dead port 1/2 on $mux $procmux$945.
+    dead port 2/2 on $mux $procmux$947.
+    dead port 2/2 on $mux $procmux$949.
+    dead port 1/2 on $mux $procmux$965.
+    dead port 1/2 on $mux $procmux$968.
+    dead port 2/2 on $mux $procmux$970.
+    dead port 2/2 on $mux $procmux$972.
+    dead port 1/2 on $mux $procmux$988.
+    dead port 2/2 on $mux $procmux$990.
+    dead port 2/2 on $mux $procmux$992.
+Removed 86 multiplexer ports.
+<suppressed ~77 debug messages>
+
+16.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+    New ctrl vector for $pmux cell $procmux$1157: { $auto$opt_reduce.cc:137:opt_pmux$1917 $procmux$1058_CMP $procmux$1054_CMP }
+    New ctrl vector for $pmux cell $procmux$1306: $auto$opt_reduce.cc:137:opt_pmux$1919
+    New ctrl vector for $pmux cell $procmux$1397: { $auto$opt_reduce.cc:137:opt_pmux$1921 $procmux$1402_CMP $procmux$1297_CMP $procmux$1177_CMP }
+    New ctrl vector for $pmux cell $procmux$1408: { $procmux$1089_CMP $procmux$1013_CMP }
+    New ctrl vector for $pmux cell $procmux$1417: { $procmux$1226_CMP $procmux$1177_CMP $auto$opt_reduce.cc:137:opt_pmux$1923 }
+    New ctrl vector for $pmux cell $procmux$1437: { $procmux$1326_CMP $procmux$1226_CMP $auto$opt_reduce.cc:137:opt_pmux$1925 $procmux$1438_CMP }
+    New ctrl vector for $pmux cell $procmux$1447: { $auto$opt_reduce.cc:137:opt_pmux$1927 $procmux$1326_CMP $procmux$1297_CMP $procmux$1226_CMP $procmux$1177_CMP $procmux$1089_CMP $procmux$1013_CMP $procmux$1449_CMP $procmux$1438_CMP }
+    New ctrl vector for $pmux cell $procmux$1495: { $procmux$1402_CMP $procmux$1326_CMP $procmux$1226_CMP }
+    Consolidated identical input bits for $mux cell $procmux$1526:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0]
+      New connections: $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [31:1] = { $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] $flatten\u_core.\u_rf.$0$memwr$\regs$rtl/core/regfile.sv:34$265_EN[31:0]$269 [0] }
+    New ctrl vector for $pmux cell $procmux$513: { $procmux$492_CMP $auto$opt_reduce.cc:137:opt_pmux$1929 }
+  Optimizing cells in module \soc_pipe.
+Performed a total of 10 changes.
+
+16.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~57 debug messages>
+Removed a total of 19 cells.
+
+16.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 0 unused cells and 325 unused wires.
+<suppressed ~1 debug messages>
+
+16.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~82 debug messages>
+
+16.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+    New ctrl vector for $pmux cell $procmux$1051: { $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $procmux$1054_CMP $auto$opt_reduce.cc:137:opt_pmux$1931 }
+    New ctrl vector for $pmux cell $procmux$1417: { $auto$opt_reduce.cc:137:opt_pmux$1933 $auto$opt_reduce.cc:137:opt_pmux$1923 }
+    New ctrl vector for $pmux cell $procmux$1437: { $procmux$1226_CMP $auto$opt_reduce.cc:137:opt_pmux$1925 $auto$opt_reduce.cc:137:opt_pmux$1935 }
+    New ctrl vector for $pmux cell $procmux$1447: { $auto$opt_reduce.cc:137:opt_pmux$1927 $procmux$1297_CMP $auto$opt_reduce.cc:137:opt_pmux$1939 $procmux$1089_CMP $procmux$1013_CMP $procmux$1449_CMP $auto$opt_reduce.cc:137:opt_pmux$1937 }
+    New ctrl vector for $pmux cell $procmux$589: { $procmux$585_CMP $procmux$582_CMP $auto$opt_reduce.cc:137:opt_pmux$1941 }
+  Optimizing cells in module \soc_pipe.
+Performed a total of 5 changes.
+
+16.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+16.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+16.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~82 debug messages>
+
+16.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.6.23. Finished OPT passes. (There is nothing left to do.)
+
+16.7. Executing FSM pass (extract and optimize FSM).
+
+16.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register soc_pipe.u_core.idex_alu_a_sel.
+Found FSM state register soc_pipe.u_core.idex_alu_op.
+Found FSM state register soc_pipe.u_core.idex_br_type.
+Not marking soc_pipe.u_core.idex_wb_sel as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Found FSM state register soc_pipe.u_uart.u_rx.state.
+
+16.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\u_core.idex_alu_a_sel' from module `\soc_pipe'.
+  found $adff cell for state register: $procdff$1816
+  root of input selection tree: $flatten\u_core.$0\idex_alu_a_sel[1:0]
+  found reset state: 2'00 (from async reset)
+  found ctrl input: \u_core.ex_redirect
+  found ctrl input: $procmux$1403_CMP
+  found ctrl input: $procmux$1404_CMP
+  found state code: 2'01
+  found state code: 2'10
+  found ctrl output: $procmux$639_CMP
+  found ctrl output: $procmux$640_CMP
+  ctrl inputs: { \u_core.ex_redirect $procmux$1403_CMP $procmux$1404_CMP }
+  ctrl outputs: { $flatten\u_core.$0\idex_alu_a_sel[1:0] $procmux$640_CMP $procmux$639_CMP }
+  transition:       2'00 3'000 ->       2'00 4'0000
+  transition:       2'00 3'0-1 ->       2'10 4'1000
+  transition:       2'00 3'01- ->       2'01 4'0100
+  transition:       2'00 3'1-- ->       2'00 4'0000
+  transition:       2'10 3'000 ->       2'00 4'0001
+  transition:       2'10 3'0-1 ->       2'10 4'1001
+  transition:       2'10 3'01- ->       2'01 4'0101
+  transition:       2'10 3'1-- ->       2'10 4'1001
+  transition:       2'01 3'000 ->       2'00 4'0010
+  transition:       2'01 3'0-1 ->       2'10 4'1010
+  transition:       2'01 3'01- ->       2'01 4'0110
+  transition:       2'01 3'1-- ->       2'01 4'0110
+Extracting FSM `\u_core.idex_alu_op' from module `\soc_pipe'.
+  found $adff cell for state register: $procdff$1821
+  root of input selection tree: $flatten\u_core.$0\idex_alu_op[3:0]
+  found reset state: 4'0000 (from async reset)
+  found ctrl input: \u_core.ex_redirect
+  found ctrl input: $procmux$1013_CMP
+  found ctrl input: $procmux$1089_CMP
+  found ctrl input: $procmux$1052_CMP
+  found ctrl input: $procmux$1053_CMP
+  found ctrl input: $procmux$1054_CMP
+  found ctrl input: $procmux$1055_CMP
+  found ctrl input: $procmux$1056_CMP
+  found ctrl input: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:105$43_Y
+  found ctrl input: $procmux$1058_CMP
+  found ctrl input: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+  found state code: 4'1001
+  found state code: 4'1000
+  found ctrl input: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:130$45_Y
+  found ctrl input: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:131$46_Y
+  found state code: 4'0111
+  found state code: 4'0110
+  found state code: 4'0101
+  found state code: 4'0100
+  found state code: 4'0011
+  found state code: 4'0010
+  found ctrl input: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:143$49_Y
+  found state code: 4'1010
+  found state code: 4'0001
+  found ctrl output: $procmux$1536_CMP
+  found ctrl output: $procmux$1537_CMP
+  found ctrl output: $procmux$1538_CMP
+  found ctrl output: $procmux$1539_CMP
+  found ctrl output: $procmux$1540_CMP
+  found ctrl output: $procmux$1541_CMP
+  found ctrl output: $procmux$1542_CMP
+  found ctrl output: $procmux$1543_CMP
+  found ctrl output: $procmux$1544_CMP
+  found ctrl output: $procmux$1545_CMP
+  found ctrl output: $procmux$1546_CMP
+  ctrl inputs: { \u_core.ex_redirect $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:143$49_Y $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:131$46_Y $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:130$45_Y $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:105$43_Y $procmux$1013_CMP $procmux$1058_CMP $procmux$1056_CMP $procmux$1055_CMP $procmux$1054_CMP $procmux$1053_CMP $procmux$1052_CMP $procmux$1089_CMP }
+  ctrl outputs: { $procmux$1546_CMP $procmux$1545_CMP $procmux$1544_CMP $procmux$1543_CMP $procmux$1542_CMP $procmux$1541_CMP $procmux$1540_CMP $procmux$1539_CMP $procmux$1538_CMP $procmux$1537_CMP $procmux$1536_CMP $flatten\u_core.$0\idex_alu_op[3:0] }
+  transition:     4'0000 14'0-----0------0 ->     4'0000 15'100000000000000
+  transition:     4'0000 14'00---0-0000001 -> INVALID_STATE(4'x) 15'10000000000xxxx  <ignored invalid transition!>
+  transition:     4'0000 14'01-----------1 ->     4'0000 15'100000000000000
+  transition:     4'0000 14'0----1-------1 ->     4'0011 15'100000000000011
+  transition:     4'0000 14'0-------1----1 ->     4'0100 15'100000000000100
+  transition:     4'0000 14'0--------1---1 ->     4'0101 15'100000000000101
+  transition:     4'0000 14'0----------1-1 ->     4'1000 15'100000000001000
+  transition:     4'0000 14'0-----------11 ->     4'1001 15'100000000001001
+  transition:     4'0000 14'0------1-----1 ->     4'0010 15'100000000000010
+  transition:     4'0000 14'0--00-----1--1 ->     4'0000 15'100000000000000
+  transition:     4'0000 14'0--10-----1--1 ->     4'0111 15'100000000000111
+  transition:     4'0000 14'0---1-----1--1 ->     4'0110 15'100000000000110
+  transition:     4'0000 14'00---01000000- -> INVALID_STATE(4'x) 15'10000000000xxxx  <ignored invalid transition!>
+  transition:     4'0000 14'01000-1------- ->     4'0000 15'100000000000000
+  transition:     4'0000 14'01100-1------- ->     4'1010 15'100000000001010
+  transition:     4'0000 14'01-10-1------- ->     4'0001 15'100000000000001
+  transition:     4'0000 14'01--1-1------- ->     4'0000 15'100000000000000
+  transition:     4'0000 14'0-----11------ ->     4'0010 15'100000000000010
+  transition:     4'0000 14'0----11------- ->     4'0011 15'100000000000011
+  transition:     4'0000 14'0-----1-1----- ->     4'0100 15'100000000000100
+  transition:     4'0000 14'0-----1--1---- ->     4'0101 15'100000000000101
+  transition:     4'0000 14'0--00-1---1--- ->     4'0000 15'100000000000000
+  transition:     4'0000 14'0--10-1---1--- ->     4'0111 15'100000000000111
+  transition:     4'0000 14'0---1-1---1--- ->     4'0110 15'100000000000110
+  transition:     4'0000 14'0-----1----1-- ->     4'1000 15'100000000001000
+  transition:     4'0000 14'0-----1-----1- ->     4'1001 15'100000000001001
+  transition:     4'0000 14'1------------- ->     4'0000 15'100000000000000
+  transition:     4'1000 14'0-----0------0 ->     4'0000 15'000000001000000
+  transition:     4'1000 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00000000100xxxx  <ignored invalid transition!>
+  transition:     4'1000 14'01-----------1 ->     4'0000 15'000000001000000
+  transition:     4'1000 14'0----1-------1 ->     4'0011 15'000000001000011
+  transition:     4'1000 14'0-------1----1 ->     4'0100 15'000000001000100
+  transition:     4'1000 14'0--------1---1 ->     4'0101 15'000000001000101
+  transition:     4'1000 14'0----------1-1 ->     4'1000 15'000000001001000
+  transition:     4'1000 14'0-----------11 ->     4'1001 15'000000001001001
+  transition:     4'1000 14'0------1-----1 ->     4'0010 15'000000001000010
+  transition:     4'1000 14'0--00-----1--1 ->     4'0000 15'000000001000000
+  transition:     4'1000 14'0--10-----1--1 ->     4'0111 15'000000001000111
+  transition:     4'1000 14'0---1-----1--1 ->     4'0110 15'000000001000110
+  transition:     4'1000 14'00---01000000- -> INVALID_STATE(4'x) 15'00000000100xxxx  <ignored invalid transition!>
+  transition:     4'1000 14'01000-1------- ->     4'0000 15'000000001000000
+  transition:     4'1000 14'01100-1------- ->     4'1010 15'000000001001010
+  transition:     4'1000 14'01-10-1------- ->     4'0001 15'000000001000001
+  transition:     4'1000 14'01--1-1------- ->     4'0000 15'000000001000000
+  transition:     4'1000 14'0-----11------ ->     4'0010 15'000000001000010
+  transition:     4'1000 14'0----11------- ->     4'0011 15'000000001000011
+  transition:     4'1000 14'0-----1-1----- ->     4'0100 15'000000001000100
+  transition:     4'1000 14'0-----1--1---- ->     4'0101 15'000000001000101
+  transition:     4'1000 14'0--00-1---1--- ->     4'0000 15'000000001000000
+  transition:     4'1000 14'0--10-1---1--- ->     4'0111 15'000000001000111
+  transition:     4'1000 14'0---1-1---1--- ->     4'0110 15'000000001000110
+  transition:     4'1000 14'0-----1----1-- ->     4'1000 15'000000001001000
+  transition:     4'1000 14'0-----1-----1- ->     4'1001 15'000000001001001
+  transition:     4'1000 14'1------------- ->     4'1000 15'000000001001000
+  transition:     4'0100 14'0-----0------0 ->     4'0000 15'000010000000000
+  transition:     4'0100 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00001000000xxxx  <ignored invalid transition!>
+  transition:     4'0100 14'01-----------1 ->     4'0000 15'000010000000000
+  transition:     4'0100 14'0----1-------1 ->     4'0011 15'000010000000011
+  transition:     4'0100 14'0-------1----1 ->     4'0100 15'000010000000100
+  transition:     4'0100 14'0--------1---1 ->     4'0101 15'000010000000101
+  transition:     4'0100 14'0----------1-1 ->     4'1000 15'000010000001000
+  transition:     4'0100 14'0-----------11 ->     4'1001 15'000010000001001
+  transition:     4'0100 14'0------1-----1 ->     4'0010 15'000010000000010
+  transition:     4'0100 14'0--00-----1--1 ->     4'0000 15'000010000000000
+  transition:     4'0100 14'0--10-----1--1 ->     4'0111 15'000010000000111
+  transition:     4'0100 14'0---1-----1--1 ->     4'0110 15'000010000000110
+  transition:     4'0100 14'00---01000000- -> INVALID_STATE(4'x) 15'00001000000xxxx  <ignored invalid transition!>
+  transition:     4'0100 14'01000-1------- ->     4'0000 15'000010000000000
+  transition:     4'0100 14'01100-1------- ->     4'1010 15'000010000001010
+  transition:     4'0100 14'01-10-1------- ->     4'0001 15'000010000000001
+  transition:     4'0100 14'01--1-1------- ->     4'0000 15'000010000000000
+  transition:     4'0100 14'0-----11------ ->     4'0010 15'000010000000010
+  transition:     4'0100 14'0----11------- ->     4'0011 15'000010000000011
+  transition:     4'0100 14'0-----1-1----- ->     4'0100 15'000010000000100
+  transition:     4'0100 14'0-----1--1---- ->     4'0101 15'000010000000101
+  transition:     4'0100 14'0--00-1---1--- ->     4'0000 15'000010000000000
+  transition:     4'0100 14'0--10-1---1--- ->     4'0111 15'000010000000111
+  transition:     4'0100 14'0---1-1---1--- ->     4'0110 15'000010000000110
+  transition:     4'0100 14'0-----1----1-- ->     4'1000 15'000010000001000
+  transition:     4'0100 14'0-----1-----1- ->     4'1001 15'000010000001001
+  transition:     4'0100 14'1------------- ->     4'0100 15'000010000000100
+  transition:     4'0010 14'0-----0------0 ->     4'0000 15'001000000000000
+  transition:     4'0010 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00100000000xxxx  <ignored invalid transition!>
+  transition:     4'0010 14'01-----------1 ->     4'0000 15'001000000000000
+  transition:     4'0010 14'0----1-------1 ->     4'0011 15'001000000000011
+  transition:     4'0010 14'0-------1----1 ->     4'0100 15'001000000000100
+  transition:     4'0010 14'0--------1---1 ->     4'0101 15'001000000000101
+  transition:     4'0010 14'0----------1-1 ->     4'1000 15'001000000001000
+  transition:     4'0010 14'0-----------11 ->     4'1001 15'001000000001001
+  transition:     4'0010 14'0------1-----1 ->     4'0010 15'001000000000010
+  transition:     4'0010 14'0--00-----1--1 ->     4'0000 15'001000000000000
+  transition:     4'0010 14'0--10-----1--1 ->     4'0111 15'001000000000111
+  transition:     4'0010 14'0---1-----1--1 ->     4'0110 15'001000000000110
+  transition:     4'0010 14'00---01000000- -> INVALID_STATE(4'x) 15'00100000000xxxx  <ignored invalid transition!>
+  transition:     4'0010 14'01000-1------- ->     4'0000 15'001000000000000
+  transition:     4'0010 14'01100-1------- ->     4'1010 15'001000000001010
+  transition:     4'0010 14'01-10-1------- ->     4'0001 15'001000000000001
+  transition:     4'0010 14'01--1-1------- ->     4'0000 15'001000000000000
+  transition:     4'0010 14'0-----11------ ->     4'0010 15'001000000000010
+  transition:     4'0010 14'0----11------- ->     4'0011 15'001000000000011
+  transition:     4'0010 14'0-----1-1----- ->     4'0100 15'001000000000100
+  transition:     4'0010 14'0-----1--1---- ->     4'0101 15'001000000000101
+  transition:     4'0010 14'0--00-1---1--- ->     4'0000 15'001000000000000
+  transition:     4'0010 14'0--10-1---1--- ->     4'0111 15'001000000000111
+  transition:     4'0010 14'0---1-1---1--- ->     4'0110 15'001000000000110
+  transition:     4'0010 14'0-----1----1-- ->     4'1000 15'001000000001000
+  transition:     4'0010 14'0-----1-----1- ->     4'1001 15'001000000001001
+  transition:     4'0010 14'1------------- ->     4'0010 15'001000000000010
+  transition:     4'1010 14'0-----0------0 ->     4'0000 15'000000000010000
+  transition:     4'1010 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00000000001xxxx  <ignored invalid transition!>
+  transition:     4'1010 14'01-----------1 ->     4'0000 15'000000000010000
+  transition:     4'1010 14'0----1-------1 ->     4'0011 15'000000000010011
+  transition:     4'1010 14'0-------1----1 ->     4'0100 15'000000000010100
+  transition:     4'1010 14'0--------1---1 ->     4'0101 15'000000000010101
+  transition:     4'1010 14'0----------1-1 ->     4'1000 15'000000000011000
+  transition:     4'1010 14'0-----------11 ->     4'1001 15'000000000011001
+  transition:     4'1010 14'0------1-----1 ->     4'0010 15'000000000010010
+  transition:     4'1010 14'0--00-----1--1 ->     4'0000 15'000000000010000
+  transition:     4'1010 14'0--10-----1--1 ->     4'0111 15'000000000010111
+  transition:     4'1010 14'0---1-----1--1 ->     4'0110 15'000000000010110
+  transition:     4'1010 14'00---01000000- -> INVALID_STATE(4'x) 15'00000000001xxxx  <ignored invalid transition!>
+  transition:     4'1010 14'01000-1------- ->     4'0000 15'000000000010000
+  transition:     4'1010 14'01100-1------- ->     4'1010 15'000000000011010
+  transition:     4'1010 14'01-10-1------- ->     4'0001 15'000000000010001
+  transition:     4'1010 14'01--1-1------- ->     4'0000 15'000000000010000
+  transition:     4'1010 14'0-----11------ ->     4'0010 15'000000000010010
+  transition:     4'1010 14'0----11------- ->     4'0011 15'000000000010011
+  transition:     4'1010 14'0-----1-1----- ->     4'0100 15'000000000010100
+  transition:     4'1010 14'0-----1--1---- ->     4'0101 15'000000000010101
+  transition:     4'1010 14'0--00-1---1--- ->     4'0000 15'000000000010000
+  transition:     4'1010 14'0--10-1---1--- ->     4'0111 15'000000000010111
+  transition:     4'1010 14'0---1-1---1--- ->     4'0110 15'000000000010110
+  transition:     4'1010 14'0-----1----1-- ->     4'1000 15'000000000011000
+  transition:     4'1010 14'0-----1-----1- ->     4'1001 15'000000000011001
+  transition:     4'1010 14'1------------- ->     4'1010 15'000000000011010
+  transition:     4'0110 14'0-----0------0 ->     4'0000 15'000000100000000
+  transition:     4'0110 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00000010000xxxx  <ignored invalid transition!>
+  transition:     4'0110 14'01-----------1 ->     4'0000 15'000000100000000
+  transition:     4'0110 14'0----1-------1 ->     4'0011 15'000000100000011
+  transition:     4'0110 14'0-------1----1 ->     4'0100 15'000000100000100
+  transition:     4'0110 14'0--------1---1 ->     4'0101 15'000000100000101
+  transition:     4'0110 14'0----------1-1 ->     4'1000 15'000000100001000
+  transition:     4'0110 14'0-----------11 ->     4'1001 15'000000100001001
+  transition:     4'0110 14'0------1-----1 ->     4'0010 15'000000100000010
+  transition:     4'0110 14'0--00-----1--1 ->     4'0000 15'000000100000000
+  transition:     4'0110 14'0--10-----1--1 ->     4'0111 15'000000100000111
+  transition:     4'0110 14'0---1-----1--1 ->     4'0110 15'000000100000110
+  transition:     4'0110 14'00---01000000- -> INVALID_STATE(4'x) 15'00000010000xxxx  <ignored invalid transition!>
+  transition:     4'0110 14'01000-1------- ->     4'0000 15'000000100000000
+  transition:     4'0110 14'01100-1------- ->     4'1010 15'000000100001010
+  transition:     4'0110 14'01-10-1------- ->     4'0001 15'000000100000001
+  transition:     4'0110 14'01--1-1------- ->     4'0000 15'000000100000000
+  transition:     4'0110 14'0-----11------ ->     4'0010 15'000000100000010
+  transition:     4'0110 14'0----11------- ->     4'0011 15'000000100000011
+  transition:     4'0110 14'0-----1-1----- ->     4'0100 15'000000100000100
+  transition:     4'0110 14'0-----1--1---- ->     4'0101 15'000000100000101
+  transition:     4'0110 14'0--00-1---1--- ->     4'0000 15'000000100000000
+  transition:     4'0110 14'0--10-1---1--- ->     4'0111 15'000000100000111
+  transition:     4'0110 14'0---1-1---1--- ->     4'0110 15'000000100000110
+  transition:     4'0110 14'0-----1----1-- ->     4'1000 15'000000100001000
+  transition:     4'0110 14'0-----1-----1- ->     4'1001 15'000000100001001
+  transition:     4'0110 14'1------------- ->     4'0110 15'000000100000110
+  transition:     4'0001 14'0-----0------0 ->     4'0000 15'010000000000000
+  transition:     4'0001 14'00---0-0000001 -> INVALID_STATE(4'x) 15'01000000000xxxx  <ignored invalid transition!>
+  transition:     4'0001 14'01-----------1 ->     4'0000 15'010000000000000
+  transition:     4'0001 14'0----1-------1 ->     4'0011 15'010000000000011
+  transition:     4'0001 14'0-------1----1 ->     4'0100 15'010000000000100
+  transition:     4'0001 14'0--------1---1 ->     4'0101 15'010000000000101
+  transition:     4'0001 14'0----------1-1 ->     4'1000 15'010000000001000
+  transition:     4'0001 14'0-----------11 ->     4'1001 15'010000000001001
+  transition:     4'0001 14'0------1-----1 ->     4'0010 15'010000000000010
+  transition:     4'0001 14'0--00-----1--1 ->     4'0000 15'010000000000000
+  transition:     4'0001 14'0--10-----1--1 ->     4'0111 15'010000000000111
+  transition:     4'0001 14'0---1-----1--1 ->     4'0110 15'010000000000110
+  transition:     4'0001 14'00---01000000- -> INVALID_STATE(4'x) 15'01000000000xxxx  <ignored invalid transition!>
+  transition:     4'0001 14'01000-1------- ->     4'0000 15'010000000000000
+  transition:     4'0001 14'01100-1------- ->     4'1010 15'010000000001010
+  transition:     4'0001 14'01-10-1------- ->     4'0001 15'010000000000001
+  transition:     4'0001 14'01--1-1------- ->     4'0000 15'010000000000000
+  transition:     4'0001 14'0-----11------ ->     4'0010 15'010000000000010
+  transition:     4'0001 14'0----11------- ->     4'0011 15'010000000000011
+  transition:     4'0001 14'0-----1-1----- ->     4'0100 15'010000000000100
+  transition:     4'0001 14'0-----1--1---- ->     4'0101 15'010000000000101
+  transition:     4'0001 14'0--00-1---1--- ->     4'0000 15'010000000000000
+  transition:     4'0001 14'0--10-1---1--- ->     4'0111 15'010000000000111
+  transition:     4'0001 14'0---1-1---1--- ->     4'0110 15'010000000000110
+  transition:     4'0001 14'0-----1----1-- ->     4'1000 15'010000000001000
+  transition:     4'0001 14'0-----1-----1- ->     4'1001 15'010000000001001
+  transition:     4'0001 14'1------------- ->     4'0001 15'010000000000001
+  transition:     4'1001 14'0-----0------0 ->     4'0000 15'000000000100000
+  transition:     4'1001 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00000000010xxxx  <ignored invalid transition!>
+  transition:     4'1001 14'01-----------1 ->     4'0000 15'000000000100000
+  transition:     4'1001 14'0----1-------1 ->     4'0011 15'000000000100011
+  transition:     4'1001 14'0-------1----1 ->     4'0100 15'000000000100100
+  transition:     4'1001 14'0--------1---1 ->     4'0101 15'000000000100101
+  transition:     4'1001 14'0----------1-1 ->     4'1000 15'000000000101000
+  transition:     4'1001 14'0-----------11 ->     4'1001 15'000000000101001
+  transition:     4'1001 14'0------1-----1 ->     4'0010 15'000000000100010
+  transition:     4'1001 14'0--00-----1--1 ->     4'0000 15'000000000100000
+  transition:     4'1001 14'0--10-----1--1 ->     4'0111 15'000000000100111
+  transition:     4'1001 14'0---1-----1--1 ->     4'0110 15'000000000100110
+  transition:     4'1001 14'00---01000000- -> INVALID_STATE(4'x) 15'00000000010xxxx  <ignored invalid transition!>
+  transition:     4'1001 14'01000-1------- ->     4'0000 15'000000000100000
+  transition:     4'1001 14'01100-1------- ->     4'1010 15'000000000101010
+  transition:     4'1001 14'01-10-1------- ->     4'0001 15'000000000100001
+  transition:     4'1001 14'01--1-1------- ->     4'0000 15'000000000100000
+  transition:     4'1001 14'0-----11------ ->     4'0010 15'000000000100010
+  transition:     4'1001 14'0----11------- ->     4'0011 15'000000000100011
+  transition:     4'1001 14'0-----1-1----- ->     4'0100 15'000000000100100
+  transition:     4'1001 14'0-----1--1---- ->     4'0101 15'000000000100101
+  transition:     4'1001 14'0--00-1---1--- ->     4'0000 15'000000000100000
+  transition:     4'1001 14'0--10-1---1--- ->     4'0111 15'000000000100111
+  transition:     4'1001 14'0---1-1---1--- ->     4'0110 15'000000000100110
+  transition:     4'1001 14'0-----1----1-- ->     4'1000 15'000000000101000
+  transition:     4'1001 14'0-----1-----1- ->     4'1001 15'000000000101001
+  transition:     4'1001 14'1------------- ->     4'1001 15'000000000101001
+  transition:     4'0101 14'0-----0------0 ->     4'0000 15'000001000000000
+  transition:     4'0101 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00000100000xxxx  <ignored invalid transition!>
+  transition:     4'0101 14'01-----------1 ->     4'0000 15'000001000000000
+  transition:     4'0101 14'0----1-------1 ->     4'0011 15'000001000000011
+  transition:     4'0101 14'0-------1----1 ->     4'0100 15'000001000000100
+  transition:     4'0101 14'0--------1---1 ->     4'0101 15'000001000000101
+  transition:     4'0101 14'0----------1-1 ->     4'1000 15'000001000001000
+  transition:     4'0101 14'0-----------11 ->     4'1001 15'000001000001001
+  transition:     4'0101 14'0------1-----1 ->     4'0010 15'000001000000010
+  transition:     4'0101 14'0--00-----1--1 ->     4'0000 15'000001000000000
+  transition:     4'0101 14'0--10-----1--1 ->     4'0111 15'000001000000111
+  transition:     4'0101 14'0---1-----1--1 ->     4'0110 15'000001000000110
+  transition:     4'0101 14'00---01000000- -> INVALID_STATE(4'x) 15'00000100000xxxx  <ignored invalid transition!>
+  transition:     4'0101 14'01000-1------- ->     4'0000 15'000001000000000
+  transition:     4'0101 14'01100-1------- ->     4'1010 15'000001000001010
+  transition:     4'0101 14'01-10-1------- ->     4'0001 15'000001000000001
+  transition:     4'0101 14'01--1-1------- ->     4'0000 15'000001000000000
+  transition:     4'0101 14'0-----11------ ->     4'0010 15'000001000000010
+  transition:     4'0101 14'0----11------- ->     4'0011 15'000001000000011
+  transition:     4'0101 14'0-----1-1----- ->     4'0100 15'000001000000100
+  transition:     4'0101 14'0-----1--1---- ->     4'0101 15'000001000000101
+  transition:     4'0101 14'0--00-1---1--- ->     4'0000 15'000001000000000
+  transition:     4'0101 14'0--10-1---1--- ->     4'0111 15'000001000000111
+  transition:     4'0101 14'0---1-1---1--- ->     4'0110 15'000001000000110
+  transition:     4'0101 14'0-----1----1-- ->     4'1000 15'000001000001000
+  transition:     4'0101 14'0-----1-----1- ->     4'1001 15'000001000001001
+  transition:     4'0101 14'1------------- ->     4'0101 15'000001000000101
+  transition:     4'0011 14'0-----0------0 ->     4'0000 15'000100000000000
+  transition:     4'0011 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00010000000xxxx  <ignored invalid transition!>
+  transition:     4'0011 14'01-----------1 ->     4'0000 15'000100000000000
+  transition:     4'0011 14'0----1-------1 ->     4'0011 15'000100000000011
+  transition:     4'0011 14'0-------1----1 ->     4'0100 15'000100000000100
+  transition:     4'0011 14'0--------1---1 ->     4'0101 15'000100000000101
+  transition:     4'0011 14'0----------1-1 ->     4'1000 15'000100000001000
+  transition:     4'0011 14'0-----------11 ->     4'1001 15'000100000001001
+  transition:     4'0011 14'0------1-----1 ->     4'0010 15'000100000000010
+  transition:     4'0011 14'0--00-----1--1 ->     4'0000 15'000100000000000
+  transition:     4'0011 14'0--10-----1--1 ->     4'0111 15'000100000000111
+  transition:     4'0011 14'0---1-----1--1 ->     4'0110 15'000100000000110
+  transition:     4'0011 14'00---01000000- -> INVALID_STATE(4'x) 15'00010000000xxxx  <ignored invalid transition!>
+  transition:     4'0011 14'01000-1------- ->     4'0000 15'000100000000000
+  transition:     4'0011 14'01100-1------- ->     4'1010 15'000100000001010
+  transition:     4'0011 14'01-10-1------- ->     4'0001 15'000100000000001
+  transition:     4'0011 14'01--1-1------- ->     4'0000 15'000100000000000
+  transition:     4'0011 14'0-----11------ ->     4'0010 15'000100000000010
+  transition:     4'0011 14'0----11------- ->     4'0011 15'000100000000011
+  transition:     4'0011 14'0-----1-1----- ->     4'0100 15'000100000000100
+  transition:     4'0011 14'0-----1--1---- ->     4'0101 15'000100000000101
+  transition:     4'0011 14'0--00-1---1--- ->     4'0000 15'000100000000000
+  transition:     4'0011 14'0--10-1---1--- ->     4'0111 15'000100000000111
+  transition:     4'0011 14'0---1-1---1--- ->     4'0110 15'000100000000110
+  transition:     4'0011 14'0-----1----1-- ->     4'1000 15'000100000001000
+  transition:     4'0011 14'0-----1-----1- ->     4'1001 15'000100000001001
+  transition:     4'0011 14'1------------- ->     4'0011 15'000100000000011
+  transition:     4'0111 14'0-----0------0 ->     4'0000 15'000000010000000
+  transition:     4'0111 14'00---0-0000001 -> INVALID_STATE(4'x) 15'00000001000xxxx  <ignored invalid transition!>
+  transition:     4'0111 14'01-----------1 ->     4'0000 15'000000010000000
+  transition:     4'0111 14'0----1-------1 ->     4'0011 15'000000010000011
+  transition:     4'0111 14'0-------1----1 ->     4'0100 15'000000010000100
+  transition:     4'0111 14'0--------1---1 ->     4'0101 15'000000010000101
+  transition:     4'0111 14'0----------1-1 ->     4'1000 15'000000010001000
+  transition:     4'0111 14'0-----------11 ->     4'1001 15'000000010001001
+  transition:     4'0111 14'0------1-----1 ->     4'0010 15'000000010000010
+  transition:     4'0111 14'0--00-----1--1 ->     4'0000 15'000000010000000
+  transition:     4'0111 14'0--10-----1--1 ->     4'0111 15'000000010000111
+  transition:     4'0111 14'0---1-----1--1 ->     4'0110 15'000000010000110
+  transition:     4'0111 14'00---01000000- -> INVALID_STATE(4'x) 15'00000001000xxxx  <ignored invalid transition!>
+  transition:     4'0111 14'01000-1------- ->     4'0000 15'000000010000000
+  transition:     4'0111 14'01100-1------- ->     4'1010 15'000000010001010
+  transition:     4'0111 14'01-10-1------- ->     4'0001 15'000000010000001
+  transition:     4'0111 14'01--1-1------- ->     4'0000 15'000000010000000
+  transition:     4'0111 14'0-----11------ ->     4'0010 15'000000010000010
+  transition:     4'0111 14'0----11------- ->     4'0011 15'000000010000011
+  transition:     4'0111 14'0-----1-1----- ->     4'0100 15'000000010000100
+  transition:     4'0111 14'0-----1--1---- ->     4'0101 15'000000010000101
+  transition:     4'0111 14'0--00-1---1--- ->     4'0000 15'000000010000000
+  transition:     4'0111 14'0--10-1---1--- ->     4'0111 15'000000010000111
+  transition:     4'0111 14'0---1-1---1--- ->     4'0110 15'000000010000110
+  transition:     4'0111 14'0-----1----1-- ->     4'1000 15'000000010001000
+  transition:     4'0111 14'0-----1-----1- ->     4'1001 15'000000010001001
+  transition:     4'0111 14'1------------- ->     4'0111 15'000000010000111
+Extracting FSM `\u_core.idex_br_type' from module `\soc_pipe'.
+  found $adff cell for state register: $procdff$1826
+  root of input selection tree: $flatten\u_core.$0\idex_br_type[2:0]
+  found reset state: 3'000 (from async reset)
+  found ctrl input: \u_core.ex_redirect
+  found ctrl input: \u_core.dec_illegal
+  found ctrl input: $procmux$1297_CMP
+  found ctrl input: $procmux$1326_CMP
+  found ctrl input: $procmux$1402_CMP
+  found ctrl input: $procmux$1052_CMP
+  found ctrl input: $procmux$1053_CMP
+  found ctrl input: $procmux$1054_CMP
+  found ctrl input: $procmux$1055_CMP
+  found ctrl input: $procmux$1058_CMP
+  found ctrl input: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+  found state code: 3'110
+  found state code: 3'101
+  found state code: 3'100
+  found state code: 3'011
+  found state code: 3'010
+  found state code: 3'001
+  found state code: 3'111
+  found ctrl output: $procmux$645_CMP
+  found ctrl output: $procmux$649_CMP
+  found ctrl output: $procmux$646_CMP
+  found ctrl output: $procmux$647_CMP
+  found ctrl output: $procmux$648_CMP
+  found ctrl output: $procmux$643_CMP
+  found ctrl output: $procmux$644_CMP
+  ctrl inputs: { \u_core.dec_illegal \u_core.ex_redirect $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y $procmux$1402_CMP $procmux$1058_CMP $procmux$1055_CMP $procmux$1054_CMP $procmux$1053_CMP $procmux$1052_CMP $procmux$1297_CMP $procmux$1326_CMP }
+  ctrl outputs: { $flatten\u_core.$0\idex_br_type[2:0] $procmux$644_CMP $procmux$643_CMP $procmux$648_CMP $procmux$647_CMP $procmux$646_CMP $procmux$645_CMP $procmux$649_CMP }
+  transition:      3'000 11'00-0-----00 ->      3'000 10'0000000000
+  transition:      3'000 11'00-1------- ->      3'111 10'1110000000
+  transition:      3'000 11'000-------1 ->      3'000 10'0000000000
+  transition:      3'000 11'001-------1 ->      3'111 10'1110000000
+  transition:      3'000 11'000-000001- ->      3'000 10'0000000000
+  transition:      3'000 11'001------1- ->      3'001 10'0010000000
+  transition:      3'000 11'00--1----1- ->      3'010 10'0100000000
+  transition:      3'000 11'00---1---1- ->      3'011 10'0110000000
+  transition:      3'000 11'00----1--1- ->      3'100 10'1000000000
+  transition:      3'000 11'00-----1-1- ->      3'101 10'1010000000
+  transition:      3'000 11'00------11- ->      3'110 10'1100000000
+  transition:      3'000 11'10--------- ->      3'000 10'0000000000
+  transition:      3'000 11'-1--------- ->      3'000 10'0000000000
+  transition:      3'100 11'00-0-----00 ->      3'000 10'0000000100
+  transition:      3'100 11'00-1------- ->      3'111 10'1110000100
+  transition:      3'100 11'000-------1 ->      3'000 10'0000000100
+  transition:      3'100 11'001-------1 ->      3'111 10'1110000100
+  transition:      3'100 11'000-000001- ->      3'000 10'0000000100
+  transition:      3'100 11'001------1- ->      3'001 10'0010000100
+  transition:      3'100 11'00--1----1- ->      3'010 10'0100000100
+  transition:      3'100 11'00---1---1- ->      3'011 10'0110000100
+  transition:      3'100 11'00----1--1- ->      3'100 10'1000000100
+  transition:      3'100 11'00-----1-1- ->      3'101 10'1010000100
+  transition:      3'100 11'00------11- ->      3'110 10'1100000100
+  transition:      3'100 11'10--------- ->      3'000 10'0000000100
+  transition:      3'100 11'-1--------- ->      3'100 10'1000000100
+  transition:      3'010 11'00-0-----00 ->      3'000 10'0000010000
+  transition:      3'010 11'00-1------- ->      3'111 10'1110010000
+  transition:      3'010 11'000-------1 ->      3'000 10'0000010000
+  transition:      3'010 11'001-------1 ->      3'111 10'1110010000
+  transition:      3'010 11'000-000001- ->      3'000 10'0000010000
+  transition:      3'010 11'001------1- ->      3'001 10'0010010000
+  transition:      3'010 11'00--1----1- ->      3'010 10'0100010000
+  transition:      3'010 11'00---1---1- ->      3'011 10'0110010000
+  transition:      3'010 11'00----1--1- ->      3'100 10'1000010000
+  transition:      3'010 11'00-----1-1- ->      3'101 10'1010010000
+  transition:      3'010 11'00------11- ->      3'110 10'1100010000
+  transition:      3'010 11'10--------- ->      3'000 10'0000010000
+  transition:      3'010 11'-1--------- ->      3'010 10'0100010000
+  transition:      3'110 11'00-0-----00 ->      3'000 10'0001000000
+  transition:      3'110 11'00-1------- ->      3'111 10'1111000000
+  transition:      3'110 11'000-------1 ->      3'000 10'0001000000
+  transition:      3'110 11'001-------1 ->      3'111 10'1111000000
+  transition:      3'110 11'000-000001- ->      3'000 10'0001000000
+  transition:      3'110 11'001------1- ->      3'001 10'0011000000
+  transition:      3'110 11'00--1----1- ->      3'010 10'0101000000
+  transition:      3'110 11'00---1---1- ->      3'011 10'0111000000
+  transition:      3'110 11'00----1--1- ->      3'100 10'1001000000
+  transition:      3'110 11'00-----1-1- ->      3'101 10'1011000000
+  transition:      3'110 11'00------11- ->      3'110 10'1101000000
+  transition:      3'110 11'10--------- ->      3'000 10'0001000000
+  transition:      3'110 11'-1--------- ->      3'110 10'1101000000
+  transition:      3'001 11'00-0-----00 ->      3'000 10'0000000001
+  transition:      3'001 11'00-1------- ->      3'111 10'1110000001
+  transition:      3'001 11'000-------1 ->      3'000 10'0000000001
+  transition:      3'001 11'001-------1 ->      3'111 10'1110000001
+  transition:      3'001 11'000-000001- ->      3'000 10'0000000001
+  transition:      3'001 11'001------1- ->      3'001 10'0010000001
+  transition:      3'001 11'00--1----1- ->      3'010 10'0100000001
+  transition:      3'001 11'00---1---1- ->      3'011 10'0110000001
+  transition:      3'001 11'00----1--1- ->      3'100 10'1000000001
+  transition:      3'001 11'00-----1-1- ->      3'101 10'1010000001
+  transition:      3'001 11'00------11- ->      3'110 10'1100000001
+  transition:      3'001 11'10--------- ->      3'000 10'0000000001
+  transition:      3'001 11'-1--------- ->      3'001 10'0010000001
+  transition:      3'101 11'00-0-----00 ->      3'000 10'0000000010
+  transition:      3'101 11'00-1------- ->      3'111 10'1110000010
+  transition:      3'101 11'000-------1 ->      3'000 10'0000000010
+  transition:      3'101 11'001-------1 ->      3'111 10'1110000010
+  transition:      3'101 11'000-000001- ->      3'000 10'0000000010
+  transition:      3'101 11'001------1- ->      3'001 10'0010000010
+  transition:      3'101 11'00--1----1- ->      3'010 10'0100000010
+  transition:      3'101 11'00---1---1- ->      3'011 10'0110000010
+  transition:      3'101 11'00----1--1- ->      3'100 10'1000000010
+  transition:      3'101 11'00-----1-1- ->      3'101 10'1010000010
+  transition:      3'101 11'00------11- ->      3'110 10'1100000010
+  transition:      3'101 11'10--------- ->      3'000 10'0000000010
+  transition:      3'101 11'-1--------- ->      3'101 10'1010000010
+  transition:      3'011 11'00-0-----00 ->      3'000 10'0000001000
+  transition:      3'011 11'00-1------- ->      3'111 10'1110001000
+  transition:      3'011 11'000-------1 ->      3'000 10'0000001000
+  transition:      3'011 11'001-------1 ->      3'111 10'1110001000
+  transition:      3'011 11'000-000001- ->      3'000 10'0000001000
+  transition:      3'011 11'001------1- ->      3'001 10'0010001000
+  transition:      3'011 11'00--1----1- ->      3'010 10'0100001000
+  transition:      3'011 11'00---1---1- ->      3'011 10'0110001000
+  transition:      3'011 11'00----1--1- ->      3'100 10'1000001000
+  transition:      3'011 11'00-----1-1- ->      3'101 10'1010001000
+  transition:      3'011 11'00------11- ->      3'110 10'1100001000
+  transition:      3'011 11'10--------- ->      3'000 10'0000001000
+  transition:      3'011 11'-1--------- ->      3'011 10'0110001000
+  transition:      3'111 11'00-0-----00 ->      3'000 10'0000100000
+  transition:      3'111 11'00-1------- ->      3'111 10'1110100000
+  transition:      3'111 11'000-------1 ->      3'000 10'0000100000
+  transition:      3'111 11'001-------1 ->      3'111 10'1110100000
+  transition:      3'111 11'000-000001- ->      3'000 10'0000100000
+  transition:      3'111 11'001------1- ->      3'001 10'0010100000
+  transition:      3'111 11'00--1----1- ->      3'010 10'0100100000
+  transition:      3'111 11'00---1---1- ->      3'011 10'0110100000
+  transition:      3'111 11'00----1--1- ->      3'100 10'1000100000
+  transition:      3'111 11'00-----1-1- ->      3'101 10'1010100000
+  transition:      3'111 11'00------11- ->      3'110 10'1100100000
+  transition:      3'111 11'10--------- ->      3'000 10'0000100000
+  transition:      3'111 11'-1--------- ->      3'111 10'1110100000
+Extracting FSM `\u_uart.u_rx.state' from module `\soc_pipe'.
+  found $adff cell for state register: $procdff$1686
+  root of input selection tree: $flatten\u_uart.\u_rx.$0\state[1:0]
+  found reset state: 2'00 (from async reset)
+  found ctrl input: $procmux$557_CMP
+  found ctrl input: $procmux$563_CMP
+  found ctrl input: $procmux$582_CMP
+  found ctrl input: $procmux$585_CMP
+  found ctrl input: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$251_Y
+  found ctrl input: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:63$252_Y
+  found state code: 2'11
+  found ctrl input: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$248_Y
+  found ctrl input: \u_uart.u_rx.rx_sync
+  found state code: 2'10
+  found state code: 2'01
+  found ctrl output: $procmux$557_CMP
+  found ctrl output: $procmux$563_CMP
+  found ctrl output: $procmux$585_CMP
+  found ctrl output: $procmux$582_CMP
+  ctrl inputs: { $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:63$252_Y $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$251_Y $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$248_Y \u_uart.u_rx.rx_sync }
+  ctrl outputs: { $flatten\u_uart.\u_rx.$0\state[1:0] $procmux$582_CMP $procmux$585_CMP $procmux$563_CMP $procmux$557_CMP }
+  transition:       2'00 4'---0 ->       2'01 6'010100
+  transition:       2'00 4'---1 ->       2'00 6'000100
+  transition:       2'10 4'-0-- ->       2'10 6'100010
+  transition:       2'10 4'01-- ->       2'10 6'100010
+  transition:       2'10 4'11-- ->       2'11 6'110010
+  transition:       2'01 4'--0- ->       2'01 6'011000
+  transition:       2'01 4'--10 ->       2'10 6'101000
+  transition:       2'01 4'--11 ->       2'00 6'001000
+  transition:       2'11 4'-0-- ->       2'11 6'110001
+  transition:       2'11 4'-1-- ->       2'00 6'000001
+
+16.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\u_uart.u_rx.state$1968' from module `\soc_pipe'.
+Optimizing FSM `$fsm$\u_core.idex_br_type$1959' from module `\soc_pipe'.
+Optimizing FSM `$fsm$\u_core.idex_alu_op$1946' from module `\soc_pipe'.
+Optimizing FSM `$fsm$\u_core.idex_alu_a_sel$1942' from module `\soc_pipe'.
+
+16.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 51 unused cells and 55 unused wires.
+<suppressed ~59 debug messages>
+
+16.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\u_core.idex_alu_a_sel$1942' from module `\soc_pipe'.
+  Removing unused output signal $flatten\u_core.$0\idex_alu_a_sel[1:0] [0].
+  Removing unused output signal $flatten\u_core.$0\idex_alu_a_sel[1:0] [1].
+Optimizing FSM `$fsm$\u_core.idex_alu_op$1946' from module `\soc_pipe'.
+  Removing unused output signal $flatten\u_core.$0\idex_alu_op[3:0] [0].
+  Removing unused output signal $flatten\u_core.$0\idex_alu_op[3:0] [1].
+  Removing unused output signal $flatten\u_core.$0\idex_alu_op[3:0] [2].
+  Removing unused output signal $flatten\u_core.$0\idex_alu_op[3:0] [3].
+Optimizing FSM `$fsm$\u_core.idex_br_type$1959' from module `\soc_pipe'.
+  Removing unused output signal $flatten\u_core.$0\idex_br_type[2:0] [0].
+  Removing unused output signal $flatten\u_core.$0\idex_br_type[2:0] [1].
+  Removing unused output signal $flatten\u_core.$0\idex_br_type[2:0] [2].
+Optimizing FSM `$fsm$\u_uart.u_rx.state$1968' from module `\soc_pipe'.
+  Removing unused output signal $flatten\u_uart.\u_rx.$0\state[1:0] [0].
+  Removing unused output signal $flatten\u_uart.\u_rx.$0\state[1:0] [1].
+
+16.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\u_core.idex_alu_a_sel$1942' from module `\soc_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> --1
+  10 -> -1-
+  01 -> 1--
+Recoding FSM `$fsm$\u_core.idex_alu_op$1946' from module `\soc_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  0000 -> ----------1
+  1000 -> ---------1-
+  0100 -> --------1--
+  0010 -> -------1---
+  1010 -> ------1----
+  0110 -> -----1-----
+  0001 -> ----1------
+  1001 -> ---1-------
+  0101 -> --1--------
+  0011 -> -1---------
+  0111 -> 1----------
+Recoding FSM `$fsm$\u_core.idex_br_type$1959' from module `\soc_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> -------1
+  100 -> ------1-
+  010 -> -----1--
+  110 -> ----1---
+  001 -> ---1----
+  101 -> --1-----
+  011 -> -1------
+  111 -> 1-------
+Recoding FSM `$fsm$\u_uart.u_rx.state$1968' from module `\soc_pipe' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+16.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\u_core.idex_alu_a_sel$1942' from module `soc_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\u_core.idex_alu_a_sel$1942 (\u_core.idex_alu_a_sel):
+
+  Number of input signals:    3
+  Number of output signals:   2
+  Number of state bits:       3
+
+  Input signals:
+    0: $procmux$1404_CMP
+    1: $procmux$1403_CMP
+    2: \u_core.ex_redirect
+
+  Output signals:
+    0: $procmux$639_CMP
+    1: $procmux$640_CMP
+
+  State encoding:
+    0:      3'--1  <RESET STATE>
+    1:      3'-1-
+    2:      3'1--
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 3'000   ->     0 2'00
+      1:     0 3'1--   ->     0 2'00
+      2:     0 3'0-1   ->     1 2'00
+      3:     0 3'01-   ->     2 2'00
+      4:     1 3'000   ->     0 2'01
+      5:     1 3'0-1   ->     1 2'01
+      6:     1 3'1--   ->     1 2'01
+      7:     1 3'01-   ->     2 2'01
+      8:     2 3'000   ->     0 2'10
+      9:     2 3'0-1   ->     1 2'10
+     10:     2 3'01-   ->     2 2'10
+     11:     2 3'1--   ->     2 2'10
+
+-------------------------------------
+
+FSM `$fsm$\u_core.idex_alu_op$1946' from module `soc_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\u_core.idex_alu_op$1946 (\u_core.idex_alu_op):
+
+  Number of input signals:   14
+  Number of output signals:  11
+  Number of state bits:      11
+
+  Input signals:
+    0: $procmux$1089_CMP
+    1: $procmux$1052_CMP
+    2: $procmux$1053_CMP
+    3: $procmux$1054_CMP
+    4: $procmux$1055_CMP
+    5: $procmux$1056_CMP
+    6: $procmux$1058_CMP
+    7: $procmux$1013_CMP
+    8: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:105$43_Y
+    9: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:130$45_Y
+   10: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:131$46_Y
+   11: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:143$49_Y
+   12: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+   13: \u_core.ex_redirect
+
+  Output signals:
+    0: $procmux$1536_CMP
+    1: $procmux$1537_CMP
+    2: $procmux$1538_CMP
+    3: $procmux$1539_CMP
+    4: $procmux$1540_CMP
+    5: $procmux$1541_CMP
+    6: $procmux$1542_CMP
+    7: $procmux$1543_CMP
+    8: $procmux$1544_CMP
+    9: $procmux$1545_CMP
+   10: $procmux$1546_CMP
+
+  State encoding:
+    0: 11'----------1  <RESET STATE>
+    1: 11'---------1-
+    2: 11'--------1--
+    3: 11'-------1---
+    4: 11'------1----
+    5: 11'-----1-----
+    6: 11'----1------
+    7: 11'---1-------
+    8: 11'--1--------
+    9: 11'-1---------
+   10: 11'1----------
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 14'0-----0------0   ->     0 11'10000000000
+      1:     0 14'0--00-----1--1   ->     0 11'10000000000
+      2:     0 14'01-----------1   ->     0 11'10000000000
+      3:     0 14'0--00-1---1---   ->     0 11'10000000000
+      4:     0 14'01000-1-------   ->     0 11'10000000000
+      5:     0 14'01--1-1-------   ->     0 11'10000000000
+      6:     0 14'1-------------   ->     0 11'10000000000
+      7:     0 14'0----------1-1   ->     1 11'10000000000
+      8:     0 14'0-----1----1--   ->     1 11'10000000000
+      9:     0 14'0-------1----1   ->     2 11'10000000000
+     10:     0 14'0-----1-1-----   ->     2 11'10000000000
+     11:     0 14'0------1-----1   ->     3 11'10000000000
+     12:     0 14'0-----11------   ->     3 11'10000000000
+     13:     0 14'01100-1-------   ->     4 11'10000000000
+     14:     0 14'0---1-----1--1   ->     5 11'10000000000
+     15:     0 14'0---1-1---1---   ->     5 11'10000000000
+     16:     0 14'01-10-1-------   ->     6 11'10000000000
+     17:     0 14'0-----------11   ->     7 11'10000000000
+     18:     0 14'0-----1-----1-   ->     7 11'10000000000
+     19:     0 14'0--------1---1   ->     8 11'10000000000
+     20:     0 14'0-----1--1----   ->     8 11'10000000000
+     21:     0 14'0----1-------1   ->     9 11'10000000000
+     22:     0 14'0----11-------   ->     9 11'10000000000
+     23:     0 14'0--10-----1--1   ->    10 11'10000000000
+     24:     0 14'0--10-1---1---   ->    10 11'10000000000
+     25:     1 14'0-----0------0   ->     0 11'00000000100
+     26:     1 14'0--00-----1--1   ->     0 11'00000000100
+     27:     1 14'01-----------1   ->     0 11'00000000100
+     28:     1 14'0--00-1---1---   ->     0 11'00000000100
+     29:     1 14'01000-1-------   ->     0 11'00000000100
+     30:     1 14'01--1-1-------   ->     0 11'00000000100
+     31:     1 14'0----------1-1   ->     1 11'00000000100
+     32:     1 14'0-----1----1--   ->     1 11'00000000100
+     33:     1 14'1-------------   ->     1 11'00000000100
+     34:     1 14'0-------1----1   ->     2 11'00000000100
+     35:     1 14'0-----1-1-----   ->     2 11'00000000100
+     36:     1 14'0------1-----1   ->     3 11'00000000100
+     37:     1 14'0-----11------   ->     3 11'00000000100
+     38:     1 14'01100-1-------   ->     4 11'00000000100
+     39:     1 14'0---1-----1--1   ->     5 11'00000000100
+     40:     1 14'0---1-1---1---   ->     5 11'00000000100
+     41:     1 14'01-10-1-------   ->     6 11'00000000100
+     42:     1 14'0-----------11   ->     7 11'00000000100
+     43:     1 14'0-----1-----1-   ->     7 11'00000000100
+     44:     1 14'0--------1---1   ->     8 11'00000000100
+     45:     1 14'0-----1--1----   ->     8 11'00000000100
+     46:     1 14'0----1-------1   ->     9 11'00000000100
+     47:     1 14'0----11-------   ->     9 11'00000000100
+     48:     1 14'0--10-----1--1   ->    10 11'00000000100
+     49:     1 14'0--10-1---1---   ->    10 11'00000000100
+     50:     2 14'0-----0------0   ->     0 11'00001000000
+     51:     2 14'0--00-----1--1   ->     0 11'00001000000
+     52:     2 14'01-----------1   ->     0 11'00001000000
+     53:     2 14'0--00-1---1---   ->     0 11'00001000000
+     54:     2 14'01000-1-------   ->     0 11'00001000000
+     55:     2 14'01--1-1-------   ->     0 11'00001000000
+     56:     2 14'0----------1-1   ->     1 11'00001000000
+     57:     2 14'0-----1----1--   ->     1 11'00001000000
+     58:     2 14'0-------1----1   ->     2 11'00001000000
+     59:     2 14'0-----1-1-----   ->     2 11'00001000000
+     60:     2 14'1-------------   ->     2 11'00001000000
+     61:     2 14'0------1-----1   ->     3 11'00001000000
+     62:     2 14'0-----11------   ->     3 11'00001000000
+     63:     2 14'01100-1-------   ->     4 11'00001000000
+     64:     2 14'0---1-----1--1   ->     5 11'00001000000
+     65:     2 14'0---1-1---1---   ->     5 11'00001000000
+     66:     2 14'01-10-1-------   ->     6 11'00001000000
+     67:     2 14'0-----------11   ->     7 11'00001000000
+     68:     2 14'0-----1-----1-   ->     7 11'00001000000
+     69:     2 14'0--------1---1   ->     8 11'00001000000
+     70:     2 14'0-----1--1----   ->     8 11'00001000000
+     71:     2 14'0----1-------1   ->     9 11'00001000000
+     72:     2 14'0----11-------   ->     9 11'00001000000
+     73:     2 14'0--10-----1--1   ->    10 11'00001000000
+     74:     2 14'0--10-1---1---   ->    10 11'00001000000
+     75:     3 14'0-----0------0   ->     0 11'00100000000
+     76:     3 14'0--00-----1--1   ->     0 11'00100000000
+     77:     3 14'01-----------1   ->     0 11'00100000000
+     78:     3 14'0--00-1---1---   ->     0 11'00100000000
+     79:     3 14'01000-1-------   ->     0 11'00100000000
+     80:     3 14'01--1-1-------   ->     0 11'00100000000
+     81:     3 14'0----------1-1   ->     1 11'00100000000
+     82:     3 14'0-----1----1--   ->     1 11'00100000000
+     83:     3 14'0-------1----1   ->     2 11'00100000000
+     84:     3 14'0-----1-1-----   ->     2 11'00100000000
+     85:     3 14'0------1-----1   ->     3 11'00100000000
+     86:     3 14'0-----11------   ->     3 11'00100000000
+     87:     3 14'1-------------   ->     3 11'00100000000
+     88:     3 14'01100-1-------   ->     4 11'00100000000
+     89:     3 14'0---1-----1--1   ->     5 11'00100000000
+     90:     3 14'0---1-1---1---   ->     5 11'00100000000
+     91:     3 14'01-10-1-------   ->     6 11'00100000000
+     92:     3 14'0-----------11   ->     7 11'00100000000
+     93:     3 14'0-----1-----1-   ->     7 11'00100000000
+     94:     3 14'0--------1---1   ->     8 11'00100000000
+     95:     3 14'0-----1--1----   ->     8 11'00100000000
+     96:     3 14'0----1-------1   ->     9 11'00100000000
+     97:     3 14'0----11-------   ->     9 11'00100000000
+     98:     3 14'0--10-----1--1   ->    10 11'00100000000
+     99:     3 14'0--10-1---1---   ->    10 11'00100000000
+    100:     4 14'0-----0------0   ->     0 11'00000000001
+    101:     4 14'0--00-----1--1   ->     0 11'00000000001
+    102:     4 14'01-----------1   ->     0 11'00000000001
+    103:     4 14'0--00-1---1---   ->     0 11'00000000001
+    104:     4 14'01000-1-------   ->     0 11'00000000001
+    105:     4 14'01--1-1-------   ->     0 11'00000000001
+    106:     4 14'0----------1-1   ->     1 11'00000000001
+    107:     4 14'0-----1----1--   ->     1 11'00000000001
+    108:     4 14'0-------1----1   ->     2 11'00000000001
+    109:     4 14'0-----1-1-----   ->     2 11'00000000001
+    110:     4 14'0------1-----1   ->     3 11'00000000001
+    111:     4 14'0-----11------   ->     3 11'00000000001
+    112:     4 14'01100-1-------   ->     4 11'00000000001
+    113:     4 14'1-------------   ->     4 11'00000000001
+    114:     4 14'0---1-----1--1   ->     5 11'00000000001
+    115:     4 14'0---1-1---1---   ->     5 11'00000000001
+    116:     4 14'01-10-1-------   ->     6 11'00000000001
+    117:     4 14'0-----------11   ->     7 11'00000000001
+    118:     4 14'0-----1-----1-   ->     7 11'00000000001
+    119:     4 14'0--------1---1   ->     8 11'00000000001
+    120:     4 14'0-----1--1----   ->     8 11'00000000001
+    121:     4 14'0----1-------1   ->     9 11'00000000001
+    122:     4 14'0----11-------   ->     9 11'00000000001
+    123:     4 14'0--10-----1--1   ->    10 11'00000000001
+    124:     4 14'0--10-1---1---   ->    10 11'00000000001
+    125:     5 14'0-----0------0   ->     0 11'00000010000
+    126:     5 14'0--00-----1--1   ->     0 11'00000010000
+    127:     5 14'01-----------1   ->     0 11'00000010000
+    128:     5 14'0--00-1---1---   ->     0 11'00000010000
+    129:     5 14'01000-1-------   ->     0 11'00000010000
+    130:     5 14'01--1-1-------   ->     0 11'00000010000
+    131:     5 14'0----------1-1   ->     1 11'00000010000
+    132:     5 14'0-----1----1--   ->     1 11'00000010000
+    133:     5 14'0-------1----1   ->     2 11'00000010000
+    134:     5 14'0-----1-1-----   ->     2 11'00000010000
+    135:     5 14'0------1-----1   ->     3 11'00000010000
+    136:     5 14'0-----11------   ->     3 11'00000010000
+    137:     5 14'01100-1-------   ->     4 11'00000010000
+    138:     5 14'0---1-----1--1   ->     5 11'00000010000
+    139:     5 14'0---1-1---1---   ->     5 11'00000010000
+    140:     5 14'1-------------   ->     5 11'00000010000
+    141:     5 14'01-10-1-------   ->     6 11'00000010000
+    142:     5 14'0-----------11   ->     7 11'00000010000
+    143:     5 14'0-----1-----1-   ->     7 11'00000010000
+    144:     5 14'0--------1---1   ->     8 11'00000010000
+    145:     5 14'0-----1--1----   ->     8 11'00000010000
+    146:     5 14'0----1-------1   ->     9 11'00000010000
+    147:     5 14'0----11-------   ->     9 11'00000010000
+    148:     5 14'0--10-----1--1   ->    10 11'00000010000
+    149:     5 14'0--10-1---1---   ->    10 11'00000010000
+    150:     6 14'0-----0------0   ->     0 11'01000000000
+    151:     6 14'0--00-----1--1   ->     0 11'01000000000
+    152:     6 14'01-----------1   ->     0 11'01000000000
+    153:     6 14'0--00-1---1---   ->     0 11'01000000000
+    154:     6 14'01000-1-------   ->     0 11'01000000000
+    155:     6 14'01--1-1-------   ->     0 11'01000000000
+    156:     6 14'0----------1-1   ->     1 11'01000000000
+    157:     6 14'0-----1----1--   ->     1 11'01000000000
+    158:     6 14'0-------1----1   ->     2 11'01000000000
+    159:     6 14'0-----1-1-----   ->     2 11'01000000000
+    160:     6 14'0------1-----1   ->     3 11'01000000000
+    161:     6 14'0-----11------   ->     3 11'01000000000
+    162:     6 14'01100-1-------   ->     4 11'01000000000
+    163:     6 14'0---1-----1--1   ->     5 11'01000000000
+    164:     6 14'0---1-1---1---   ->     5 11'01000000000
+    165:     6 14'01-10-1-------   ->     6 11'01000000000
+    166:     6 14'1-------------   ->     6 11'01000000000
+    167:     6 14'0-----------11   ->     7 11'01000000000
+    168:     6 14'0-----1-----1-   ->     7 11'01000000000
+    169:     6 14'0--------1---1   ->     8 11'01000000000
+    170:     6 14'0-----1--1----   ->     8 11'01000000000
+    171:     6 14'0----1-------1   ->     9 11'01000000000
+    172:     6 14'0----11-------   ->     9 11'01000000000
+    173:     6 14'0--10-----1--1   ->    10 11'01000000000
+    174:     6 14'0--10-1---1---   ->    10 11'01000000000
+    175:     7 14'0-----0------0   ->     0 11'00000000010
+    176:     7 14'0--00-----1--1   ->     0 11'00000000010
+    177:     7 14'01-----------1   ->     0 11'00000000010
+    178:     7 14'0--00-1---1---   ->     0 11'00000000010
+    179:     7 14'01000-1-------   ->     0 11'00000000010
+    180:     7 14'01--1-1-------   ->     0 11'00000000010
+    181:     7 14'0----------1-1   ->     1 11'00000000010
+    182:     7 14'0-----1----1--   ->     1 11'00000000010
+    183:     7 14'0-------1----1   ->     2 11'00000000010
+    184:     7 14'0-----1-1-----   ->     2 11'00000000010
+    185:     7 14'0------1-----1   ->     3 11'00000000010
+    186:     7 14'0-----11------   ->     3 11'00000000010
+    187:     7 14'01100-1-------   ->     4 11'00000000010
+    188:     7 14'0---1-----1--1   ->     5 11'00000000010
+    189:     7 14'0---1-1---1---   ->     5 11'00000000010
+    190:     7 14'01-10-1-------   ->     6 11'00000000010
+    191:     7 14'0-----------11   ->     7 11'00000000010
+    192:     7 14'0-----1-----1-   ->     7 11'00000000010
+    193:     7 14'1-------------   ->     7 11'00000000010
+    194:     7 14'0--------1---1   ->     8 11'00000000010
+    195:     7 14'0-----1--1----   ->     8 11'00000000010
+    196:     7 14'0----1-------1   ->     9 11'00000000010
+    197:     7 14'0----11-------   ->     9 11'00000000010
+    198:     7 14'0--10-----1--1   ->    10 11'00000000010
+    199:     7 14'0--10-1---1---   ->    10 11'00000000010
+    200:     8 14'0-----0------0   ->     0 11'00000100000
+    201:     8 14'0--00-----1--1   ->     0 11'00000100000
+    202:     8 14'01-----------1   ->     0 11'00000100000
+    203:     8 14'0--00-1---1---   ->     0 11'00000100000
+    204:     8 14'01000-1-------   ->     0 11'00000100000
+    205:     8 14'01--1-1-------   ->     0 11'00000100000
+    206:     8 14'0----------1-1   ->     1 11'00000100000
+    207:     8 14'0-----1----1--   ->     1 11'00000100000
+    208:     8 14'0-------1----1   ->     2 11'00000100000
+    209:     8 14'0-----1-1-----   ->     2 11'00000100000
+    210:     8 14'0------1-----1   ->     3 11'00000100000
+    211:     8 14'0-----11------   ->     3 11'00000100000
+    212:     8 14'01100-1-------   ->     4 11'00000100000
+    213:     8 14'0---1-----1--1   ->     5 11'00000100000
+    214:     8 14'0---1-1---1---   ->     5 11'00000100000
+    215:     8 14'01-10-1-------   ->     6 11'00000100000
+    216:     8 14'0-----------11   ->     7 11'00000100000
+    217:     8 14'0-----1-----1-   ->     7 11'00000100000
+    218:     8 14'0--------1---1   ->     8 11'00000100000
+    219:     8 14'0-----1--1----   ->     8 11'00000100000
+    220:     8 14'1-------------   ->     8 11'00000100000
+    221:     8 14'0----1-------1   ->     9 11'00000100000
+    222:     8 14'0----11-------   ->     9 11'00000100000
+    223:     8 14'0--10-----1--1   ->    10 11'00000100000
+    224:     8 14'0--10-1---1---   ->    10 11'00000100000
+    225:     9 14'0-----0------0   ->     0 11'00010000000
+    226:     9 14'0--00-----1--1   ->     0 11'00010000000
+    227:     9 14'01-----------1   ->     0 11'00010000000
+    228:     9 14'0--00-1---1---   ->     0 11'00010000000
+    229:     9 14'01000-1-------   ->     0 11'00010000000
+    230:     9 14'01--1-1-------   ->     0 11'00010000000
+    231:     9 14'0----------1-1   ->     1 11'00010000000
+    232:     9 14'0-----1----1--   ->     1 11'00010000000
+    233:     9 14'0-------1----1   ->     2 11'00010000000
+    234:     9 14'0-----1-1-----   ->     2 11'00010000000
+    235:     9 14'0------1-----1   ->     3 11'00010000000
+    236:     9 14'0-----11------   ->     3 11'00010000000
+    237:     9 14'01100-1-------   ->     4 11'00010000000
+    238:     9 14'0---1-----1--1   ->     5 11'00010000000
+    239:     9 14'0---1-1---1---   ->     5 11'00010000000
+    240:     9 14'01-10-1-------   ->     6 11'00010000000
+    241:     9 14'0-----------11   ->     7 11'00010000000
+    242:     9 14'0-----1-----1-   ->     7 11'00010000000
+    243:     9 14'0--------1---1   ->     8 11'00010000000
+    244:     9 14'0-----1--1----   ->     8 11'00010000000
+    245:     9 14'0----1-------1   ->     9 11'00010000000
+    246:     9 14'0----11-------   ->     9 11'00010000000
+    247:     9 14'1-------------   ->     9 11'00010000000
+    248:     9 14'0--10-----1--1   ->    10 11'00010000000
+    249:     9 14'0--10-1---1---   ->    10 11'00010000000
+    250:    10 14'0-----0------0   ->     0 11'00000001000
+    251:    10 14'0--00-----1--1   ->     0 11'00000001000
+    252:    10 14'01-----------1   ->     0 11'00000001000
+    253:    10 14'0--00-1---1---   ->     0 11'00000001000
+    254:    10 14'01000-1-------   ->     0 11'00000001000
+    255:    10 14'01--1-1-------   ->     0 11'00000001000
+    256:    10 14'0----------1-1   ->     1 11'00000001000
+    257:    10 14'0-----1----1--   ->     1 11'00000001000
+    258:    10 14'0-------1----1   ->     2 11'00000001000
+    259:    10 14'0-----1-1-----   ->     2 11'00000001000
+    260:    10 14'0------1-----1   ->     3 11'00000001000
+    261:    10 14'0-----11------   ->     3 11'00000001000
+    262:    10 14'01100-1-------   ->     4 11'00000001000
+    263:    10 14'0---1-----1--1   ->     5 11'00000001000
+    264:    10 14'0---1-1---1---   ->     5 11'00000001000
+    265:    10 14'01-10-1-------   ->     6 11'00000001000
+    266:    10 14'0-----------11   ->     7 11'00000001000
+    267:    10 14'0-----1-----1-   ->     7 11'00000001000
+    268:    10 14'0--------1---1   ->     8 11'00000001000
+    269:    10 14'0-----1--1----   ->     8 11'00000001000
+    270:    10 14'0----1-------1   ->     9 11'00000001000
+    271:    10 14'0----11-------   ->     9 11'00000001000
+    272:    10 14'0--10-----1--1   ->    10 11'00000001000
+    273:    10 14'0--10-1---1---   ->    10 11'00000001000
+    274:    10 14'1-------------   ->    10 11'00000001000
+
+-------------------------------------
+
+FSM `$fsm$\u_core.idex_br_type$1959' from module `soc_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\u_core.idex_br_type$1959 (\u_core.idex_br_type):
+
+  Number of input signals:   11
+  Number of output signals:   7
+  Number of state bits:       8
+
+  Input signals:
+    0: $procmux$1326_CMP
+    1: $procmux$1297_CMP
+    2: $procmux$1052_CMP
+    3: $procmux$1053_CMP
+    4: $procmux$1054_CMP
+    5: $procmux$1055_CMP
+    6: $procmux$1058_CMP
+    7: $procmux$1402_CMP
+    8: $flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:168$59_Y
+    9: \u_core.ex_redirect
+   10: \u_core.dec_illegal
+
+  Output signals:
+    0: $procmux$649_CMP
+    1: $procmux$645_CMP
+    2: $procmux$646_CMP
+    3: $procmux$647_CMP
+    4: $procmux$648_CMP
+    5: $procmux$643_CMP
+    6: $procmux$644_CMP
+
+  State encoding:
+    0: 8'-------1  <RESET STATE>
+    1: 8'------1-
+    2: 8'-----1--
+    3: 8'----1---
+    4: 8'---1----
+    5: 8'--1-----
+    6: 8'-1------
+    7: 8'1-------
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 11'00-0-----00   ->     0 7'0000000
+      1:     0 11'000-------1   ->     0 7'0000000
+      2:     0 11'000-000001-   ->     0 7'0000000
+      3:     0 11'10---------   ->     0 7'0000000
+      4:     0 11'-1---------   ->     0 7'0000000
+      5:     0 11'00----1--1-   ->     1 7'0000000
+      6:     0 11'00--1----1-   ->     2 7'0000000
+      7:     0 11'00------11-   ->     3 7'0000000
+      8:     0 11'001------1-   ->     4 7'0000000
+      9:     0 11'00-----1-1-   ->     5 7'0000000
+     10:     0 11'00---1---1-   ->     6 7'0000000
+     11:     0 11'001-------1   ->     7 7'0000000
+     12:     0 11'00-1-------   ->     7 7'0000000
+     13:     1 11'00-0-----00   ->     0 7'0000100
+     14:     1 11'000-------1   ->     0 7'0000100
+     15:     1 11'000-000001-   ->     0 7'0000100
+     16:     1 11'10---------   ->     0 7'0000100
+     17:     1 11'00----1--1-   ->     1 7'0000100
+     18:     1 11'-1---------   ->     1 7'0000100
+     19:     1 11'00--1----1-   ->     2 7'0000100
+     20:     1 11'00------11-   ->     3 7'0000100
+     21:     1 11'001------1-   ->     4 7'0000100
+     22:     1 11'00-----1-1-   ->     5 7'0000100
+     23:     1 11'00---1---1-   ->     6 7'0000100
+     24:     1 11'001-------1   ->     7 7'0000100
+     25:     1 11'00-1-------   ->     7 7'0000100
+     26:     2 11'00-0-----00   ->     0 7'0010000
+     27:     2 11'000-------1   ->     0 7'0010000
+     28:     2 11'000-000001-   ->     0 7'0010000
+     29:     2 11'10---------   ->     0 7'0010000
+     30:     2 11'00----1--1-   ->     1 7'0010000
+     31:     2 11'00--1----1-   ->     2 7'0010000
+     32:     2 11'-1---------   ->     2 7'0010000
+     33:     2 11'00------11-   ->     3 7'0010000
+     34:     2 11'001------1-   ->     4 7'0010000
+     35:     2 11'00-----1-1-   ->     5 7'0010000
+     36:     2 11'00---1---1-   ->     6 7'0010000
+     37:     2 11'001-------1   ->     7 7'0010000
+     38:     2 11'00-1-------   ->     7 7'0010000
+     39:     3 11'00-0-----00   ->     0 7'1000000
+     40:     3 11'000-------1   ->     0 7'1000000
+     41:     3 11'000-000001-   ->     0 7'1000000
+     42:     3 11'10---------   ->     0 7'1000000
+     43:     3 11'00----1--1-   ->     1 7'1000000
+     44:     3 11'00--1----1-   ->     2 7'1000000
+     45:     3 11'00------11-   ->     3 7'1000000
+     46:     3 11'-1---------   ->     3 7'1000000
+     47:     3 11'001------1-   ->     4 7'1000000
+     48:     3 11'00-----1-1-   ->     5 7'1000000
+     49:     3 11'00---1---1-   ->     6 7'1000000
+     50:     3 11'001-------1   ->     7 7'1000000
+     51:     3 11'00-1-------   ->     7 7'1000000
+     52:     4 11'00-0-----00   ->     0 7'0000001
+     53:     4 11'000-------1   ->     0 7'0000001
+     54:     4 11'000-000001-   ->     0 7'0000001
+     55:     4 11'10---------   ->     0 7'0000001
+     56:     4 11'00----1--1-   ->     1 7'0000001
+     57:     4 11'00--1----1-   ->     2 7'0000001
+     58:     4 11'00------11-   ->     3 7'0000001
+     59:     4 11'001------1-   ->     4 7'0000001
+     60:     4 11'-1---------   ->     4 7'0000001
+     61:     4 11'00-----1-1-   ->     5 7'0000001
+     62:     4 11'00---1---1-   ->     6 7'0000001
+     63:     4 11'001-------1   ->     7 7'0000001
+     64:     4 11'00-1-------   ->     7 7'0000001
+     65:     5 11'00-0-----00   ->     0 7'0000010
+     66:     5 11'000-------1   ->     0 7'0000010
+     67:     5 11'000-000001-   ->     0 7'0000010
+     68:     5 11'10---------   ->     0 7'0000010
+     69:     5 11'00----1--1-   ->     1 7'0000010
+     70:     5 11'00--1----1-   ->     2 7'0000010
+     71:     5 11'00------11-   ->     3 7'0000010
+     72:     5 11'001------1-   ->     4 7'0000010
+     73:     5 11'00-----1-1-   ->     5 7'0000010
+     74:     5 11'-1---------   ->     5 7'0000010
+     75:     5 11'00---1---1-   ->     6 7'0000010
+     76:     5 11'001-------1   ->     7 7'0000010
+     77:     5 11'00-1-------   ->     7 7'0000010
+     78:     6 11'00-0-----00   ->     0 7'0001000
+     79:     6 11'000-------1   ->     0 7'0001000
+     80:     6 11'000-000001-   ->     0 7'0001000
+     81:     6 11'10---------   ->     0 7'0001000
+     82:     6 11'00----1--1-   ->     1 7'0001000
+     83:     6 11'00--1----1-   ->     2 7'0001000
+     84:     6 11'00------11-   ->     3 7'0001000
+     85:     6 11'001------1-   ->     4 7'0001000
+     86:     6 11'00-----1-1-   ->     5 7'0001000
+     87:     6 11'00---1---1-   ->     6 7'0001000
+     88:     6 11'-1---------   ->     6 7'0001000
+     89:     6 11'001-------1   ->     7 7'0001000
+     90:     6 11'00-1-------   ->     7 7'0001000
+     91:     7 11'00-0-----00   ->     0 7'0100000
+     92:     7 11'000-------1   ->     0 7'0100000
+     93:     7 11'000-000001-   ->     0 7'0100000
+     94:     7 11'10---------   ->     0 7'0100000
+     95:     7 11'00----1--1-   ->     1 7'0100000
+     96:     7 11'00--1----1-   ->     2 7'0100000
+     97:     7 11'00------11-   ->     3 7'0100000
+     98:     7 11'001------1-   ->     4 7'0100000
+     99:     7 11'00-----1-1-   ->     5 7'0100000
+    100:     7 11'00---1---1-   ->     6 7'0100000
+    101:     7 11'001-------1   ->     7 7'0100000
+    102:     7 11'00-1-------   ->     7 7'0100000
+    103:     7 11'-1---------   ->     7 7'0100000
+
+-------------------------------------
+
+FSM `$fsm$\u_uart.u_rx.state$1968' from module `soc_pipe':
+-------------------------------------
+
+  Information on FSM $fsm$\u_uart.u_rx.state$1968 (\u_uart.u_rx.state):
+
+  Number of input signals:    4
+  Number of output signals:   4
+  Number of state bits:       4
+
+  Input signals:
+    0: \u_uart.u_rx.rx_sync
+    1: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$248_Y
+    2: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$251_Y
+    3: $flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:63$252_Y
+
+  Output signals:
+    0: $procmux$557_CMP
+    1: $procmux$563_CMP
+    2: $procmux$585_CMP
+    3: $procmux$582_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 4'---1   ->     0 4'0100
+      1:     0 4'---0   ->     2 4'0100
+      2:     1 4'-0--   ->     1 4'0010
+      3:     1 4'01--   ->     1 4'0010
+      4:     1 4'11--   ->     3 4'0010
+      5:     2 4'--11   ->     0 4'1000
+      6:     2 4'--10   ->     1 4'1000
+      7:     2 4'--0-   ->     2 4'1000
+      8:     3 4'-1--   ->     0 4'0001
+      9:     3 4'-0--   ->     3 4'0001
+
+-------------------------------------
+
+16.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\u_core.idex_alu_a_sel$1942' from module `\soc_pipe'.
+Mapping FSM `$fsm$\u_core.idex_alu_op$1946' from module `\soc_pipe'.
+Mapping FSM `$fsm$\u_core.idex_br_type$1959' from module `\soc_pipe'.
+Mapping FSM `$fsm$\u_uart.u_rx.state$1968' from module `\soc_pipe'.
+
+16.8. Executing OPT pass (performing simple optimizations).
+
+16.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~31 debug messages>
+
+16.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~77 debug messages>
+
+16.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1914 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \exit_code).
+Adding EN signal on $procdff$1909 ($adff) from module soc_pipe (D = 1'1, Q = \exit_valid).
+Adding EN signal on $procdff$1811 ($adff) from module soc_pipe (D = \u_core.u_dec.wb_sel, Q = \u_core.idex_wb_sel).
+Adding EN signal on $procdff$1806 ($adff) from module soc_pipe (D = \u_core.u_dec.is_cus, Q = \u_core.idex_is_cus).
+Adding EN signal on $procdff$1801 ($adff) from module soc_pipe (D = \u_core.u_dec.is_mret, Q = \u_core.idex_is_mret).
+Adding EN signal on $procdff$1796 ($adff) from module soc_pipe (D = \u_core.u_dec.jalr, Q = \u_core.idex_jalr).
+Adding EN signal on $procdff$1791 ($adff) from module soc_pipe (D = \u_core.u_dec.alu_b_imm, Q = \u_core.idex_alu_b_imm).
+Adding EN signal on $procdff$1786 ($adff) from module soc_pipe (D = \u_core.u_dec.mem_we, Q = \u_core.idex_mem_we).
+Adding EN signal on $procdff$1781 ($adff) from module soc_pipe (D = \u_core.u_dec.reg_we, Q = \u_core.idex_reg_we).
+Adding EN signal on $procdff$1776 ($adff) from module soc_pipe (D = \u_core.ifid_instr [24:20], Q = \u_core.idex_rs2).
+Adding EN signal on $procdff$1771 ($adff) from module soc_pipe (D = \u_core.ifid_instr [19:15], Q = \u_core.idex_rs1).
+Adding EN signal on $procdff$1766 ($adff) from module soc_pipe (D = \u_core.ifid_instr [11:7], Q = \u_core.idex_rd).
+Adding EN signal on $procdff$1761 ($adff) from module soc_pipe (D = \u_core.u_imm.imm, Q = \u_core.idex_imm).
+Adding EN signal on $procdff$1756 ($adff) from module soc_pipe (D = \u_core.u_rf.rdata2, Q = \u_core.idex_rs2_val).
+Adding EN signal on $procdff$1751 ($adff) from module soc_pipe (D = \u_core.u_rf.rdata1, Q = \u_core.idex_rs1_val).
+Adding EN signal on $procdff$1746 ($adff) from module soc_pipe (D = \u_core.ifid_pc, Q = \u_core.idex_pc).
+Adding EN signal on $procdff$1721 ($adff) from module soc_pipe (D = $flatten\u_core.$0\in_handler[0:0], Q = \u_core.in_handler).
+Adding EN signal on $procdff$1716 ($adff) from module soc_pipe (D = $flatten\u_core.$0\drain[0:0], Q = \u_core.drain).
+Adding EN signal on $procdff$1711 ($adff) from module soc_pipe (D = \u_core.pc, Q = \u_core.epc).
+Adding EN signal on $procdff$1706 ($adff) from module soc_pipe (D = \u_core.pc_next, Q = \u_core.pc).
+Adding EN signal on $procdff$1691 ($adff) from module soc_pipe (D = { \u_uart.u_rx.rx_sync \u_uart.u_rx.shreg [7:1] }, Q = \u_uart.u_rx.shreg).
+Adding EN signal on $procdff$1676 ($adff) from module soc_pipe (D = $flatten\u_uart.\u_rx.$0\baud_cnt[31:0], Q = \u_uart.u_rx.baud_cnt).
+Adding EN signal on $procdff$1671 ($adff) from module soc_pipe (D = $flatten\u_uart.\u_rx.$0\bitpos[2:0], Q = \u_uart.u_rx.bitpos).
+Adding EN signal on $procdff$1666 ($adff) from module soc_pipe (D = \u_uart.u_rx.shreg, Q = \u_uart.u_rx.data).
+Adding EN signal on $procdff$1651 ($adff) from module soc_pipe (D = $flatten\u_uart.\u_tx.$0\bitpos[3:0], Q = \u_uart.u_tx.bitpos).
+Adding EN signal on $procdff$1646 ($adff) from module soc_pipe (D = $flatten\u_uart.\u_tx.$0\frame[9:0], Q = \u_uart.u_tx.frame).
+Adding EN signal on $procdff$1641 ($adff) from module soc_pipe (D = \u_uart.u_rx.data, Q = \u_uart.rx_hold).
+Adding EN signal on $procdff$1636 ($adff) from module soc_pipe (D = $flatten\u_uart.$0\tx_pending[0:0], Q = \u_uart.tx_pending).
+Adding EN signal on $procdff$1631 ($adff) from module soc_pipe (D = \u_core.exmem_store_data [7:0], Q = \u_uart.tx_hold).
+Adding EN signal on $procdff$1626 ($adff) from module soc_pipe (D = $flatten\u_uart.$0\rx_avail[0:0], Q = \u_uart.rx_avail).
+Adding EN signal on $procdff$1616 ($adff) from module soc_pipe (D = \u_core.exmem_store_data [0], Q = \u_timer.ie).
+Adding EN signal on $procdff$1611 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_timer.cmp).
+Adding EN signal on $procdff$1601 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.b[3]).
+Adding EN signal on $procdff$1596 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.b[2]).
+Adding EN signal on $procdff$1591 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.b[1]).
+Adding EN signal on $procdff$1586 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.b[0]).
+Adding EN signal on $procdff$1581 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.a[3]).
+Adding EN signal on $procdff$1576 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.a[2]).
+Adding EN signal on $procdff$1571 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.a[1]).
+Adding EN signal on $procdff$1566 ($adff) from module soc_pipe (D = \u_core.exmem_store_data, Q = \u_dotp.a[0]).
+
+16.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 44 unused cells and 105 unused wires.
+<suppressed ~45 debug messages>
+
+16.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~7 debug messages>
+
+16.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~56 debug messages>
+
+16.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+16.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~56 debug messages>
+
+16.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.8.23. Finished OPT passes. (There is nothing left to do.)
+
+16.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$auto$opt_dff.cc:195:make_patterns_logic$2268 ($ne).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2073 ($eq).
+Removed top 24 bits (of 32) from mux cell soc_pipe.$procmux$513 ($pmux).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2071 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_pipe.$procmux$492_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2064 ($eq).
+Removed top 2 bits (of 6) from port B of cell soc_pipe.$procmux$458_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2124 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2131 ($eq).
+Removed top 2 bits (of 7) from port B of cell soc_pipe.$procmux$1089_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2200 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2057 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$auto$opt_dff.cc:195:make_patterns_logic$2262 ($ne).
+Removed top 1 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2055 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_pipe.$procmux$1404_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$procmux$1056_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_pipe.$procmux$1058_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2113 ($eq).
+Removed top 1 bits (of 5) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2100 ($eq).
+Removed top 8 bits (of 9) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2115 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_pipe.$procmux$1013_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2098 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2152 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2145 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2138 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_pipe.$eq$rtl/soc/soc_pipe.sv:69$229 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$eq$rtl/soc/soc_pipe.sv:70$230 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$eq$rtl/soc/soc_pipe.sv:71$231 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_pipe.$eq$rtl/soc/soc_pipe.sv:72$232 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_pipe.$eq$rtl/soc/soc_pipe.sv:73$233 ($eq).
+Removed top 2 bits (of 6) from port B of cell soc_pipe.$procmux$463_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2048 ($eq).
+Removed top 1 bits (of 2) from mux cell soc_pipe.$procmux$1255 ($mux).
+Removed top 5 bits (of 7) from port B of cell soc_pipe.$procmux$1226_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2168 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2166 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_pipe.$procmux$1177_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$auto$opt_dff.cc:195:make_patterns_logic$2276 ($ne).
+Removed top 2 bits (of 3) from mux cell soc_pipe.$procmux$1174 ($mux).
+Removed top 3 bits (of 7) from port B of cell soc_pipe.$procmux$1438_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2159 ($eq).
+Removed top 2 bits (of 7) from port B of cell soc_pipe.$procmux$1403_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2082 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2008 ($eq).
+Removed top 3 bits (of 5) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2010 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_pipe.$auto$opt_dff.cc:195:make_patterns_logic$2247 ($ne).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$1993 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$1986 ($eq).
+Removed top 1 bits (of 6) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2012 ($eq).
+Removed top 1 bits (of 4) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2014 ($eq).
+Removed top 3 bits (of 5) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2006 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2080 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2023 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2021 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:105$43 ($eq).
+Removed top 1 bits (of 7) from port B of cell soc_pipe.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:131$46 ($eq).
+Removed top 6 bits (of 7) from port B of cell soc_pipe.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:143$49 ($eq).
+Removed top 2 bits (of 32) from port B of cell soc_pipe.$flatten\u_core.\u_dec.$eq$rtl/core/decoder.sv:161$58 ($eq).
+Removed top 29 bits (of 32) from port B of cell soc_pipe.$flatten\u_core.$add$rtl/core/core_pipe.sv:245$373 ($add).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$flatten\u_core.$eq$rtl/core/core_pipe.sv:228$354 ($eq).
+Removed top 1 bits (of 2) from port B of cell soc_pipe.$flatten\u_core.$eq$rtl/core/core_pipe.sv:222$350 ($eq).
+Removed top 29 bits (of 32) from port B of cell soc_pipe.$flatten\u_core.$add$rtl/core/core_pipe.sv:208$343 ($add).
+Removed top 23 bits (of 32) from port B of cell soc_pipe.$flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:49$248 ($eq).
+Removed top 31 bits (of 32) from port B of cell soc_pipe.$flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$250 ($add).
+Removed top 22 bits (of 32) from port B of cell soc_pipe.$flatten\u_uart.\u_rx.$eq$rtl/periph/uart_rx.sv:60$251 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_pipe.$flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$253 ($add).
+Removed top 22 bits (of 32) from port B of cell soc_pipe.$flatten\u_uart.\u_tx.$eq$rtl/periph/uart_tx.sv:35$261 ($eq).
+Removed top 3 bits (of 4) from port B of cell soc_pipe.$flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$263 ($add).
+Removed top 31 bits (of 32) from port B of cell soc_pipe.$flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$264 ($add).
+Removed top 2 bits (of 4) from port B of cell soc_pipe.$flatten\u_uart.$eq$rtl/periph/uart.sv:62$305 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2091 ($eq).
+Removed top 31 bits (of 32) from port B of cell soc_pipe.$flatten\u_timer.$add$rtl/periph/timer.sv:35$115 ($add).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2089 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:49$148 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:48$144 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:47$140 ($eq).
+Removed top 3 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:46$136 ($eq).
+Removed top 4 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:45$132 ($eq).
+Removed top 4 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:44$128 ($eq).
+Removed top 5 bits (of 6) from port B of cell soc_pipe.$flatten\u_dotp.$eq$rtl/custom/dotp.sv:43$124 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$procmux$1503_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$procmux$1504_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell soc_pipe.$procmux$1505_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2041 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2039 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2032 ($eq).
+Removed top 1 bits (of 3) from port B of cell soc_pipe.$auto$fsm_map.cc:77:implement_pattern_cache$2030 ($eq).
+Removed top 1 bits (of 2) from wire soc_pipe.$flatten\u_core.\u_dec.$3\wb_sel[1:0].
+Removed top 2 bits (of 3) from wire soc_pipe.$flatten\u_core.\u_dec.$4\imm_type[2:0].
+Removed top 24 bits (of 32) from wire soc_pipe.uart_rdata.
+
+16.10. Executing PEEPOPT pass (run peephole optimizers).
+
+16.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+16.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module soc_pipe:
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_pipe.sv:197$337 ($add).
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_pipe.sv:198$339 ($add).
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_pipe.sv:208$343 ($add).
+  creating $macc model for $flatten\u_core.$add$rtl/core/core_pipe.sv:245$373 ($add).
+  creating $macc model for $flatten\u_core.\u_alu.$add$rtl/core/alu.sv:22$5 ($add).
+  creating $macc model for $flatten\u_core.\u_alu.$mul$rtl/core/alu.sv:32$13 ($mul).
+  creating $macc model for $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6 ($sub).
+  creating $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155 ($add).
+  creating $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156 ($add).
+  creating $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157 ($add).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 ($mul).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 ($mul).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 ($mul).
+  creating $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 ($mul).
+  creating $macc model for $flatten\u_timer.$add$rtl/periph/timer.sv:35$115 ($add).
+  creating $macc model for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$250 ($add).
+  creating $macc model for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$253 ($add).
+  creating $macc model for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$263 ($add).
+  creating $macc model for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$264 ($add).
+  merging $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  merging $macc model for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 into $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157.
+  creating $alu model for $macc $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$253.
+  creating $alu model for $macc $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$263.
+  creating $alu model for $macc $flatten\u_timer.$add$rtl/periph/timer.sv:35$115.
+  creating $alu model for $macc $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$250.
+  creating $alu model for $macc $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$264.
+  creating $alu model for $macc $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $macc $flatten\u_core.\u_alu.$add$rtl/core/alu.sv:22$5.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_pipe.sv:245$373.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_pipe.sv:208$343.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_pipe.sv:198$339.
+  creating $alu model for $macc $flatten\u_core.$add$rtl/core/core_pipe.sv:197$337.
+  creating $macc cell for $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$157: $auto$alumacc.cc:365:replace_macc$2329
+  creating $macc cell for $flatten\u_core.\u_alu.$mul$rtl/core/alu.sv:32$13: $auto$alumacc.cc:365:replace_macc$2330
+  creating $alu model for $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:17$2 ($lt): new $alu
+  creating $alu model for $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:18$3 ($lt): merged with $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu model for $flatten\u_core.\u_alu.$eq$rtl/core/alu.sv:16$1 ($eq): merged with $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6.
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_pipe.sv:197$337: $auto$alumacc.cc:495:replace_alu$2332
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_pipe.sv:198$339: $auto$alumacc.cc:495:replace_alu$2335
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_pipe.sv:208$343: $auto$alumacc.cc:495:replace_alu$2338
+  creating $alu cell for $flatten\u_core.$add$rtl/core/core_pipe.sv:245$373: $auto$alumacc.cc:495:replace_alu$2341
+  creating $alu cell for $flatten\u_core.\u_alu.$add$rtl/core/alu.sv:22$5: $auto$alumacc.cc:495:replace_alu$2344
+  creating $alu cell for $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:17$2: $auto$alumacc.cc:495:replace_alu$2347
+  creating $alu cell for $flatten\u_core.\u_alu.$sub$rtl/core/alu.sv:23$6, $flatten\u_core.\u_alu.$lt$rtl/core/alu.sv:18$3, $flatten\u_core.\u_alu.$eq$rtl/core/alu.sv:16$1: $auto$alumacc.cc:495:replace_alu$2354
+  creating $alu cell for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:43$264: $auto$alumacc.cc:495:replace_alu$2361
+  creating $alu cell for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:57$250: $auto$alumacc.cc:495:replace_alu$2364
+  creating $alu cell for $flatten\u_timer.$add$rtl/periph/timer.sv:35$115: $auto$alumacc.cc:495:replace_alu$2367
+  creating $alu cell for $flatten\u_uart.\u_tx.$add$rtl/periph/uart_tx.sv:41$263: $auto$alumacc.cc:495:replace_alu$2370
+  creating $alu cell for $flatten\u_uart.\u_rx.$add$rtl/periph/uart_rx.sv:66$253: $auto$alumacc.cc:495:replace_alu$2373
+  created 12 $alu and 2 $macc cells.
+
+16.13. Executing SHARE pass (SAT-based resource sharing).
+Found 9 cells in module soc_pipe that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 ($mul):
+    Found cell that is never activated: $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151
+    Cell is never active. Sharing is pointless, we simply remove it.
+  Analyzing resource sharing options for $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$289 ($memrd):
+    Found 1 activation_patterns using ctrl signal { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:49$288_Y \u_core.u_rf.hit2 }.
+    Found 1 candidates: $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$287
+    Analyzing resource sharing with $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$287 ($memrd):
+      Found 1 activation_patterns using ctrl signal { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$286_Y \u_core.u_rf.hit1 }.
+      Activation pattern for cell $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:54$289: { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:49$288_Y \u_core.u_rf.hit2 } = 2'00
+      Activation pattern for cell $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$287: { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$286_Y \u_core.u_rf.hit1 } = 2'00
+      Size of SAT problem: 10 cells, 112 variables, 278 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:49$288_Y $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$286_Y \u_core.u_rf.hit2 \u_core.u_rf.hit1 } = 4'0000
+  Analyzing resource sharing options for $flatten\u_core.\u_rf.$memrd$\regs$rtl/core/regfile.sv:47$287 ($memrd):
+    Found 1 activation_patterns using ctrl signal { $flatten\u_core.\u_rf.$eq$rtl/core/regfile.sv:42$286_Y \u_core.u_rf.hit1 }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_core.\u_alu.$sshr$rtl/core/alu.sv:29$10 ($sshr):
+    Found 1 activation_patterns using ctrl signal { \u_core.idex_is_cus $flatten\u_core.$eq$rtl/core/core_pipe.sv:208$342_Y \u_core.idex_alu_op [10] }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_core.\u_alu.$shr$rtl/core/alu.sv:28$9 ($shr):
+    Found 1 activation_patterns using ctrl signal { \u_core.idex_is_cus $flatten\u_core.$eq$rtl/core/core_pipe.sv:208$342_Y \u_core.idex_alu_op [5] }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\u_core.\u_alu.$shl$rtl/core/alu.sv:24$7 ($shl):
+    Found 1 activation_patterns using ctrl signal { \u_core.idex_is_cus $flatten\u_core.$eq$rtl/core/core_pipe.sv:208$342_Y \u_core.idex_alu_op [3] }.
+    No candidates found.
+Removing 6 cells in module soc_pipe:
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:52$151 ($mul).
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:53$152 ($mul).
+  Removing cell $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$155 ($add).
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:54$153 ($mul).
+  Removing cell $flatten\u_dotp.$mul$rtl/custom/dotp.sv:55$154 ($mul).
+  Removing cell $flatten\u_dotp.$add$rtl/custom/dotp.sv:56$156 ($add).
+
+16.14. Executing OPT pass (performing simple optimizations).
+
+16.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~1 debug messages>
+
+16.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~56 debug messages>
+
+16.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+16.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~1 debug messages>
+
+16.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~56 debug messages>
+
+16.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.14.16. Finished OPT passes. (There is nothing left to do.)
+
+16.15. Executing MEMORY pass.
+
+16.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+16.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+16.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing soc_pipe.u_core.u_rf.regs write port 0.
+
+16.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+16.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\u_core.u_rf.regs'[0] in module `\soc_pipe': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port `\u_core.u_rf.regs'[1] in module `\soc_pipe': FF found, but with a mux select that doesn't seem to correspond to transparency logic.
+Checking read port address `\u_core.u_rf.regs'[0] in module `\soc_pipe': address FF has async set and/or reset, not supported.
+Checking read port address `\u_core.u_rf.regs'[1] in module `\soc_pipe': address FF has async set and/or reset, not supported.
+
+16.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory soc_pipe.u_core.u_rf.regs by address:
+
+16.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+16.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+16.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.17. Executing OPT pass (performing simple optimizations).
+
+16.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~46 debug messages>
+
+16.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:266:slice$2245 ($adffe) from module soc_pipe (D = \u_core.pc_next [1:0], Q = \u_core.pc [1:0]).
+
+16.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 1 unused cells and 25 unused wires.
+<suppressed ~2 debug messages>
+
+16.17.5. Rerunning OPT passes. (Removed registers in this run.)
+
+16.17.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~4 debug messages>
+
+16.17.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.17.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.17.10. Finished fast OPT passes.
+
+16.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \u_core.u_rf.regs in module \soc_pipe:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+16.19. Executing OPT pass (performing simple optimizations).
+
+16.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~10 debug messages>
+
+16.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~74 debug messages>
+
+16.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+    Consolidated identical input bits for $mux cell $procmux$1362:
+      Old ports: A=2'00, B=2'10, Y=$flatten\u_core.\u_dec.$2\wb_sel[1:0]
+      New ports: A=1'0, B=1'1, Y=$flatten\u_core.\u_dec.$2\wb_sel[1:0] [1]
+      New connections: $flatten\u_core.\u_dec.$2\wb_sel[1:0] [0] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$549:
+      Old ports: A={ 1'1 \u_uart.tx_hold 1'0 }, B={ 1'1 \u_uart.u_tx.frame [9:1] }, Y=$flatten\u_uart.\u_tx.$0\frame[9:0]
+      New ports: A={ \u_uart.tx_hold 1'0 }, B=\u_uart.u_tx.frame [9:1], Y=$flatten\u_uart.\u_tx.$0\frame[9:0] [8:0]
+      New connections: $flatten\u_uart.\u_tx.$0\frame[9:0] [9] = 1'1
+  Optimizing cells in module \soc_pipe.
+Performed a total of 2 changes.
+
+16.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.19.6. Executing OPT_SHARE pass.
+
+16.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 0 unused cells and 101 unused wires.
+<suppressed ~1 debug messages>
+
+16.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~1 debug messages>
+
+16.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~74 debug messages>
+
+16.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.19.14. Executing OPT_SHARE pass.
+
+16.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\u_core.u_rf.regs[9]$2404 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[9]).
+Adding EN signal on $memory\u_core.u_rf.regs[8]$2402 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[8]).
+Adding EN signal on $memory\u_core.u_rf.regs[7]$2400 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[7]).
+Adding EN signal on $memory\u_core.u_rf.regs[6]$2398 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[6]).
+Adding EN signal on $memory\u_core.u_rf.regs[5]$2396 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[5]).
+Adding EN signal on $memory\u_core.u_rf.regs[4]$2394 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[4]).
+Adding EN signal on $memory\u_core.u_rf.regs[3]$2392 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[3]).
+Adding EN signal on $memory\u_core.u_rf.regs[31]$2448 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[31]).
+Adding EN signal on $memory\u_core.u_rf.regs[30]$2446 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[30]).
+Adding EN signal on $memory\u_core.u_rf.regs[2]$2390 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[2]).
+Adding EN signal on $memory\u_core.u_rf.regs[29]$2444 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[29]).
+Adding EN signal on $memory\u_core.u_rf.regs[28]$2442 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[28]).
+Adding EN signal on $memory\u_core.u_rf.regs[27]$2440 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[27]).
+Adding EN signal on $memory\u_core.u_rf.regs[26]$2438 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[26]).
+Adding EN signal on $memory\u_core.u_rf.regs[25]$2436 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[25]).
+Adding EN signal on $memory\u_core.u_rf.regs[24]$2434 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[24]).
+Adding EN signal on $memory\u_core.u_rf.regs[23]$2432 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[23]).
+Adding EN signal on $memory\u_core.u_rf.regs[22]$2430 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[22]).
+Adding EN signal on $memory\u_core.u_rf.regs[21]$2428 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[21]).
+Adding EN signal on $memory\u_core.u_rf.regs[20]$2426 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[20]).
+Adding EN signal on $memory\u_core.u_rf.regs[1]$2388 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[1]).
+Adding EN signal on $memory\u_core.u_rf.regs[19]$2424 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[19]).
+Adding EN signal on $memory\u_core.u_rf.regs[18]$2422 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[18]).
+Adding EN signal on $memory\u_core.u_rf.regs[17]$2420 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[17]).
+Adding EN signal on $memory\u_core.u_rf.regs[16]$2418 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[16]).
+Adding EN signal on $memory\u_core.u_rf.regs[15]$2416 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[15]).
+Adding EN signal on $memory\u_core.u_rf.regs[14]$2414 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[14]).
+Adding EN signal on $memory\u_core.u_rf.regs[13]$2412 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[13]).
+Adding EN signal on $memory\u_core.u_rf.regs[12]$2410 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[12]).
+Adding EN signal on $memory\u_core.u_rf.regs[11]$2408 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[11]).
+Adding EN signal on $memory\u_core.u_rf.regs[10]$2406 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[10]).
+Adding EN signal on $memory\u_core.u_rf.regs[0]$2386 ($dff) from module soc_pipe (D = \u_core.u_rf.wdata, Q = \u_core.u_rf.regs[0]).
+Setting constant 1-bit at position 9 on $auto$ff.cc:266:slice$2281 ($adffe) from module soc_pipe.
+
+16.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 32 unused cells and 33 unused wires.
+<suppressed ~33 debug messages>
+
+16.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_pipe..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+16.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_pipe.
+Performed a total of 0 changes.
+
+16.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+Removed a total of 0 cells.
+
+16.19.22. Executing OPT_SHARE pass.
+
+16.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+
+16.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+
+16.19.26. Finished OPT passes. (There is nothing left to do.)
+
+16.20. Executing TECHMAP pass (map to technology primitives).
+
+16.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+16.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$8fabc56b80a569262acfc42757a02ca0b8e91278\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$fc16b9f758000d363d24f130038bd99b46b4fa1b\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adffe.
+Using template $paramod$54d740639e1393b22262823179ff783ea9f17a35\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using template $paramod$bf541dd3c0ba8228982b61e7bfbc350a2c253f4c\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \u_dotp.aeff0 * \u_dotp.beff0 (32x32 bits, unsigned)
+  add \u_dotp.aeff2 * \u_dotp.beff2 (32x32 bits, unsigned)
+  add \u_dotp.aeff1 * \u_dotp.beff1 (32x32 bits, unsigned)
+  add \u_dotp.aeff3 * \u_dotp.beff3 (32x32 bits, unsigned)
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$80834bdd89ff0e27a02312429a7cc3a2e63489a8\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod$d31bf4d7d72e59528d18fbd4f322e9d608532043\_90_pmux for cells of type $pmux.
+Using template $paramod$2653f68ddb8eab7b1907b4a20767b72a824a7a36\_90_alu for cells of type $alu.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$335cfd09f1afa8139c4aafcbbe5f361887b79c5e\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$feecc7a0dbd012970970f2858f15e786e251f677\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using template $paramod$constmap:4621fcf06a436d1e2a4080e2ed9866a7d07a6e07$paramod$e765c459d3029c22a22a27989e94858fd9ebfa9c\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshr.
+Using template $paramod$44a13d10af618e7fbe7b9aad2f6151ffcee1e2fa\_90_alu for cells of type $alu.
+Using template $paramod$6a42b6fefed750f8a1c58eab59479d960557103c\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+  add \u_core.u_alu.a * \u_core.u_alu.b (32x32 bits, unsigned)
+Using template $paramod$59b03ae2620a41577de8da5f5c97b2919e82362b\_90_pmux for cells of type $pmux.
+Using template $paramod$a5f0941832cc861549e29ccafffe20bfdf2e5528\_90_pmux for cells of type $pmux.
+Using template $paramod$b098bc6f249c0ac91c4d6e19d54b23c285914115\_90_pmux for cells of type $pmux.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000100000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011110 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~5940 debug messages>
+
+16.21. Executing OPT pass (performing simple optimizations).
+
+16.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~17099 debug messages>
+
+16.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~2577 debug messages>
+Removed a total of 859 cells.
+
+16.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 867 unused cells and 4096 unused wires.
+<suppressed ~868 debug messages>
+
+16.21.5. Finished fast OPT passes.
+
+16.22. Executing ABC pass (technology mapping using ABC).
+
+16.22.1. Extracting gate netlist of module `\soc_pipe' to `<abc-temp-dir>/input.blif'..
+Replacing 2 occurrences of constant undef bits with constant zero bits
+Extracted 23152 gates and 25112 wires to a netlist network with 1957 inputs and 532 outputs.
+
+16.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+16.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      326
+ABC RESULTS:            ANDNOT cells:     6690
+ABC RESULTS:               MUX cells:     3203
+ABC RESULTS:              NAND cells:      822
+ABC RESULTS:               NOR cells:     2776
+ABC RESULTS:               NOT cells:     1687
+ABC RESULTS:                OR cells:     2618
+ABC RESULTS:             ORNOT cells:      684
+ABC RESULTS:              XNOR cells:     1731
+ABC RESULTS:               XOR cells:     4071
+ABC RESULTS:        internal signals:    22623
+ABC RESULTS:           input signals:     1957
+ABC RESULTS:          output signals:      532
+Removing temp directory.
+
+16.23. Executing OPT pass (performing simple optimizations).
+
+16.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_pipe.
+<suppressed ~2017 debug messages>
+
+16.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_pipe'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+16.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_pipe..
+Removed 6 unused cells and 4983 unused wires.
+<suppressed ~79 debug messages>
+
+16.23.5. Finished fast OPT passes.
+
+16.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `soc_pipe'. Setting top module to soc_pipe.
+
+16.24.1. Analyzing design hierarchy..
+Top module:  \soc_pipe
+
+16.24.2. Analyzing design hierarchy..
+Top module:  \soc_pipe
+Removed 0 unused modules.
+
+16.25. Printing statistics.
+
+=== soc_pipe ===
+
+   Number of wires:              24503
+   Number of wire bits:          27625
+   Number of public wires:         200
+   Number of public wire bits:    3291
+   Number of ports:                  8
+   Number of port bits:            101
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              26598
+     $_ANDNOT_                    6690
+     $_AND_                        326
+     $_DFFE_PN0N_                  151
+     $_DFFE_PN0P_                  429
+     $_DFFE_PN1P_                   41
+     $_DFFE_PP_                   1024
+     $_DFF_PN0_                    333
+     $_DFF_PN1_                      7
+     $_MUX_                       3203
+     $_NAND_                       822
+     $_NOR_                       2775
+     $_NOT_                       1681
+     $_ORNOT_                      684
+     $_OR_                        2618
+     $_XNOR_                      1731
+     $_XOR_                       4071
+     $scopeinfo                     10
+     dmem                            1
+     imem                            1
+
+16.26. Executing CHECK pass (checking for obvious problems).
+Checking module soc_pipe...
+Found and reported 0 problems.
+
+17. Executing LTP pass (find longest path).
+
+Longest topological path in soc_pipe (length=60):
+    0: \u_core.exmem_result [5]
+    1: $abc$50739$new_n2550 (via $abc$50739$auto$blifparse.cc:396:parse_blif$50800)
+    2: $abc$50739$new_n2558 (via $abc$50739$auto$blifparse.cc:396:parse_blif$50808)
+    3: $abc$50739$new_n2559 (via $abc$50739$auto$blifparse.cc:396:parse_blif$50809)
+    4: $abc$50739$new_n4094 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52344)
+    5: $abc$50739$new_n4095 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52345)
+    6: $abc$50739$new_n4096 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52346)
+    7: $abc$50739$new_n4097 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52347)
+    8: $abc$50739$new_n4099 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52349)
+    9: $abc$50739$new_n4100 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52350)
+   10: $abc$50739$new_n4101 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52351)
+   11: $abc$50739$new_n4110 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52360)
+   12: $abc$50739$new_n4118 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52368)
+   13: $abc$50739$new_n4119 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52369)
+   14: \u_core.mem_result [0] (via $abc$50739$auto$blifparse.cc:396:parse_blif$52370)
+   15: \u_core.fwd_b [0] (via $abc$50739$auto$blifparse.cc:396:parse_blif$52376)
+   16: $abc$50739$new_n4127 (via $abc$50739$auto$blifparse.cc:396:parse_blif$52377)
+   17: $abc$50739$new_n9524 (via $abc$50739$auto$blifparse.cc:396:parse_blif$57774)
+   18: $abc$50739$new_n9526 (via $abc$50739$auto$blifparse.cc:396:parse_blif$57776)
+   19: $abc$50739$new_n10114 (via $abc$50739$auto$blifparse.cc:396:parse_blif$58364)
+   20: $abc$50739$new_n10115 (via $abc$50739$auto$blifparse.cc:396:parse_blif$58365)
+   21: $abc$50739$new_n10116 (via $abc$50739$auto$blifparse.cc:396:parse_blif$58366)
+   22: $abc$50739$new_n10718 (via $abc$50739$auto$blifparse.cc:396:parse_blif$58968)
+   23: $abc$50739$new_n10719 (via $abc$50739$auto$blifparse.cc:396:parse_blif$58969)
+   24: $abc$50739$new_n10720 (via $abc$50739$auto$blifparse.cc:396:parse_blif$58970)
+   25: $abc$50739$new_n11375 (via $abc$50739$auto$blifparse.cc:396:parse_blif$59625)
+   26: $abc$50739$new_n11376 (via $abc$50739$auto$blifparse.cc:396:parse_blif$59626)
+   27: $abc$50739$new_n11377 (via $abc$50739$auto$blifparse.cc:396:parse_blif$59627)
+   28: $abc$50739$new_n12054 (via $abc$50739$auto$blifparse.cc:396:parse_blif$60304)
+   29: $abc$50739$new_n12055 (via $abc$50739$auto$blifparse.cc:396:parse_blif$60305)
+   30: $abc$50739$new_n12056 (via $abc$50739$auto$blifparse.cc:396:parse_blif$60306)
+   31: $abc$50739$new_n12791 (via $abc$50739$auto$blifparse.cc:396:parse_blif$61041)
+   32: $abc$50739$new_n12792 (via $abc$50739$auto$blifparse.cc:396:parse_blif$61042)
+   33: $abc$50739$new_n12793 (via $abc$50739$auto$blifparse.cc:396:parse_blif$61043)
+   34: $abc$50739$new_n13518 (via $abc$50739$auto$blifparse.cc:396:parse_blif$61768)
+   35: $abc$50739$new_n13519 (via $abc$50739$auto$blifparse.cc:396:parse_blif$61769)
+   36: $abc$50739$new_n13520 (via $abc$50739$auto$blifparse.cc:396:parse_blif$61770)
+   37: $abc$50739$new_n14277 (via $abc$50739$auto$blifparse.cc:396:parse_blif$62527)
+   38: $abc$50739$new_n14278 (via $abc$50739$auto$blifparse.cc:396:parse_blif$62528)
+   39: $abc$50739$new_n14279 (via $abc$50739$auto$blifparse.cc:396:parse_blif$62529)
+   40: $abc$50739$new_n14281 (via $abc$50739$auto$blifparse.cc:396:parse_blif$62531)
+   41: $abc$50739$new_n15060 (via $abc$50739$auto$blifparse.cc:396:parse_blif$63310)
+   42: $abc$50739$new_n15063 (via $abc$50739$auto$blifparse.cc:396:parse_blif$63313)
+   43: $abc$50739$new_n15066 (via $abc$50739$auto$blifparse.cc:396:parse_blif$63316)
+   44: $abc$50739$new_n15067 (via $abc$50739$auto$blifparse.cc:396:parse_blif$63317)
+   45: $abc$50739$new_n15068 (via $abc$50739$auto$blifparse.cc:396:parse_blif$63318)
+   46: $abc$50739$new_n18483 (via $abc$50739$auto$blifparse.cc:396:parse_blif$66733)
+   47: $abc$50739$new_n18484 (via $abc$50739$auto$blifparse.cc:396:parse_blif$66734)
+   48: $abc$50739$new_n20348 (via $abc$50739$auto$blifparse.cc:396:parse_blif$68598)
+   49: $abc$50739$new_n20349 (via $abc$50739$auto$blifparse.cc:396:parse_blif$68599)
+   50: $abc$50739$new_n21320 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69570)
+   51: $abc$50739$new_n21321 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69571)
+   52: $abc$50739$new_n21322 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69572)
+   53: $abc$50739$new_n21323 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69573)
+   54: $abc$50739$new_n21325 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69575)
+   55: $abc$50739$new_n21329 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69579)
+   56: $abc$50739$new_n21335 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69585)
+   57: $abc$50739$new_n21350 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69600)
+   58: $abc$50739$new_n21351 (via $abc$50739$auto$blifparse.cc:396:parse_blif$69601)
+   59: $abc$50739$new_n22111 (via $abc$50739$auto$blifparse.cc:396:parse_blif$70361)
+   60: \u_core.wb_val_ex [31] (via $abc$50739$auto$blifparse.cc:396:parse_blif$70362)
+   ff: \u_core.exmem_result [31] (via $auto$ff.cc:266:slice$12988)
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 133211ffc2, CPU: user 3.24s system 0.06s, MEM: 107.59 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 29% 1x abc (1 sec), 17% 35x opt_expr (0 sec), ...
