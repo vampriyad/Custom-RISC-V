@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22917001.svg)](https://doi.org/10.5281/zenodo.22917001)
 # custom-riscv
 
 A 32-bit RISC-V computer built from scratch in SystemVerilog, three times:
