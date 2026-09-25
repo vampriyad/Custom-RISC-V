@@ -5,7 +5,7 @@ A 32-bit RISC-V computer built from scratch in SystemVerilog, three times:
 a **single-cycle** core, a **multi-cycle** core and a **5-stage pipelined**
 core with forwarding -- all on one system-on-chip with instruction/data
 memories, a UART serial port, a timer with interrupts, and a custom
-**dot-product instruction** (`CDOT`) that I designed myself.
+**dot-product instruction** (`CDOT`).
 
 Everything in this repo is executable and measured: 29 automated self-checking
 tests, self-timing benchmarks driven by the hardware timer, and Yosys
